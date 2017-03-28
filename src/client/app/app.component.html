@@ -1,0 +1,11 @@
+<h1>
+    {{title}}
+</h1>
+<br/><br/>
+<a [routerLink]="['']">Home</a>
+<a [routerLink]="['about']">About</a>
+<a [routerLink]="['about', 'us', 22]">About us</a>
+<a [routerLink]="['about', 'banana']">Banana Republic</a>
+<a [routerLink]="['about', 'apple', 6, 'pear']">(apple || pear)</a>
+<br/><br/>
+<router-outlet></router-outlet>
