@@ -1,0 +1,21 @@
+<h1>
+    {{title}}
+</h1>
+<br/>
+<!--<a [routerLink]="['change-language', 'en'] | i18nRouter">English!</a>-->
+<!--<a [routerLink]="['change-language', 'tr'] | i18nRouter">Turkish!</a>-->
+<a [routerLink]="['change-language', 'en']">English!</a>
+<a [routerLink]="['change-language', 'tr']">Turkish!</a>
+<br/><br/>
+<!--<a [routerLink]="['' | i18nRouter]">Home</a>-->
+<!--<a [routerLink]="['about'] | i18nRouter">About</a>-->
+<!--<a [routerLink]="['about', 'us', 22] | i18nRouter">About us</a>-->
+<!--<a [routerLink]="['about', 'banana'] | i18nRouter">Banana Republic</a>-->
+<!--<a [routerLink]="['about', 'apple', 6, 'pear'] | i18nRouter">(apple || pear)</a>-->
+<a [routerLink]="['']">Home</a>
+<a [routerLink]="['about']">About</a>
+<a [routerLink]="['about', 'us', 22]">About us</a>
+<a [routerLink]="['about', 'banana']">Banana Republic</a>
+<a [routerLink]="['about', 'apple', 6, 'pear']">(apple || pear)</a>
+<br/><br/>
+<router-outlet></router-outlet>

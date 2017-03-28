@@ -1,0 +1,15 @@
+{
+  "APP_NAME": "@nglibs univesal örnek uygulama",
+  "DEFAULT_TITLE": "@nglibs uygulama sunumu",
+  "DEFAULT_META_DESCRIPTION": "@nglibs açık kaynaklı temel Angular uygulamalarının şemsiye organizasyonudur",
+  "PUBLIC.HOME.PAGE_TITLE": "",
+  "PUBLIC.HOME.META_DESCRIPTION": "@nglibs/example uygulamasına hoşgeldiniz",
+  "PUBLIC.ABOUT.PAGE_TITLE": "Hakkında",
+  "PUBLIC.ABOUT.META_DESCRIPTION": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
+  "PUBLIC.ABOUT_US.PAGE_TITLE": "Biz",
+  "PUBLIC.ABOUT_US.META_DESCRIPTION": "Evet, sanırım bu sayfa bizim hakkımızda birşeyler içeriyor",
+  "PUBLIC.ABOUT_BANANA.PAGE_TITLE": "Muz cumhuriyeti",
+  "PUBLIC.ABOUT_BANANA.META_DESCRIPTION": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin",
+  "PUBLIC.ABOUT_APPLE_PEAR.PAGE_TITLE": "Elma veya armut",
+  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "Ben elma istedim ama sen bana armut verdin, olmadı"
+}

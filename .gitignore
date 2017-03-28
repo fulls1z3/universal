@@ -1,0 +1,29 @@
+﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+public/
+.server/*
+!.server/spa-server.js
+.temp/
+*.js
+*.d.ts
+*.metadata.json
+
+# dependencies
+node_modules/
+yarn.lock
+
+# IDEs and editors
+.idea/
+
+# build tools
+coverage/
+!gulpfile.js
+!karma.conf.js
+!postcss.config.js
+!protractor.conf.js
+
+# misc
+!config/*.js
+npm-debug.log
+!src/client/custom-typings.d.ts

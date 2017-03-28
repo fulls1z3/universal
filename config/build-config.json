@@ -1,0 +1,108 @@
+﻿{
+  "quick": true,
+  "debug": true,
+  "host": "localhost",
+  "port": {
+    "browser": 1337,
+    "server": 8000
+  },
+  "root": ".",
+  "paths": {
+    "config": "{{root}}/config",
+    "src": {
+      "root": "{{root}}/src",
+      "client": {
+        "root": "{{src_root}}/client",
+        "app": "{{src_client_root}}/app",
+        "assets": "{{src_client_root}}/assets",
+        "sass": "{{src_client_root}}/assets/sass"
+      },
+      "server": {
+        "root": "{{src_root}}/server",
+        "app": "{{src_server_root}}/app"
+      }
+    },
+    "public": {
+      "root": "{{root}}/public",
+      "assets": "{{public_root}}/assets"
+    },
+    "server": "{{root}}/.server",
+    "temp": {
+      "root": "{{root}}/.temp",
+      "dll": "{{temp_root}}/dll"
+    },
+    "NODE_MODULES": "{{root}}/node_modules"
+  },
+  "plugins": {
+    "pluginloader": {
+      "pattern": [
+        "gulp-*",
+        "async",
+        "rimraf",
+        "webpack",
+        "postcss-*",
+        "autoprefixer",
+        "colorguard",
+        "stylefmt"
+      ],
+      "rename": {
+        "postcss-scss": "scss",
+        "postcss-reporter": "reporter"
+      }
+    },
+    "debugger": {
+      "title": ""
+    },
+    "autoprefixer": {
+      "browsers": [
+        "last 2 versions",
+        "> 5%",
+        "Firefox ESR"
+      ]
+    }
+  },
+  "webpack": {
+    "devtool": {
+      "DEV": "cheap-module-source-map",
+      "PROD": "source-map",
+      "TEST": "inline-source-map"
+    },
+    "bundles": {
+      "polyfills": [
+        "core-js",
+        {
+          "name": "zone.js",
+          "path": "zone.js/dist/zone.js"
+        },
+        {
+          "name": "zone.js",
+          "path": "zone.js/dist/long-stack-trace-zone.js"
+        }
+      ],
+      "angular": [
+        "@angular/animations",
+        "@angular/common",
+        "@angular/compiler",
+        "@angular/core",
+        "@angular/forms",
+        "@angular/http",
+        "@angular/platform-browser",
+        "@angular/platform-browser-dynamic",
+        "@angular/platform-server",
+        "@angular/router",
+        "rxjs",
+        "@angularclass/bootloader"
+      ],
+      "vendor": [
+        "@nglibs/config",
+        "@nglibs/meta",
+        "@nglibs/i18n-router",
+        "@nglibs/i18n-router-config-loader",
+        "@nglibs/universal-express-engine",
+        "@nglibs/universal-transfer-state",
+        "@ngx-translate/core",
+        "@ngx-translate/http-loader"
+      ]
+    }
+  }
+}
