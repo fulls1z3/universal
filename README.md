@@ -1,6 +1,6 @@
 # @nglibs universal example application
 
-Example application showcasing both **Angular Universal** and lean **Angular** on a single project, with common patterns and best practices. ~~You can find the live app [here](https://nglibs.github.io/universal-example-app/).~~
+Example application showcasing both **Angular Universal** and lean **Angular** on a single project, with common patterns and best practices. You can find the live app [here](https://nglibs-universal-example-app.azurewebsites.net).
 
 This application uses `platform-server` delivered with **Angular 4.0.0**, and it could be a good starter project until **Angular** provides some documentation about the use of `platform-server`. 
 
