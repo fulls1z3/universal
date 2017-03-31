@@ -127,28 +127,28 @@ const browserConfig = {
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
-    //new uglifyJsPlugin({
-    //  // beautify: false,
-    //  // mangle: {
-    //  //   screw_ie8: true
-    //  // },
-    //  output: {
-    //    comments: false
-    //  },
-    //  compress: {
-    //    screw_ie8: true,
-    //    warnings: false,
-    //    conditionals: true,
-    //    unused: true,
-    //    comparisons: true,
-    //    sequences: true,
-    //    dead_code: true,
-    //    evaluate: true,
-    //    if_return: true,
-    //    join_vars: true,
-    //    negate_iife: false // we need this for lazy v8
-    //  }
-    //}),
+    new uglifyJsPlugin({
+     // beautify: false,
+     // mangle: {
+     //   screw_ie8: true
+     // },
+     output: {
+       comments: false
+     },
+     compress: {
+       screw_ie8: true,
+       warnings: false,
+       conditionals: true,
+       unused: true,
+       comparisons: true,
+       sequences: true,
+       dead_code: true,
+       evaluate: true,
+       if_return: true,
+       join_vars: true,
+       negate_iife: false // we need this for lazy v8
+     }
+    }),
 
     /**
      * Plugin: CompressionPlugin
@@ -213,9 +213,58 @@ const browserConfig = {
   ]
 };
 
+const serverConfig = {
+  /**
+   * Add additional plugins to the compiler.
+   *
+   * See: http://webpack.github.io/docs/configuration.html#plugins
+   */
+  plugins: [
+    /**
+     * Plugin: UglifyJsPlugin
+     * Description: Minimize all JavaScript output of chunks.
+     * Loaders are switched into minimizing mode.
+     *
+     * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+     */
+    new uglifyJsPlugin({
+      // beautify: false,
+      mangle: false, // to ensure process.env still works
+      output: {
+        comments: false
+      },
+      compress: {
+        screw_ie8: true,
+        warnings: false,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+        negate_iife: false // we need this for lazy v8
+      }
+    })//,
+
+    /**
+     * Plugin: CompressionPlugin
+     * Description: Prepares compressed versions of assets to serve
+     * them with Content-Encoding
+     *
+     * See: https://github.com/webpack/compression-webpack-plugin
+     */
+    //new compressionPlugin({
+    //    regExp: /\.css$|\.html$|\.js$|\.map$/,
+    //    threshold: 2 * 1024
+    //})
+  ]
+};
+
 module.exports = function(options) {
   return webpackMerge(commonConfig({
     env: ENV,
     platform: options.platform
-  }), defaultConfig, options.platform === 'server' ? {} : browserConfig);
+  }), defaultConfig, options.platform === 'server' ? serverConfig : browserConfig);
 };

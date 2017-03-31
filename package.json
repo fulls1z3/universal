@@ -126,6 +126,6 @@
 
     "codelyzer": "^3.0.0-beta.4",
     "tslint": "4.5.1",
-    "typescript": "~2.2.2"
+    "typescript": "^2.1.6"
   }
 }
