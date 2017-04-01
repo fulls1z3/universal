@@ -46,7 +46,7 @@
     "zone.js": "^0.8.5",
     "@angularclass/bootloader": "^1.0.1",
     "@nglibs/universal-express-engine": "^0.0.1-alpha.1",
-    "@nglibs/universal-transfer-state": "^0.0.1-alpha.1"
+    "@nglibs/universal-transfer-state": "^0.0.1-alpha.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
