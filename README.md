@@ -6,12 +6,12 @@ This application uses `platform-server` delivered with **Angular 4.0.0**, and it
 
 Furthermore, it covers most of the features of [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter/) by [AngularClass](https://github.com/AngularClass) such as async/**lazy** routes, **SCSS** compilation (*both inline and external*), dev/prod modes, **AoT** compilation via `@ngtools/webpack`, tests, TsLint/Codelyzer, @types and maybe more.         
 
-Built with `@angular v4.0.0`, bundled with `gulp v4.0` and `webpack v2.3.1`.
+Built with `@angular v4.0.0`, bundled with `gulp v4.0` and `webpack v2.3.2`.
 
 ## Prerequisites
 Packages in this example app depend on `@angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.2.1`** or higher.
+Also, please ensure that you are using **`Typescript v2.1.6`** or higher.
 
 ## Installing
 
