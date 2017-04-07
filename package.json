@@ -44,6 +44,7 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.2.0",
     "zone.js": "^0.8.5",
+    "lodash": "^4.17.4",
     "@angularclass/bootloader": "^1.0.1",
     "@nglibs/config": "^0.2.0-rc.4",
     "@nglibs/meta": "~0.4.0-rc.1",
@@ -62,6 +63,7 @@
     "@types/node": "^7.0.12",
     "@types/express": "^4.0.35",
     "@types/jasmine": "2.5.41",
+    "@types/lodash": "4.14.55",
 
     "json-sub": "1.1.0",
     "gulp": "gulpjs/gulp#4.0",
