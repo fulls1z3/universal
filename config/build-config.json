@@ -14,6 +14,7 @@
       "client": {
         "root": "{{src_root}}/client",
         "app": "{{src_client_root}}/app",
+        "assets": "{{src_client_root}}/assets",
         "sass": "{{src_client_root}}/assets/sass"
       },
       "server": {
@@ -93,8 +94,14 @@
         "@angularclass/bootloader"
       ],
       "vendor": [
+        "@nglibs/config",
+        "@nglibs/meta",
+        "@nglibs/i18n-router",
+        "@nglibs/i18n-router-config-loader",
         "@nglibs/universal-express-engine",
-        "@nglibs/universal-transfer-state"
+        "@nglibs/universal-transfer-state",
+        "@ngx-translate/core",
+        "@ngx-translate/http-loader"
       ]
     }
   }

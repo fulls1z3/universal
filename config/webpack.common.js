@@ -11,6 +11,7 @@ const definePlugin = require('webpack/lib/DefinePlugin'),
   checkerPlugin = require('awesome-typescript-loader').CheckerPlugin,
   aotPlugin = require('@ngtools/webpack').AotPlugin,
   contextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin'),
+  copyWebpackPlugin = require('copy-webpack-plugin'),
   loaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin'),
   assetsPlugin = require('assets-webpack-plugin'),
   htmlWebpackPlugin = require('html-webpack-plugin'),
@@ -390,6 +391,30 @@ const browserConfig = function(options) {
         prettyPrint: true
       }),
 
+      // TODO: move to server, right after caching service implemented
+      /**
+       * Plugin: CopyWebpackPlugin
+       * Description: Copy files and directories in webpack.
+       *
+       * Copies project static assets.
+       *
+       * See: https://www.npmjs.com/package/copy-webpack-plugin
+       */
+      new copyWebpackPlugin([
+        {
+          from: `${$$.root(settings.paths.src.client.assets)}/config.json`,
+          to: './config.json'
+        },
+        {
+          from: `${$$.root(settings.paths.src.client.assets)}/i18n/en.json`,
+          to: './i18n/en.json'
+        },
+        {
+          from: `${$$.root(settings.paths.src.client.assets)}/i18n/tr.json`,
+          to: './i18n/tr.json'
+        }
+      ]),
+
       /**
        * Plugin: HtmlWebpackPlugin
        * Description: Simplifies creation of HTML files to serve your webpack bundles.
@@ -445,7 +470,17 @@ const browserConfig = function(options) {
       new scriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
       })
-    ]
+    ],
+
+    /**
+     * Include polyfills or mocks for various node stuff
+     * Description: Node configuration
+     *
+     * See: https://webpack.github.io/docs/configuration.html#node
+     */
+    node: {
+      fs: 'empty'
+    }
   };
 };
 
