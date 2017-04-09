@@ -1,0 +1,15 @@
+{
+  "APP_NAME": "@nglibs universal example app",
+  "DEFAULT_TITLE": "showcasing the @nglibs utilities",
+  "DEFAULT_META_DESCRIPTION": "@nglibs is the umbrella organization of open source essential Angular utilities",
+  "PUBLIC.HOME.PAGE_TITLE": "",
+  "PUBLIC.HOME.META_DESCRIPTION": "Welcome to @nglibs/example",
+  "PUBLIC.ABOUT.PAGE_TITLE": "About",
+  "PUBLIC.ABOUT.META_DESCRIPTION": "This page provides a dummy overview of nothing",
+  "PUBLIC.ABOUT_US.PAGE_TITLE": "Us",
+  "PUBLIC.ABOUT_US.META_DESCRIPTION": "Yeah, I think this page tells something about us",
+  "PUBLIC.ABOUT_BANANA.PAGE_TITLE": "Banana republic",
+  "PUBLIC.ABOUT_BANANA.META_DESCRIPTION": "If your life sucks, start a new one in Banana Republic",
+  "PUBLIC.ABOUT_APPLE_PEAR.PAGE_TITLE": "Apple or pear",
+  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "I want an apple but you give me a pear, shame on you"
+}

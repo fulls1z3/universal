@@ -132,13 +132,13 @@
     "directive-selector": [
       true,
       "attribute",
-      [ "ngl", "test" ],
+      [ "app" ],
       "camelCase"
     ],
     "component-selector": [
-      false,
+      true,
       "element",
-      [ "ngl", "test" ],
+      [ "app", "i18n" ],
       "kebab-case"
     ],
     "use-input-property-decorator": true,
@@ -149,7 +149,7 @@
     "no-output-rename": true,
     "no-forward-ref": false,
     "use-pipe-transform-interface": true,
-    "pipe-naming": [ true, "camelCase", "ngl" ],
+    "pipe-naming": [ true, "camelCase", "kr" ],
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "invoke-injectable": true

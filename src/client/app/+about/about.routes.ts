@@ -1,7 +1,7 @@
 // angular
 import { Routes } from '@angular/router';
 
-// module
+// components
 import { AboutComponent } from './about.component';
 import { AboutUsComponent } from './about-us.component';
 import { AboutBananaComponent } from './about-banana.component';
@@ -10,18 +10,42 @@ import { AboutApplePearComponent } from './about-apple-pear.component';
 export const routes: Routes = [
   {
     path: '',
-    component: AboutComponent
+    component: AboutComponent,
+    data: {
+      meta: {
+        title: 'PUBLIC.ABOUT.PAGE_TITLE',
+        description: 'PUBLIC.ABOUT.META_DESCRIPTION'
+      }
+    }
   },
   {
     path: 'us/:topicId',
-    component: AboutUsComponent
+    component: AboutUsComponent,
+    data: {
+      meta: {
+        title: 'PUBLIC.ABOUT_US.PAGE_TITLE',
+        description: 'PUBLIC.ABOUT_US.META_DESCRIPTION'
+      }
+    }
   },
   {
     path: 'banana',
-    component: AboutBananaComponent
+    component: AboutBananaComponent,
+    data: {
+      meta: {
+        title: 'PUBLIC.ABOUT_BANANA.PAGE_TITLE',
+        description: 'PUBLIC.ABOUT_BANANA.META_DESCRIPTION'
+      }
+    }
   },
   {
     path: 'apple/:fruitId/pear',
-    component: AboutApplePearComponent
+    component: AboutApplePearComponent,
+    data: {
+      meta: {
+        title: 'PUBLIC.ABOUT_APPLE_PEAR.PAGE_TITLE',
+        description: 'PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION'
+      }
+    }
   }
 ];
