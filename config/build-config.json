@@ -94,14 +94,21 @@
         "@angularclass/bootloader"
       ],
       "vendor": [
-        "@nglibs/config",
+        "@ngx-universal/express-engine",
+        "@ngx-universal/state-transfer",
+        "@ngx-config/core",
+        "@ngx-config/http-loader",
+        "@ngx-config/fs-loader",
+        "@ngx-cache/core",
+        "@ngx-cache/platform-browser",
+        "@ngx-cache/platform-server",
+        "@ngx-cache/fs-storage",
+        "@ngx-universal/config-loader",
+        "@ngx-translate/core",
+        "@ngx-translate/http-loader",
         "@nglibs/meta",
         "@nglibs/i18n-router",
-        "@nglibs/i18n-router-config-loader",
-        "@nglibs/universal-express-engine",
-        "@nglibs/universal-transfer-state",
-        "@ngx-translate/core",
-        "@ngx-translate/http-loader"
+        "@nglibs/i18n-router-config-loader"
       ]
     }
   }

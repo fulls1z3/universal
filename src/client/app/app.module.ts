@@ -11,11 +11,15 @@ import { readFileSync } from 'fs';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import * as _ from 'lodash';
-import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
+import { HttpTransferModule } from '@ngx-universal/state-transfer';
+import { CacheModule, Cached, CacheKey, CacheService } from '@ngx-cache/core';
+import { ConfigModule, ConfigLoader, ConfigService } from '@ngx-config/core';
+import { ConfigHttpLoader } from '@ngx-config/http-loader';
+import { ConfigFsLoader } from '@ngx-config/fs-loader';
+import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { MetaModule, MetaLoader, MetaStaticLoader } from '@nglibs/meta';
 // import { I18NRouterModule, I18NRouterLoader, I18N_ROUTER_PROVIDERS, RAW_ROUTES } from '@nglibs/i18n-router';
 // import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
-import { TransferHttpModule } from '@nglibs/universal-transfer-state';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -25,28 +29,11 @@ import { AppComponent } from './app.component';
 import { ChangeLanguageComponent } from './change-language.component';
 
 // for AoT compilation
-export class ConfigUniversalLoader implements ConfigLoader {
-  constructor(private readonly platformId: any,
-              private http: Http,
-              private readonly staticPath: string = 'public',
-              private readonly path: string = '/config.json') {
-  }
-
-  loadSettings(): any {
-    if (isPlatformServer(this.platformId)) {
-      return Promise.resolve(JSON.parse(readFileSync(`./${this.staticPath}/${this.path}`, 'utf8')))
-        .then((settings: any) => settings)
-        .catch(() => Promise.reject('Endpoint unreachable!'));
-    }
-
-    // TODO: cache values at local storage
-    const httpLoader = new ConfigHttpLoader(this.http, this.path);
-    return httpLoader.loadSettings();
-  };
-}
-
 export function configFactory(platformId: any, http: Http): ConfigLoader {
-  return new ConfigUniversalLoader(platformId, http, 'public', './assets/config.json');
+  const serverLoader = new ConfigFsLoader('./public/assets/config.json');
+  const browserLoader = new ConfigHttpLoader(http, './assets/config.json');
+
+  return new UniversalConfigLoader(platformId, serverLoader, browserLoader);
 }
 
 export function metaFactory(config: ConfigService, translate: TranslateService): MetaLoader {
@@ -80,7 +67,8 @@ export class TranslateUniversalLoader implements TranslateLoader {
               private readonly suffix: string = '.json') {
   }
 
-  public getTranslation(lang: string): Observable<any> {
+  @Cached('ngx-translate__translations')
+  public getTranslation(@CacheKey lang: string): Observable<any> {
     if (isPlatformServer(this.platformId)) {
       return Observable.create((observer: Observer<any>) => {
         observer.next(JSON.parse(readFileSync(`./${this.staticPath}/${this.prefix}/${lang}${this.suffix}`, 'utf8')));
@@ -88,7 +76,6 @@ export class TranslateUniversalLoader implements TranslateLoader {
       });
     }
 
-    // TODO: cache values at local storage
     const httpLoader = new TranslateHttpLoader(this.http, this.prefix, this.suffix);
     return httpLoader.getTranslation(lang);
   }
@@ -101,9 +88,10 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
 @NgModule({
   imports: [
     BrowserModule,
-    TransferHttpModule,
+    HttpTransferModule.forRoot(),
     RouterModule.forRoot(routes),
     HttpModule,
+    CacheModule.forRoot(),
     ConfigModule.forRoot({
       provide: ConfigLoader,
       useFactory: (configFactory),
@@ -137,6 +125,6 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
   }
 }

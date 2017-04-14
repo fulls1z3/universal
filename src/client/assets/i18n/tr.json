@@ -1,9 +1,9 @@
 {
-  "APP_NAME": "@nglibs univesal örnek uygulama",
-  "DEFAULT_TITLE": "@nglibs uygulama sunumu",
-  "DEFAULT_META_DESCRIPTION": "@nglibs açık kaynaklı temel Angular uygulamalarının şemsiye organizasyonudur",
+  "APP_NAME": "@ng-seed/univesal uygulaması",
+  "DEFAULT_TITLE": "@ng-seed/universal uygulama sunumu",
+  "DEFAULT_META_DESCRIPTION": "@ng-seed/universal açık kaynaklı temel Angular Univesal uygulamasıdır",
   "PUBLIC.HOME.PAGE_TITLE": "",
-  "PUBLIC.HOME.META_DESCRIPTION": "@nglibs/example uygulamasına hoşgeldiniz",
+  "PUBLIC.HOME.META_DESCRIPTION": "@ng-seed/universal uygulamasına hoşgeldiniz",
   "PUBLIC.ABOUT.PAGE_TITLE": "Hakkında",
   "PUBLIC.ABOUT.META_DESCRIPTION": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
   "PUBLIC.ABOUT_US.PAGE_TITLE": "Biz",

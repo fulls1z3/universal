@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // libs
 import * as _ from 'lodash';
-import { ConfigService } from '@nglibs/config';
+import { ConfigService } from '@ngx-config/core';
 import { MetaService } from '@nglibs/meta';
 // import { I18NRouterService } from '@nglibs/i18n-router';
 import { TranslateService } from '@ngx-translate/core';
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title = '@nglibs/universal-example-app works!';
+    this.title = '@ng-seed/universal works!';
     const defaultLanguage = this.config.getSettings().i18n.defaultLanguage;
 
     // add available languages & set default language

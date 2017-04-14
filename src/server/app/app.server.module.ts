@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServerModule } from '@angular/platform-server';
 
 // libs
-import { ServerTransferStateModule, TransferState } from '@nglibs/universal-transfer-state';
+import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
+import { CacheService, CACHE, STORAGE } from '@ngx-cache/core';
+import { ServerCacheModule, FsCacheService } from '@ngx-cache/platform-server';
+import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
 
 // modules & components
 import { AppModule } from '../../client/app/app.module';
@@ -17,15 +20,31 @@ import { AppComponent } from '../../client/app/app.component';
       appId: 'my-app-id'
     }),
     ServerModule,
-    ServerTransferStateModule,
+    ServerStateTransferModule.forRoot(),
+    ServerCacheModule.forRoot([
+      {
+        provide: CACHE,
+        useClass: FsCacheService
+      },
+      {
+        provide: STORAGE,
+        useClass: FsStorageService
+      },
+      {
+        provide: FsStorageLoader,
+        useFactory: (fsStorageFactory)
+      }
+    ]),
     AppModule
   ]
 })
 export class AppServerModule {
-  constructor(private readonly transferState: TransferState) {
+  constructor(private readonly stateTransfer: StateTransferService,
+              private readonly cache: CacheService) {
   }
 
   ngOnBootstrap = () => {
-    this.transferState.inject();
+    this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
+    this.stateTransfer.inject();
   }
 }
