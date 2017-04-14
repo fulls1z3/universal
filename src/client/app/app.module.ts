@@ -11,11 +11,12 @@ import { readFileSync } from 'fs';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import * as _ from 'lodash';
+import { TransferHttpModule } from '@nglibs/universal-transfer-state';
+import { CacheModule, Cached, CacheKey, CacheService } from '@ngx-cache/core';
 import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
 import { MetaModule, MetaLoader, MetaStaticLoader } from '@nglibs/meta';
 // import { I18NRouterModule, I18NRouterLoader, I18N_ROUTER_PROVIDERS, RAW_ROUTES } from '@nglibs/i18n-router';
 // import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
-import { TransferHttpModule } from '@nglibs/universal-transfer-state';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -27,11 +28,12 @@ import { ChangeLanguageComponent } from './change-language.component';
 // for AoT compilation
 export class ConfigUniversalLoader implements ConfigLoader {
   constructor(private readonly platformId: any,
-              private http: Http,
+              private readonly http: Http,
               private readonly staticPath: string = 'public',
               private readonly path: string = '/config.json') {
   }
 
+  @Cached('ngx-config__settings')
   loadSettings(): any {
     if (isPlatformServer(this.platformId)) {
       return Promise.resolve(JSON.parse(readFileSync(`./${this.staticPath}/${this.path}`, 'utf8')))
@@ -39,7 +41,6 @@ export class ConfigUniversalLoader implements ConfigLoader {
         .catch(() => Promise.reject('Endpoint unreachable!'));
     }
 
-    // TODO: cache values at local storage
     const httpLoader = new ConfigHttpLoader(this.http, this.path);
     return httpLoader.loadSettings();
   };
@@ -80,7 +81,8 @@ export class TranslateUniversalLoader implements TranslateLoader {
               private readonly suffix: string = '.json') {
   }
 
-  public getTranslation(lang: string): Observable<any> {
+  @Cached('ngx-translate__translations')
+  public getTranslation(@CacheKey lang: string): Observable<any> {
     if (isPlatformServer(this.platformId)) {
       return Observable.create((observer: Observer<any>) => {
         observer.next(JSON.parse(readFileSync(`./${this.staticPath}/${this.prefix}/${lang}${this.suffix}`, 'utf8')));
@@ -88,7 +90,6 @@ export class TranslateUniversalLoader implements TranslateLoader {
       });
     }
 
-    // TODO: cache values at local storage
     const httpLoader = new TranslateHttpLoader(this.http, this.prefix, this.suffix);
     return httpLoader.getTranslation(lang);
   }
@@ -104,6 +105,7 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
     TransferHttpModule,
     RouterModule.forRoot(routes),
     HttpModule,
+    CacheModule.forRoot(),
     ConfigModule.forRoot({
       provide: ConfigLoader,
       useFactory: (configFactory),
@@ -137,6 +139,6 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
   }
 }

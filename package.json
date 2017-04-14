@@ -52,6 +52,11 @@
     "@nglibs/i18n-router-config-loader": "^0.2.0-rc.2",
     "@nglibs/universal-express-engine": "0.0.1-alpha.1",
     "@nglibs/universal-transfer-state": "0.0.1-alpha.2",
+    "@ngx-cache/core": "^0.0.1-alpha.2",
+    "@ngx-cache/platform-browser": "^0.0.1-alpha.2",
+    "@ngx-cache/platform-server": "^0.0.1-alpha.2",
+    "@ngx-storage/core": "^0.0.1-alpha.1",
+    "@ngx-storage/fs": "^0.0.1-alpha.1",
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "^0.0.3"
   },
