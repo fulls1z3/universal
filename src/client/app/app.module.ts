@@ -11,9 +11,12 @@ import { readFileSync } from 'fs';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import * as _ from 'lodash';
-import { TransferHttpModule } from '@nglibs/universal-transfer-state';
+import { HttpTransferModule } from '@ngx-universal/state-transfer';
 import { CacheModule, Cached, CacheKey, CacheService } from '@ngx-cache/core';
-import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
+import { ConfigModule, ConfigLoader, ConfigService } from '@ngx-config/core';
+import { ConfigHttpLoader } from '@ngx-config/http-loader';
+import { ConfigFsLoader } from '@ngx-config/fs-loader';
+import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { MetaModule, MetaLoader, MetaStaticLoader } from '@nglibs/meta';
 // import { I18NRouterModule, I18NRouterLoader, I18N_ROUTER_PROVIDERS, RAW_ROUTES } from '@nglibs/i18n-router';
 // import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
@@ -26,28 +29,11 @@ import { AppComponent } from './app.component';
 import { ChangeLanguageComponent } from './change-language.component';
 
 // for AoT compilation
-export class ConfigUniversalLoader implements ConfigLoader {
-  constructor(private readonly platformId: any,
-              private readonly http: Http,
-              private readonly staticPath: string = 'public',
-              private readonly path: string = '/config.json') {
-  }
-
-  @Cached('ngx-config__settings')
-  loadSettings(): any {
-    if (isPlatformServer(this.platformId)) {
-      return Promise.resolve(JSON.parse(readFileSync(`./${this.staticPath}/${this.path}`, 'utf8')))
-        .then((settings: any) => settings)
-        .catch(() => Promise.reject('Endpoint unreachable!'));
-    }
-
-    const httpLoader = new ConfigHttpLoader(this.http, this.path);
-    return httpLoader.loadSettings();
-  };
-}
-
 export function configFactory(platformId: any, http: Http): ConfigLoader {
-  return new ConfigUniversalLoader(platformId, http, 'public', './assets/config.json');
+  const serverLoader = new ConfigFsLoader('./public/assets/config.json');
+  const browserLoader = new ConfigHttpLoader(http, './assets/config.json');
+
+  return new UniversalConfigLoader(platformId, serverLoader, browserLoader);
 }
 
 export function metaFactory(config: ConfigService, translate: TranslateService): MetaLoader {
@@ -102,7 +88,7 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
 @NgModule({
   imports: [
     BrowserModule,
-    TransferHttpModule,
+    HttpTransferModule.forRoot(),
     RouterModule.forRoot(routes),
     HttpModule,
     CacheModule.forRoot(),
