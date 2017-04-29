@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // libs
 import * as _ from 'lodash';
-import { ConfigService } from '@nglibs/config';
+import { ConfigService } from '@ngx-config/core';
 import { MetaService } from '@nglibs/meta';
 // import { I18NRouterService } from '@nglibs/i18n-router';
 import { TranslateService } from '@ngx-translate/core';
