@@ -7,9 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 // libs
-import { readFileSync } from 'fs';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
 import * as _ from 'lodash';
 import { HttpTransferModule } from '@ngx-universal/state-transfer';
 import { CacheModule, Cached, CacheKey, CacheService } from '@ngx-cache/core';
@@ -17,6 +14,7 @@ import { ConfigModule, ConfigLoader, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
 import { ConfigFsLoader } from '@ngx-config/fs-loader';
 import { UniversalConfigLoader } from '@ngx-universal/config-loader';
+import { UniversalTranslateLoader } from '@ngx-universal/translate-loader';
 import { MetaModule, MetaLoader, MetaStaticLoader } from '@nglibs/meta';
 // import { I18NRouterModule, I18NRouterLoader, I18N_ROUTER_PROVIDERS, RAW_ROUTES } from '@nglibs/i18n-router';
 // import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
@@ -46,7 +44,7 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
     defaults: {
       title: config.getSettings().seo.defaultPageTitle,
       description: config.getSettings().seo.defaultMetaDescription,
-      'generator': '@nglibs',
+      'generator': '@ng-seed/universal',
       'og:site_name': config.getSettings().system.applicationName,
       'og:type': 'website',
       'og:locale': config.getSettings().i18n.defaultLanguage.culture,
@@ -55,34 +53,10 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
   });
 }
 
-// export function i18nRouterFactory(config: ConfigService, rawRoutes: Routes): I18NRouterLoader {
-//   return new I18NRouterConfigLoader(config, rawRoutes, 'routes');
-// }
-
-export class TranslateUniversalLoader implements TranslateLoader {
-  constructor(private readonly platformId: any,
-              private readonly http: Http,
-              private readonly staticPath: string = 'public',
-              private readonly prefix: string = 'i18n',
-              private readonly suffix: string = '.json') {
-  }
-
-  @Cached('ngx-translate__translations')
-  public getTranslation(@CacheKey lang: string): Observable<any> {
-    if (isPlatformServer(this.platformId)) {
-      return Observable.create((observer: Observer<any>) => {
-        observer.next(JSON.parse(readFileSync(`./${this.staticPath}/${this.prefix}/${lang}${this.suffix}`, 'utf8')));
-        observer.complete();
-      });
-    }
-
-    const httpLoader = new TranslateHttpLoader(this.http, this.prefix, this.suffix);
-    return httpLoader.getTranslation(lang);
-  }
-}
-
 export function translateFactory(platformId: any, http: Http): TranslateLoader {
-  return new TranslateUniversalLoader(platformId, http, 'public', './assets/i18n/');
+  const browserLoader = new TranslateHttpLoader(http);
+
+  return new UniversalTranslateLoader(platformId, browserLoader, './public/assets/i18n');
 }
 
 @NgModule({
@@ -112,7 +86,7 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: translateFactory,
+        useFactory: (translateFactory),
         deps: [PLATFORM_ID, Http]
       }
     })
