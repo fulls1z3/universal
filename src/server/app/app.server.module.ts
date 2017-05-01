@@ -5,8 +5,8 @@ import { ServerModule } from '@angular/platform-server';
 
 // libs
 import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
-import { CacheService, CACHE, STORAGE } from '@ngx-cache/core';
-import { ServerCacheModule, FsCacheService } from '@ngx-cache/platform-server';
+import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
+import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
 import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
 
 // modules & components

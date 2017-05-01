@@ -38,15 +38,16 @@ server.use('/', express.static('public', {index: false}));
  */
 server.get('*', (req, res) => {
   res.render('../public/index.html', {
-    req: req,
-    res: res
+    req,
+    res
   });
 });
 
 /**
  * Port & host settings
  */
-const PORT = process.env.PORT || 8000;
+const port = 8000;
+const PORT = process.env.PORT || port;
 const HOST = process.env.BASE_URL || 'localhost';
 const baseUrl = `http://${HOST}:${PORT}`;
 
@@ -56,5 +57,6 @@ server.set('port', PORT);
  * Begin listening
  */
 server.listen(server.get('port'), () => {
+  // tslint:disable-next-line
   console.log(`Express server listening on ${baseUrl}`);
 });

@@ -106,6 +106,7 @@
         "@ngx-universal/config-loader",
         "@ngx-translate/core",
         "@ngx-translate/http-loader",
+        "@ngx-universal/translate-loader",
         "@nglibs/meta",
         "@nglibs/i18n-router",
         "@nglibs/i18n-router-config-loader"

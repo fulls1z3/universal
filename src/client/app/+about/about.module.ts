@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 // libs
-import { I18NRouterModule } from '@nglibs/i18n-router';
+// import { I18NRouterModule } from '@nglibs/i18n-router';
 
 // routes & components
 import { routes } from './about.routes';

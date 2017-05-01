@@ -1,12 +1,7 @@
 /**
- * Helpers & dependencies
+ * Dependencies
  */
-let settings = require('./build-config');
-const $$ = require('./helpers');
-
-settings = $$.loadSettings(settings);
-
-const webpackConfig = require('./webpack.test.js')({env: 'test'});
+const webpackConfig = require('./webpack.test.js');
 
 module.exports = function(config) {
   const configuration = {
@@ -16,7 +11,7 @@ module.exports = function(config) {
     /**
      * Frameworks to use
      *
-     * available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+     * See: https://npmjs.org/browse/keyword/karma-adapter
      */
     frameworks: ['jasmine'],
 
@@ -27,40 +22,26 @@ module.exports = function(config) {
       captureConsole: false
     },
 
-    /**
-     * list of files / patterns to load in the browser
-     *
-     * we are building the test environment in ./spec-bundle.js
-     */
+    // list of files / patterns to load in the browser
     files: [
       {
-        pattern: `${settings.paths.config}/spec-bundle.js`,
+        pattern: './config/spec-bundle.js',
         watched: false
       }
     ],
 
     /**
-     * preprocess matching files before serving them to the browser
-     * available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+     * Pre-process matching files before serving them to the browser
+     *
+     * See: https://npmjs.org/browse/keyword/karma-preprocessor
      */
     preprocessors: {
       './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap']
     },
 
-    // Webpack config at ./webpack.test.js
     webpack: webpackConfig,
 
-    coverageReporter: {
-      type: 'in-memory'
-    },
-
-    remapCoverageReporter: {
-      'text-summary': null,
-      json: './coverage/coverage.json',
-      html: './coverage/html'
-    },
-
-    // Webpack please don't spam the console when running in karma!
+    // webpack please don't spam the console when running in karma!
     webpackMiddleware: {
       // webpack-dev-middleware configuration
       // i.e.
@@ -73,12 +54,26 @@ module.exports = function(config) {
     },
 
     /**
-     * test results reporter to use
+     * Test results reporter to use
      *
-     * possible values: 'dots', 'progress'
-     * available reporters: https://npmjs.org/browse/keyword/karma-reporter
+     * See: https://npmjs.org/browse/keyword/karma-reporter
      */
-    reporters: ['mocha', 'coverage', 'remap-coverage'],
+    reporters: ['mocha', 'coverage', 'coverage-istanbul'],
+
+    coverageReporter: {
+      type: 'in-memory'
+    },
+
+    coverageIstanbulReporter: {
+      reports: ['html', 'text-summary'],
+      dir: './coverage',
+      fixWebpackSourcePaths: true,
+      'report-config': {
+        html: {
+          subdir: 'html'
+        }
+      }
+    },
 
     // web server port
     port: 9876,
@@ -87,8 +82,9 @@ module.exports = function(config) {
     colors: true,
 
     /**
-     * level of logging
-     * possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+     * Level of logging
+     *
+     * config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
      */
     logLevel: config.LOG_WARN,
 
@@ -96,8 +92,9 @@ module.exports = function(config) {
     autoWatch: false,
 
     /**
-     * start these browsers
-     * available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+     * Start these browsers
+     *
+     * See: https://npmjs.org/browse/keyword/karma-launcher
      */
     browsers: [
       'Chrome'
@@ -112,7 +109,8 @@ module.exports = function(config) {
 
     /**
      * Continuous Integration mode
-     * if true, Karma captures browsers, runs the tests and exits
+     *
+     * If true, Karma captures browsers, runs the tests and exits
      */
     singleRun: true
   };

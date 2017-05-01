@@ -1,9 +1,9 @@
 {
-  "APP_NAME": "@ng-seed/universal app",
-  "DEFAULT_TITLE": "showcasing the @ng-seed/universal app",
-  "DEFAULT_META_DESCRIPTION": "@ng-seed/universal is an open-source seed project for Angular Universal",
+  "APP_NAME": "ng-seed (universal)",
+  "DEFAULT_TITLE": "showcasing the ng-seed app",
+  "DEFAULT_META_DESCRIPTION": "ng-seed is an open-source seed project for Angular Universal",
   "PUBLIC.HOME.PAGE_TITLE": "",
-  "PUBLIC.HOME.META_DESCRIPTION": "Welcome to @ng-seed/universal",
+  "PUBLIC.HOME.META_DESCRIPTION": "Welcome to ng-seed",
   "PUBLIC.ABOUT.PAGE_TITLE": "About",
   "PUBLIC.ABOUT.META_DESCRIPTION": "This page provides a dummy overview of nothing",
   "PUBLIC.ABOUT_US.PAGE_TITLE": "Us",
