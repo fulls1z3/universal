@@ -1,9 +1,9 @@
 {
-  "APP_NAME": "@nglibs universal example app",
-  "DEFAULT_TITLE": "showcasing the @nglibs utilities",
-  "DEFAULT_META_DESCRIPTION": "@nglibs is the umbrella organization of open source essential Angular utilities",
+  "APP_NAME": "@ng-seed/universal app",
+  "DEFAULT_TITLE": "showcasing the @ng-seed/universal app",
+  "DEFAULT_META_DESCRIPTION": "@ng-seed/universal is an open-source seed project for Angular Universal",
   "PUBLIC.HOME.PAGE_TITLE": "",
-  "PUBLIC.HOME.META_DESCRIPTION": "Welcome to @nglibs/example",
+  "PUBLIC.HOME.META_DESCRIPTION": "Welcome to @ng-seed/universal",
   "PUBLIC.ABOUT.PAGE_TITLE": "About",
   "PUBLIC.ABOUT.META_DESCRIPTION": "This page provides a dummy overview of nothing",
   "PUBLIC.ABOUT_US.PAGE_TITLE": "Us",

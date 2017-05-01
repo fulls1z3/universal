@@ -1,10 +1,10 @@
 {
-  "name": "@nglibs/universal-example-app",
+  "name": "@ng-seed/universal",
   "version": "0.0.1-alpha.2",
   "description": "Example app showcasing both Universal and lean Angular on a single project",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nglibs/universal-example-app.git"
+    "url": "https://github.com/ng-seed/universal.git"
   },
   "author": {
     "name": "Burak Tasci",
@@ -12,9 +12,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nglibs/universal-example-app/issues"
+    "url": "https://github.com/ng-seed/universal/issues"
   },
-  "homepage": "https://github.com/nglibs/universal-example-app#readme",
+  "homepage": "https://github.com/ng-seed/universal#readme",
   "scripts": {
     "build:spa-dev": "gulp clean && gulp build:spa-dev",
     "build:spa-prod": "gulp clean && gulp build:spa-prod",
@@ -58,6 +58,7 @@
     "@ngx-universal/config-loader": "^0.4.0-rc.1",
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "^0.0.3",
+    "@ngx-universal/translate-loader": "^0.4.0-beta.1",
     "@nglibs/meta": "~0.4.0-rc.1",
     "@nglibs/i18n-router": "~0.4.0-beta.1",
     "@nglibs/i18n-router-config-loader": "^0.2.0-rc.2"

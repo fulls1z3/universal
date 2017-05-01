@@ -1,4 +1,4 @@
-# @nglibs universal example application
+# @ng-seed/universal
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
 Example application showcasing both **server-side rendering** (*Angular Universal*) and **client-side rendering** (*lean Angular*) on a single project, with common patterns and best practices. You can find the live app [here](https://nglibs-universal-example-app.azurewebsites.net).
@@ -28,7 +28,7 @@ Also, please ensure that you are using **`Typescript v2.1.6`** or higher.
 
 ```
 # clone the repo
-git clone https://github.com/nglibs/universal-example-app.git
+git clone https://github.com/ng-seed/universal.git
 cd universal-example-app
 
 # use npm (or yarn) to install the dependencies
