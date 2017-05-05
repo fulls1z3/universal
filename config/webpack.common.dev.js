@@ -78,7 +78,7 @@ const browserConfig = {
     chunkFilename: '[id].chunk.js',
 
     libraryTarget: 'var',
-    library: 'kr_[name]'
+    library: 'ng_seed_[name]'
   },
 
   /**
