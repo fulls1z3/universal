@@ -47,11 +47,11 @@
 declare module '*';
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
-declare var ENV: string;
-declare var System: SystemJS;
+declare const ENV: string;
+declare const System: SystemJS;
 
 interface SystemJS {
-  import: (path?: string) => Promise<any>;
+  import(path?: string): Promise<any>;
 }
 
 interface GlobalEnvironment {
@@ -62,9 +62,4 @@ interface GlobalEnvironment {
 
 interface ErrorStackTraceLimit {
   stackTraceLimit: number;
-}
-
-// Extend typings
-interface ErrorConstructor extends ErrorStackTraceLimit {}
-interface Global extends GlobalEnvironment {
 }

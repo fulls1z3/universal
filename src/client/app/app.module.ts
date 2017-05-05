@@ -1,24 +1,22 @@
 // angular
 import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
-import { isPlatformServer } from '@angular/common';
 import { Http, HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 // import { RouterModule, Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 // libs
-import * as _ from 'lodash';
 import { HttpTransferModule } from '@ngx-universal/state-transfer';
-import { CacheModule, Cached, CacheKey, CacheService } from '@ngx-cache/core';
-import { ConfigModule, ConfigLoader, ConfigService } from '@ngx-config/core';
+import { CacheModule } from '@ngx-cache/core';
+import { ConfigLoader, ConfigModule, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
 import { ConfigFsLoader } from '@ngx-config/fs-loader';
 import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { UniversalTranslateLoader } from '@ngx-universal/translate-loader';
-import { MetaModule, MetaLoader, MetaStaticLoader } from '@nglibs/meta';
-// import { I18NRouterModule, I18NRouterLoader, I18N_ROUTER_PROVIDERS, RAW_ROUTES } from '@nglibs/i18n-router';
+import { MetaLoader, MetaModule, MetaStaticLoader } from '@nglibs/meta';
+// import { I18N_ROUTER_PROVIDERS, I18NRouterLoader, I18NRouterModule, RAW_ROUTES } from '@nglibs/i18n-router';
 // import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
-import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // routes & components
@@ -37,18 +35,19 @@ export function configFactory(platformId: any, http: Http): ConfigLoader {
 export function metaFactory(config: ConfigService, translate: TranslateService): MetaLoader {
   return new MetaStaticLoader({
     callback: (key: string) => translate.get(key),
-    pageTitlePositioning: config.getSettings().seo.pageTitlePositioning,
-    pageTitleSeparator: config.getSettings().seo.pageTitleSeparator,
-    applicationName: config.getSettings().system.applicationName,
-    applicationUrl: config.getSettings().system.applicationUrl,
+    pageTitlePositioning: config.getSettings('seo.pageTitlePositioning'),
+    pageTitleSeparator: config.getSettings('seo.pageTitleSeparator'),
+    applicationName: config.getSettings('system.applicationName'),
+    applicationUrl: config.getSettings('system.applicationUrl'),
     defaults: {
-      title: config.getSettings().seo.defaultPageTitle,
-      description: config.getSettings().seo.defaultMetaDescription,
-      'generator': '@ng-seed/universal',
-      'og:site_name': config.getSettings().system.applicationName,
+      title: config.getSettings('seo.defaultPageTitle'),
+      description: config.getSettings('seo.defaultMetaDescription'),
+      generator: 'ng-seed',
+      'og:site_name': config.getSettings('system.applicationName'),
       'og:type': 'website',
-      'og:locale': config.getSettings().i18n.defaultLanguage.culture,
-      'og:locale:alternate': _.map(config.getSettings().i18n.availableLanguages, 'culture').toString()
+      'og:locale': config.getSettings('i18n.defaultLanguage.culture'),
+      'og:locale:alternate': config.getSettings('i18n.availableLanguages')
+        .map((language: any) => language.culture).toString()
     }
   });
 }
