@@ -1,31 +1,36 @@
-# @ng-seed/universal
+# ng-seed/universal
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
-Example application showcasing both **server-side rendering** (*Angular Universal*) and **client-side rendering** (*lean Angular*) on a single project, with common patterns and best practices. You can find the live app [here](https://nglibs-universal-example-app.azurewebsites.net).
+**`ng-seed/spa`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide) in file and application organization, providing the following features:
 
-This application uses [@ngx-config/core] to fetch the configuration settings loaded during application initialization; [@nglibs/meta](https://github.com/nglibs/meta) to update the page title & meta tags every time the route changes; [@nglibs/i18n-router](https://github.com/nglibs/i18n-router) to intercept Router initialization and translates each `path` and `redirectTo` property of Routes; [@nglibs/i18n-router-config-loader](https://github.com/nglibs/i18n-router-config-loader) to load route translations using **`@ngx-config/core`**.
+- Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
+- Adjustable build configuration via `json` file (`./config/build-config.json`).
+- Production and development modes.
+- [Webpack DLL]s to speed up development builds.
+- [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
+- Tree-shaking the production builds with [fulls1z3/webpack].
+- ~Hot Module Replacement with [Webpack] and [@angularclass/hmr] and [@angularclass/hmr-loader].~
+- Both inline and external SCSS compilation.
+- Lazy loading of modules.
+- Uses [@ngx-config] for configuration management.
+- Uses [@ngx-cache] for caching.
+- Uses [@ngx-translate] and [@ngx-i18n-router] for i18n support.
+- Uses [@ngx-meta] for SEO.
+- ~Unit tests with [Jasmine] and [Karma], including code coverage via [Istanbul].~
+- ~End-to-end tests with [Protractor].~
+- [angular-tslint-rules] as configuration preset for [TSLint] and [codelyzer].
+- Managing the type definitions using @types.
 
-Furthermore, it uses `platform-server` delivered with **Angular 4.0.0** and covers most of the features of [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter/) by [AngularClass](https://github.com/AngularClass) such as async/**lazy** routes, **SCSS** compilation (*both inline and external*), dev/prod modes, **[AoT compilation]** via `@ngtools/webpack`, tests, TsLint/Codelyzer, @types and maybe more.         
+> Built with `@angular v4.1.0`, bundled with `gulp v4.0` and `webpack v2.5.0`.
 
-Built with `@angular v4.0.0`, bundled with `gulp v4.0` and `webpack v2.4.1`.
-
-## Included
-
-- [@ngx-config/core]
-- [@nglibs/meta]
-- [@nglibs/i18n-router]
-- [@nglibs/i18n-router-config-loader]
-- [@ngx-universal/express-engine]
-- [@ngx-universal/state-transfer]
-- [@ngx-translate](https://github.com/ngx-translate/core)
+You can find the live app [here](https://ng-seed-universal.azurewebsites.net).
 
 ## Prerequisites
-Packages in this example app depend on `@angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
+Packages in this seed project depend on `@angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
 Also, please ensure that you are using **`Typescript v2.1.6`** or higher.
 
 ## Installing
-
 ```
 # clone the repo
 git clone https://github.com/ng-seed/universal.git
@@ -51,20 +56,32 @@ npm run build:universal-prod
 npm run serve
 ```
 
-Navigate to `http://localhost:1337` for **SPA** (*lean Angular*) and `http://localhost:8000` for **Angular Universal** in your browser.
+Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular Universal** (*server-side rendering*) in your browser.
 
 ## License
 The MIT License (MIT)
 
 Copyright (c) 2017 [Burak Tasci]
 
-[Burak Tasci]: http://www.buraktasci.com
-
-[@ngx-config/core]: https://github.com/ngx-config/core
-[@nglibs/meta]: https://github.com/nglibs/meta
-[@nglibs/i18n-router]: https://github.com/nglibs/i18n-router
-[@nglibs/i18n-router-config-loader]: https://github.com/nglibs/i18n-router-config-loader
-[@ngx-universal/express-engine]: https://github.com/ngx-universal/express-engine
-[@ngx-universal/state-transfer]: https://github.com/ngx-universal/state-transfer
+[gulp]: http://gulpjs.com
+[Webpack]: http://webpack.github.io
+[TypeScript]: https://github.com/Microsoft/TypeScript
+[Webpack DLL]: https://robertknight.github.io/posts/webpack-dll-plugins
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
+[@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
+[fulls1z3/webpack]: https://github.com/fulls1z3/webpack
+[@angularclass/hmr]: https://github.com/angularclass/angular2-hmr
+[@angularclass/hmr-loader]: https://github.com/AngularClass/angular2-hmr-loader
+[@ngx-config]: https://github.com/ngx-config/core
+[@ngx-cache]: https://github.com/ngx-cache/core
+[@ngx-translate]: https://github.com/ngx-translate/core
+[@ngx-i18n-router]: https://github.com/ngx-i18n-router/core
+[@ngx-meta]: https://github.com/ngx-meta/core
+[Jasmine]: https://jasmine.github.io
+[Karma]: https://karma-runner.github.io
+[Istanbul]: https://github.com/webpack-contrib/istanbul-instrumenter-loader
+[Protractor]: http://www.protractortest.org
+[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
+[TSLint]: https://github.com/palantir/tslint
+[codelyzer]: https://github.com/mgechev/codelyzer
 [Burak Tasci]: http://www.buraktasci.com
