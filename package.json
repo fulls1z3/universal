@@ -22,6 +22,7 @@
     "build:universal-prod": "gulp clean && gulp build:universal-prod",
     "serve": "npm run serve:universal",
     "serve:spa": "nodemon ./.server/spa-server.js",
+    "serve:spa-hmr": "node ./.server/spa-server.hmr.js",
     "serve:universal": "nodemon ./.server/server.js",
     "test": "karma start"
   },
@@ -87,6 +88,7 @@
     "gulp-replace": "^0.5.4",
     "webpack": "fulls1z3/webpack#v2.5.0-harmony",
     "webpack-merge": "^4.1.0",
+    "webpack-hot-middleware": "^2.18.0",
     "@ngtools/webpack": "^1.3.1",
 
     "tslint-loader": "^3.5.3",

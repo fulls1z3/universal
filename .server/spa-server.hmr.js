@@ -8,10 +8,27 @@ const compression = require('compression');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const server = express();
 server.use(compression());
 server.use(logger('dev'));
+
+/**
+ * HMR support
+ */
+const webpackConfig = require('../config/webpack.spa.dev.hmr');
+const compiler = webpack(webpackConfig);
+
+server.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
+}));
+server.use(webpackHotMiddleware(compiler, {
+  log: console.log
+}));
 
 /**
  * Parsers for POST data

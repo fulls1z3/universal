@@ -1,11 +1,11 @@
 ﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
+*.js
 public/
 .server/*
-!.server/spa-server.js
+!.server/spa-server*.js
 .temp/
-*.js
 *.d.ts
 *.metadata.json
 

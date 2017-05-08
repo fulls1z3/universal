@@ -304,7 +304,7 @@ const browserConfig = function(options) {
           use: isProd
             ? '@ngtools/webpack'
             : [
-              `ng-router-loader`,
+              'ng-router-loader',
               'awesome-typescript-loader?declaration=false',
               'angular2-template-loader'
             ],
