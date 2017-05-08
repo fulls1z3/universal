@@ -13,9 +13,9 @@ import { ConfigHttpLoader } from '@ngx-config/http-loader';
 import { ConfigFsLoader } from '@ngx-config/fs-loader';
 import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { UniversalTranslateLoader } from '@ngx-universal/translate-loader';
-import { MetaLoader, MetaModule, MetaStaticLoader } from '@nglibs/meta';
-// import { I18N_ROUTER_PROVIDERS, I18NRouterLoader, I18NRouterModule, RAW_ROUTES } from '@nglibs/i18n-router';
-// import { I18NRouterConfigLoader } from '@nglibs/i18n-router-config-loader';
+import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
+// import { I18N_ROUTER_PROVIDERS, I18NRouterLoader, I18NRouterModule, RAW_ROUTES } from '@ngx-i18n-router/core';
+// import { I18NRouterConfigLoader } from '@ngx-i18n-router/config-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 

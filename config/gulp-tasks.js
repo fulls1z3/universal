@@ -55,7 +55,7 @@ const assets = {
   sass: {
     lib: {
       sasslint: function(done) {
-        gulp.src(`${settings.paths.src.client.sass}/**/*.scss`)
+        gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($$.sasslint(settings))
           .pipe($$.dummy(settings, '**/*.*'))
           .on('end', done);
@@ -69,7 +69,7 @@ const assets = {
           })
         ];
 
-        gulp.src(`${settings.paths.src.client.sass}/**/*.scss`)
+        gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($.postcss(processors, {syntax: $.scss}))
           .pipe($$.dummy(settings, '**/*.*'))
           .on('end', done);
@@ -85,7 +85,7 @@ const assets = {
         ];
         const path = '/components';
 
-        gulp.src(`${settings.paths.src.client.sass}/**/*.scss`)
+        gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($$.sass({sourcemaps: true}))
           .pipe($.postcss(processors))
           .pipe($$.dummy(settings))
@@ -101,7 +101,7 @@ const assets = {
           })
         ];
 
-        gulp.src(`${settings.paths.src.client.sass}/**/*.scss`)
+        gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($.postcss(processors, {syntax: $.scss}))
           .pipe(gulp.dest(settings.paths.temp.root))
           .on('end', done); //TODO: change dest (currently temp)

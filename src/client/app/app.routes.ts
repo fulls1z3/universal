@@ -2,7 +2,7 @@
 import { Routes } from '@angular/router';
 
 // libs
-import { MetaGuard } from '@nglibs/meta';
+import { MetaGuard } from '@ngx-meta/core';
 
 // module
 import { ChangeLanguageComponent } from './change-language.component';

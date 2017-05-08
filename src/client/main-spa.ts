@@ -11,4 +11,8 @@ export function main(): any {
   return platformBrowserDynamic().bootstrapModule(AppModule);
 }
 
+// HMR support
+if (module['hot'])
+  module['hot'].accept();
+
 bootloader(main);

@@ -22,6 +22,7 @@
     "build:universal-prod": "gulp clean && gulp build:universal-prod",
     "serve": "npm run serve:universal",
     "serve:spa": "nodemon ./.server/spa-server.js",
+    "serve:spa-hmr": "node ./.server/spa-server.hmr.js",
     "serve:universal": "nodemon ./.server/server.js",
     "test": "karma start"
   },
@@ -46,22 +47,22 @@
     "zone.js": "^0.8.10",
     "lodash": "^4.17.4",
     "@angularclass/bootloader": "^1.0.1",
-    "@ngx-universal/express-engine": "^0.4.0-beta.1",
-    "@ngx-universal/state-transfer": "^0.4.0-beta.1",
-    "@ngx-config/core": "^0.2.0-rc.5",
-    "@ngx-config/http-loader": "^0.2.0-rc.1",
-    "@ngx-config/fs-loader": "^0.2.0-beta.1",
-    "@ngx-cache/core": "^0.4.0-beta.1",
-    "@ngx-cache/platform-browser": "^0.4.0-beta.1",
-    "@ngx-cache/platform-server": "^0.4.0-beta.1",
-    "@ngx-cache/fs-storage": "^0.4.0-beta.1",
-    "@ngx-universal/config-loader": "^0.4.0-rc.1",
+    "@ngx-universal/express-engine": "~0.4.0-beta.1",
+    "@ngx-universal/state-transfer": "~0.4.0-beta.1",
+    "@ngx-config/core": "~0.2.0-rc.5",
+    "@ngx-config/http-loader": "~0.2.0-rc.1",
+    "@ngx-config/fs-loader": "~0.2.0-beta.1",
+    "@ngx-cache/core": "~0.4.0-beta.1",
+    "@ngx-cache/platform-browser": "~0.4.0-beta.1",
+    "@ngx-cache/platform-server": "~0.4.0-beta.1",
+    "@ngx-cache/fs-storage": "~0.4.0-beta.1",
+    "@ngx-universal/config-loader": "~0.4.0-rc.1",
     "@ngx-translate/core": "^6.0.1",
-    "@ngx-translate/http-loader": "^0.0.3",
-    "@ngx-universal/translate-loader": "^0.4.0-beta.1",
-    "@nglibs/meta": "~0.4.0-rc.1",
-    "@nglibs/i18n-router": "~0.4.0-beta.1",
-    "@nglibs/i18n-router-config-loader": "^0.2.0-rc.2"
+    "@ngx-translate/http-loader": "~0.0.3",
+    "@ngx-universal/translate-loader": "~0.4.0-beta.1",
+    "@ngx-meta/core": "~0.4.0-rc.2",
+    "@ngx-i18n-router/core": "~0.4.0-beta.2",
+    "@ngx-i18n-router/config-loader": "~0.2.0-rc.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
@@ -87,6 +88,7 @@
     "gulp-replace": "^0.5.4",
     "webpack": "fulls1z3/webpack#v2.5.0-harmony",
     "webpack-merge": "^4.1.0",
+    "webpack-hot-middleware": "^2.18.0",
     "@ngtools/webpack": "^1.3.1",
 
     "tslint-loader": "^3.5.3",
@@ -142,7 +144,7 @@
 
     "codelyzer": "^3.0.1",
     "tslint": "^5.2.0",
-    "angular-tslint-rules": "^1.0.0",
+    "angular-tslint-rules": "^1.0.1",
     "typescript": "~2.3.2"
   }
 }
