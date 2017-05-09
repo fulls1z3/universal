@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
-import { MetaService } from '@nglibs/meta';
-// import { I18NRouterService } from '@nglibs/i18n-router';
+import { MetaService } from '@ngx-meta/core';
+// import { I18NRouterService } from '@ngx-i18n-router/core';
 import { TranslateService } from '@ngx-translate/core';
 
 // external styles
