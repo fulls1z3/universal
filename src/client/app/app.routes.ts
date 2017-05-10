@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 // libs
 import { MetaGuard } from '@ngx-meta/core';
 
-// module
+// components
 import { ChangeLanguageComponent } from './change-language.component';
 
 export const routes: Routes = [

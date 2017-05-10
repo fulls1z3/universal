@@ -127,28 +127,28 @@ const browserConfig = {
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
-    new uglifyJsPlugin({
-     // beautify: false,
-     // mangle: {
-     //   screw_ie8: true
-     // },
-     output: {
-       comments: false
-     },
-     compress: {
-       screw_ie8: true,
-       warnings: false,
-       conditionals: true,
-       unused: true,
-       comparisons: true,
-       sequences: true,
-       dead_code: true,
-       evaluate: true,
-       if_return: true,
-       join_vars: true,
-       negate_iife: false // we need this for lazy v8
-     }
-    }),
+    // new uglifyJsPlugin({
+    //  // beautify: false,
+    //  // mangle: {
+    //  //   screw_ie8: true
+    //  // },
+    //  output: {
+    //    comments: false
+    //  },
+    //  compress: {
+    //    screw_ie8: true,
+    //    warnings: false,
+    //    conditionals: true,
+    //    unused: true,
+    //    comparisons: true,
+    //    sequences: true,
+    //    dead_code: true,
+    //    evaluate: true,
+    //    if_return: true,
+    //    join_vars: true,
+    //    negate_iife: false // we need this for lazy v8
+    //  }
+    // }),
 
     /**
      * Plugin: CompressionPlugin
@@ -227,26 +227,26 @@ const serverConfig = {
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
-    new uglifyJsPlugin({
-      // beautify: false,
-      mangle: false, // to ensure process.env still works
-      output: {
-        comments: false
-      },
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        negate_iife: false // we need this for lazy v8
-      }
-    })//,
+    // new uglifyJsPlugin({
+    //   // beautify: false,
+    //   mangle: false, // to ensure process.env still works
+    //   output: {
+    //     comments: false
+    //   },
+    //   compress: {
+    //     screw_ie8: true,
+    //     warnings: false,
+    //     conditionals: true,
+    //     unused: true,
+    //     comparisons: true,
+    //     sequences: true,
+    //     dead_code: true,
+    //     evaluate: true,
+    //     if_return: true,
+    //     join_vars: true,
+    //     negate_iife: false // we need this for lazy v8
+    //   }
+    // })//,
 
     /**
      * Plugin: CompressionPlugin

@@ -90,6 +90,9 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
       }
     })
   ],
+  // providers: [
+  //   I18N_ROUTER_PROVIDERS
+  // ],
   declarations: [
     AppComponent,
     ChangeLanguageComponent

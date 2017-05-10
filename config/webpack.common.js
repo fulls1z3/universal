@@ -10,7 +10,6 @@ settings = $$.loadSettings(settings);
 const definePlugin = require('webpack/lib/DefinePlugin'),
   checkerPlugin = require('awesome-typescript-loader').CheckerPlugin,
   aotPlugin = require('@ngtools/webpack').AotPlugin,
-  contextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin'),
   copyWebpackPlugin = require('copy-webpack-plugin'),
   loaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin'),
   assetsPlugin = require('assets-webpack-plugin'),
@@ -105,19 +104,6 @@ const defaultConfig = function(options) {
        * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
        */
       new checkerPlugin(),
-
-      /**
-       * Plugin: ContextReplacementPlugin
-       * Description: Provides context to Angular's use of System.import
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
-       * See: https://github.com/angular/angular/issues/11580
-       */
-      // new contextReplacementPlugin(
-      //   // fix the warning in ./~/@angular/core/src/linker/system_js_ng_module_factory_loader.js
-      //   /angular([\\\/])core([\\\/])@angular/,
-      //   $$.root(settings.paths.src.client.root)
-      // ),
 
       /**
        * Plugin LoaderOptionsPlugin (experimental)
