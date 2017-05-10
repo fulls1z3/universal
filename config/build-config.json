@@ -29,6 +29,7 @@
       "assets": "{{public_root}}/assets"
     },
     "server": "{{root}}/.server",
+    "cache": "{{root}}/.cache",
     "temp": {
       "root": "{{root}}/.temp",
       "dll": "{{temp_root}}/dll"

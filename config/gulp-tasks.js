@@ -38,6 +38,9 @@ const clean = {
   server: function(done) {
     $.rimraf(`${settings.paths.server}/server*.*`, done);
   },
+  cache: function(done) {
+    $.rimraf(settings.paths.cache, done);
+  },
   temp: function(done) {
     $.rimraf(settings.paths.temp.root, done);
   }
@@ -46,6 +49,7 @@ const clean = {
 clean.public.displayName = 'clean:public';
 clean.artifacts.displayName = 'clean:artifacts';
 clean.server.displayName = 'clean:server';
+clean.cache.displayName = 'clean:cache';
 clean.temp.displayName = 'clean:temp';
 
 /**
@@ -251,6 +255,7 @@ gulp.task('clean',
   gulp.series(
     tasks.clean.public,
     tasks.clean.server,
+    tasks.clean.cache,
     tasks.clean.temp
   ));
 
