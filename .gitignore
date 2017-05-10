@@ -5,6 +5,7 @@
 public/
 .server/*
 !.server/spa-server*.js
+.cache/
 .temp/
 *.d.ts
 *.metadata.json
