@@ -144,7 +144,7 @@
 
     "codelyzer": "^3.0.1",
     "tslint": "^5.2.0",
-    "angular-tslint-rules": "^1.0.0",
+    "angular-tslint-rules": "^1.0.1",
     "typescript": "~2.3.2"
   }
 }
