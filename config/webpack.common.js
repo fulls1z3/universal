@@ -327,7 +327,7 @@ const browserConfig = function(options) {
          */
         {
           test: /\.scss$/,
-          include: $$.root(settings.paths.src.client.sass),
+          include: $$.root(settings.paths.src.client.assets.sass),
           use: extractTextPlugin.extract({
             fallback: 'style-loader',
             use: `css-loader${isProd ? '?minimize' : '?sourceMap'}!postcss-loader!sass-loader${!isProd ? '?sourceMap' : ''}!stylefmt-loader?config=${settings.paths.config}/stylelint.config.js`
@@ -391,7 +391,6 @@ const browserConfig = function(options) {
         prettyPrint: true
       }),
 
-      // TODO: move to server, right after caching service implemented
       /**
        * Plugin: CopyWebpackPlugin
        * Description: Copy files and directories in webpack.
@@ -402,15 +401,15 @@ const browserConfig = function(options) {
        */
       new copyWebpackPlugin([
         {
-          from: `${$$.root(settings.paths.src.client.assets)}/config.json`,
+          from: `${$$.root(settings.paths.src.client.assets.root)}/config.json`,
           to: './config.json'
         },
         {
-          from: `${$$.root(settings.paths.src.client.assets)}/i18n/en.json`,
+          from: `${$$.root(settings.paths.src.client.assets.root)}/i18n/en.json`,
           to: './i18n/en.json'
         },
         {
-          from: `${$$.root(settings.paths.src.client.assets)}/i18n/tr.json`,
+          from: `${$$.root(settings.paths.src.client.assets.root)}/i18n/tr.json`,
           to: './i18n/tr.json'
         }
       ]),

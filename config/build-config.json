@@ -14,8 +14,10 @@
       "client": {
         "root": "{{src_root}}/client",
         "app": "{{src_client_root}}/app",
-        "assets": "{{src_client_root}}/assets",
-        "sass": "{{src_client_root}}/assets/sass"
+        "assets": {
+          "root": "{{src_client_root}}/assets",
+          "sass": "{{src_client_root}}/assets/sass"
+        }
       },
       "server": {
         "root": "{{src_root}}/server",
