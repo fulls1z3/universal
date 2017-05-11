@@ -8,7 +8,7 @@
 - Production and development modes.
 - [Webpack DLL]s to speed up development builds.
 - [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
-- Tree-shaking the production builds with [fulls1z3/webpack].
+- Tree-shaking the production builds with `harmony` branch of [UglifyJs2].
 - Hot Module Replacement with [Webpack] and [webpack-hot-middleware].
 - Both inline and external SCSS compilation.
 - Lazy loading of modules.
@@ -71,7 +71,7 @@ Copyright (c) 2017 [Burak Tasci]
 [Webpack DLL]: https://robertknight.github.io/posts/webpack-dll-plugins
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 [@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
-[fulls1z3/webpack]: https://github.com/fulls1z3/webpack
+[UglifyJs2]: https://github.com/mishoo/UglifyJS2/tree/harmony
 [webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
 [@ngx-config]: https://github.com/ngx-config/core
 [@ngx-cache]: https://github.com/ngx-cache/core
