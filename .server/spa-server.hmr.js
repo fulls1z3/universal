@@ -24,7 +24,10 @@ const compiler = webpack(webpackConfig);
 
 server.use(webpackDevMiddleware(compiler, {
   noInfo: true,
-  publicPath: webpackConfig.output.publicPath
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true
+  }
 }));
 server.use(webpackHotMiddleware(compiler, {
   log: console.log
