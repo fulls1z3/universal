@@ -316,23 +316,28 @@ const browserConfig = function(options) {
           include: $$.root(settings.paths.src.client.assets.sass),
           use: extractTextPlugin.extract({
             fallback: 'style-loader',
-            use: `css-loader${isProd ? '?minimize' : '?sourceMap'}!postcss-loader!sass-loader${!isProd ? '?sourceMap' : ''}!stylefmt-loader?config=${settings.paths.config}/stylelint.config.js`
+            //use: `css-loader${isProd ? '?minimize' : '?sourceMap'}!postcss-loader!sass-loader${!isProd ? '?sourceMap' : ''}!stylefmt-loader?config=${settings.paths.config}/stylelint.config.js`
+            // TODO: temporarily disabled for sourcemaps interference
+            use: `css-loader!postcss-loader!sass-loader!stylefmt-loader?config=${settings.paths.config}/stylelint.config.js`
           })
         },
 
         /**
-         * To-string and css and sass loader support for *.css files
+         * To-string, css and sass loader support for *.scss files
          * Returns file content as string
-         *
          */
         {
           test: /\.scss$/,
           include: $$.root(settings.paths.src.client.app),
           use: [
             'to-string-loader',
-            `css-loader${isProd ? '?minimize' : '?sourceMap'}`,
+            // TODO: temporarily disabled for sourcemaps interference
+            //`css-loader${isProd ? '?minimize' : '?sourceMap'}`,
+            `css-loader`,
             'postcss-loader',
-            `sass-loader${!isProd ? '?sourceMap' : ''}`,
+            // TODO: temporarily disabled for sourcemaps interference
+            //`sass-loader${!isProd ? '?sourceMap' : ''}`,
+            `sass-loader`,
             `stylefmt-loader?config=${settings.paths.config}/stylelint.config.js`
           ]
         },
