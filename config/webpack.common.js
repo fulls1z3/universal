@@ -323,9 +323,8 @@ const browserConfig = function(options) {
         },
 
         /**
-         * To-string and css and sass loader support for *.scss files
+         * To-string, css and sass loader support for *.scss files
          * Returns file content as string
-         *
          */
         {
           test: /\.scss$/,
