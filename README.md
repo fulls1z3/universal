@@ -34,7 +34,7 @@ Also, please ensure that you are using **`Typescript v2.1.6`** or higher.
 ```
 # clone the repo
 git clone https://github.com/ng-seed/universal.git
-cd universal-example-app
+cd universal
 
 # use npm (or yarn) to install the dependencies
 npm install
