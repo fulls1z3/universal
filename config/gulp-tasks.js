@@ -9,6 +9,7 @@ const gulp = require('gulp'),
   $ = require('gulp-load-plugins')(settings.plugins.pluginloader),
   $$ = require('./gulp-helpers');
 
+$.webpackConfig = require('angular-webpack-config');
 settings = $$.loadSettings(settings);
 
 /**
@@ -154,7 +155,7 @@ ts.lint.displayName = 'lint:ts';
 const bundle = {
   spa: {
     dev: function(done) {
-      const conf = require('./webpack.spa.dev.js');
+      const conf = $.webpackConfig.spa.dev($$.root, settings);
 
       $.webpack(conf)
         .run(function(err, stats) {
@@ -162,7 +163,7 @@ const bundle = {
         });
     },
     prod: function(done) {
-      const conf = require('./webpack.spa.prod.js');
+      const conf = $.webpackConfig.spa.prod($$.root, settings);
 
       $.webpack(conf)
         .run(function(err, stats) {
@@ -173,7 +174,7 @@ const bundle = {
   universal: {
     browser: {
       dev: function(done) {
-        const conf = require('./webpack.universal.browser.dev.js');
+        const conf = $.webpackConfig.universal.browser.dev($$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -181,7 +182,7 @@ const bundle = {
           });
       },
       prod: function(done) {
-        const conf = require('./webpack.universal.browser.prod.js');
+        const conf = $.webpackConfig.universal.browser.prod($$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -191,7 +192,7 @@ const bundle = {
     },
     server: {
       dev: function(done) {
-        const conf = require('./webpack.universal.server.dev.js');
+        const conf = $.webpackConfig.universal.server.dev($$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -199,7 +200,7 @@ const bundle = {
           });
       },
       prod: function(done) {
-        const conf = require('./webpack.universal.server.prod.js');
+        const conf = $.webpackConfig.universal.server.prod($$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
