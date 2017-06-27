@@ -178,7 +178,9 @@ const serverConfig = {
   module: {
     rules: [
       /**
-       * TS linter
+       * tslint-loader
+       *
+       * See: https://github.com/wbuchwalter/tslint-loader
        */
       {
         enforce: 'pre',
@@ -191,9 +193,9 @@ const serverConfig = {
       },
 
       /**
-       * Typescript loader support for .ts
+       * @ngtools/webpack for *.ts
        *
-       * See: https://github.com/s-panferov/awesome-typescript-loader
+       * See: https://github.com/angular/angular-cli
        */
       {
         test: /\.ts$/,
@@ -202,7 +204,7 @@ const serverConfig = {
       },
 
       /**
-       * Json loader support for *.json files.
+       * json-loader for *.json
        *
        * See: https://github.com/webpack/json-loader
        */
@@ -212,12 +214,25 @@ const serverConfig = {
       },
 
       /**
-       * Raw loader support for all other files.
+       * to-string-loader, css-loader and sass-loader for *.scss
+       *
+       * See: https://github.com/gajus/to-string-loader
+       * See: https://github.com/webpack-contrib/css-loader
+       * See: https://github.com/webpack-contrib/sass-loader
+       */
+      {
+        test: /\.scss$/,
+        use: ['to-string-loader', 'css-loader', 'sass-loader'],
+        exclude: [$$.root(`${settings.paths.src.client.root}/index.html`)]
+      },
+
+      /**
+       * raw-loader for all other files
        *
        * See: https://github.com/webpack/raw-loader
        */
       {
-        test: /\.(scss|html|png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        test: /\.(html|png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         use: 'raw-loader'
       }
     ]
@@ -266,7 +281,9 @@ const browserConfig = function(options) {
     module: {
       rules: [
         /**
-         * TS linter
+         * tslint-loader
+         *
+         * See: https://github.com/wbuchwalter/tslint-loader
          */
         {
           enforce: 'pre',
@@ -279,9 +296,10 @@ const browserConfig = function(options) {
         },
 
         /**
-         * Typescript loader support for .ts and Angular async routes via .async.ts
-         * Replace templateUrl and stylesUrl with require()
+         * @ngtools/webpack, ng-router-loader, awesome-typescript-loader and angular2-template-loader for *.ts
          *
+         * See: https://github.com/angular/angular-cli
+         * See: https://github.com/shlomiassaf/ng-router-loader
          * See: https://github.com/s-panferov/awesome-typescript-loader
          * See: https://github.com/TheLarkInn/angular2-template-loader
          */
@@ -298,7 +316,7 @@ const browserConfig = function(options) {
         },
 
         /**
-         * Json loader support for *.json files.
+         * json-loader for *.json
          *
          * See: https://github.com/webpack/json-loader
          */
@@ -308,8 +326,12 @@ const browserConfig = function(options) {
         },
 
         /**
-         * Style, css and sass loaders support for *.scss files
-         * Bundles in an external css file
+         * style-loader, css-loader and sass-loader for *.scss
+         * bundles in an external file
+         *
+         * See: https://github.com/webpack-contrib/style-loader
+         * See: https://github.com/webpack-contrib/css-loader
+         * See: https://github.com/webpack-contrib/sass-loader
          */
         {
           test: /\.scss$/,
@@ -323,8 +345,11 @@ const browserConfig = function(options) {
         },
 
         /**
-         * To-string, css and sass loader support for *.scss files
-         * Returns file content as string
+         * to-string-loader, css-loader and sass-loader for *.scss
+         *
+         * See: https://github.com/gajus/to-string-loader
+         * See: https://github.com/webpack-contrib/css-loader
+         * See: https://github.com/webpack-contrib/sass-loader
          */
         {
           test: /\.scss$/,
@@ -343,10 +368,9 @@ const browserConfig = function(options) {
         },
 
         /**
-         * Raw loader support for *.html
-         * Returns file content as string
+         * html-loader for *.html
          *
-         * See: https://github.com/webpack/raw-loader
+         * See: https://github.com/webpack/html-loader
          */
         {
           test: /\.html$/,
@@ -355,7 +379,9 @@ const browserConfig = function(options) {
         },
 
         /**
-         * File loader for supporting images, for example, in CSS files.
+         * file-loader for images & fonts
+         *
+         * See: https://github.com/webpack-contrib/file-loader
          */
         {
           test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
