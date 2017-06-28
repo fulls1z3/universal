@@ -24,6 +24,7 @@ coverage/
 !postcss.config.js
 !protractor.conf.js
 !stylelint.config.js
+!webpack.config.js
 
 # misc
 !config/*.js
