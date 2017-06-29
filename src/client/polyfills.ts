@@ -1,4 +1,4 @@
-﻿// import 'core-js/es6';
+// import 'core-js/es6';
 // Added parts of es6 which are necessary for your project or your browser support requirements.
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
