@@ -14,7 +14,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('angular-webpack-config');
+const webpackConfig = require($$.root('./config/webpack.config'));
 
 const server = express();
 server.use(compression());
@@ -23,7 +23,10 @@ server.use(logger('dev'));
 /**
  * HMR support
  */
-const conf = webpackConfig.spa.hmr($$.root, settings);
+const conf = webpackConfig({
+  env: 'dev',
+  hmr: true
+}, $$.root, settings);
 const compiler = webpack(conf);
 
 server.use(webpackDevMiddleware(compiler, {

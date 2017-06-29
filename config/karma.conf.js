@@ -1,7 +1,14 @@
 /**
  * Dependencies
  */
-const webpackConfig = require('./webpack.test.js');
+let settings = require('./build-config.json');
+
+const $$ = require('./gulp-helpers'),
+  webpackConfig = require('./webpack.config');
+
+settings = $$.loadSettings(settings);
+
+const conf = webpackConfig({ env: 'test' }, $$.root, settings);
 
 module.exports = function(config) {
   const configuration = {
@@ -39,7 +46,7 @@ module.exports = function(config) {
       './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap']
     },
 
-    webpack: webpackConfig,
+    webpack: conf,
 
     // webpack please don't spam the console when running in karma!
     webpackMiddleware: {

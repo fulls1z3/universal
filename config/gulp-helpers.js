@@ -192,8 +192,8 @@ const webpackFormatter = function(err, stats, callback, settings) {
 
     console.log(`Webpack: ${$.chalk.blue(`finished`)}`);
 
-    if (!!settings && !!settings.paths && !!settings.paths.public && !!settings.paths.public.assets)
-      require('fs').writeFileSync($$.root(`${settings.paths.public.assets}/stats.json`), JSON.stringify(statsJson));
+    if (!!settings && !!settings.paths && !!settings.paths.public && !!settings.paths.public.assets && !!settings.paths.public.assets.root)
+      require('fs').writeFileSync($$.root(`${settings.paths.public.assets.root}/stats.json`), JSON.stringify(statsJson));
 
     callback();
   }
