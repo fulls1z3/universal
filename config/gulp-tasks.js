@@ -9,7 +9,7 @@ const gulp = require('gulp'),
   $ = require('gulp-load-plugins')(settings.plugins.pluginloader),
   $$ = require('./gulp-helpers');
 
-$.webpackConfig = require('angular-webpack-config');
+$.webpackConfig = require('./webpack.config');
 settings = $$.loadSettings(settings);
 
 /**
@@ -34,7 +34,7 @@ const clean = {
     $.rimraf(`${settings.paths.public.root}/**`, done);
   },
   artifacts: function(done) {
-    $.rimraf(`${settings.paths.public.assets}/index.html`, done);
+    $.rimraf(`${settings.paths.public.assets.root}/index.html`, done);
   },
   server: function(done) {
     $.rimraf(`${settings.paths.server}/server*.*`, done);
@@ -88,7 +88,6 @@ const assets = {
             clearReportedMessages: true
           })
         ];
-        const path = '/components';
 
         gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($$.sass({sourcemaps: true}))
@@ -125,7 +124,7 @@ assets.sass.lib.refactor.displayName = 'stylefmt:sass-lib';
 const views = {
   assets: {
     copy: function(done) {
-      gulp.src(`${settings.paths.public.assets}/index.html`)
+      gulp.src(`${settings.paths.public.assets.root}/index.html`)
         .pipe($$.changed(settings, settings.paths.public.root))
         .pipe(gulp.dest(settings.paths.public.root))
         .pipe($$.debug(settings))
@@ -155,7 +154,7 @@ ts.lint.displayName = 'lint:ts';
 const bundle = {
   spa: {
     dev: function(done) {
-      const conf = $.webpackConfig.spa.dev($$.root, settings);
+      const conf = $.webpackConfig({ env: 'dev' }, $$.root, settings);
 
       $.webpack(conf)
         .run(function(err, stats) {
@@ -163,7 +162,7 @@ const bundle = {
         });
     },
     prod: function(done) {
-      const conf = $.webpackConfig.spa.prod($$.root, settings);
+      const conf = $.webpackConfig({ env: 'prod' }, $$.root, settings);
 
       $.webpack(conf)
         .run(function(err, stats) {
@@ -174,7 +173,10 @@ const bundle = {
   universal: {
     browser: {
       dev: function(done) {
-        const conf = $.webpackConfig.universal.browser.dev($$.root, settings);
+        const conf = $.webpackConfig({
+          env: 'dev',
+          platform: 'browser'
+        }, $$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -182,7 +184,10 @@ const bundle = {
           });
       },
       prod: function(done) {
-        const conf = $.webpackConfig.universal.browser.prod($$.root, settings);
+        const conf = $.webpackConfig({
+          env: 'prod',
+          platform: 'browser'
+        }, $$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -192,7 +197,10 @@ const bundle = {
     },
     server: {
       dev: function(done) {
-        const conf = $.webpackConfig.universal.server.dev($$.root, settings);
+        const conf = $.webpackConfig({
+          env: 'dev',
+          platform: 'server'
+        }, $$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {
@@ -200,7 +208,10 @@ const bundle = {
           });
       },
       prod: function(done) {
-        const conf = $.webpackConfig.universal.server.prod($$.root, settings);
+        const conf = $.webpackConfig({
+          env: 'prod',
+          platform: 'server'
+        }, $$.root, settings);
 
         $.webpack(conf)
           .run(function(err, stats) {

@@ -23,6 +23,7 @@
       ],
       "kebab-case"
     ],
+    "use-view-encapsulation": false,
     "pipe-naming": [
       true,
       "camelCase",
