@@ -97,7 +97,7 @@
         "@angularclass/bootloader"
       ],
       "vendor": [
-        "@ngx-universal/express-engine",
+        "@nguniversal/express-engine",
         "@ngx-universal/state-transfer",
         "@ngx-config/core",
         "@ngx-config/http-loader",
