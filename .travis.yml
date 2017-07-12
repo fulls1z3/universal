@@ -1,0 +1,12 @@
+sudo: false
+dist: trusty
+
+language: node_js
+node_js:
+  - "6"
+
+cache: yarn
+
+script:
+  - npm run build:universal-prod
+  - timeout 5 node .server/server.js || [ $? == 124 ]
