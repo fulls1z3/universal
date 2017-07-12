@@ -1,8 +1,11 @@
 'use strict';
 
 /**
- * Server dependencies
+ * Server helpers & dependencies
  */
+const $$ = require('../config/helpers');
+const settings = $$.loadSettings(require('../config/build-config.json'));
+
 const express = require('express');
 const compression = require('compression');
 const logger = require('morgan');
@@ -11,6 +14,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackConfig = require($$.root('./config/webpack.config'));
 
 const server = express();
 server.use(compression());
@@ -19,12 +23,15 @@ server.use(logger('dev'));
 /**
  * HMR support
  */
-const webpackConfig = require('../config/webpack.spa.dev.hmr');
-const compiler = webpack(webpackConfig);
+const conf = webpackConfig({
+  env: 'dev',
+  hmr: true
+}, $$.root, settings);
+const compiler = webpack(conf);
 
 server.use(webpackDevMiddleware(compiler, {
   noInfo: true,
-  publicPath: webpackConfig.output.publicPath,
+  publicPath: conf.output.publicPath,
   stats: {
     colors: true
   }

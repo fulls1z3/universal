@@ -13,10 +13,12 @@
       "root": "{{root}}/src",
       "client": {
         "root": "{{src_root}}/client",
-        "app": "{{src_client_root}}/app",
+        "app": {
+          "root": "{{src_client_root}}/app"
+        },
         "assets": {
           "root": "{{src_client_root}}/assets",
-          "sass": "{{src_client_root}}/assets/sass"
+          "sass": "{{src_assets_root}}/sass"
         }
       },
       "server": {
@@ -26,7 +28,9 @@
     },
     "public": {
       "root": "{{root}}/public",
-      "assets": "{{public_root}}/assets"
+      "assets": {
+        "root": "{{public_root}}/assets"
+      }
     },
     "server": "{{root}}/.server",
     "cache": "{{root}}/.cache",
@@ -93,11 +97,14 @@
         "@angular/platform-browser-dynamic",
         "@angular/platform-server",
         "@angular/router",
-        "rxjs",
-        "@angularclass/bootloader"
+        "@nguniversal/express-engine"
       ],
       "vendor": [
-        "@nguniversal/express-engine",
+        "core-js",
+        "rxjs",
+        "zone.js",
+        "lodash",
+        "@angularclass/bootloader",
         "@ngx-universal/state-transfer",
         "@ngx-config/core",
         "@ngx-config/http-loader",
