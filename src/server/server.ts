@@ -9,7 +9,7 @@ import { enableProdMode } from '@angular/core';
 // libs
 import * as express from 'express';
 import * as compression from 'compression';
-import { ngExpressEngine } from '@ngx-universal/express-engine';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 
 // module
 import { AppServerModule } from './app/app.server.module';

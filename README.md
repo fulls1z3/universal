@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ng-seed/universal.svg?branch=master)](https://travis-ci.org/ng-seed/universal)
+
 # ng-seed/universal
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
