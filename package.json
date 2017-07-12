@@ -47,7 +47,7 @@
     "zone.js": "^0.8.12",
     "lodash": "^4.17.4",
     "@angularclass/bootloader": "^1.0.1",
-    "@ngx-universal/express-engine": "~0.4.0-beta.1",
+    "@nguniversal/express-engine": "~1.0.0-beta.2",
     "@ngx-universal/state-transfer": "~0.4.0-beta.1",
     "@ngx-config/core": "~0.2.0-rc.5",
     "@ngx-config/http-loader": "~0.2.0-rc.1",
