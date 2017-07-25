@@ -32,6 +32,7 @@
     "compression": "^1.6.2",
     "morgan": "^1.8.2",
     "body-parser": "^1.17.2",
+    "enhanced-resolve": "3.3.0",
 
     "@angular/animations": "~4.2.0",
     "@angular/common": "~4.2.0",
