@@ -135,7 +135,7 @@
     "tslint-loader": "^3.5.3",
     "typescript": "~2.3.4",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
-    "webpack": "^3.0.0",
+    "webpack": "~3.3.0",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
