@@ -1,8 +1,7 @@
 // angular
-import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServerModule } from '@angular/platform-server';
-import { Subscription } from 'rxjs/Subscription';
 
 // libs
 import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
@@ -13,18 +12,6 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 // modules & components
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
-
-export function bootstrapFactory(appRef: ApplicationRef,
-                                 stateTransfer: StateTransferService,
-                                 cache: CacheService): () => Subscription {
-  return () => appRef.isStable
-    .filter((stable: any) => stable)
-    .first()
-    .subscribe(() => {
-      stateTransfer.set(cache.key, JSON.stringify(cache.dehydrate()));
-      stateTransfer.inject();
-    });
-}
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -49,19 +36,15 @@ export function bootstrapFactory(appRef: ApplicationRef,
       }
     ]),
     AppModule
-  ],
-  providers: [
-    {
-      provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: bootstrapFactory,
-      multi: true,
-      deps: [
-        ApplicationRef,
-        StateTransferService,
-        CacheService
-      ]
-    }
   ]
 })
 export class AppServerModule {
+  constructor(private readonly stateTransfer: StateTransferService,
+              private readonly cache: CacheService) {
+  }
+
+  ngOnBootstrap = () => {
+    this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
+    this.stateTransfer.inject();
+  }
 }
