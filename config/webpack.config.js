@@ -77,8 +77,8 @@ module.exports = function(options, root, settings) {
       return !!options.platform
         ? options.platform === 'server'
           ? webpackConfig.universal.server.prod(root, settings)
-          : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
-        : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings));
+          : webpackMerge(webpackConfig.universal.browser.prod(options, root, settings), browserConfig(root, settings))
+        : webpackMerge(webpackConfig.spa.prod(options, root, settings), browserConfig(root, settings));
     case 'test':
     case 'testing':
       return webpackConfig.test(root, settings);
@@ -87,9 +87,9 @@ module.exports = function(options, root, settings) {
       return !!options.platform
         ? options.platform === 'server'
           ? webpackConfig.universal.server.dev(root, settings)
-          : webpackMerge(webpackConfig.universal.browser.dev(root, settings), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.universal.browser.dev(options, root, settings), browserConfig(root, settings))
         : options.hmr
-          ? webpackMerge(webpackConfig.spa.hmr(root, settings), browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.dev(root, settings), browserConfig(root, settings));
+          ? webpackMerge(webpackConfig.spa.hmr(options, root, settings), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.dev(options, root, settings), browserConfig(root, settings));
   }
 };
