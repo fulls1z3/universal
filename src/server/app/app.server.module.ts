@@ -1,5 +1,5 @@
 // angular
-import { NgModule, APP_BOOTSTRAP_LISTENER, ApplicationRef } from '@angular/core';
+import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServerModule } from '@angular/platform-server';
 import { Subscription } from 'rxjs/Subscription';
@@ -14,14 +14,11 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
 
-export function bootstrapFactory(
-  appRef: ApplicationRef,
-  stateTransfer: StateTransferService,
-  cache: CacheService,
-): () => Subscription {
-  console.log('bootstrapFactory');
+export function bootstrapFactory(appRef: ApplicationRef,
+                                 stateTransfer: StateTransferService,
+                                 cache: CacheService): () => Subscription {
   return () => appRef.isStable
-    .filter((stable) => stable)
+    .filter((stable: any) => stable)
     .first()
     .subscribe(() => {
       stateTransfer.set(cache.key, JSON.stringify(cache.dehydrate()));
@@ -61,9 +58,10 @@ export function bootstrapFactory(
       deps: [
         ApplicationRef,
         StateTransferService,
-        CacheService,
+        CacheService
       ]
     }
   ]
 })
-export class AppServerModule {}
+export class AppServerModule {
+}
