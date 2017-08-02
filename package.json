@@ -87,7 +87,7 @@
     "gulp-tslint": "^8.1.1",
     "gulp-replace": "^0.6.1",
     "webpack": "~3.4.1",
-    "angular-webpack-config": "^1.0.1",
+    "angular-webpack-config": "^1.0.2",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "webpack-merge": "^4.1.0",
     "webpack-hot-middleware": "^2.18.0",
