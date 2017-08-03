@@ -3,6 +3,7 @@ import 'zone.js/dist/zone';
 import 'reflect-metadata';
 
 // angular
+import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 // libs
@@ -15,4 +16,5 @@ export function main(): any {
   return platformBrowserDynamic().bootstrapModuleFactory(AppBrowserModuleNgFactory);
 }
 
+enableProdMode();
 bootloader(main);
