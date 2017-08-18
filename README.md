@@ -3,7 +3,8 @@
 # ng-seed/universal
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
-**`ng-seed/spa`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide) in file and application organization, providing the following features:
+**`ng-seed/universal`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide)
+in file and application organization, providing the following features:
 
 - Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
 - Adjustable build configuration via `json` file (`./config/build-config.json`).
@@ -14,16 +15,16 @@
 - Hot Module Replacement with [Webpack] and [webpack-hot-middleware].
 - Both inline and external SCSS compilation.
 - Lazy loading of modules.
-- Uses [@ngx-config] for configuration management.
-- Uses [@ngx-cache] for caching.
-- Uses [@ngx-translate] and [@ngx-i18n-router] for i18n support.
-- Uses [@ngx-meta] for SEO.
+- Uses [ngx-config] for configuration management.
+- Uses [ngx-cache] for caching.
+- Uses [ngx-translate] and [ngx-i18n-router] for i18n support.
+- Uses [ngx-meta] for SEO.
 - ~Unit tests with [Jasmine] and [Karma], including code coverage via [Istanbul].~
 - ~End-to-end tests with [Protractor].~
 - [angular-tslint-rules] as configuration preset for [TSLint] and [codelyzer].
 - Managing the type definitions using @types.
 
-> Built with `@angular v4.3.0`, bundled with `gulp v4.0` and `webpack v3.4.1`.
+> Built with `Angular v4.3.0`, bundled with `gulp v4.0` and `webpack v3.4.1`.
 
 You can find the live app [here](https://ng-seed-universal.azurewebsites.net).
 
@@ -60,7 +61,15 @@ npm run build:universal-prod
 npm run serve
 ```
 
-Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular Universal** (*server-side rendering*) in your browser.
+Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular
+Universal** (*server-side rendering*) in your browser.
+
+## Contributing
+If you want to file a bug, contribute some code, or improve documentation, please read up on the following contribution guidelines:
+- [Issue guidelines](CONTRIBUTING.md#submit)
+- [Contributing guidelines](CONTRIBUTING.md)
+- [Coding rules](CONTRIBUTING.md#rules)
+- [ChangeLog](CHANGELOG.md)
 
 ## License
 The MIT License (MIT)
@@ -75,11 +84,11 @@ Copyright (c) 2017 [Burak Tasci]
 [@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
 [UglifyJs2]: https://github.com/mishoo/UglifyJS2/tree/harmony
 [webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
-[@ngx-config]: https://github.com/ngx-config/core
-[@ngx-cache]: https://github.com/ngx-cache/core
-[@ngx-translate]: https://github.com/ngx-translate/core
-[@ngx-i18n-router]: https://github.com/ngx-i18n-router/core
-[@ngx-meta]: https://github.com/ngx-meta/core
+[ngx-config]: https://github.com/fulls1z3/ngx-config
+[ngx-cache]: https://github.com/fulls1z3/ngx-cache
+[ngx-translate]: https://github.com/ngx-translate/core
+[ngx-i18n-router]: https://github.com/fulls1z3/ngx-i18n-router
+[ngx-meta]: https://github.com/fulls1z3/ngx-meta
 [Jasmine]: https://jasmine.github.io
 [Karma]: https://karma-runner.github.io
 [Istanbul]: https://github.com/webpack-contrib/istanbul-instrumenter-loader

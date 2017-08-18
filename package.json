@@ -1,6 +1,6 @@
 {
   "name": "@ng-seed/universal",
-  "version": "0.4.0-beta.2",
+  "version": "0.4.0-beta.3",
   "description": "Seed project for Angular Universal apps featuring Server-Side Rendering (SSR), Webpack, dev/prod modes, DLLs, AoT compilation, HMR, SCSS compilation, lazy loading, config, cache, i18n, SEO, and TSLint/codelyzer",
   "repository": {
     "type": "git",
