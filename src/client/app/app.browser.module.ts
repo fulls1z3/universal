@@ -7,12 +7,23 @@ import { BrowserStateTransferModule, DEFAULT_STATE_ID } from '@ngx-universal/sta
 import { CACHE } from '@ngx-cache/core';
 import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/platform-browser';
 
+// framework
+import { ConsoleService, CoreModule, WindowService } from './framework/core/core.module';
+
 // modules & components
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
+// for AoT compilation
+export function windowFactory(): any {
+  return window;
+}
+
+export function consoleFactory(): any {
+  return console;
+}
+
 @NgModule({
-  bootstrap: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({
       appId: 'my-app-id'
@@ -28,8 +39,19 @@ import { AppComponent } from './app.component';
         useValue: DEFAULT_STATE_ID
       }
     ]),
+    CoreModule.forRoot([
+      {
+        provide: WindowService,
+        useFactory: windowFactory
+      },
+      {
+        provide: ConsoleService,
+        useFactory: consoleFactory
+      }
+    ]),
     AppModule
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppBrowserModule {
 }

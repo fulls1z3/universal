@@ -5,19 +5,21 @@ import { Routes } from '@angular/router';
 import { MetaGuard } from '@ngx-meta/core';
 
 // components
-import { ChangeLanguageComponent } from './change-language.component';
+import { MainComponent } from './components/layout/main.component';
+import { ChangeLanguageComponent } from './framework/i18n/i18n.module';
 
 export const routes: Routes = [
   {
     path: '',
+    component: MainComponent,
     children: [
       {
         path: '',
-        loadChildren: './+home/home.module#HomeModule'
+        loadChildren: './components/+home/home.module#HomeModule'
       },
       {
         path: 'about',
-        loadChildren: './+about/about.module#AboutModule'
+        loadChildren: './components/+about/about.module#AboutModule'
       }
     ],
     canActivateChild: [MetaGuard],
