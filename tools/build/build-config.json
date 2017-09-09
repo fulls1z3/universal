@@ -8,7 +8,6 @@
   },
   "root": ".",
   "paths": {
-    "config": "{{root}}/config",
     "src": {
       "root": "{{root}}/src",
       "client": {
@@ -25,6 +24,12 @@
         "root": "{{src_root}}/server",
         "app": "{{src_server_root}}/app"
       }
+    },
+    "tools" : {
+      "root": "{{root}}/tools",
+      "build": "{{tools_root}}/build",
+      "config": "{{tools_root}}/config",
+      "test": "{{tools_root}}/test"
     },
     "public": {
       "root": "{{root}}/public",

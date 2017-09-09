@@ -27,7 +27,6 @@
         "culture": "tr-TR"
       }
     ],
-    "autoDetectLanguage": true,
     "useLocalizedRoutes": true
   },
   "routes": {

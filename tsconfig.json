@@ -5,13 +5,15 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": true,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "importHelpers": true,
-    "lib": [ "es2015", "dom" ],
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
     ]
   },
   "exclude": [
@@ -23,10 +25,7 @@
     "skipMetadataEmit": true
   },
   "awesomeTypescriptLoaderOptions": {
-    "useTranspileModule": true,
     "usePrecompiledFiles": true,
     "useWebpackText": true
-  },
-  "compileOnSave": false,
-  "buildOnSave": false
+  }
 }

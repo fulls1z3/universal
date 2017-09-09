@@ -3,8 +3,8 @@
 /**
  * Server helpers & dependencies
  */
-const $$ = require('../config/helpers');
-const settings = $$.loadSettings(require('../config/build-config.json'));
+const $$ = require('../tools/build/helpers');
+const settings = $$.loadSettings(require('../tools/build/build-config.json'));
 
 const express = require('express');
 const compression = require('compression');
@@ -14,7 +14,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require($$.root('./config/webpack.config'));
+const webpackConfig = require($$.root('./tools/build/webpack.config'));
 
 const server = express();
 server.use(compression());

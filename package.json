@@ -1,6 +1,6 @@
 {
   "name": "@ng-seed/universal",
-  "version": "0.4.0-beta.3",
+  "version": "1.0.0",
   "description": "Seed project for Angular Universal apps featuring Server-Side Rendering (SSR), Webpack, dev/prod modes, DLLs, AoT compilation, HMR, SCSS compilation, lazy loading, config, cache, i18n, SEO, and TSLint/codelyzer",
   "repository": {
     "type": "git",
@@ -16,15 +16,21 @@
   },
   "homepage": "https://github.com/ng-seed/universal#readme",
   "scripts": {
-    "build:spa-dev": "gulp clean && gulp build:spa-dev",
-    "build:spa-prod": "gulp clean && gulp build:spa-prod",
-    "build:universal-dev": "gulp clean && gulp build:universal-dev",
-    "build:universal-prod": "gulp clean && gulp build:universal-prod",
+    "clean": "gulp clean --color",
+    "build:spa-dev": "gulp build:spa-dev --color",
+    "build:spa-prod": "gulp build:spa-prod --color",
+    "build:universal-dev": "gulp build:universal-dev --color",
+    "build:universal-prod": "gulp build:universal-prod --color",
+    "lint": "tslint -p ./tslint.json --force",
+    "rebuild:spa-dev": "npm run clean && npm run build:spa-dev",
+    "rebuild:spa-prod": "npm run clean && npm run build:spa-prod",
+    "rebuild:universal-dev": "npm run clean && npm run build:universal-dev",
+    "rebuild:universal-prod": "npm run clean && npm run build:universal-prod",
     "serve": "npm run serve:universal",
     "serve:spa": "nodemon ./.server/spa-server.js",
     "serve:spa-hmr": "node ./.server/spa-server.hmr.js",
     "serve:universal": "nodemon ./.server/server.js",
-    "test": "karma start"
+    "test": "gulp test --color"
   },
   "dependencies": {
     "express": "~4.15.4",
@@ -87,7 +93,7 @@
     "gulp-tslint": "~8.1.2",
     "gulp-replace": "~0.6.1",
     "webpack": "~3.5.6",
-    "angular-webpack-config": "~1.1.0",
+    "angular-webpack-config": "~1.2.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "webpack-merge": "~4.1.0",
     "webpack-hot-middleware": "~2.19.1",
@@ -138,7 +144,6 @@
     "karma-sourcemap-loader": "~0.3.7",
     "karma-webpack": "~2.0.4",
     "karma-chrome-launcher": "~2.2.0",
-    "tslib": "~1.7.1",
 
     "source-map-loader": "~0.2.1",
     "istanbul-instrumenter-loader": "~3.0.0",
@@ -146,6 +151,7 @@
     "codelyzer": "~3.1.2",
     "tslint": "~5.7.0",
     "angular-tslint-rules": "~1.0.4",
+    "tslib": "~1.7.1",
     "typescript": "~2.5.2"
   },
   "greenkeeper": {

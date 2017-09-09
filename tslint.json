@@ -10,7 +10,8 @@
       true,
       "attribute",
       [
-        "app"
+        "app",
+        "routerLink"
       ],
       "camelCase"
     ],
@@ -19,15 +20,17 @@
       "element",
       [
         "app",
-        "i18n"
+        "i18n",
+        "router"
       ],
       "kebab-case"
     ],
     "use-view-encapsulation": false,
+    "no-forward-ref": false,
     "pipe-naming": [
       true,
       "camelCase",
-      "kr"
+      "app"
     ]
   }
 }

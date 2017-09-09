@@ -1,6 +1,3 @@
-/**
- * Dependencies
- */
 const gulp = require('gulp'),
   $ = {},
   $$ = require('./helpers');
@@ -18,10 +15,10 @@ $._ = require('lodash');
 $.chalk = require('chalk');
 $.symbols = require('log-symbols');
 
-/**
- * Helper methods
- */
-const done = function(err, callback) {
+exports.root = $$.root;
+exports.loadSettings = $$.loadSettings;
+
+exports.done = function(err, callback) {
   if (err) {
     process.exit(1);
     callback();
@@ -30,14 +27,14 @@ const done = function(err, callback) {
   callback();
 };
 
-const changed = function(settings, path, extension) {
+exports.changed = function(settings, path, extension) {
   return $.lazypipe()
     .pipe(function() {
       return settings.quick ? $.changed(path, !!extension ? {extension: extension} : {}) : undefined;
     })();
 };
 
-const dummy = function(settings, glob) {
+exports.dummy = function(settings, glob) {
   return $.lazypipe()
     .pipe(function() {
       return $.ignore.exclude(!!glob ? glob : '*.*');
@@ -47,7 +44,7 @@ const dummy = function(settings, glob) {
     })();
 };
 
-const debug = function(settings, glob) {
+exports.debug = function(settings, glob) {
   return $.lazypipe()
     .pipe(function() {
       return settings.debug ? $.debug(settings.plugins.debugger) : undefined;
@@ -60,7 +57,7 @@ const debug = function(settings, glob) {
     })();
 };
 
-const sass = function(options) {
+exports.sass = function(options) {
   if (!options)
     options = {
       sourcemaps: undefined
@@ -78,24 +75,24 @@ const sass = function(options) {
     })();
 };
 
-const sasslint = function(settings) {
+exports.sasslint = function(settings) {
   return $.lazypipe()
     .pipe(function() {
-      return $.sasslint({configFile: `${settings.paths.config}/.sasslint.yml`});
+      return $.sasslint({configFile: `${settings.paths.tools.config}/.sasslint.yml`});
     })
     .pipe(function() {
       return $.sasslint.format();
     })();
 };
 
-const stylelint = function(settings) {
+exports.stylelint = function(settings) {
   return $.lazypipe()
     .pipe(function() {
-      return $.stylelint({configFile: `${settings.paths.config}/stylelint.config.js`});
+      return $.stylelint({configFile: `${settings.paths.tools.config}/stylelint.config.js`});
     })();
 };
 
-const tslint = function() {
+exports.tslint = function() {
   return $.lazypipe()
     .pipe(function() {
       return $.tslint({formatter: 'verbose'});
@@ -105,7 +102,7 @@ const tslint = function() {
     })();
 };
 
-const reporterFormatter = function(input) {
+exports.reporterFormatter = function(input) {
   const format = function(message) {
     let str = '';
 
@@ -160,7 +157,7 @@ const reporterFormatter = function(input) {
   return !$._.isEmpty(messages) ? output : '';
 };
 
-const webpackFormatter = function(err, stats, callback, settings) {
+exports.webpackFormatter = function(err, stats, callback, settings) {
   if (err) {
     console.log($.chalk.red(`Error: ${err}`));
     callback();
@@ -198,19 +195,3 @@ const webpackFormatter = function(err, stats, callback, settings) {
     callback();
   }
 };
-
-/**
- * Exports
- */
-exports.root = $$.root;
-exports.loadSettings = $$.loadSettings;
-exports.done = done;
-exports.changed = changed;
-exports.dummy = dummy;
-exports.debug = debug;
-exports.sass = sass;
-exports.sasslint = sasslint;
-exports.stylelint = stylelint;
-exports.tslint = tslint;
-exports.reporterFormatter = reporterFormatter;
-exports.webpackFormatter = webpackFormatter;
