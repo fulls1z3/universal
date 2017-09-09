@@ -1,1 +1,1 @@
-module.exports = require('./config/gulp-tasks.js');
+module.exports = require('./tools/build/gulp-tasks.js');

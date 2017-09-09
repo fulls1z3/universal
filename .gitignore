@@ -1,32 +1,45 @@
 ﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-*.js
-public/
-.server/*
+/public
+/.server
 !.server/spa-server*.js
-.cache/
-.temp/
-*.d.ts
-*.metadata.json
+/.cache
+/.temp
 
 # dependencies
 node_modules/
-yarn.lock
 
 # IDEs and editors
-.idea/
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# build tools
-coverage/
-!gulpfile.js
-!karma.conf.js
-!postcss.config.js
-!protractor.conf.js
-!stylelint.config.js
-!webpack.config.js
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
-!config/*.js
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log
-!src/client/custom-typings.d.ts
+testem.log
+/typings
+yarn-error.log
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db

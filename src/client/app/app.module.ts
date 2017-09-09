@@ -26,8 +26,8 @@ import { ChangeLanguageComponent } from './change-language.component';
 
 // for AoT compilation
 export function configFactory(platformId: any, http: Http): ConfigLoader {
-  const serverLoader = new ConfigFsLoader('./public/assets/config.json');
-  const browserLoader = new ConfigHttpLoader(http, './assets/config.json');
+  const serverLoader = new ConfigFsLoader('./public/assets/config.local.json');
+  const browserLoader = new ConfigHttpLoader(http, './assets/config.local.json');
 
   return new UniversalConfigLoader(platformId, serverLoader, browserLoader);
 }

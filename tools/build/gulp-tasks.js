@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * Gulp helpers & dependencies
- */
 let settings = require('./build-config.json');
 
 const gulp = require('gulp'),
@@ -12,23 +9,14 @@ const gulp = require('gulp'),
 $.webpackConfig = require('./webpack.config');
 settings = $$.loadSettings(settings);
 
-/**
- * Define & include tasks
- */
 const tasks = {};
 
-/**
- * Dummy task
- */
 const dummy = function(done) {
   done();
 };
 
 dummy.displayName = 'dummy';
 
-/**
- * Clean file(s)
- */
 const clean = {
   'public': function(done) {
     $.rimraf(`${settings.paths.public.root}/**`, done);
@@ -53,9 +41,6 @@ clean.server.displayName = 'clean:server';
 clean.cache.displayName = 'clean:cache';
 clean.temp.displayName = 'clean:temp';
 
-/**
- * Assets
- */
 const assets = {
   sass: {
     lib: {
@@ -118,9 +103,6 @@ assets.sass.lib.sasslint.displayName = 'lint:sass-lib';
 assets.sass.lib.stylelint.displayName = 'lint:style-lib';
 assets.sass.lib.refactor.displayName = 'stylefmt:sass-lib';
 
-/**
- * Views
- */
 const views = {
   assets: {
     copy: function(done) {
@@ -135,22 +117,6 @@ const views = {
 
 views.assets.copy.displayName = 'copy:index.html';
 
-/**
- * TypeScript
- */
-const ts = {
-  lint: function(done) {
-    gulp.src(`${settings.paths.src.root}/**/*.ts`)
-      .pipe($$.tslint())
-      .on('end', done);
-  }
-};
-
-ts.lint.displayName = 'lint:ts';
-
-/**
- * Bundle
- */
 const bundle = {
   spa: {
     dev: function(done) {
@@ -229,9 +195,6 @@ bundle.universal.browser.prod.displayName = 'bundle:universal-browser-prod';
 bundle.universal.server.dev.displayName = 'bundle:universal-server-dev';
 bundle.universal.server.prod.displayName = 'bundle:universal-server-prod';
 
-/**
- * Tests
- */
 const tests = {
   run: function(done) {
     const server = require('karma').Server;
@@ -249,20 +212,13 @@ const tests = {
 
 tests.run.displayName = 'tests:run';
 
-/**
- * Tasks
- */
 tasks.dummy = dummy;
 tasks.clean = clean;
 tasks.assets = assets;
 tasks.views = views;
-tasks.ts = ts;
 tasks.bundle = bundle;
 tasks.tests = tests;
 
-/**
- * Task: clean
- */
 gulp.task('clean',
   gulp.series(
     tasks.clean.public,
@@ -271,9 +227,6 @@ gulp.task('clean',
     tasks.clean.temp
   ));
 
-/**
- * Task: build:spa-dev
- */
 gulp.task('build:spa-dev',
   gulp.series(
     settings.quick ? tasks.dummy : 'clean',
@@ -282,9 +235,6 @@ gulp.task('build:spa-dev',
     tasks.clean.artifacts
   ));
 
-/**
- * Task: build:spa-prod
- */
 gulp.task('build:spa-prod',
   gulp.series(
     settings.quick ? tasks.dummy : 'clean',
@@ -293,9 +243,6 @@ gulp.task('build:spa-prod',
     tasks.clean.artifacts
   ));
 
-/**
- * Task: build:universal-dev
- */
 gulp.task('build:universal-dev',
   gulp.series(
     settings.quick ? tasks.dummy : 'clean',
@@ -305,9 +252,6 @@ gulp.task('build:universal-dev',
     tasks.clean.artifacts
   ));
 
-/**
- * Task: build:universal-prod
- */
 gulp.task('build:universal-prod',
   gulp.series(
     settings.quick ? tasks.dummy : 'clean',
@@ -317,50 +261,27 @@ gulp.task('build:universal-prod',
     tasks.clean.artifacts
   ));
 
-/**
- * Task: test
- */
 gulp.task('test',
   gulp.series(
     settings.quick ? tasks.dummy : 'clean',
     tasks.tests.run
   ));
 
-/**
- * Task: review:tslint
- */
-gulp.task('review:tslint',
-  gulp.series(
-    tasks.ts.lint
-  ));
-
-/**
- * Task: review:sasslint
- */
 gulp.task('review:sasslint',
   gulp.series(
     tasks.assets.sass.lib.sasslint
   ));
 
-/**
- * Task: review:stylelint
- */
 gulp.task('review:stylelint',
   gulp.series(
     tasks.assets.sass.lib.stylelint
   ));
 
-/**
- * Task: review:colorguard
- */
 gulp.task('review:colorguard',
   gulp.series(
     tasks.assets.sass.lib.colorguard
   ));
 
-/**
- * Task: refactor:sass
- */
 gulp.task('refactor:sass',
   gulp.series(
     tasks.assets.sass.lib.refactor
