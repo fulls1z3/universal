@@ -40,6 +40,9 @@
     },
     "NODE_MODULES": "{{root}}/node_modules"
   },
+  "publicPaths": {
+    "assets": "assets/"
+  },
   "plugins": {
     "pluginloader": {
       "pattern": [
