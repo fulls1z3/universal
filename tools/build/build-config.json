@@ -112,6 +112,8 @@
         "zone.js",
         "lodash",
         "@angularclass/bootloader",
+        "@ngrx/store",
+        "@ngrx/effects",
         "@ngx-universal/express-engine",
         "@ngx-universal/state-transfer",
         "@ngx-config/core",
@@ -127,7 +129,8 @@
         "@ngx-universal/translate-loader",
         "@ngx-meta/core",
         "@ngx-i18n-router/core",
-        "@ngx-i18n-router/config-loader"
+        "@ngx-i18n-router/config-loader",
+        "angulartics2"
       ]
     }
   }

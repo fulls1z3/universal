@@ -16,10 +16,6 @@
       "dom"
     ]
   },
-  "exclude": [
-    "bower_components",
-    "node_modules"
-  ],
   "angularCompilerOptions": {
     "genDir": ".",
     "skipMetadataEmit": true

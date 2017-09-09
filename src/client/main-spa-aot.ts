@@ -6,10 +6,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { bootloader } from '@angularclass/bootloader';
 
 // app
-import { AppModuleNgFactory } from './app/app.module.ngfactory';
+import { AppBrowserModuleNgFactory } from './app/app.browser.module.ngfactory';
 
 export function main(): any {
-  return platformBrowserDynamic().bootstrapModuleFactory(AppModuleNgFactory);
+  return platformBrowserDynamic().bootstrapModuleFactory(AppBrowserModuleNgFactory);
 }
 
 enableProdMode();
