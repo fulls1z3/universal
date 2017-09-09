@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 // libs
+// TODO: ngx-i18n-router
 // import { I18NRouterModule } from '@ngx-i18n-router/core';
 
 // routes & components
@@ -16,6 +17,7 @@ import { AboutApplePearComponent } from './about-apple-pear.component';
 @NgModule({
   imports: [
     CommonModule,
+    // TODO: ngx-i18n-router
     // I18NRouterModule.forChild(routes, 'about')
     RouterModule.forChild(routes)
   ],

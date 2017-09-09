@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * Server helpers & dependencies
- */
 const $$ = require('../tools/build/helpers');
 const settings = $$.loadSettings(require('../tools/build/build-config.json'));
 
@@ -20,9 +17,6 @@ const server = express();
 server.use(compression());
 server.use(logger('dev'));
 
-/**
- * HMR support
- */
 const conf = webpackConfig({
   env: 'dev',
   hmr: true
@@ -40,27 +34,14 @@ server.use(webpackHotMiddleware(compiler, {
   log: console.log
 }));
 
-/**
- * Parsers for POST data
- */
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
-
-/**
- * Point static path to `public`
- */
 server.use('/', express.static('public', {index: false}));
 
-/**
- * Catch all routes and return the `index.html`
- */
 server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-/**
- * Error handlers
- */
 // development error handler
 // will print stacktrace
 if (server.get('env') === 'development') {
@@ -74,7 +55,7 @@ if (server.get('env') === 'development') {
 }
 
 // production error handler
-// no stacktraces leaked to user
+// no stack trace leaked
 server.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error', {
@@ -83,18 +64,12 @@ server.use(function(err, req, res) {
   });
 });
 
-/**
- * Port & host settings
- */
 const PORT = process.env.PORT || 1337;
 const HOST = process.env.BASE_URL || 'localhost';
 const baseUrl = `http://${HOST}:${PORT}`;
 
 server.set('port', PORT);
 
-/**
- * Begin listening
- */
 server.listen(server.get('port'), () => {
   console.log(`Express server listening on ${baseUrl}`);
 });

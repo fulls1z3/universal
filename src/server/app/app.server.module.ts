@@ -14,7 +14,6 @@ import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
 
 @NgModule({
-  bootstrap: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({
       appId: 'my-app-id'
@@ -32,11 +31,12 @@ import { AppComponent } from '../../client/app/app.component';
       },
       {
         provide: FsStorageLoader,
-        useFactory: (fsStorageFactory)
+        useFactory: fsStorageFactory
       }
     ]),
     AppModule
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppServerModule {
   constructor(private readonly stateTransfer: StateTransferService,

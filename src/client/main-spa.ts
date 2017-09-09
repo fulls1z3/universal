@@ -5,10 +5,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { bootloader } from '@angularclass/bootloader';
 
 // app
-import { AppModule } from './app/app.module';
+import { AppBrowserModule } from './app/app.browser.module';
 
 export function main(): any {
-  return platformBrowserDynamic().bootstrapModule(AppModule);
+  return platformBrowserDynamic().bootstrapModule(AppBrowserModule);
 }
 
 // HMR support
