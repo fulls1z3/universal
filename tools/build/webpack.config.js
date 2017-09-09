@@ -27,6 +27,15 @@ const browserConfig = function(root, settings) {
   };
 };
 
+const testNodeConfig = function() {
+  return {
+    node: {
+      fs: 'empty',
+      process: 'mock'
+    }
+  };
+};
+
 module.exports = function(options, root, settings) {
   switch (options.env) {
     case 'prod':
@@ -38,7 +47,7 @@ module.exports = function(options, root, settings) {
         : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings));
     case 'test':
     case 'testing':
-      return webpackConfig.test(root, settings);
+      return webpackMerge(webpackConfig.test(root, settings), testNodeConfig());
     case 'dev':
     case 'development':
       return !!options.platform
