@@ -58,7 +58,7 @@
     "@angularclass/bootloader": "~1.0.1",
     "@ngrx/store": "~4.0.3",
     "@ngrx/effects": "~4.0.5",
-    "@ngx-universal/express-engine": "0.4.0-beta.1",
+    "@ngx-universal/express-engine": "4.0.1",
     "@ngx-universal/state-transfer": "4.0.1",
     "@ngx-config/core": "4.0.1",
     "@ngx-config/http-loader": "4.0.1",
