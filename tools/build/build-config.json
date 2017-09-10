@@ -37,9 +37,7 @@
         "root": "{{public_root}}/assets"
       }
     },
-    "server": "{{root}}/.server",
-    "cache": "{{root}}/.cache",
-    "temp": "{{root}}/.temp"
+    "server": "{{root}}/.server"
   },
   "publicPaths": {
     "assets": "assets/"
