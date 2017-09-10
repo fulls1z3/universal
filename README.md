@@ -19,7 +19,7 @@ in file and application organization, providing the following features:
 - [x] Adjustable build configuration via `json` file (`./tools/build/build-config.json`).
 - [x] Managing the type definitions using [@types].
 - [x] Production and development modes.
-- [x] [Webpack DLL]s to speed up development builds.
+- [x] [Dll Bundle plugin] and [Hard Source plugin] to lightning-fast up development builds.
 - [x] Hot Module Replacement with [Webpack] and [webpack-hot-middleware].
 - [x] [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
 - [x] Tree-shaking the production builds with `harmony` branch of [UglifyJs2].
@@ -115,9 +115,9 @@ $ npm run lint
 $ npm test
 
 # dev build (SPA / lean Angular)
-$ npm run rebuild:spa-dev
+$ npm run build:spa-dev
 # prod build (SPA / lean Angular)
-$ npm run rebuild:spa-prod
+$ npm run build:spa-prod
 
 # start the server (SPA / lean Angular)
 $ npm run serve:spa
@@ -125,9 +125,9 @@ $ npm run serve:spa
 $ npm run serve:spa-hmr
 
 # dev build (Universal)
-$ npm run rebuild:universal-dev
+$ npm run build:universal-dev
 # prod build (Universal)
-$ npm run rebuild:universal-prod
+$ npm run build:universal-prod
 
 # start the server (Angular Universal)
 $ npm run serve
@@ -219,7 +219,8 @@ Copyright (c) 2017 [Burak Tasci]
 [TypeScript]: https://github.com/Microsoft/TypeScript
 [angular-webpack-config]: https://github.com/ng-seed/angular-webpack-config
 [@types]: https://www.npmjs.com/~types
-[Webpack DLL]: https://robertknight.github.io/posts/webpack-dll-plugins
+[Dll Bundle plugin]: https://github.com/shlomiassaf/webpack-dll-bundles-plugin
+[Hard Source plugin]: https://github.com/mzgoddard/hard-source-webpack-plugin
 [webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 [@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
