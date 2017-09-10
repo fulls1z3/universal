@@ -85,6 +85,7 @@
     "@types/jasmine": "~2.5.54",
     "@types/lodash": "4.14.55",
     "json-sub": "1.1.0",
+    "supports-color": "3.2.3",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-load-plugins": "~1.5.0",
     "lazypipe": "~1.0.1",
@@ -160,6 +161,7 @@
       "@ngx-translate/core",
       "@ngx-translate/http-loader",
       "json-sub",
+      "supports-color",
       "angular2-template-loader"
     ]
   }
