@@ -31,3 +31,5 @@ jobs:
       - store_artifacts:
           path: .server
           prefix: .server
+      - store_test_results:
+          path: test-report.xml
