@@ -16,9 +16,9 @@ jobs:
           key: deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths: 'node_modules'
       - run: yarn ci:before
+      - run: yarn test:ci
       - run: yarn rebuild:universal-prod
       - run: timeout 5 node .server/server.js || [ $? == 124 ]
-      - run: yarn test:ci
       # - run: yarn e2e
       - run: yarn ci:after
       - run: bash <(curl -s https://codecov.io/bash)
