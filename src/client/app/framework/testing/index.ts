@@ -1,4 +1,4 @@
 // module
-import { ngJasmine } from './shorthand/ng-jasmine';
+import { ngJest } from './shorthand/ng-jest';
 
-export const t = ngJasmine;
+export const t = ngJest;
