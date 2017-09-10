@@ -17,6 +17,7 @@
   "homepage": "https://github.com/ng-seed/universal#readme",
   "scripts": {
     "clean": "rimraf .cache .server/server* .temp public",
+    "clean:dll": "rimraf node_modules/.cache",
     "build:spa-dev": "npm run clean && gulp build:spa-dev --color",
     "build:spa-prod": "npm run clean && gulp build:spa-prod --color",
     "build:universal-dev": "npm run clean && gulp build:universal-dev --color",
