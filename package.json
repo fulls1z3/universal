@@ -125,6 +125,7 @@
     "html-elements-webpack-plugin": "~1.0.1",
     "script-ext-html-webpack-plugin": "~1.8.5",
     "webpack-dll-bundles-plugin": "~1.0.0-beta.5",
+    "hard-source-webpack-plugin": "~0.4.9",
     "add-asset-html-webpack-plugin": "~2.1.1",
     "optimize-js-plugin": "~0.0.4",
     "extract-text-webpack-plugin": "~3.0.0",
