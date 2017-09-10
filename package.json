@@ -83,6 +83,7 @@
     "@angular/compiler-cli": "~4.3.0",
     "@types/node": "~8.0.28",
     "@types/express": "~4.0.37",
+    "@types/jest": "~20.0.8",
     "@types/lodash": "4.14.55",
     "json-sub": "1.1.0",
     "supports-color": "3.2.3",
