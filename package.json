@@ -157,9 +157,10 @@
   },
   "greenkeeper": {
     "ignore": [
-      "@types/lodash",
+      "@ngx-universal/express-engine",
       "@ngx-translate/core",
       "@ngx-translate/http-loader",
+      "@types/lodash",
       "json-sub",
       "supports-color",
       "angular2-template-loader"
