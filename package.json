@@ -30,7 +30,11 @@
     "serve:spa": "nodemon ./.server/spa-server.js",
     "serve:spa-hmr": "node ./.server/spa-server.hmr.js",
     "serve:universal": "nodemon ./.server/server.js",
-    "test": "gulp test --color"
+    "test": "gulp test --color",
+    "test:ci": "gulp test --color",
+    "ci:before": "greenkeeper-lockfile-update",
+    "ci:after": "greenkeeper-lockfile-upload",
+    "release": "standard-version"
   },
   "dependencies": {
     "express": "~4.15.4",
@@ -38,7 +42,6 @@
     "compression": "~1.7.0",
     "morgan": "~1.8.2",
     "body-parser": "~1.18.0",
-
     "@angular/animations": "~4.3.0",
     "@angular/common": "~4.3.0",
     "@angular/core": "~4.3.0",
@@ -75,14 +78,12 @@
   },
   "devDependencies": {
     "nodemon": "~1.12.0",
-
     "@angular/compiler": "~4.3.0",
     "@angular/compiler-cli": "~4.3.0",
     "@types/node": "~8.0.28",
     "@types/express": "~4.0.37",
     "@types/jasmine": "~2.5.54",
     "@types/lodash": "4.14.55",
-
     "json-sub": "1.1.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-load-plugins": "~1.5.0",
@@ -101,7 +102,6 @@
     "webpack-merge": "~4.1.0",
     "webpack-hot-middleware": "~2.19.1",
     "@ngtools/webpack": "~1.7.0",
-
     "tslint-loader": "~3.5.3",
     "awesome-typescript-loader": "~3.2.3",
     "angular2-template-loader": "0.6.0",
@@ -117,7 +117,6 @@
     "html-loader": "~0.5.1",
     "raw-loader": "~0.5.1",
     "file-loader": "~0.11.2",
-
     "assets-webpack-plugin": "~3.5.1",
     "copy-webpack-plugin": "~4.0.1",
     "html-webpack-plugin": "~2.30.1",
@@ -127,7 +126,6 @@
     "add-asset-html-webpack-plugin": "~2.1.1",
     "optimize-js-plugin": "~0.0.4",
     "extract-text-webpack-plugin": "~3.0.0",
-
     "gulp-sass": "~3.1.0",
     "gulp-sourcemaps": "~2.6.1",
     "gulp-postcss": "~7.0.0",
@@ -137,7 +135,6 @@
     "stylelint": "~8.1.1",
     "colorguard": "~1.2.0",
     "stylefmt": "~6.0.0",
-
     "jasmine-core": "^2.8.0",
     "jasmine-marbles": "^0.1.0",
     "karma": "^1.7.1",
@@ -148,10 +145,9 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
     "karma-chrome-launcher": "^2.2.0",
-
     "source-map-loader": "~0.2.1",
     "istanbul-instrumenter-loader": "~3.0.0",
-
+    "standard-version": "^4.2.0",
     "codelyzer": "~3.1.2",
     "tslint": "~5.7.0",
     "angular-tslint-rules": "~1.0.4",

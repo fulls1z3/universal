@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7-browsers
+    steps:
+      - checkout
+      - run: sudo npm install -g yarn@0
+      - run: sudo yarn global add greenkeeper-lockfile@1
+      - restore_cache:
+          keys:
+          - deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - deps-
+      - run: yarn
+      - save_cache:
+          key: deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths: 'node_modules'
+      - run: yarn ci:before
+      - run: yarn rebuild:universal-prod
+      - run: timeout 5 node .server/server.js || [ $? == 124 ]
+      - run: yarn test:ci
+      # - run: yarn e2e
+      - run: yarn ci:after
+      - run: bash <(curl -s https://codecov.io/bash)
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_artifacts:
+          path: public
+          prefix: public
