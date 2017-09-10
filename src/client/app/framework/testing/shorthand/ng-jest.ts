@@ -11,8 +11,8 @@ export interface TestApi {
   fakeAsync(fn: Function): Function;
   be(fn: Function): void;
   beforeEach(fn: Function): void;
-  e<T>(actual: any): jasmine.Matchers<T>;
-  expect<T>(actual: any): jasmine.Matchers<T>;
+  e(actual: any): jest.Matchers<void>;
+  expect(actual: any): jest.Matchers<void>;
   fail(e?: any): void;
   inject(tokens: Array<any>, fn: Function): Function;
   it(name: string, fn: Function, timeOut?: number): void;
@@ -23,7 +23,7 @@ export interface TestApi {
   tick(delay?: number): void;
 }
 
-export const ngJasmine: TestApi = {
+export const ngJest: TestApi = {
   ae: afterEach, // shorthand afterEach
   afterEach,
   describe,
