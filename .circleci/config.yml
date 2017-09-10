@@ -28,3 +28,6 @@ jobs:
       - store_artifacts:
           path: public
           prefix: public
+      - store_artifacts:
+          path: .server
+          prefix: .server
