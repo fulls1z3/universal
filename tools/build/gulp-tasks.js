@@ -195,29 +195,11 @@ bundle.universal.browser.prod.displayName = 'bundle:universal-browser-prod';
 bundle.universal.server.dev.displayName = 'bundle:universal-server-dev';
 bundle.universal.server.prod.displayName = 'bundle:universal-server-prod';
 
-const tests = {
-  run: function(done) {
-    const server = require('karma').Server;
-
-    new server({
-        configFile: $$.root(`${settings.root}/karma.conf.js`),
-        singleRun: true
-      },
-      function() {
-        done();
-        process.exit(0);
-      }).start();
-  }
-};
-
-tests.run.displayName = 'tests:run';
-
 tasks.dummy = dummy;
 tasks.clean = clean;
 tasks.assets = assets;
 tasks.views = views;
 tasks.bundle = bundle;
-tasks.tests = tests;
 
 gulp.task('clean',
   gulp.series(
@@ -259,12 +241,6 @@ gulp.task('build:universal-prod',
     tasks.bundle.universal.server.prod,
     tasks.views.assets.copy,
     tasks.clean.artifacts
-  ));
-
-gulp.task('test',
-  gulp.series(
-    settings.quick ? tasks.dummy : 'clean',
-    tasks.tests.run
   ));
 
 gulp.task('review:sasslint',
