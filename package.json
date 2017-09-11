@@ -99,6 +99,7 @@
     "angular-webpack-config": "git://github.com/ng-seed/angular-webpack-config#build-dll",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "webpack-merge": "~4.1.0",
+    "webpack-dev-middleware": "~1.12.0",
     "webpack-hot-middleware": "~2.19.1",
     "@ngtools/webpack": "~1.7.0",
     "tslint-loader": "~3.5.3",
