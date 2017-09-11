@@ -11,35 +11,13 @@ settings = $$.loadSettings(settings);
 
 const tasks = {};
 
-const dummy = function(done) {
-  done();
-};
-
-dummy.displayName = 'dummy';
-
 const clean = {
-  'public': function(done) {
-    $.rimraf(`${settings.paths.public.root}/**`, done);
-  },
   artifacts: function(done) {
     $.rimraf(`${settings.paths.public.assets.root}/index.html`, done);
-  },
-  server: function(done) {
-    $.rimraf(`${settings.paths.server}/server*.*`, done);
-  },
-  cache: function(done) {
-    $.rimraf(settings.paths.cache, done);
-  },
-  temp: function(done) {
-    $.rimraf(settings.paths.temp.root, done);
   }
 };
 
-clean.public.displayName = 'clean:public';
 clean.artifacts.displayName = 'clean:artifacts';
-clean.server.displayName = 'clean:server';
-clean.cache.displayName = 'clean:cache';
-clean.temp.displayName = 'clean:temp';
 
 const assets = {
   sass: {
@@ -92,7 +70,7 @@ const assets = {
 
         gulp.src(`${settings.paths.src.client.assets.sass}/**/*.scss`)
           .pipe($.postcss(processors, {syntax: $.scss}))
-          .pipe(gulp.dest(settings.paths.temp.root))
+          .pipe(gulp.dest(settings.paths.temp))
           .on('end', done); //TODO: change dest (currently temp)
       }
     }
@@ -195,23 +173,13 @@ bundle.universal.browser.prod.displayName = 'bundle:universal-browser-prod';
 bundle.universal.server.dev.displayName = 'bundle:universal-server-dev';
 bundle.universal.server.prod.displayName = 'bundle:universal-server-prod';
 
-tasks.dummy = dummy;
 tasks.clean = clean;
 tasks.assets = assets;
 tasks.views = views;
 tasks.bundle = bundle;
 
-gulp.task('clean',
-  gulp.series(
-    tasks.clean.public,
-    tasks.clean.server,
-    tasks.clean.cache,
-    tasks.clean.temp
-  ));
-
 gulp.task('build:spa-dev',
   gulp.series(
-    settings.quick ? tasks.dummy : 'clean',
     tasks.bundle.spa.dev,
     tasks.views.assets.copy,
     tasks.clean.artifacts
@@ -219,7 +187,6 @@ gulp.task('build:spa-dev',
 
 gulp.task('build:spa-prod',
   gulp.series(
-    settings.quick ? tasks.dummy : 'clean',
     tasks.bundle.spa.prod,
     tasks.views.assets.copy,
     tasks.clean.artifacts
@@ -227,7 +194,6 @@ gulp.task('build:spa-prod',
 
 gulp.task('build:universal-dev',
   gulp.series(
-    settings.quick ? tasks.dummy : 'clean',
     tasks.bundle.universal.browser.dev,
     tasks.bundle.universal.server.dev,
     tasks.views.assets.copy,
@@ -236,7 +202,6 @@ gulp.task('build:universal-dev',
 
 gulp.task('build:universal-prod',
   gulp.series(
-    settings.quick ? tasks.dummy : 'clean',
     tasks.bundle.universal.browser.prod,
     tasks.bundle.universal.server.prod,
     tasks.views.assets.copy,
