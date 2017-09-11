@@ -142,7 +142,7 @@
     "jest-junit-reporter": "~1.1.0",
     "jasmine-marbles": "~0.1.0",
     "standard-version": "~4.2.0",
-    "codelyzer": "~3.1.2",
+    "codelyzer": "~3.2.0",
     "tslint": "~5.7.0",
     "angular-tslint-rules": "~1.0.4",
     "tslib": "~1.7.1",
