@@ -12,34 +12,34 @@
 in file and application organization, providing the following features:
 
 - [x] [Angular] as the application framework.
-- [ ] [Angular Material] as the UI language and component library.
-- [ ] [Angular Flex Layout] for dynamic responsive layouts.
+- [ ] [Angular Material] providing the **UI language** and component library.
+- [ ] [Angular Flex-Layout] for dynamic **responsive** layouts.
 - [x] Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
-- [x] [angular-webpack-config] as configuration preset for [Webpack].
-- [x] Adjustable build configuration via `json` file (`./tools/build/build-config.json`).
 - [x] Managing the type definitions using [@types].
+- [x] **[angular-webpack-config]** as configuration preset for [Webpack].
+- [x] [Dll Bundle plugin] and [Hard Source plugin] to **lightning-fast** up development builds.
+- [x] **Hot Module Replacement** with [Webpack] and [webpack-hot-middleware].
+- [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
 - [x] Production and development modes.
-- [x] [Dll Bundle plugin] and [Hard Source plugin] to lightning-fast up development builds.
-- [x] Hot Module Replacement with [Webpack] and [webpack-hot-middleware].
 - [x] [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
-- [x] Tree-shaking the production builds with `harmony` branch of [UglifyJs2].
-- [x] Both inline and external [SCSS] compilation.
+- [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
+- [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] [Lazy loading] of modules.
-- [ ] Uses [ngx-universal] for express engine and caching server responses on client bootstrap (no flickering).
+- [ ] Uses [ngx-universal] for caching server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
-- [x] Uses [ngx-config] for configuration management.
-- [ ] Uses [ngx-auth] for basic JWT-based authentication.
-- [x] Uses [ngx-cache] for caching.
+- [x] Uses **[ngx-config]** for configuration management.
+- [ ] Uses **[ngx-auth]** for basic JWT-based authentication.
+- [x] Uses **[ngx-cache]** for application-wide caching.
 - [x] Uses [ngx-translate] for i18n support.
-- [x] Uses [ngx-meta] for SEO (*title, meta tags, and Open Graph tags for social sharing*).
-- [ ] Uses [ngx-i18n-router] for localized routes.
+- [x] Uses **[ngx-meta]** for SEO (*title, meta tags, and Open Graph tags for social sharing*).
+- [ ] Uses **[ngx-i18n-router]** for localized routes.
 - [x] Vendor-agnostic analytics using [angulartics2].
-- [x] Unit tests with [Jest], including code coverage.
+- [x] Unit tests with **[Jest]**, including code coverage.
 - [ ] End-to-end tests with [Protractor].
 - [x] [CircleCI] for continuous integration and testing support.
-- [x] [angular-tslint-rules] as configuration preset for [TSLint] and [codelyzer].
+- [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v4.3.0`, bundled with `gulp v4.0` and `webpack v3.5.6`.
+> Built with `Angular v4.3.x`, bundled with `gulp v4` and `webpack v3.x.x`.
 
 You can find the live app [here](https://ng-seed-universal.azurewebsites.net).
 
