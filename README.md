@@ -114,20 +114,22 @@ $ npm run lint
 # run unit tests
 $ npm test
 
-# dev build (SPA / lean Angular)
+# dev builds (lean Angular & Angular Universal)
 $ npm run build:spa-dev
-# prod build (SPA / lean Angular)
-$ npm run build:spa-prod
-
-# start the server (SPA / lean Angular)
-$ npm run serve:spa
-# start the server (SPA / lean Angular, with HMR support)
-$ npm run serve:spa-hmr
-
-# dev build (Universal)
 $ npm run build:universal-dev
-# prod build (Universal)
+
+# prod builds (lean Angular & Angular Universal)
+$ npm run build:spa-prod
 $ npm run build:universal-prod
+
+# clean DLL cache
+$ npm run clean:dll
+
+# start the server (lean Angular)
+$ npm run serve:spa
+
+# start the server (lean Angular w/HMR support)
+$ npm run serve:spa-hmr
 
 # start the server (Angular Universal)
 $ npm run serve
