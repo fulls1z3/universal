@@ -11,21 +11,21 @@
 **`ng-seed/universal`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide)
 in file and application organization, providing the following features:
 
-- [x] [Angular] as the application framework.
-- [ ] [Angular Material] providing the **UI language** and component library.
-- [ ] [Angular Flex-Layout] for dynamic **responsive** layouts.
-- [x] Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
+- [x] Providing a seed project using the [Angular] framework.
+- [ ] Using the modern **UI components** of [Angular Material].
+- [ ] Dynamic **responsive** layouts via [flex-layout].
+- [x] Ready-to-go build system using [gulp] and [Webpack] to work with [TypeScript].
 - [x] Managing the type definitions using [@types].
 - [x] **[angular-webpack-config]** as configuration preset for [Webpack].
-- [x] [Dll Bundle plugin] and [Hard Source plugin] to **lightning-fast** up development builds.
+- [x] The [Dll Bundle] and [Hard Source] plugins for **lightning-fast** development builds.
 - [x] **Hot Module Replacement** with [Webpack] and [webpack-hot-middleware].
 - [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
 - [x] Production and development modes.
-- [x] [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
+- [x] Performing [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
 - [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
-- [x] [Lazy loading] of modules.
-- [ ] Uses [ngx-universal] for caching server responses on client bootstrap (*w/o flickering*).
+- [x] Deferring initialization of modules via [Lazy loading].
+- [ ] Uses [@ngx-universal/state-transfer] to cache server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
 - [x] Uses **[ngx-config]** for configuration management.
 - [ ] Uses **[ngx-auth]** for basic JWT-based authentication.
@@ -33,10 +33,10 @@ in file and application organization, providing the following features:
 - [x] Uses [ngx-translate] for i18n support.
 - [x] Uses **[ngx-meta]** for SEO (*title, meta tags, and Open Graph tags for social sharing*).
 - [ ] Uses **[ngx-i18n-router]** for localized routes.
-- [x] Vendor-agnostic analytics using [angulartics2].
+- [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
-- [x] End-to-end tests with **[Nightmare]**.
-- [x] [CircleCI] for continuous integration and testing support.
+- [x] End-to-end (integration) tests with **[Nightmare]**.
+- [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
 > Built with `Angular v4.3.x`, bundled with `gulp v4` and `webpack v3`.
@@ -218,23 +218,23 @@ The MIT License (MIT)
 
 Copyright (c) 2017 [Burak Tasci]
 
-[Angular]: https://github.com/angular/angular/blob/master/CHANGELOG.md
+[Angular]: https://angular.io
 [Angular Material]: https://material.angular.io
-[Angular Flex Layout]: https://github.com/angular/flex-layout
+[flex-layout]: https://github.com/angular/flex-layout
 [gulp]: http://gulpjs.com
 [Webpack]: http://webpack.github.io
-[TypeScript]: https://github.com/Microsoft/TypeScript
+[TypeScript]: http://www.typescriptlang.org
 [angular-webpack-config]: https://github.com/ng-seed/angular-webpack-config
 [@types]: https://www.npmjs.com/~types
-[Dll Bundle plugin]: https://github.com/shlomiassaf/webpack-dll-bundles-plugin
-[Hard Source plugin]: https://github.com/mzgoddard/hard-source-webpack-plugin
+[Dll Bundle]: https://github.com/shlomiassaf/webpack-dll-bundles-plugin
+[Hard Source]: https://github.com/mzgoddard/hard-source-webpack-plugin
 [webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 [@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
 [UglifyJs2]: https://github.com/mishoo/UglifyJS2/tree/harmony
 [SCSS]: http://sass-lang.com
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html
-[ngx-universal]: https://github.com/fulls1z3/ngx-universal
+[@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
 [ngrx/store]: https://github.com/ngrx/store
 [ngx-config]: https://github.com/fulls1z3/ngx-config
 [ngx-auth]:  https://github.com/fulls1z3/ngx-auth
@@ -249,4 +249,4 @@ Copyright (c) 2017 [Burak Tasci]
 [angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
 [TSLint]: https://github.com/palantir/tslint
 [codelyzer]: https://github.com/mgechev/codelyzer
-[Burak Tasci]: http://www.buraktasci.com
+[Burak Tasci]: https://github.com/fulls1z3
