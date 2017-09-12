@@ -31,6 +31,7 @@
     "lint": "tslint -p ./tslint.json --force",
     "test": "jest --runInBand --colors",
     "test:ci": "jest --ci --updateSnapshot --colors",
+    "test:e2e": "jest -c ./tools/test/e2e-preset.json --runInBand --colors",
     "test:watch": "jest --runInBand --watch --colors",
     "release": "standard-version"
   },
@@ -152,24 +153,26 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "./tools/test/jest.setup.ts",
-    "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "./tsconfig.spec.json"
+        "tsConfigFile": "./src/tsconfig.json"
       },
       "__TRANSFORM_HTML__": true
     },
-    "moduleNameMapper": null,
     "transform": {
       "^.+\\.(css|less|scss|styl|sss)$": "<rootDir>/tools/test/style-processor.js",
       "^.+\\.(ts|js|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js"
     },
+    "moduleNameMapper": null,
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "cache": false,
     "silent": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/client/app/**/*(*.service|*.component|*.pipe|*.directive|*.module).{ts,html}",
-      "src/server/**/**.{ts}"
+      "src/client/app/**/*.{ts,html}",
+      "src/server/**/**.ts",
+      "!src/**/testing/**/*.ts",
+      "!src/**/*e2e*.ts"
     ]
   },
   "greenkeeper": {

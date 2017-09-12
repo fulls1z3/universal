@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "e2e-config": ["../tools/test/nightmare.config.ts"]
+    }
+  },
+  "include": [
+    "**/*spec.ts",
+    "**/*e2e-spec.ts"
+  ],
+  "exclude": []
+}
