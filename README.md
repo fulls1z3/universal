@@ -41,7 +41,7 @@ in file and application organization, providing the following features:
 
 > Built with `Angular v4.3.x`, bundled with `gulp v4` and `webpack v3`.
 
-You can find the **project documentation** [here](https://ng-seed.github.io/universal).
+You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
 You can view the **live app** at [https://ng-seed-universal.azurewebsites.net](https://ng-seed-universal.azurewebsites.net).
 
