@@ -143,6 +143,7 @@
     "jest-junit-reporter": "~1.1.0",
     "jasmine-marbles": "~0.1.0",
     "nightmare": "~2.10.0",
+    "@compodoc/compodoc": "~1.0.1",
     "standard-version": "~4.2.0",
     "codelyzer": "~3.2.0",
     "tslint": "~5.7.0",
