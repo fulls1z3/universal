@@ -1,29 +1,17 @@
 // angular
 import { async, fakeAsync, inject, tick } from '@angular/core/testing';
 
-export interface TestApi {
-  ae: Function;
-  afterEach: Function;
-  describe: Function;
-  fdescribe: Function;
-  xdescribe: Function;
+// module
+import { TestApi } from './ng-base';
+
+export interface JestApi extends TestApi {
   async(fn: Function): Function;
   fakeAsync(fn: Function): Function;
-  be(fn: Function): void;
-  beforeEach(fn: Function): void;
-  e(actual: any): jest.Matchers<void>;
-  expect(actual: any): jest.Matchers<void>;
-  fail(e?: any): void;
   inject(tokens: Array<any>, fn: Function): Function;
-  it(name: string, fn: Function, timeOut?: number): void;
-  fit(name: string, fn: Function, timeOut?: number): void;
-  xit(name: string, fn: Function, timeOut?: number): void;
-  pending(reason?: string): void;
-  spyOn(object: any, method: string): jasmine.Spy;
   tick(delay?: number): void;
 }
 
-export const ngJest: TestApi = {
+export const ngJest: JestApi = {
   ae: afterEach, // shorthand afterEach
   afterEach,
   describe,

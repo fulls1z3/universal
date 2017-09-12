@@ -1,0 +1,22 @@
+{
+  "rootDir": "../..",
+  "globals": {
+    "__TRANSFORM_HTML__": true,
+    "__process_env__": {},
+    "ts-jest": {
+      "tsConfigFile": "./src/tsconfig.json"
+    }
+  },
+  "transform": {
+    "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+  },
+  "testRegex": "(/__tests__/.*|\\.(test|e2e-spec))\\.(ts|js)$",
+  "moduleNameMapper": {
+    "^e2e-config$": "<rootDir>/tools/test/nightmare.config.ts"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "js",
+    "html"
+  ]
+}
