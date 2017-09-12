@@ -33,7 +33,8 @@
     "test:ci": "jest --ci --updateSnapshot --colors",
     "test:e2e": "jest -c ./tools/test/e2e-preset.json --runInBand --colors",
     "test:watch": "jest --runInBand --watch --colors",
-    "release": "standard-version"
+    "docs": "./node_modules/.bin/compodoc -p tsconfig.json -d docs -t --theme stripe",
+    "release": "npm run docs && standard-version"
   },
   "dependencies": {
     "express": "~4.15.4",
