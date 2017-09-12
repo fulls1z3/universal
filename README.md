@@ -35,7 +35,7 @@ in file and application organization, providing the following features:
 - [ ] Uses **[ngx-i18n-router]** for localized routes.
 - [x] Vendor-agnostic analytics using [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
-- [ ] End-to-end tests with [Protractor].
+- [x] End-to-end tests with [Nightmare].
 - [x] [CircleCI] for continuous integration and testing support.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
@@ -169,7 +169,8 @@ universal/
  |   |   |   └──framework/          * client framework
  |   |   └──assets/                 * static assets (scss, img, json, etc.)
  |   ├──coverage/                   * e2e (integration) tests
- |   └──server/                     * server code
+ |   ├──server/                     * server code
+ |   └──tsconfig.json               * typescript config (for unit/e2e tests)
  |
  ├──tools/
  |   ├──build/                     * build config and scripts (gulp, webpack, etc.)
@@ -239,7 +240,7 @@ Copyright (c) 2017 [Burak Tasci]
 [ngx-i18n-router]: https://github.com/fulls1z3/ngx-i18n-router
 [angulartics2]: https://github.com/angulartics/angulartics2
 [Jest]: https://facebook.github.io/jest
-[Protractor]: http://www.protractortest.org
+[Nightmare]: https://github.com/segmentio/nightmare
 [CircleCI]: https://circleci.com
 [angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
 [TSLint]: https://github.com/palantir/tslint
