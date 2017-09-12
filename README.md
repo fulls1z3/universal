@@ -35,7 +35,7 @@ in file and application organization, providing the following features:
 - [ ] Uses **[ngx-i18n-router]** for localized routes.
 - [x] Vendor-agnostic analytics using [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
-- [x] End-to-end tests with [Nightmare].
+- [x] End-to-end tests with **[Nightmare]**.
 - [x] [CircleCI] for continuous integration and testing support.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
@@ -114,12 +114,17 @@ $ npm run lint
 # run unit tests
 $ npm test
 
-# dev builds (lean Angular & Angular Universal)
+# run e2e tests (start the server with `npm run serve` before running e2e tests)
+$ npm test:e2e
+
+# dev build (lean Angular / Angular Universal)
 $ npm run build:spa-dev
+# OR
 $ npm run build:universal-dev
 
-# prod builds (lean Angular & Angular Universal)
+# prod build (lean Angular / Angular Universal)
 $ npm run build:spa-prod
+# OR
 $ npm run build:universal-prod
 
 # clean DLL cache
@@ -139,15 +144,15 @@ Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering
 Universal** (*server-side rendering*) in your browser.
 
 ## <a name="directory-structure"></a> Directory structure
-We use the component approach in this seed project, which is a standard for developing Angular apps and also a great way
-to ensure maintainable code by encapsulation of our behavior logic.
+We use the **component approach** in this seed project, which is a *standard for developing Angular apps* and also a great
+way to ensure maintainable code by encapsulation of our behavior logic.
 
-A component is basically a self contained app usually in a single file or a directory with each concern as a file: style,
-template, specs, and component class.
+A component is basically a self contained app usually in a single file or a directory with each concern as a file: *style*,
+*template*, *specs*, and *component class*.
 
-> As an old convention, we use the `+` prefix for lazy-loaded modules. Please keep in mind that it does nor change the router
-behavior, neither makes the directory unworkable. It's just a handy method to identify lazy-loaded modules by looking at
-the directory structure.
+> As an old convention, we use the **`+` prefix** for *lazy-loaded* modules. Please keep in mind that it does nor change
+the *router behavior*, neither makes the directory *unworkable*. It's just a handy *method* to **identify lazy-loaded modules**
+by having a straight look at the directory structure.
 
 ```
 universal/
@@ -168,39 +173,38 @@ universal/
  |   |   |   |   └──+lazy-module/   * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
  |   |   |   └──framework/          * client framework
  |   |   └──assets/                 * static assets (scss, img, json, etc.)
- |   ├──coverage/                   * e2e (integration) tests
  |   ├──server/                     * server code
  |   └──tsconfig.json               * typescript config (for unit/e2e tests)
  |
  ├──tools/
- |   ├──build/                     * build config and scripts (gulp, webpack, etc.)
- |   ├──config/                    * config files for static-assets (stylelint, postcss, etc.)
- |   └──test/                      * test setup/scripts
+ |   ├──build/                      * build config and scripts (gulp, webpack, etc.)
+ |   ├──config/                     * config files for static-assets (stylelint, postcss, etc.)
+ |   └──test/                       * test config
  |
- ├──.gitignore                     * GIT settings
- ├──.jshintrc                      * jshint config
- ├──CHANGELOG.md                   * change log
- ├──CODE_OF_CONDUCT.md             * code of conduct
- ├──CONTRIBUTING.md                * contributing info
- ├──gulpfile.js                    * gulp entry point
- ├──LICENSE                        * software license
- ├──package.json                   * deps management
- ├──README.md                      * project information
- ├──test-report.xml                * JUNIT test results
- ├──tsconfig.json                  * typescript config
- ├──tslint.json                    * tslint config
- └──yarn.lock                      * deps lockfile
+ ├──.gitignore                      * GIT settings
+ ├──.jshintrc                       * jshint config
+ ├──CHANGELOG.md                    * change log
+ ├──CODE_OF_CONDUCT.md              * code of conduct
+ ├──CONTRIBUTING.md                 * contributing info
+ ├──gulpfile.js                     * gulp entry point
+ ├──LICENSE                         * software license
+ ├──package.json                    * deps management
+ ├──README.md                       * project information
+ ├──test-report.xml                 * JUNIT test results
+ ├──tsconfig.json                   * typescript config
+ ├──tslint.json                     * tslint config
+ └──yarn.lock                       * deps lockfile
 ```
 
 ## <a name="configuring"></a> Configuring `ng-seed/universal`
-Most of the configuration is done via `./tools/build/build.config.json`, where you can customize host name, port numbers,
-and output directories for your app.
+Most of the configuration is done via **`./tools/build/build.config.json`**, where you can customize **host name**, **port numbers**,
+and **output directories** for your app.
 
 ## <a name="external-scss"></a> External stylesheets
-Any stylesheets (*SCSS*) placed in the `src/client/assets/scss` directory and imported into your project will automatically
-be compiled into an external .css and embedded in your production builds.
+Any stylesheets (*SCSS*) placed in the **`src/client/assets/scss`** directory and imported into your project will automatically
+be compiled into an **external .css file** and embedded in your production builds.
 
-All other stylesheets (*SCSS*) located below `src/client/app` scope will become extracted into the generated bundle (*inline*).
+All other stylesheets (*SCSS*) located below **`src/client/app`** will be **extracted into** the generated bundle (*inline*).
 
 ## <a name="contributing"></a> Contributing
 If you want to file a bug, contribute some code, or improve documentation, please read up on the following contribution guidelines:
