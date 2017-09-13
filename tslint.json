@@ -25,6 +25,10 @@
       ],
       "kebab-case"
     ],
+    "angular-whitespace": [
+      true,
+      "check-interpolation"
+    ],
     "use-view-encapsulation": false,
     "no-forward-ref": false,
     "pipe-naming": [
