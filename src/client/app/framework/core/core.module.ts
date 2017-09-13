@@ -16,6 +16,11 @@ import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
 // import { I18N_ROUTER_PROVIDERS, I18NRouterLoader } from '@ngx-language-router/core';
 // import { I18NRouterConfigLoader } from '@ngx-language-router/config-loader';
 import { TranslateService } from '@ngx-translate/core';
+import { PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 // module
 import { ConsoleService } from './src/console.service';
@@ -71,8 +76,10 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
     EffectsModule.forRoot([]),
     HttpTransferModule.forRoot(),
     ConfigModule.forRoot(),
-    MetaModule.forRoot()
+    MetaModule.forRoot(),
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
   ],
+  exports: [PerfectScrollbarModule],
   providers: [
     CORE_PROVIDERS
     // I18N_ROUTER_PROVIDERS

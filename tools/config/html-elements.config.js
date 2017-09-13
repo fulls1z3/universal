@@ -10,6 +10,11 @@ module.exports = {
         rel: 'stylesheet',
         href: '//fonts.googleapis.com/icon?family=Material+Icons',
         '=href': false
+      },
+      {
+        rel: 'stylesheet',
+        href: '//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css',
+        '=href': false
       }
     ]
   }
