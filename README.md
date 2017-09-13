@@ -25,7 +25,7 @@ in file and application organization, providing the following features:
 - [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] Deferring initialization of modules via [Lazy loading].
-- [ ] Uses [@ngx-universal/state-transfer] to cache server responses on client bootstrap (*w/o flickering*).
+- [ ] Uses **[@ngx-universal/state-transfer]** to cache server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
 - [x] Uses **[ngx-config]** for configuration management.
 - [ ] Uses **[ngx-auth]** for basic JWT-based authentication.
@@ -175,8 +175,7 @@ universal/
  |   |   |   |   └──+lazy-module/   * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
  |   |   |   └──framework/          * client framework
  |   |   └──assets/                 * static assets (scss, img, json, etc.)
- |   ├──server/                     * server code
- |   └──tsconfig.json               * typescript config (for unit/e2e tests)
+ |   └──server/                     * server code
  |
  ├──tools/
  |   ├──build/                      * build config and scripts (gulp, webpack, etc.)
@@ -194,6 +193,7 @@ universal/
  ├──README.md                       * project information
  ├──test-report.xml                 * JUNIT test results
  ├──tsconfig.json                   * typescript config
+ ├──tsconfig.spec.json              * typescript config (for unit/e2e tests)
  ├──tslint.json                     * tslint config
  └──yarn.lock                       * deps lockfile
 ```
