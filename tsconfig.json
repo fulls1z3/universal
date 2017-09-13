@@ -8,6 +8,10 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "e2e-config": ["./tools/test/nightmare.config.ts"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -18,10 +22,6 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts",
-    "src/**/*.e2e-spec.ts"
   ],
   "angularCompilerOptions": {
     "genDir": ".",
