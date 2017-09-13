@@ -1,0 +1,32 @@
+@function rem($multiplier) {
+  $font-size: 10px;
+  @return $multiplier * $font-size;
+}
+
+%antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%truncated {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin page--shared() {
+  :host {
+    @include push(rem(2.4));
+
+    position: relative !important;
+    display: block;
+  }
+
+  md-card {
+    max-width: 90%;
+  }
+
+  .container {
+    position: relative !important;
+  }
+}

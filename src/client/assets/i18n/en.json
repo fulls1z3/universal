@@ -11,5 +11,22 @@
   "PUBLIC.ABOUT_BANANA.PAGE_TITLE": "Banana republic",
   "PUBLIC.ABOUT_BANANA.META_DESCRIPTION": "If your life sucks, start a new one in Banana Republic",
   "PUBLIC.ABOUT_APPLE_PEAR.PAGE_TITLE": "Apple or pear",
-  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "I want an apple but you give me a pear, shame on you"
+  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "I want an apple but you give me a pear, shame on you",
+  "PUBLIC.MENU.HOME": "Home",
+  "PUBLIC.MENU.ABOUT": "About",
+  "PUBLIC.MENU.ABOUT_US": "Us",
+  "PUBLIC.MENU.ABOUT_BANANA": "Banana republic",
+  "PUBLIC.MENU.ABOUT_APPLE_PEAR": "Apple or pear",
+  "PUBLIC.MENU.ENGLISH": "English",
+  "PUBLIC.MENU.TURKISH": "Turkish",
+  "PUBLIC.HOME.CARD_TITLE": "Home",
+  "PUBLIC.HOME.CARD_SUBTITLE": "Welcome to ng-seed",
+  "PUBLIC.ABOUT.CARD_TITLE": "About",
+  "PUBLIC.ABOUT.CARD_SUBTITLE": "This page provides a dummy overview of nothing",
+  "PUBLIC.ABOUT_US.CARD_TITLE": "Us",
+  "PUBLIC.ABOUT_US.CARD_SUBTITLE": "Yeah, I think this page tells something about us",
+  "PUBLIC.ABOUT_BANANA.CARD_TITLE": "Banana republic",
+  "PUBLIC.ABOUT_BANANA.CARD_SUBTITLE": "If your life sucks, start a new one in Banana Republic",
+  "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Apple or pear",
+  "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "I want an apple but you give me a pear, shame on you"
 }

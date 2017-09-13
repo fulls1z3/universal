@@ -1,0 +1,99 @@
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: normal;
+}
+
+h1,
+.h1 {
+  font-size: $h1;
+}
+
+h2,
+.h2 {
+  font-size: $h2;
+}
+
+h3,
+.h3 {
+  font-size: $h3;
+  font-weight: $font--medium;
+  letter-spacing: 0.005em;
+}
+
+h4,
+.h4 {
+  font-size: $h4;
+}
+
+h5,
+.h5 {
+  font-size: $h5;
+}
+
+h6,
+.h6 {
+  font-size: $h6;
+}
+
+h3, h4, h5, p {
+  margin: 0 0 16px;
+}
+
+h4 {
+  font-size: rem(1.8);
+  font-weight: $font--medium;
+  color: c(grey);
+}
+
+p {
+  line-height: 1.5;
+}
+
+/**
+ * Links
+ */
+a {
+  color: mat-color($accent);
+  text-decoration: none;
+
+  &:not(.mat-button):not(.mat-raised-button):not(.mat-icon-button) {
+    &:hover, &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+/**
+ * Code snippets
+ */
+pre {
+  @include push($space--sm $space--lg);
+
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+code {
+  font-family: $font--console;
+
+  &:not(.highlight) {
+    @include soft--right(rem(0.2) rem(0.3));
+
+    color: mat-color($primary-light);
+    background: rgba(0, 0, 0, 0.065);
+    border-radius: rem(0.2);
+  }
+}
