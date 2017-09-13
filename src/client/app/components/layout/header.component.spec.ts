@@ -1,6 +1,7 @@
 // angular
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MdButtonModule, MdIconModule, MdMenuModule, MdToolbarModule } from '@angular/material';
 
 // libs
 import { StoreModule } from '@ngrx/store';
@@ -18,6 +19,10 @@ const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
+      MdButtonModule,
+      MdIconModule,
+      MdMenuModule,
+      MdToolbarModule,
       StoreModule.forRoot({}),
       CoreTestingModule,
       I18NTestingModule
