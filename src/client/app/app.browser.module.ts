@@ -1,11 +1,13 @@
 // angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // libs
 import { BrowserStateTransferModule, DEFAULT_STATE_ID } from '@ngx-universal/state-transfer';
 import { CACHE } from '@ngx-cache/core';
 import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/platform-browser';
+import 'hammerjs';
 
 // framework
 import { ConsoleService, CoreModule, WindowService } from './framework/core/core.module';
@@ -28,6 +30,7 @@ export function consoleFactory(): any {
     BrowserModule.withServerTransition({
       appId: 'my-app-id'
     }),
+    BrowserAnimationsModule,
     BrowserStateTransferModule.forRoot(),
     BrowserCacheModule.forRoot([
       {

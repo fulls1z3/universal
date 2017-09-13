@@ -5,6 +5,11 @@ module.exports = {
         rel: 'stylesheet',
         href: '//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800&amp;subset=latin-ext',
         '=href': false
+      },
+      {
+        rel: 'stylesheet',
+        href: '//fonts.googleapis.com/icon?family=Material+Icons',
+        '=href': false
       }
     ]
   }

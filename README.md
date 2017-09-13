@@ -12,8 +12,8 @@
 in file and application organization, providing the following features:
 
 - [x] Providing a seed project using the [Angular] framework.
-- [ ] Using the modern **UI components** of [Angular Material].
-- [ ] Dynamic **responsive** layouts via [flex-layout].
+- [x] Using the modern **UI components** of [Angular Material].
+- [x] Dynamic **responsive** layouts via [flex-layout].
 - [x] Ready-to-go build system using [gulp] and [Webpack] to work with [TypeScript].
 - [x] Managing the type definitions using [@types].
 - [x] **[angular-webpack-config]** as configuration preset for [Webpack].

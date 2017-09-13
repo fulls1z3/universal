@@ -11,5 +11,22 @@
   "PUBLIC.ABOUT_BANANA.PAGE_TITLE": "Muz cumhuriyeti",
   "PUBLIC.ABOUT_BANANA.META_DESCRIPTION": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin",
   "PUBLIC.ABOUT_APPLE_PEAR.PAGE_TITLE": "Elma veya armut",
-  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "Ben elma istedim ama sen bana armut verdin, olmadı"
+  "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "Ben elma istedim ama sen bana armut verdin, olmadı",
+  "PUBLIC.MENU.HOME": "Ana sayfa",
+  "PUBLIC.MENU.ABOUT": "Hakkında",
+  "PUBLIC.MENU.ABOUT_US": "Biz",
+  "PUBLIC.MENU.ABOUT_BANANA": "Muz cumhuriyeti",
+  "PUBLIC.MENU.ABOUT_APPLE_PEAR": "Elma veya armut",
+  "PUBLIC.MENU.ENGLISH": "İngilizce",
+  "PUBLIC.MENU.TURKISH": "Türkçe",
+  "PUBLIC.HOME.CARD_TITLE": "Ana sayfa",
+  "PUBLIC.HOME.CARD_SUBTITLE": "ng-seed uygulamasına hoşgeldiniz",
+  "PUBLIC.ABOUT.CARD_TITLE": "Hakkında",
+  "PUBLIC.ABOUT.CARD_SUBTITLE": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
+  "PUBLIC.ABOUT_US.CARD_TITLE": "Biz",
+  "PUBLIC.ABOUT_US.CARD_SUBTITLE": "Evet, sanırım bu sayfa bizim hakkımızda birşeyler içeriyor",
+  "PUBLIC.ABOUT_BANANA.CARD_TITLE": "Muz cumhuriyeti",
+  "PUBLIC.ABOUT_BANANA.CARD_SUBTITLE": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin",
+  "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Elma veya armut",
+  "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "Ben elma istedim ama sen bana armut verdin, olmadı"
 }

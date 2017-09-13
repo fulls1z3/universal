@@ -1,11 +1,32 @@
+@import 'variables';
+@import 'mixins';
+
+/**
+ * Angular Material
+ */
+@include mat-core();
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+/**
+ * Components
+ */
+@import 'layout/reset';
+@import 'layout/typography';
+@import 'layout/root';
+@import 'layout/splash-screen';
+
 html {
   font-size: 14px;
 }
 
 body {
-  font-family: 'Open Sans' ,sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+  @include font(#{$h4}/1.42857143 $font--preferred, #333);
+
+  background-color: c(grey, gallery);
+}
+
+h1 {
+  color: #14b004;
 }

@@ -1,9 +1,13 @@
 // angular
 import { Component } from '@angular/core';
 
+// app
+import { routeAnimation } from '../../app.animations';
+
 @Component({
-  template: `about page<br/>
-  This page provides a dummy overview of nothing`
+  templateUrl: './about.component.html',
+  styleUrls: ['about.component.scss'],
+  animations: [routeAnimation]
 })
 export class AboutComponent {
 }

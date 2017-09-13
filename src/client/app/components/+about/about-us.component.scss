@@ -1,0 +1,9 @@
+@import '../../../assets/sass/variables';
+@import '../../../assets/sass/mixins';
+
+@include page--shared;
+
+.header-image {
+  background-image: url('https://avatars3.githubusercontent.com/u/19705696');
+  background-size: cover;
+}

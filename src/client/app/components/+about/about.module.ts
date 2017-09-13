@@ -2,10 +2,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MdCardModule } from '@angular/material';
 
 // libs
 // TODO: ngx-i18n-router
 // import { I18NRouterModule } from '@ngx-i18n-router/core';
+
+// framework
+import { SharedModule } from '../../framework/core/shared.module';
 
 // routes & components
 import { routes } from './about.routes';
@@ -19,7 +23,9 @@ import { AboutApplePearComponent } from './about-apple-pear.component';
     CommonModule,
     // TODO: ngx-i18n-router
     // I18NRouterModule.forChild(routes, 'about')
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MdCardModule,
+    SharedModule
   ],
   declarations: [
     AboutComponent,

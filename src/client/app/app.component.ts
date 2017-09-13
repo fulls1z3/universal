@@ -15,8 +15,7 @@ import '../assets/sass/layout.scss';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   constructor(private readonly i18nStore: Store<I18NState>,

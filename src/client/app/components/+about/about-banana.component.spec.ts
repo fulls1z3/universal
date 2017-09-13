@@ -1,9 +1,14 @@
 // angular
 import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MdCardModule } from '@angular/material';
+
+// framework
+import { SharedModule } from '../../framework/core/shared.module';
 
 // testing
 import { t } from '../../framework/testing';
+import { I18NTestingModule } from '../../framework/i18n/testing/i18n-testing.module';
 
 // routes & components
 import { AboutBananaComponent } from './about-banana.component';
@@ -11,7 +16,10 @@ import { AboutBananaComponent } from './about-banana.component';
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
-      RouterTestingModule
+      RouterTestingModule,
+      MdCardModule,
+      SharedModule,
+      I18NTestingModule
     ],
     declarations: [AboutBananaComponent]
   });

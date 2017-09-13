@@ -3,6 +3,7 @@ import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http';
 // import { RouterModule, Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { MdButtonModule, MdIconModule, MdMenuModule, MdToolbarModule } from '@angular/material';
 
 // libs
 import { CacheModule } from '@ngx-cache/core';
@@ -28,6 +29,10 @@ import { LAYOUT_COMPONENTS } from './components/layout';
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
+    MdButtonModule,
+    MdIconModule,
+    MdMenuModule,
+    MdToolbarModule,
     CacheModule.forRoot(),
     CoreModule.forRoot([
       {

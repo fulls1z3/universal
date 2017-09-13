@@ -1,0 +1,6 @@
+@import '../variables';
+@import '../mixins';
+
+app-root {
+  @include absolute(0);
+}
