@@ -78,7 +78,8 @@
     "@ngx-meta/core": "4.0.1",
     "@ngx-i18n-router/core": "4.0.1",
     "@ngx-i18n-router/config-loader": "4.0.1",
-    "angulartics2": "~2.4.0"
+    "angulartics2": "~2.4.0",
+    "ngx-perfect-scrollbar": "~4.6.2"
   },
   "devDependencies": {
     "nodemon": "~1.12.0",
