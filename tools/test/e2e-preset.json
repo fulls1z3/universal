@@ -4,7 +4,7 @@
     "__TRANSFORM_HTML__": true,
     "__process_env__": {},
     "ts-jest": {
-      "tsConfigFile": "./src/tsconfig.json"
+      "tsConfigFile": "./tsconfig.spec.json"
     }
   },
   "transform": {

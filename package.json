@@ -157,7 +157,7 @@
     "setupTestFrameworkScriptFile": "./tools/test/jest.setup.ts",
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "./src/tsconfig.json"
+        "tsConfigFile": "./tsconfig.spec.json"
       },
       "__TRANSFORM_HTML__": true
     },
