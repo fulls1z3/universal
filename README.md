@@ -34,6 +34,7 @@ in file and application organization, providing the following features:
 - [x] Uses [ngx-translate] for i18n support.
 - [x] Uses **[ngx-meta]** for SEO (*title, meta tags, and Open Graph tags for social sharing*).
 - [ ] Uses **[ngx-i18n-router]** for localized routes.
+- [x] Uses [ngx-perfect-scrollbar] for scrollbars.
 - [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
 - [x] End-to-end (integration) tests with **[Nightmare]**.
@@ -247,6 +248,7 @@ Copyright (c) 2017 [Burak Tasci]
 [ngx-translate]: https://github.com/ngx-translate/core
 [ngx-meta]: https://github.com/fulls1z3/ngx-meta
 [ngx-i18n-router]: https://github.com/fulls1z3/ngx-i18n-router
+[ngx-perfect-scrollbar]: https://github.com/zefoy/ngx-perfect-scrollbar
 [angulartics2]: https://github.com/angulartics/angulartics2
 [Jest]: https://facebook.github.io/jest
 [Nightmare]: https://github.com/segmentio/nightmare

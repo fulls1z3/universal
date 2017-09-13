@@ -1,2 +1,8 @@
-﻿<app-header></app-header>
-<router-outlet></router-outlet>
+﻿<div fxLayout="column" fxFlex>
+    <app-header></app-header>
+    <div *ngIf="isBrowser" class="content-container" #scrollContainer [perfect-scrollbar]>
+        <div class="content">
+            <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>
+        </div>
+    </div>
+</div>

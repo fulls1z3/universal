@@ -6,6 +6,22 @@ const copyWebpackPlugin = require('copy-webpack-plugin'),
 
 const browserConfig = function(root, settings) {
   return {
+    module: {
+      rules: [
+        /**
+         * raw-loader and css-loader for *.css in `node_modules`
+         *
+         * See: https://github.com/webpack-contrib/raw-loader
+         * See: https://github.com/webpack-contrib/css-loader
+         */
+        {
+          test: /\.css$/,
+          use: ['raw-loader', 'css-loader'],
+          include: root('node_modules')
+        }
+      ]
+    },
+
     plugins: [
       new copyWebpackPlugin([
         {

@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 // libs
 import { StoreModule } from '@ngrx/store';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 // framework
 import { t } from '../../framework/testing';
@@ -19,6 +20,7 @@ const testModuleConfig = () => {
     imports: [
       RouterTestingModule,
       StoreModule.forRoot({}),
+      PerfectScrollbarModule,
       CoreTestingModule,
       I18NTestingModule
     ],
