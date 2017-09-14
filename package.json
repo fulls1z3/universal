@@ -35,7 +35,7 @@
     "e2e": "npm run build:universal-dev && concurrently -k --kill-others-on-fail -s first \"npm run serve\" \"jest -c ./tools/test/e2e-preset.json --runInBand --colors\"",
     "e2e:ci": "concurrently -k --kill-others-on-fail -s first \"npm run serve\" \"jest --ci -c ./tools/test/e2e-preset.json --colors\"",
     "docs": "./node_modules/.bin/compodoc -p tsconfig.json -d docs -n \"ng-seed/universal\" -t --theme stripe",
-    "release": "npm run docs && standard-version"
+    "release": "standard-version && npm run docs"
   },
   "dependencies": {
     "express": "~4.15.4",

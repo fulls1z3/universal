@@ -24,7 +24,7 @@ in file and application organization, providing the following features:
 - [x] Performing [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
 - [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
-- [x] [stylelint-config-standard] as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
+- [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
 - [x] Deferring initialization of modules via [Lazy loading].
 - [ ] Uses **[@ngx-universal/state-transfer]** to cache server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
