@@ -20,6 +20,9 @@
         {{ 'PUBLIC.MENU.ABOUT_APPLE_PEAR' | translate }}
     </button>
     <span fxFlex></span>
+    <a md-button href="https://www.github.com/ng-seed/universal">
+        Github
+    </a>
     <md-menu #i18nMenu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
         <button md-menu-item [routerLink]="['/', 'change-language', 'en']">
             {{ 'PUBLIC.MENU.ENGLISH' | translate }}
