@@ -147,7 +147,7 @@
     "stylelint-config-standard": "~17.0.0",
     "colorguard": "~1.2.0",
     "stylefmt": "~6.0.0",
-    "jest": "~21.0.2",
+    "jest": "~21.1.0",
     "jest-preset-angular": "~3.0.1",
     "jest-junit-reporter": "~1.1.0",
     "jasmine-marbles": "~0.1.0",
