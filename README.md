@@ -112,14 +112,17 @@ These are the scripts to lint, test and build this seed project:
 # use npm (or yarn) to install the dependencies
 $ npm install
 
+# clean artifacts & DLL cache
+$ npm run clean
+
 # run tslint
 $ npm run lint
 
 # run unit tests
 $ npm test
 
-# run e2e tests (start the server with `npm run serve` before running e2e tests)
-$ npm test:e2e
+# run e2e tests
+$ npm run e2e
 
 # dev build (lean Angular / Angular Universal)
 $ npm run build:spa-dev
@@ -131,9 +134,6 @@ $ npm run build:spa-prod
 # OR
 $ npm run build:universal-prod
 
-# clean DLL cache
-$ npm run clean:dll
-
 # start the server (lean Angular)
 $ npm run serve:spa
 
@@ -142,6 +142,9 @@ $ npm run serve:spa-hmr
 
 # start the server (Angular Universal)
 $ npm run serve
+
+# watch mode (build, and then HMR and test watch)
+$ npm run serve:watch
 ```
 
 Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular
