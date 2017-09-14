@@ -118,8 +118,8 @@ $ npm run lint
 # run unit tests
 $ npm test
 
-# run e2e tests (start the server with `npm run serve` before running e2e tests)
-$ npm test:e2e
+# run e2e tests
+$ npm run e2e
 
 # dev build (lean Angular / Angular Universal)
 $ npm run build:spa-dev
