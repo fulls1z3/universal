@@ -19,8 +19,6 @@ jobs:
       - run: yarn test:ci
       - run: yarn build:universal-prod
       - run: yarn e2e:ci
-      - run: timeout 5 node .server/server.js || [ $? == 124 ]
-      # - run: yarn e2e
       - run: yarn ci:after
       - run: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
