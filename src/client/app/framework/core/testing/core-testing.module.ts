@@ -1,5 +1,5 @@
 // angular
-import { ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular/core';
+import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular/core';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
@@ -13,6 +13,7 @@ import { ConsoleService, LogService, WindowService } from '../core.module';
 
 // mocks
 import { MockConfigService } from './mocks/config-service.mock';
+import { MockElementRef } from './mocks/element-ref.mock';
 import { MockMetaService } from './mocks/meta-service.mock';
 import { MockWindow } from './mocks/window.mock';
 
@@ -20,6 +21,10 @@ export * from './mocks/window.mock';
 
 @NgModule({
   providers: [
+    {
+      provide: ElementRef,
+      useValue: new MockElementRef()
+    },
     {
       provide: WindowService,
       useClass: MockWindow
