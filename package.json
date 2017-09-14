@@ -177,10 +177,8 @@
     "silent": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/client/app/**/*.{ts,html}",
-      "src/server/**/**.ts",
-      "!src/**/testing/**/*.ts",
-      "!src/**/*e2e*.ts"
+      "src/**/*(*.service|*.component|*.pipe|*.directive).{ts,html}",
+      "src/**/models/**.ts"
     ]
   },
   "greenkeeper": {

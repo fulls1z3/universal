@@ -1,5 +1,5 @@
 // angular
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ElementRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 // libs
@@ -41,6 +41,21 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             const fixture = TestBed.createComponent(MainComponent);
             const instance = fixture.debugElement.componentInstance;
+            fixture.detectChanges();
+            t.e(instance).toBeTruthy();
+          });
+      }));
+
+      t.it('should invoke `onActivate`', t.async(() => {
+        TestBed.compileComponents()
+          .then(() => {
+            const fixture = TestBed.createComponent(MainComponent);
+            const instance = fixture.debugElement.componentInstance;
+            fixture.detectChanges();
+            t.e(instance).toBeTruthy();
+
+            const scrollContainer = TestBed.get(ElementRef);
+            instance.onActivate(undefined, scrollContainer);
             t.e(instance).toBeTruthy();
           });
       }));
