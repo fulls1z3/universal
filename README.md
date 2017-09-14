@@ -45,7 +45,7 @@ in file and application organization, providing the following features:
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
-You can view the **live app** at [https://ng-seed-universal.azurewebsites.net](https://ng-seed-universal.azurewebsites.net).
+You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fulls1z3.com).
 
 ## Table of contents:
 - [Prerequisites](#prerequisites)
