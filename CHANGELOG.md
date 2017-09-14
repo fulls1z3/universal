@@ -52,4 +52,4 @@ All notable changes to this project will be documented in this file. See [standa
 * use `ngx-cache` ([3756298](https://github.com/ng-seed/universal/commit/3756298)), closes [#5](https://github.com/ng-seed/universal/issues/5)
 * use HardSource plugin with DllBundle ([#86](https://github.com/ng-seed/universal/issues/86)) ([16eca4d](https://github.com/ng-seed/universal/commit/16eca4d)), closes [#79](https://github.com/ng-seed/universal/issues/79) [#85](https://github.com/ng-seed/universal/issues/85)
 * use official express-engine ([#87](https://github.com/ng-seed/universal/issues/87)) ([aa5d4ca](https://github.com/ng-seed/universal/commit/aa5d4ca)), closes [#80](https://github.com/ng-seed/universal/issues/80)
-* **test:** run tests with jest ([#78](https://github.com/ng-seed/universal/issues/78)) ([1a30f7a](https://github.com/ng-seed/universal/commit/1a30f7a)), closes [#77](https://github.com/ng-seed/universal/issues/77)
+* run tests with jest ([#78](https://github.com/ng-seed/universal/issues/78)) ([1a30f7a](https://github.com/ng-seed/universal/commit/1a30f7a)), closes [#77](https://github.com/ng-seed/universal/issues/77)
