@@ -30,8 +30,9 @@
     "ci:after": "greenkeeper-lockfile-upload",
     "lint": "tslint -p ./tslint.json --force",
     "test": "jest --runInBand --colors",
-    "test:ci": "jest --ci --updateSnapshot --colors",
-    "test:e2e": "jest -c ./tools/test/e2e-preset.json --runInBand --colors",
+    "test:ci": "jest --ci --colors",
+    "e2e": "npm run build:universal-dev && concurrently -k --kill-others-on-fail -s first \"npm run serve\" \"jest -c ./tools/test/e2e-preset.json --runInBand --colors\"",
+    "e2e:ci": "concurrently -k --kill-others-on-fail -s first \"npm run serve\" \"jest --ci -c ./tools/test/e2e-preset.json --colors\"",
     "test:watch": "jest --runInBand --watch --colors",
     "docs": "./node_modules/.bin/compodoc -p tsconfig.json -d docs -n \"ng-seed/universal\" -t --theme stripe",
     "release": "npm run docs && standard-version"
