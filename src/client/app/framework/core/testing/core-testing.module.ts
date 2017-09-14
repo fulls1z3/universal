@@ -19,11 +19,15 @@ import { MockWindow } from './mocks/window.mock';
 
 export * from './mocks/window.mock';
 
+export function mockElementFactory(): ElementRef {
+  return new MockElementRef();
+}
+
 @NgModule({
   providers: [
     {
       provide: ElementRef,
-      useValue: new MockElementRef()
+      useFactory: mockElementFactory
     },
     {
       provide: WindowService,
