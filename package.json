@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/ng-seed/universal#readme",
   "scripts": {
-    "clean": "npm run clean:artifacts & rimraf node_modules/.cache",
-    "clean:artifacts": "rimraf .cache .server/server* .temp coverage public test-report.xml",
+    "clean": "npm run clean:artifacts & rimraf node_modules/.cache coverage test-report.xml",
+    "clean:artifacts": "rimraf .cache .server/server* .temp public",
     "build:spa-dev": "npm run clean:artifacts && gulp build:spa-dev --color",
     "build:spa-prod": "npm run clean:artifacts && gulp build:spa-prod --color",
     "build:universal-dev": "npm run clean:artifacts && gulp build:universal-dev --color",
