@@ -5,14 +5,21 @@ import { e2e } from '../../framework/testing/e2e';
 e2e.describe('ng-seed/universal', () => {
   e2e.describe('components', () => {
     e2e.describe('+secure: SecureComponent', () => {
-      e2e.it('should have title', async () => {
+      e2e.it('should redirect to login page', async () => {
         const page = browser.goto(`${baseUrl}/secure-page`);
+
+        const url = await page
+          .evaluate(() => document.location.href)
+          .end();
+
+        e2e.e(url).toEqual(`${baseUrl}/login`);
 
         const text = await page
           .evaluate(() => document.title)
           .end();
 
-        e2e.e(text).toContain('Secure page | ng-seed/universal');
+        // NOTE: should display the login page's title
+        e2e.e(text).toContain('Log in | ng-seed/universal');
       });
     });
   });
