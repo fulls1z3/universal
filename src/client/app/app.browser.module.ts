@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserStateTransferModule, DEFAULT_STATE_ID } from '@ngx-universal/state-transfer';
 import { CACHE } from '@ngx-cache/core';
 import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/platform-browser';
+import { AuthModule } from '@ngx-auth/core';
 import 'hammerjs';
 
 // framework
@@ -52,6 +53,7 @@ export function consoleFactory(): any {
         useFactory: consoleFactory
       }
     ]),
+    AuthModule.forRoot(),
     AppModule
   ],
   bootstrap: [AppComponent]

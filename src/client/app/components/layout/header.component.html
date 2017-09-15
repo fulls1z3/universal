@@ -19,10 +19,19 @@
     <button md-button [routerLink]="['/', 'about', 'apple', 6, 'pear']">
         {{ 'PUBLIC.MENU.ABOUT_APPLE_PEAR' | translate }}
     </button>
+    <button md-button [routerLink]="['/', 'secure-page']">
+        {{ 'PUBLIC.MENU.SECURE' | translate }}
+    </button>
     <span fxFlex></span>
     <a md-button href="https://www.github.com/ng-seed/universal">
         Github
     </a>
+    <button *ngIf="!isAuthenticated" md-icon-button [routerLink]="['/', 'login']">
+        <md-icon>account_circle</md-icon>
+    </button>
+    <button *ngIf="isAuthenticated" md-icon-button (click)="logout()">
+        <md-icon>lock_outline</md-icon>
+    </button>
     <md-menu #i18nMenu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
         <button md-menu-item [routerLink]="['/', 'change-language', 'en']">
             {{ 'PUBLIC.MENU.ENGLISH' | translate }}

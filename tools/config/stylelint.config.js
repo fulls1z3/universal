@@ -27,7 +27,7 @@ module.exports = {
     ],
     'color-no-hex': true,
     // number
-    'number-max-precision': 2,
+    'number-max-precision': 3,
     // time
     'time-min-milliseconds': 100,
     // unit
@@ -52,7 +52,7 @@ module.exports = {
     'selector-max-class': 2,
     'selector-max-combinators': 2,
     'selector-max-compound-selectors': 3,
-    'selector-max-specificity': '0,2,0',
+    'selector-max-specificity': '0,3,0',
     'selector-max-type': [
       2,
       {

@@ -9,6 +9,7 @@ import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/
 import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
 import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
 import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
+import { AuthModule } from '@ngx-auth/core';
 
 // modules & components
 import { AppModule } from '../../client/app/app.module';
@@ -47,6 +48,7 @@ export function bootstrapFactory(appRef: ApplicationRef,
         useFactory: fsStorageFactory
       }
     ]),
+    AuthModule.forServer(),
     AppModule
   ],
   providers: [

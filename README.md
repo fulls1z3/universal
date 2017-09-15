@@ -29,7 +29,7 @@ in file and application organization, providing the following features:
 - [ ] Uses **[@ngx-universal/state-transfer]** to cache server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
 - [x] Uses **[ngx-config]** for configuration management.
-- [ ] Uses **[ngx-auth]** for basic JWT-based authentication.
+- [x] Uses **[ngx-auth]** for basic JWT-based authentication (*w/Universal support*).
 - [x] Uses **[ngx-cache]** for application-wide caching.
 - [x] Uses [ngx-translate] for i18n support.
 - [x] Uses **[ngx-meta]** for SEO (*title, meta tags, and Open Graph tags for social sharing*).

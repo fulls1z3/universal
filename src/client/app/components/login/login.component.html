@@ -1,0 +1,22 @@
+﻿<div class="login">
+    <div class="container">
+        <div class="mat-elevation-z12">
+            <div class="title">{{ 'PUBLIC.LOGIN.LOG_IN' | translate }}</div>
+            <form #form="ngForm" autocomplete="off" (ngSubmit)="form.valid && login()">
+                <div class="content" fxLayout="column" fxLayoutAlign="start stretch">
+                    <md-input-container>
+                        <input mdInput required type="text" name="username" placeholder="{{ 'PUBLIC.LOGIN.USERNAME' | translate }}" [(ngModel)]="username">
+                    </md-input-container>
+                    <md-input-container>
+                        <input mdInput required type="password" name="password" placeholder="{{ 'PUBLIC.LOGIN.PASSWORD' | translate }}" [(ngModel)]="password">
+                    </md-input-container>
+                    <button md-raised-button color="primary" [disabled]="!form.valid || isProcessing">
+                        {{ 'PUBLIC.LOGIN.LOG_IN' | translate }}
+                    </button>
+                    <p *ngIf="note$ && !warn$" class="note">{{ note$ | async }}</p>
+                    <p *ngIf="warn$" class="warn">{{ warn$ | async }}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

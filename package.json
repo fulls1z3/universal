@@ -17,7 +17,7 @@
   "homepage": "https://github.com/ng-seed/universal#readme",
   "scripts": {
     "clean": "npm run clean:artifacts & rimraf node_modules/.cache",
-    "clean:artifacts": "rimraf .cache .server/server* .temp coverage public",
+    "clean:artifacts": "rimraf .cache .server/server* .temp coverage public test-report.xml",
     "build:spa-dev": "npm run clean:artifacts && gulp build:spa-dev --color",
     "build:spa-prod": "npm run clean:artifacts && gulp build:spa-prod --color",
     "build:universal-dev": "npm run clean:artifacts && gulp build:universal-dev --color",
@@ -73,6 +73,7 @@
     "@ngx-cache/platform-server": "4.0.1",
     "@ngx-cache/fs-storage": "4.0.1",
     "@ngx-universal/config-loader": "4.0.1",
+    "@ngx-auth/core": "4.1.0",
     "@ngx-translate/core": "~6.0.1",
     "@ngx-translate/http-loader": "~0.0.3",
     "@ngx-universal/translate-loader": "4.0.1",

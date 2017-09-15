@@ -5,7 +5,7 @@
  * Angular Material
  */
 @include mat-core();
-$theme: mat-light-theme($primary, $accent);
+$theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
 
@@ -22,11 +22,7 @@ html {
 }
 
 body {
-  @include font(#{$h4}/1.42857143 $font--preferred, #333);
+  @include font(#{$h4}/1.429 $font--preferred);
 
   background-color: c(grey, gallery);
-}
-
-h1 {
-  color: #14b004;
 }
