@@ -10,17 +10,13 @@ import { ConfigLoader, ConfigModule, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
 import { ConfigFsLoader } from '@ngx-config/fs-loader';
 import { ConfigMergeLoader } from '@ngx-config/merge-loader';
+import { CacheModule } from '@ngx-cache/core';
 import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
 // import { I18N_ROUTER_PROVIDERS, I18NRouterLoader } from '@ngx-language-router/core';
 // import { I18NRouterConfigLoader } from '@ngx-language-router/config-loader';
 import { TranslateService } from '@ngx-translate/core';
-import { PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-
-const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
 
 // module
 import { ConsoleService } from './src/console.service';
@@ -76,10 +72,9 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
     EffectsModule.forRoot([]),
     HttpTransferModule.forRoot(),
     ConfigModule.forRoot(),
-    MetaModule.forRoot(),
-    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
+    CacheModule.forRoot(),
+    MetaModule.forRoot()
   ],
-  exports: [PerfectScrollbarModule],
   providers: [
     CORE_PROVIDERS
     // I18N_ROUTER_PROVIDERS
