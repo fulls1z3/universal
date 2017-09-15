@@ -12,8 +12,9 @@ e2e.describe('ng-seed/universal', () => {
           .evaluate(() => document.title)
           .end();
 
-        // NOTE: should display the login page's title
-        e2e.e(text).toContain('Log in | ng-seed/universal');
+        // NOTE: title may change from login page to secure page
+        // depending on auth status
+        e2e.e(text).toContain('ng-seed/universal');
       });
     });
   });
