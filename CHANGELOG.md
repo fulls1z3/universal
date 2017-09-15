@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/ng-seed/universal/compare/v1.0.0...v1.2.0) (2017-09-15)
+
+
+### Bug Fixes
+
+* add `angular-whitespace` rule to avoid falsy warnings ([#109](https://github.com/ng-seed/universal/issues/109)) ([66cd59f](https://github.com/ng-seed/universal/commit/66cd59f)), closes [#108](https://github.com/ng-seed/universal/issues/108)
+
+
+### Features
+
+* add basic JWT-based authentication with ngx-auth ([#121](https://github.com/ng-seed/universal/issues/121)) ([03c773e](https://github.com/ng-seed/universal/commit/03c773e)), closes [#118](https://github.com/ng-seed/universal/issues/118)
+* add Github button to the header ([#116](https://github.com/ng-seed/universal/issues/116)) ([896d26a](https://github.com/ng-seed/universal/commit/896d26a)), closes [#117](https://github.com/ng-seed/universal/issues/117)
+* use Angular Material components ([#103](https://github.com/ng-seed/universal/issues/103)) ([b3f2bfd](https://github.com/ng-seed/universal/commit/b3f2bfd)), closes [#53](https://github.com/ng-seed/universal/issues/53)
+* use ngx-perfect-scrollbar ([#107](https://github.com/ng-seed/universal/issues/107)) ([7e17300](https://github.com/ng-seed/universal/commit/7e17300)), closes [#106](https://github.com/ng-seed/universal/issues/106)
+* use stylelint-config-standard ([#105](https://github.com/ng-seed/universal/issues/105)) ([238e3cb](https://github.com/ng-seed/universal/commit/238e3cb)), closes [#104](https://github.com/ng-seed/universal/issues/104)
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ng-seed/universal/compare/v1.0.0...v1.1.0) (2017-09-14)
 
