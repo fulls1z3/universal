@@ -8,12 +8,6 @@ e2e.describe('ng-seed/universal', () => {
       e2e.it('should redirect to login page', async () => {
         const page = browser.goto(`${baseUrl}/secure-page`);
 
-        const url = await page
-          .evaluate(() => document.location.href)
-          .end();
-
-        e2e.e(url).toEqual(`${baseUrl}/login`);
-
         const text = await page
           .evaluate(() => document.title)
           .end();
