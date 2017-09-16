@@ -80,8 +80,6 @@ $font-size: map-get($font-sizes, base) !default;
  * Colors
  */
 $primary: mat-palette($mat-indigo);
-$primary-light: mat-palette($mat-indigo, 300);
-$primary-dark: mat-palette($mat-indigo, 700);
 $accent: mat-palette($mat-deep-purple, A200, A100, A400);
 $warn: mat-palette($mat-red);
 
@@ -127,3 +125,10 @@ $ui-colors: (
     base: white
   ),
 );
+
+/**
+ * Theme specific
+ */
+// colors
+$primary-light: mat-palette($mat-indigo, 300);
+$primary-dark: mat-palette($mat-indigo, 700);
