@@ -70,9 +70,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@~4.3.0":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.3.6.tgz#6152b1f3b78d0246fc5e150e2f7b9ed4337e3ba6"
+"@angular/platform-browser@4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.1.tgz#ce576401976f71d45a23c9a61ac05cef90a70f00"
   dependencies:
     tslib "^1.7.1"
 
