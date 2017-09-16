@@ -3,7 +3,7 @@ module.exports = {
     link: [
       {
         rel: 'stylesheet',
-        href: '//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800&amp;subset=latin-ext',
+        href: '//fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800&amp;subset=latin-ext',
         '=href': false
       },
       {

@@ -280,14 +280,3 @@
     @warn 'There is no color "#{$color}" in this list; choose one of: #{$ui-colors}';
   }
 }
-
-@function mat-c($value, $seed: 500) {
-  @if $value != null AND map-has-key($mat-colors, $value) {
-    $value: mat-color(map-get($mat-colors, $value), $seed);
-
-    @return $value;
-  }
-  @else {
-    @warn 'There is no color "#{$value}" in this list; choose one of: #{$mat-colors}';
-  }
-}
