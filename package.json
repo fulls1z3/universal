@@ -48,7 +48,7 @@
     "@angular/animations": "~4.3.0",
     "@angular/common": "4.4.1",
     "@angular/core": "4.4.1",
-    "@angular/forms": "~4.3.0",
+    "@angular/forms": "4.4.1",
     "@angular/http": "~4.3.0",
     "@angular/platform-browser": "~4.3.0",
     "@angular/platform-browser-dynamic": "~4.3.0",
