@@ -49,7 +49,7 @@
     "@angular/forms": "~4.3.0",
     "@angular/http": "~4.3.0",
     "@angular/platform-browser": "~4.3.0",
-    "@angular/platform-browser-dynamic": "~4.3.0",
+    "@angular/platform-browser-dynamic": "~4.4.1",
     "@angular/platform-server": "~4.3.0",
     "@angular/router": "~4.3.0",
     "@angular/cdk": "2.0.0-beta.10",
