@@ -18,7 +18,7 @@ jobs:
       - run: yarn ci:before
       - run: yarn test:ci
       - run: yarn build:universal-prod
-      - run: yarn e2e:ci
+      # - run: yarn e2e:ci
       - run: yarn ci:after
       - run: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
