@@ -17,10 +17,6 @@ $theme: mat-light-theme($primary, $accent, $warn);
 @import 'layout/root';
 @import 'layout/splash-screen';
 
-html {
-  font-size: 14px;
-}
-
 body {
   @include font(#{$h4}/1.429 $font--preferred);
 

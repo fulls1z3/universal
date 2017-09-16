@@ -13,7 +13,7 @@
         "app",
         "routerLink"
       ],
-      "camelCase"
+      "kebab-case"
     ],
     "component-selector": [
       true,

@@ -25,7 +25,7 @@
 
   .title {
     @include soft($space--xl);
-    @include font($font--medium #{$h2}/#{$space--xxl} $font--preferred, c(white));
+    @include font(#{$h2}/#{$space--xxl} $font--preferred, c(white));
 
     width: rem(38);
     background: mat-color($primary-dark);
