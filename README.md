@@ -20,8 +20,8 @@ in file and application organization, providing the following features:
 - [x] The [Dll Bundle] and [Hard Source] plugins for **lightning-fast** development builds.
 - [x] **Hot Module Replacement** with [Webpack] and [webpack-hot-middleware].
 - [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
-- [x] Production and development modes.
-- [x] Performing [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
+- [x] Development, staging and production modes.
+- [x] Performing [AoT compilation] for rapid page loads on staging/production builds (*using [@ngtools/webpack]*).
 - [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
@@ -109,8 +109,8 @@ then handle any conflicts, and go on with building your app.
 ### <a name="building"> Building
 These are the scripts to lint, test and build this seed project:
 ```
-# use npm (or yarn) to install the dependencies
-$ npm install
+# use `yarn` to install the dependencies
+$ yarn
 
 # clean artifacts & DLL cache
 $ npm run clean
@@ -128,6 +128,11 @@ $ npm run e2e
 $ npm run build:spa-dev
 # OR
 $ npm run build:universal-dev
+
+# stage build (lean Angular / Angular Universal)
+$ npm run build:spa-stage
+# OR
+$ npm run build:universal-stage
 
 # prod build (lean Angular / Angular Universal)
 $ npm run build:spa-prod
@@ -204,12 +209,12 @@ universal/
 ```
 
 ## <a name="configuring"></a> Configuring `ng-seed/universal`
-Most of the configuration is done via **`./tools/build/build.config.json`**, where you can customize **host name**, **port numbers**,
+Most of the configuration is done via **`./tools/build/build-config.json`**, where you can customize **host name**, **port numbers**,
 and **output directories** for your app.
 
 ## <a name="external-scss"></a> External stylesheets
 Any stylesheets (*SCSS*) placed in the **`src/client/assets/scss`** directory and imported into your project will automatically
-be compiled into an **external .css file** and embedded in your production builds.
+be compiled into an **external .css file** and embedded in your staging/production builds.
 
 All other stylesheets (*SCSS*) located below **`src/client/app`** will be **extracted into** the generated bundle (*inline*).
 
