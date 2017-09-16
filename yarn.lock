@@ -28,9 +28,9 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@~4.3.0":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.3.6.tgz#be170df098b71e835ccedf168d5fb7b23e5045b8"
+"@angular/compiler@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.0.tgz#dccdb6d1783ab3dfa6f4d3588d703fe313d5151a"
   dependencies:
     tslib "^1.7.1"
 
