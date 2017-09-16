@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@angular/animations@4.4.1":
+"@angular/animations@~4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.1.tgz#578d8951a273ee95936ab7f6cd933ff019ce0ffe"
   dependencies:
@@ -14,29 +14,29 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/common@~4.3.0":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.3.6.tgz#ed37e9307c7506dd834797c1a6cf675e52b5b6ee"
+"@angular/common@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.4.1.tgz#d1aea2ccebddd2dfaf7137f55760d45638ada24a"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/compiler-cli@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.0.tgz#3283f721fad0a6b65cac2d2d8fccd074f58f359f"
+"@angular/compiler-cli@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.1.tgz#17b3be903efe1ed3bb2b1e29140634b500fdb265"
   dependencies:
     "@angular/tsc-wrapped" "4.3.6"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.0.tgz#dccdb6d1783ab3dfa6f4d3588d703fe313d5151a"
+"@angular/compiler@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.1.tgz#ece6a333f8e57e819679f2a4034f807564b9cc40"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.0.tgz#4356a61b4cc245a90e25aa31d3af3ce42574f945"
+"@angular/core@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.1.tgz#a3c5b80452448535253d2eab17b60601d83cc012"
   dependencies:
     tslib "^1.7.1"
 
@@ -46,13 +46,13 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.0.tgz#f0144eaf180890306b79a7250977f6ba654495f5"
+"@angular/forms@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.1.tgz#2a3644a3f84b96aad240ac6caa74d52bf3ada24a"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/http@4.4.1":
+"@angular/http@~4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.1.tgz#9265d1802673aa5f73ac125f98fce7af8b5fa72c"
   dependencies:
@@ -64,29 +64,29 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser-dynamic@4.4.1":
+"@angular/platform-browser-dynamic@~4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.1.tgz#951dd7fdb3f5a0e45bc4bf93a2a7e051def24eaf"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@4.4.1":
+"@angular/platform-browser@~4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.1.tgz#ce576401976f71d45a23c9a61ac05cef90a70f00"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-server@~4.3.0":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-4.3.6.tgz#369d49844f1c0a9a10c7cba9b0cb78c2520741a5"
+"@angular/platform-server@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-4.4.1.tgz#c2af60fb2eb45720cc6ba72a9971bab67f6718bb"
   dependencies:
     parse5 "^3.0.1"
     tslib "^1.7.1"
     xhr2 "^0.1.4"
 
-"@angular/router@~4.3.0":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.3.6.tgz#64033edb4fcda08a323e7533b4a1820c0f28d130"
+"@angular/router@~4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.4.1.tgz#d2c933c84a8f5077792e77787561ee1e7a4a1a14"
   dependencies:
     tslib "^1.7.1"
 
@@ -283,7 +283,7 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/jest@20.0.8":
+"@types/jest@~20.0.8":
   version "20.0.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
 
@@ -4707,7 +4707,7 @@ jest-jasmine2@^21.1.0:
     jest-snapshot "^21.1.0"
     p-cancelable "^0.3.0"
 
-jest-junit-reporter@1.1.0:
+jest-junit-reporter@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/jest-junit-reporter/-/jest-junit-reporter-1.1.0.tgz#88d6006ec13f82df40c47882c8640989cdcb1434"
   dependencies:
@@ -4753,7 +4753,7 @@ jest-mock@^21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-21.1.0.tgz#c4dddfa893a0b120b72b5ae87c7506745213a790"
 
-jest-preset-angular@3.0.1:
+jest-preset-angular@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-3.0.1.tgz#b59234234ced305d777c4b5bd98433a93f38cee8"
   dependencies:
@@ -4895,7 +4895,7 @@ jest-zone-patch@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/jest-zone-patch/-/jest-zone-patch-0.0.7.tgz#d963cd3eb005d500db1b41242a7a63a371a500f3"
 
-jest@21.1.0:
+jest@~21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-21.1.0.tgz#77c7baa8aa9e8bace7fe41a30d748ab56e89476a"
   dependencies:
@@ -9234,7 +9234,7 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.5.3"
 
-webpack@3.6.0:
+webpack@~3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.6.0.tgz#a89a929fbee205d35a4fa2cc487be9cbec8898bc"
   dependencies:
