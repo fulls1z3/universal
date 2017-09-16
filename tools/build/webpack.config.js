@@ -4,6 +4,23 @@ const webpackMerge = require('webpack-merge'),
 const copyWebpackPlugin = require('copy-webpack-plugin'),
   htmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
 
+const _ = require('lodash');
+
+const mergeUnique = function(key, uniques, getter = a => a) {
+  return (a, b, k) => (
+    k === key && [
+      ...b,
+      ..._.differenceWith(
+        a, b, item => uniques.indexOf(getter(item)) >= 0
+      )
+    ]
+  );
+};
+
+const mergePlugins = function(plugins) {
+  return mergeUnique('plugins', plugins, plugin => plugin.constructor && plugin.constructor.name);
+};
+
 const browserConfig = function(root, settings) {
   return {
     module: {
@@ -47,11 +64,23 @@ module.exports = function(options, root, settings) {
   switch (options.env) {
     case 'prod':
     case 'production':
-      return !!options.platform
-        ? options.platform === 'server'
-          ? webpackConfig.universal.server.prod(root, settings)
-          : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
-        : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings));
+      return options.mode === 'stage' || options.mode === 'staging'
+        ? !!options.platform
+            ? options.platform === 'server'
+              ? webpackMerge({
+                customizeArray: mergePlugins(['UglifyJsPlugin'])
+              })(webpackConfig.universal.server.prod(root, settings))
+              : webpackMerge({
+                customizeArray: mergePlugins(['UglifyJsPlugin'])
+              })(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
+            : webpackMerge({
+              customizeArray: mergePlugins(['UglifyJsPlugin'])
+            })(webpackConfig.spa.prod(root, settings), browserConfig(root, settings))
+        : !!options.platform
+            ? options.platform === 'server'
+              ? webpackConfig.universal.server.prod(root, settings)
+              : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
+            : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings));
     case 'dev':
     case 'development':
       return !!options.platform
