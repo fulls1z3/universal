@@ -204,7 +204,7 @@ universal/
 ```
 
 ## <a name="configuring"></a> Configuring `ng-seed/universal`
-Most of the configuration is done via **`./tools/build/build.config.json`**, where you can customize **host name**, **port numbers**,
+Most of the configuration is done via **`./tools/build/build-config.json`**, where you can customize **host name**, **port numbers**,
 and **output directories** for your app.
 
 ## <a name="external-scss"></a> External stylesheets
