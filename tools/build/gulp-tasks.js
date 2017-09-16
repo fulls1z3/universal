@@ -105,6 +105,14 @@ const bundle = {
           $$.webpackFormatter(err, stats, done);
         });
     },
+    stage: function(done) {
+      const conf = $.webpackConfig({ env: 'prod', mode: 'stage' }, $$.root, settings);
+
+      $.webpack(conf)
+        .run(function(err, stats) {
+          $$.webpackFormatter(err, stats, done);
+        });
+    },
     prod: function(done) {
       const conf = $.webpackConfig({ env: 'prod' }, $$.root, settings);
 
@@ -119,6 +127,18 @@ const bundle = {
       dev: function(done) {
         const conf = $.webpackConfig({
           env: 'dev',
+          platform: 'browser'
+        }, $$.root, settings);
+
+        $.webpack(conf)
+          .run(function(err, stats) {
+            $$.webpackFormatter(err, stats, done);
+          });
+      },
+      stage: function(done) {
+        const conf = $.webpackConfig({
+          env: 'prod',
+          mode: 'stage',
           platform: 'browser'
         }, $$.root, settings);
 
@@ -151,6 +171,18 @@ const bundle = {
             $$.webpackFormatter(err, stats, done);
           });
       },
+      stage: function(done) {
+        const conf = $.webpackConfig({
+          env: 'prod',
+          mode: 'stage',
+          platform: 'server'
+        }, $$.root, settings);
+
+        $.webpack(conf)
+          .run(function(err, stats) {
+            $$.webpackFormatter(err, stats, done);
+          });
+      },
       prod: function(done) {
         const conf = $.webpackConfig({
           env: 'prod',
@@ -167,10 +199,13 @@ const bundle = {
 };
 
 bundle.spa.dev.displayName = 'bundle:spa-dev';
+bundle.spa.stage.displayName = 'bundle:spa-stage';
 bundle.spa.prod.displayName = 'bundle:spa-prod';
 bundle.universal.browser.dev.displayName = 'bundle:universal-browser-dev';
+bundle.universal.browser.stage.displayName = 'bundle:universal-browser-stage';
 bundle.universal.browser.prod.displayName = 'bundle:universal-browser-prod';
 bundle.universal.server.dev.displayName = 'bundle:universal-server-dev';
+bundle.universal.server.stage.displayName = 'bundle:universal-server-stage';
 bundle.universal.server.prod.displayName = 'bundle:universal-server-prod';
 
 tasks.clean = clean;
@@ -181,6 +216,13 @@ tasks.bundle = bundle;
 gulp.task('build:spa-dev',
   gulp.series(
     tasks.bundle.spa.dev,
+    tasks.views.assets.copy,
+    tasks.clean.artifacts
+  ));
+
+gulp.task('build:spa-stage',
+  gulp.series(
+    tasks.bundle.spa.stage,
     tasks.views.assets.copy,
     tasks.clean.artifacts
   ));
@@ -196,6 +238,14 @@ gulp.task('build:universal-dev',
   gulp.series(
     tasks.bundle.universal.browser.dev,
     tasks.bundle.universal.server.dev,
+    tasks.views.assets.copy,
+    tasks.clean.artifacts
+  ));
+
+gulp.task('build:universal-stage',
+  gulp.series(
+    tasks.bundle.universal.browser.stage,
+    tasks.bundle.universal.server.stage,
     tasks.views.assets.copy,
     tasks.clean.artifacts
   ));
