@@ -1,20 +1,20 @@
 // angular
-import { PLATFORM_ID } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { Http } from '@angular/http';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 
 // libs
-import { ConfigLoader, ConfigModule, ConfigService } from '@ngx-config/core';
+import { ConfigLoader, ConfigModule, ConfigService, ConfigStaticLoader } from '@ngx-config/core';
 
 // framework
 import { t } from '../../testing';
-import { HttpTestingModule, mockBackendResponse } from '../../http/testing/http-testing.module';
 
 // module
 import { LogLevel } from './models/log-level';
-import { configFactory, ConsoleService, LogService } from '../core.module';
+import { ConsoleService, LogService } from '../core.module';
+
+const LOG_LEVEL = new InjectionToken<LogLevel>('LOG_LEVEL');
+const configFactory = (logLevel: LogLevel) => new ConfigStaticLoader(getTestSettings(logLevel));
 
 const getTestSettings = (logLevel: LogLevel) => {
   return {
@@ -22,6 +22,34 @@ const getTestSettings = (logLevel: LogLevel) => {
       level: logLevel
     }
   };
+};
+
+const testModuleConfig = (logLevel: LogLevel) => {
+  TestBed.resetTestEnvironment();
+
+  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
+    .configureTestingModule({
+      imports: [
+        ConfigModule.forRoot({
+          provide: ConfigLoader,
+          useFactory: configFactory,
+          deps: [
+            LOG_LEVEL
+          ]
+        })
+      ],
+      providers: [
+        {
+          provide: LOG_LEVEL,
+          useValue: logLevel
+        },
+        {
+          provide: ConsoleService,
+          useValue: console
+        },
+        LogService
+      ]
+    });
 };
 
 t.describe('ng-seed/universal', () => {
@@ -32,141 +60,130 @@ t.describe('ng-seed/universal', () => {
         t.spyOn(console, 'error');
         t.spyOn(console, 'warn');
         t.spyOn(console, 'info');
+      });
 
-        TestBed.resetTestEnvironment();
+      t.it('is defined', () => {
+        testModuleConfig(0);
 
-        TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-          .configureTestingModule({
-            imports: [
-              ConfigModule.forRoot({
-                provide: ConfigLoader,
-                useFactory: configFactory,
-                deps: [
-                  PLATFORM_ID,
-                  Http
-                ]
-              }),
-              HttpTestingModule
-            ],
-            providers: [
-              {
-                provide: ConsoleService,
-                useValue: console
-              },
-              LogService
-            ]
+        const log = TestBed.get(LogService);
+
+        t.e(log).toBeDefined();
+        t.e(log.debug).toBeDefined();
+        t.e(log.error).toBeDefined();
+        t.e(log.warn).toBeDefined();
+        t.e(log.info).toBeDefined();
+      });
+
+      t.it('should not log anything by default', () => {
+        testModuleConfig(0);
+
+        const config = TestBed.get(ConfigService);
+        const log = TestBed.get(LogService);
+
+        config.init()
+          .then(() => {
+            log.debug('debug');
+            t.e(console.log).not.toHaveBeenCalledWith('debug');
+            log.error('error');
+            t.e(console.error).not.toHaveBeenCalledWith('error');
+            log.warn('warn');
+            t.e(console.warn).not.toHaveBeenCalledWith('warn');
+            log.info('info');
+            t.e(console.info).not.toHaveBeenCalledWith('info');
           });
       });
 
-      t.it('is defined',
-        t.inject([LogService], (log: LogService) => {
-          t.e(log).toBeDefined();
-          t.e(log.debug).toBeDefined();
-          t.e(log.error).toBeDefined();
-          t.e(log.warn).toBeDefined();
-          t.e(log.info).toBeDefined();
-        }));
+      t.it('should be able to log everything w/debug log level', () => {
+        testModuleConfig(LogLevel.Debug);
 
-      t.it('should not log anything by default',
-        t.async(t.inject([MockBackend, ConfigService, LogService], (backend: MockBackend, config: ConfigService, log: LogService) => {
-          backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, getTestSettings(0)));
+        const config = TestBed.get(ConfigService);
+        const log = TestBed.get(LogService);
 
-          config.init()
-            .then(() => {
-              log.debug('debug');
-              t.e(console.log).not.toHaveBeenCalledWith('debug');
-              log.error('error');
-              t.e(console.error).not.toHaveBeenCalledWith('error');
-              log.warn('warn');
-              t.e(console.warn).not.toHaveBeenCalledWith('warn');
-              log.info('info');
-              t.e(console.info).not.toHaveBeenCalledWith('info');
-            });
-        })));
+        config.init()
+          .then(() => {
+            // should allow this level
+            log.debug('debug');
+            t.e(console.log).toHaveBeenCalledWith('debug');
 
-      t.it('should be able to log everything w/debug log level',
-        t.async(t.inject([MockBackend, ConfigService, LogService], (backend: MockBackend, config: ConfigService, log: LogService) => {
-          backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, getTestSettings(LogLevel.Debug)));
+            // always overrides lower levels and allows them
+            log.error('error w/debug log level');
+            t.e(console.error).toHaveBeenCalledWith('error w/debug log level');
+            log.warn('warn w/debug log level');
+            t.e(console.warn).toHaveBeenCalledWith('warn w/debug log level');
+            log.info('info w/debug log level');
+            t.e(console.info).toHaveBeenCalledWith('info w/debug log level');
+          });
+      });
 
-          config.init()
-            .then(() => {
-              // should allow this level
-              log.debug('debug');
-              t.e(console.log).toHaveBeenCalledWith('debug');
+      t.it('should be able to log `error`, `warn`, `info` w/error log level', () => {
+        testModuleConfig(LogLevel.Error);
 
-              // always overrides lower levels and allows them
-              log.error('error w/debug log level');
-              t.e(console.error).toHaveBeenCalledWith('error w/debug log level');
-              log.warn('warn w/debug log level');
-              t.e(console.warn).toHaveBeenCalledWith('warn w/debug log level');
-              log.info('info w/debug log level');
-              t.e(console.info).toHaveBeenCalledWith('info w/debug log level');
-            });
-        })));
+        const config = TestBed.get(ConfigService);
+        const log = TestBed.get(LogService);
 
-      t.it('should be able to log `error`, `warn`, `info` w/error log level',
-        t.async(t.inject([MockBackend, ConfigService, LogService], (backend: MockBackend, config: ConfigService, log: LogService) => {
-          backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, getTestSettings(LogLevel.Error)));
+        config.init()
+          .then(() => {
+            // never allows upper levels
+            log.debug('debug');
+            t.e(console.log).not.toHaveBeenCalledWith('debug');
 
-          config.init()
-            .then(() => {
-              // never allows upper levels
-              log.debug('debug');
-              t.e(console.log).not.toHaveBeenCalledWith('debug');
+            // should allow this level
+            log.error('error');
+            t.e(console.error).toHaveBeenCalledWith('error');
 
-              // should allow this level
-              log.error('error');
-              t.e(console.error).toHaveBeenCalledWith('error');
+            // always overrides lower levels and allows them
+            log.warn('warn w/error log level');
+            t.e(console.warn).toHaveBeenCalledWith('warn w/error log level');
+            log.info('info w/error log level');
+            t.e(console.info).toHaveBeenCalledWith('info w/error log level');
+          });
+      });
 
-              // always overrides lower levels and allows them
-              log.warn('warn w/error log level');
-              t.e(console.warn).toHaveBeenCalledWith('warn w/error log level');
-              log.info('info w/error log level');
-              t.e(console.info).toHaveBeenCalledWith('info w/error log level');
-            });
-        })));
+      t.it('should be able to log `warn`, `info` w/warn log level', () => {
+        testModuleConfig(LogLevel.Warn);
 
-      t.it('should be able to log `warn`, `info` w/warn log level',
-        t.async(t.inject([MockBackend, ConfigService, LogService], (backend: MockBackend, config: ConfigService, log: LogService) => {
-          backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, getTestSettings(LogLevel.Warn)));
+        const config = TestBed.get(ConfigService);
+        const log = TestBed.get(LogService);
 
-          config.init()
-            .then(() => {
-              // never allows upper levels
-              log.debug('debug');
-              t.e(console.log).not.toHaveBeenCalledWith('debug');
-              log.error('error');
-              t.e(console.error).not.toHaveBeenCalledWith('error');
+        config.init()
+          .then(() => {
+            // never allows upper levels
+            log.debug('debug');
+            t.e(console.log).not.toHaveBeenCalledWith('debug');
+            log.error('error');
+            t.e(console.error).not.toHaveBeenCalledWith('error');
 
-              // should allow this level
-              log.warn('warn');
-              t.e(console.warn).toHaveBeenCalledWith('warn');
+            // should allow this level
+            log.warn('warn');
+            t.e(console.warn).toHaveBeenCalledWith('warn');
 
-              // always overrides lower levels and allows them
-              log.info('info w/warning log level');
-              t.e(console.info).toHaveBeenCalledWith('info w/warning log level');
-            });
-        })));
+            // always overrides lower levels and allows them
+            log.info('info w/warning log level');
+            t.e(console.info).toHaveBeenCalledWith('info w/warning log level');
+          });
+      });
 
-      t.it('should be able to log `info` w/info log level',
-        t.async(t.inject([MockBackend, ConfigService, LogService], (backend: MockBackend, config: ConfigService, log: LogService) => {
-          backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, getTestSettings(LogLevel.Info)));
+      t.it('should be able to log `info` w/info log level', () => {
+        testModuleConfig(LogLevel.Info);
 
-          config.init()
-            .then(() => {
-              // never allows upper levels
-              log.debug('debug');
-              t.e(console.log).not.toHaveBeenCalledWith('debug');
-              log.error('error');
-              t.e(console.error).not.toHaveBeenCalledWith('error');
-              log.warn('warn');
-              t.e(console.warn).not.toHaveBeenCalledWith('warn');
+        const config = TestBed.get(ConfigService);
+        const log = TestBed.get(LogService);
 
-              // should allow this level
-              log.info('info');
-              t.e(console.info).toHaveBeenCalledWith('info');
-            });
-        })));
+        config.init()
+          .then(() => {
+            // never allows upper levels
+            log.debug('debug');
+            t.e(console.log).not.toHaveBeenCalledWith('debug');
+            log.error('error');
+            t.e(console.error).not.toHaveBeenCalledWith('error');
+            log.warn('warn');
+            t.e(console.warn).not.toHaveBeenCalledWith('warn');
+
+            // should allow this level
+            log.info('info');
+            t.e(console.info).toHaveBeenCalledWith('info');
+          });
+      });
     });
   });
 });
