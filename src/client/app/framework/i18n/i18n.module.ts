@@ -10,23 +10,22 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UniversalTranslateLoader } from '@ngx-universal/translate-loader';
 
 // module
-import { I18NService } from './src/i18n.service';
 import { ChangeLanguageComponent } from './src/change-language.component';
+import { I18NService } from './src/i18n.service';
 import * as _languageActions from './src/language.actions';
 import { LanguageEffects } from './src/language.effects';
-import { getWorkingLanguage, reducers } from './src/reducers';
+import { reducers } from './src/reducers';
 
 export * from './src/models/i18n-state';
 export * from './src/models/language';
 export * from './src/change-language.component';
 export * from './src/i18n.service';
+export * from './src/reducers';
+export { _languageActions as LANGUAGE_ACTIONS };
 
 export const I18N_COMPONENTS: Array<any> = [
   ChangeLanguageComponent
 ];
-
-export const LANGUAGE_ACTIONS = _languageActions;
-export { getWorkingLanguage };
 
 // for AoT compilation
 export function translateFactory(platformId: any, http: Http): TranslateLoader {
