@@ -31,7 +31,7 @@
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
     "lint": "tslint -p ./tslint.json --force",
-    "test": "jest --coverage --runInBand --colors",
+    "test": "jest --coverage --colors",
     "test:ci": "jest --ci --coverage --colors",
     "test:watch": "jest --runInBand --watch --colors",
     "e2e": "npm run build:universal-dev && concurrently -k --kill-others-on-fail -s first \"npm run serve\" \"jest -c ./tools/test/e2e-preset.json --runInBand --colors\"",
