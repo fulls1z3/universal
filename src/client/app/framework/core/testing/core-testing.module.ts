@@ -3,6 +3,7 @@ import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular
 
 // libs
 import { ConfigService } from '@ngx-config/core';
+import { CacheService } from '@ngx-cache/core';
 import { MetaService } from '@ngx-meta/core';
 
 // framework
@@ -12,6 +13,7 @@ import { ANALYTICS_PROVIDERS } from '../../analytics/analytics.module';
 import { ConsoleService, LogService, WindowService } from '../core.module';
 
 // mocks
+import { MockCacheService } from './mocks/cache-service.mock';
 import { MockConfigService } from './mocks/config-service.mock';
 import { MockElementRef } from './mocks/element-ref.mock';
 import { MockMetaService } from './mocks/meta-service.mock';
@@ -43,6 +45,10 @@ export function mockElementFactory(): ElementRef {
       useClass: MockConfigService
     },
     {
+      provide: CacheService,
+      useClass: MockCacheService
+    },
+    {
       provide: MetaService,
       useClass: MockMetaService
     },
@@ -68,7 +74,6 @@ export class CoreTestingModule {
           provide: WindowService,
           useClass: (options && options.window) || MockWindow
         },
-        LogService,
         {
           provide: ConfigService,
           useClass: (options && options.config) || MockConfigService
