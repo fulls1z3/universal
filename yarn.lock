@@ -174,9 +174,9 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
-"@nguniversal/express-engine@~1.0.0-beta.3":
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-1.0.0-beta.3.tgz#b06dd5ece6c6882db5e29ec4ed91f65792c63a4e"
+"@nguniversal/express-engine@5.0.0-beta.0":
+  version "5.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0-beta.0.tgz#0e42568d8b0aa28e6afed7dc215fe6724e53c836"
 
 "@ngx-auth/core@4.1.0":
   version "4.1.0"
