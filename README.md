@@ -22,7 +22,7 @@ in file and application organization, providing the following features:
 - [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
 - [x] Development, staging and production modes.
 - [x] Performing [AoT compilation] for rapid page loads on staging/production builds (*using [@ngtools/webpack]*).
-- [x] Minifying the production builds using `harmony` branch of [UglifyJs2].
+- [x] Minifying the production builds using [UglifyJS Webpack Plugin].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
 - [x] Deferring initialization of modules via [Lazy loading].
@@ -243,7 +243,7 @@ Copyright (c) 2017 [Burak Tasci]
 [webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 [@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
-[UglifyJs2]: https://github.com/mishoo/UglifyJS2/tree/harmony
+[UglifyJS Webpack Plugin]: https://github.com/webpack-contrib/uglifyjs-webpack-plugin
 [SCSS]: http://sass-lang.com
 [stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
 [stylelint]: https://stylelint.io/ 
