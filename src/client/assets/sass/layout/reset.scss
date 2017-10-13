@@ -44,7 +44,7 @@ button {
   appearance: none;
 }
 
-*:not(md-input-container) {
+*:not(mat-input-container) {
   > input[type='text'],
   > input[type='tel'],
   > input[type='email'],
