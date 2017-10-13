@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "express": "~4.15.4",
-    "debug": "~3.0.1",
+    "debug": "~3.1.0",
     "compression": "~1.7.0",
     "morgan": "~1.8.2",
     "body-parser": "~1.18.0",
