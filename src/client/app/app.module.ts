@@ -1,8 +1,7 @@
-  // angular
+// angular
 import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MdButtonModule, MdIconModule, MdInputModule, MdMenuModule, MdToolbarModule } from '@angular/material';
 
 // libs
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
@@ -15,6 +14,7 @@ import { PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-per
 // framework
 import { configFactory, CoreModule, metaFactory } from './framework/core/core.module';
 import { SharedModule } from './framework/core/shared.module';
+import { MaterialModule } from './framework/material/material.module';
 import { HttpInterceptorModule } from './framework/http/http-interceptor.module';
 import { ChangeLanguageComponent, I18NModule, translateFactory } from './framework/i18n/i18n.module';
 import { AnalyticsModule } from './framework/analytics/analytics.module';
@@ -32,11 +32,7 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    MdButtonModule,
-    MdIconModule,
-    MdInputModule,
-    MdMenuModule,
-    MdToolbarModule,
+    MaterialModule,
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     CoreModule.forRoot([
       {
