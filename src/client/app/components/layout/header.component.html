@@ -1,46 +1,46 @@
-﻿<md-toolbar class="mat-elevation-z2" color="primary">
+﻿<mat-toolbar class="mat-elevation-z2" color="primary">
     <span>
-        <md-icon class="icon">developer_board</md-icon>
+        <mat-icon class="icon">developer_board</mat-icon>
         <span class="title">{{ title | translate }}</span>
     </span>
     <span fxFlex></span>
-    <button md-button [routerLink]="['/', '']">
+    <button mat-button [routerLink]="['/', '']">
         {{ 'PUBLIC.MENU.HOME' | translate }}
     </button>
-    <button md-button [routerLink]="['/', 'about']">
+    <button mat-button [routerLink]="['/', 'about']">
         {{ 'PUBLIC.MENU.ABOUT' | translate }}
     </button>
-    <button md-button [routerLink]="['/', 'about', 'us', 22]">
+    <button mat-button [routerLink]="['/', 'about', 'us', 22]">
         {{ 'PUBLIC.MENU.ABOUT_US' | translate }}
     </button>
-    <button md-button [routerLink]="['/', 'about', 'banana']">
+    <button mat-button [routerLink]="['/', 'about', 'banana']">
         {{ 'PUBLIC.MENU.ABOUT_BANANA' | translate }}
     </button>
-    <button md-button [routerLink]="['/', 'about', 'apple', 6, 'pear']">
+    <button mat-button [routerLink]="['/', 'about', 'apple', 6, 'pear']">
         {{ 'PUBLIC.MENU.ABOUT_APPLE_PEAR' | translate }}
     </button>
-    <button md-button [routerLink]="['/', 'secure-page']">
+    <button mat-button [routerLink]="['/', 'secure-page']">
         {{ 'PUBLIC.MENU.SECURE' | translate }}
     </button>
     <span fxFlex></span>
-    <a md-button href="https://www.github.com/ng-seed/universal">
+    <a mat-button href="https://www.github.com/ng-seed/universal">
         Github
     </a>
-    <button *ngIf="!isAuthenticated" md-icon-button [routerLink]="['/', 'login']">
-        <md-icon>account_circle</md-icon>
+    <button *ngIf="!isAuthenticated" mat-icon-button [routerLink]="['/', 'login']">
+        <mat-icon>account_circle</mat-icon>
     </button>
-    <button *ngIf="isAuthenticated" md-icon-button (click)="logout()">
-        <md-icon>lock_outline</md-icon>
+    <button *ngIf="isAuthenticated" mat-icon-button (click)="logout()">
+        <mat-icon>lock_outline</mat-icon>
     </button>
-    <md-menu #i18nMenu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
-        <button md-menu-item [routerLink]="['/', 'change-language', 'en']">
+    <mat-menu #i18nMenu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+        <button mat-menu-item [routerLink]="['/', 'change-language', 'en']">
             {{ 'PUBLIC.MENU.ENGLISH' | translate }}
         </button>
-        <button md-menu-item [routerLink]="['/', 'change-language', 'tr']">
+        <button mat-menu-item [routerLink]="['/', 'change-language', 'tr']">
             {{ 'PUBLIC.MENU.TURKISH' | translate }}
         </button>
-    </md-menu>
-    <button md-icon-button [mdMenuTriggerFor]="i18nMenu">
-        <md-icon>language</md-icon>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
+        <mat-icon>language</mat-icon>
     </button>
-</md-toolbar>
+</mat-toolbar>

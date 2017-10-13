@@ -2,25 +2,25 @@
 # yarn lockfile v1
 
 
-"@angular/animations@~4.4.1":
+"@angular/animations@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.5.tgz#5a5a551d757e5a5560098f6f8535c102d93954d7"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cdk@2.0.0-beta.10":
-  version "2.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-2.0.0-beta.10.tgz#7ffcc430d6f67dfde1df25e1fa693c188e4da08a"
+"@angular/cdk@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-2.0.0-beta.12.tgz#3a243cb62b93f4e039120ba70f900dc9e235622e"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/common@~4.4.1":
+"@angular/common@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.4.5.tgz#bd5179dc922adbf4c3ea6dfb19e73cb849ffdc37"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/compiler-cli@~4.4.1":
+"@angular/compiler-cli@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.5.tgz#61fa0336acd1a208c5f1c5c6d4df679e99953248"
   dependencies:
@@ -28,13 +28,13 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@~4.4.1":
+"@angular/compiler@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.5.tgz#8721a5910f2bb52f09e2d404cad264f35ede5902"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@~4.4.1":
+"@angular/core@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.5.tgz#54acbcbda11719f883c786a906974abeb132f1a0"
   dependencies:
@@ -46,37 +46,37 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@~4.4.1":
+"@angular/forms@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.5.tgz#e9552086232aab2ce1d08ef198b62204ea13c43b"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/http@~4.4.1":
+"@angular/http@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.5.tgz#2c735ed842401fc2356419268e288dcf2396e84f"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/material@2.0.0-beta.10":
-  version "2.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.10.tgz#23f5887d5e34da89dd6da1fe4da0b3f779da4807"
+"@angular/material@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.12.tgz#71b6d0b7b021891e5d0e3688c1d4bd78c7457f58"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser-dynamic@~4.4.1":
+"@angular/platform-browser-dynamic@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.5.tgz#774dbdc1d90f775dbf1e319f6ed42b260623b61f"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@~4.4.1":
+"@angular/platform-browser@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.5.tgz#74eb91c0b758126f26d53ee56c7cf4668bd9cac5"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-server@~4.4.1":
+"@angular/platform-server@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-4.4.5.tgz#76f23b2c384ed7395dc1793cf85978883ba2cb50"
   dependencies:
@@ -84,7 +84,7 @@
     tslib "^1.7.1"
     xhr2 "^0.1.4"
 
-"@angular/router@~4.4.1":
+"@angular/router@~4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.4.5.tgz#f73130cf487d9a32cc1988afda59665f44a28a89"
   dependencies:
@@ -9646,6 +9646,6 @@ yauzl@2.4.1:
   dependencies:
     fd-slicer "~1.0.1"
 
-zone.js@~0.8.17:
+zone.js@~0.8.18:
   version "0.8.18"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.18.tgz#8cecb3977fcd1b3090562ff4570e2847e752b48d"
