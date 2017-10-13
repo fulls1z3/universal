@@ -43,7 +43,7 @@
     "express": "~4.15.4",
     "debug": "~3.1.0",
     "compression": "~1.7.0",
-    "morgan": "~1.8.2",
+    "morgan": "~1.9.0",
     "body-parser": "~1.18.0",
     "@angular/animations": "~4.4.5",
     "@angular/common": "~4.4.5",
