@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* build(webpack): use uglifyjs-webpack-plugin ([#183](https://github.com/ng-seed/universal/issues/183)) ([bbeeb2c](https://github.com/ng-seed/universal/commit/bbeeb2c), closes [#83](https://github.com/ng-seed/universal/issues/83)
+* use uglifyjs-webpack-plugin ([#183](https://github.com/ng-seed/universal/issues/183)) ([bbeeb2c](https://github.com/ng-seed/universal/commit/bbeeb2c)), closes [#83](https://github.com/ng-seed/universal/issues/83)
 
 
 ### Features
