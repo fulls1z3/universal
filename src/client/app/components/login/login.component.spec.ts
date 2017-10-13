@@ -3,12 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MdButtonModule, MdIconModule, MdMenuModule, MdToolbarModule } from '@angular/material';
 
 // libs
 import { StoreModule } from '@ngrx/store';
 import { AuthService } from '@ngx-auth/core';
 import { TranslatePipe } from '@ngx-translate/core';
+
+// framework
+import { MaterialModule } from '../../framework/material/material.module';
 
 // testing
 import { t } from '../../framework/testing';
@@ -41,10 +43,7 @@ const testModuleConfig = () => {
     imports: [
       FormsModule,
       RouterTestingModule.withRoutes(testRoutes),
-      MdButtonModule,
-      MdIconModule,
-      MdMenuModule,
-      MdToolbarModule,
+      MaterialModule,
       StoreModule.forRoot({}),
       TestingModule,
       CoreTestingModule,
