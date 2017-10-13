@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/ng-seed/universal/compare/v1.0.0...v1.3.0) (2017-10-13)
+
+
+### Bug Fixes
+
+* build(webpack): use uglifyjs-webpack-plugin ([#183](https://github.com/ng-seed/universal/issues/183)) ([bbeeb2c](https://github.com/ng-seed/universal/commit/bbeeb2c), closes [#83](https://github.com/ng-seed/universal/issues/83)
+
+
+### Features
+
+* use project-specific custom material module ([#184](https://github.com/ng-seed/universal/issues/184)) ([3ee08d3](https://github.com/ng-seed/universal/commit/3ee08d3)), closes [#148](https://github.com/ng-seed/universal/issues/148)
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/ng-seed/universal/compare/v1.0.0...v1.2.0) (2017-09-15)
 
