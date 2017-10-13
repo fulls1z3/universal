@@ -41,7 +41,7 @@ in file and application organization, providing the following features:
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v4.3.x`, bundled with `gulp v4` and `webpack v3`.
+> Built with `Angular v4.4.x`, bundled with `gulp v4` and `webpack v3`.
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
@@ -60,9 +60,9 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [License](#license)
 
 ## <a name="prerequisites"></a> Prerequisites
-Packages in this seed project depend on `@angular v4.3.x`. Older versions contain outdated dependencies, might produce errors.
+Packages in this seed project depend on `@angular v4.4.x`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.3.4`** or higher.
+Also, please ensure that you are using **`Typescript v2.5.x`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
@@ -261,7 +261,7 @@ Copyright (c) 2017 [Burak Tasci]
 [Jest]: https://facebook.github.io/jest
 [Nightmare]: https://github.com/segmentio/nightmare
 [CircleCI]: https://circleci.com
-[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
+[angular-tslint-rules]: https://github.com/ng-seed/angular-tslint-rules
 [TSLint]: https://github.com/palantir/tslint
 [codelyzer]: https://github.com/mgechev/codelyzer
 [Burak Tasci]: https://github.com/fulls1z3
