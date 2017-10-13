@@ -150,7 +150,7 @@
     "colorguard": "~1.2.0",
     "stylefmt": "~6.0.0",
     "jest": "~21.1.0",
-    "jest-preset-angular": "~3.0.1",
+    "jest-preset-angular": "~4.0.0-alpha.1",
     "jest-junit-reporter": "~1.1.0",
     "jasmine-marbles": "~0.2.0",
     "nightmare": "~2.10.0",
