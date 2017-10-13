@@ -1,10 +1,10 @@
 // angular
 import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MdCardModule } from '@angular/material';
 
 // framework
 import { SharedModule } from '../../framework/core/shared.module';
+import { MaterialModule } from '../../framework/material/material.module';
 
 // testing
 import { t } from '../../framework/testing';
@@ -17,7 +17,7 @@ const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      MdCardModule,
+      MaterialModule,
       SharedModule,
       I18NTestingModule
     ],
