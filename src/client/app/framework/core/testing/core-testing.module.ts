@@ -1,5 +1,6 @@
 // angular
 import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
@@ -26,6 +27,7 @@ export function mockElementFactory(): ElementRef {
 }
 
 @NgModule({
+  imports: [NoopAnimationsModule],
   providers: [
     {
       provide: ElementRef,
