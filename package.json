@@ -82,7 +82,7 @@
     "@ngx-meta/core": "4.0.1",
     "@ngx-i18n-router/core": "4.0.1",
     "@ngx-i18n-router/config-loader": "4.0.1",
-    "angulartics2": "~2.4.0",
+    "angulartics2": "~3.2.0",
     "ngx-perfect-scrollbar": "~4.8.4"
   },
   "devDependencies": {
