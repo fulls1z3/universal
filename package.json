@@ -63,7 +63,7 @@
     "hammerjs": "~2.0.8",
     "lodash": "~4.17.4",
     "@angularclass/bootloader": "~1.0.1",
-    "@ngrx/store": "~4.0.3",
+    "@ngrx/store": "~4.1.0",
     "@ngrx/effects": "~4.1.0",
     "@nguniversal/express-engine": "~1.0.0-beta.3",
     "@ngx-universal/state-transfer": "4.0.1",
