@@ -25,9 +25,7 @@ import { AppComponent } from './app.component';
 import { LAYOUT_COMPONENTS } from './components/layout';
 import { LOGIN_COMPONENTS } from './components/login';
 
-const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
 
 @NgModule({
   imports: [

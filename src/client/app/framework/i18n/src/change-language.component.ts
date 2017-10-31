@@ -21,7 +21,7 @@ export class ChangeLanguageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .subscribe((params: { languageCode: string }) => {
+      .subscribe((params: {languageCode: string}) => {
         if (params.languageCode)
           this.store.dispatch(new language.UseLanguage(params.languageCode));
 
