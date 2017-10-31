@@ -28,9 +28,7 @@ export function consoleFactory(): any {
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({
-      appId: 'my-app-id'
-    }),
+    BrowserModule.withServerTransition({appId: 'my-app-id'}),
     BrowserAnimationsModule,
     BrowserStateTransferModule.forRoot(),
     BrowserCacheModule.forRoot([

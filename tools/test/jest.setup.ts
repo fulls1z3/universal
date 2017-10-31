@@ -22,10 +22,8 @@ Object.defineProperty(document, 'doctype', {
 });
 
 Object.defineProperty(window, 'getComputedStyle', {
-  value: () => {
-    return {
-      display: 'none',
-      appearance: ['-webkit-appearance']
-    };
-  }
+  value: () => ({
+    display: 'none',
+    appearance: ['-webkit-appearance']
+  })
 });
