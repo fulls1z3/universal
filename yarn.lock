@@ -468,9 +468,9 @@ angular2-template-loader@0.6.0:
   dependencies:
     loader-utils "^0.2.15"
 
-angulartics2@~3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-3.2.0.tgz#34c55cbb22ccf9afb3bc66d59f16b96655d7177f"
+angulartics2@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-3.3.0.tgz#910a200346a4a3990b0a4f5032916cc483dff563"
 
 ansi-align@^2.0.0:
   version "2.0.0"
