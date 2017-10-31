@@ -29,9 +29,7 @@ export function bootstrapFactory(appRef: ApplicationRef,
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({
-      appId: 'my-app-id'
-    }),
+    BrowserModule.withServerTransition({appId: 'my-app-id'}),
     ServerModule,
     ServerStateTransferModule.forRoot(),
     ServerCacheModule.forRoot([
