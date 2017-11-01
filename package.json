@@ -46,7 +46,7 @@
     "morgan": "~1.9.0",
     "body-parser": "~1.18.2",
     "@angular/animations": "~4.4.6",
-    "@angular/common": "~4.4.6",
+    "@angular/common": "~5.0.0",
     "@angular/core": "~4.4.6",
     "@angular/forms": "~4.4.6",
     "@angular/http": "~4.4.6",
