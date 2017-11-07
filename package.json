@@ -100,7 +100,7 @@
     "gulp": "gulpjs/gulp#4.0",
     "gulp-load-plugins": "~1.5.0",
     "lazypipe": "~1.0.1",
-    "async": "~2.5.0",
+    "async": "~2.6.0",
     "gulp-changed": "~3.1.1",
     "gulp-ignore": "~2.0.2",
     "gulp-debug": "~3.1.0",
