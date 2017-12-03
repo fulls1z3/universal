@@ -303,9 +303,9 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
-"@types/nightmare@~1.6.35":
-  version "1.6.36"
-  resolved "https://registry.yarnpkg.com/@types/nightmare/-/nightmare-1.6.36.tgz#fc4fdff823e71c0e2956271c8093546d26b95667"
+"@types/nightmare@2.10.0":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@types/nightmare/-/nightmare-2.10.0.tgz#1f1f121c7aa2cf39fa87858a4306c55191ab9b6e"
   dependencies:
     "@types/node" "*"
 
