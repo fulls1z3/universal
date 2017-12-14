@@ -110,7 +110,7 @@
     "webpack": "~3.8.1",
     "angular-webpack-config": "1.4.0",
     "webpack-merge": "~4.1.0",
-    "webpack-dev-middleware": "~1.12.0",
+    "webpack-dev-middleware": "~2.0.0",
     "webpack-hot-middleware": "~2.20.0",
     "@ngtools/webpack": "~1.7.4",
     "tslint-loader": "~3.5.3",
