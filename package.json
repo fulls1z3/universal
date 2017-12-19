@@ -156,7 +156,7 @@
     "nightmare": "~2.10.0",
     "@compodoc/compodoc": "~1.0.1",
     "standard-version": "~4.2.0",
-    "codelyzer": "~3.2.2",
+    "codelyzer": "~4.0.2",
     "tslint": "~5.8.0",
     "angular-tslint-rules": "1.0.4",
     "tslib": "~1.8.0",
