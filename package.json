@@ -158,7 +158,7 @@
     "standard-version": "~4.2.0",
     "codelyzer": "~4.0.2",
     "tslint": "~5.8.0",
-    "angular-tslint-rules": "1.0.4",
+    "angular-tslint-rules": "1.1.0",
     "tslib": "~1.8.0",
     "typescript": "~2.6.2"
   },
