@@ -160,7 +160,7 @@
     "tslint": "~5.8.0",
     "angular-tslint-rules": "1.0.4",
     "tslib": "~1.8.0",
-    "typescript": "~2.5.3"
+    "typescript": "~2.6.2"
   },
   "jest": {
     "preset": "jest-preset-angular",
