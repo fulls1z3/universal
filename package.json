@@ -86,7 +86,7 @@
     "ngx-perfect-scrollbar": "~4.8.4"
   },
   "devDependencies": {
-    "nodemon": "~1.13.0",
+    "nodemon": "~1.13.3",
     "@angular/compiler": "~4.4.6",
     "@angular/compiler-cli": "~4.4.6",
     "@types/node": "~8.5.1",
