@@ -45,7 +45,7 @@
     "compression": "~1.7.1",
     "morgan": "~1.9.0",
     "body-parser": "~1.18.2",
-    "@angular/animations": "~4.4.6",
+    "@angular/animations": "~5.0.0",
     "@angular/common": "~4.4.6",
     "@angular/core": "~4.4.6",
     "@angular/forms": "~4.4.6",
