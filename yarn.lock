@@ -252,11 +252,11 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-0.0.3.tgz#8346c8d2d6f630254601029668f17abe2afe8a9b"
 
-"@ngx-universal/config-loader@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@ngx-universal/config-loader/-/config-loader-4.0.1.tgz#ebabc6d68554229a822ba75dcf47c86477d61ca2"
+"@ngx-universal/config-loader@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-universal/config-loader/-/config-loader-5.0.0.tgz#1421f13727b770c1c8b347cb03f7a044ac0ce3c6"
   dependencies:
-    tslib "~1.7.1"
+    tslib "~1.8.1"
 
 "@ngx-universal/state-transfer@4.0.1":
   version "4.0.1"
@@ -3760,9 +3760,9 @@ gulp-debug@~3.1.0:
     through2 "^2.0.0"
     tildify "^1.1.2"
 
-gulp-exec@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-exec/-/gulp-exec-3.0.0.tgz#39d378093ec50497dfe9ea36382a477d531435d8"
+gulp-exec@~3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-exec/-/gulp-exec-3.0.1.tgz#c76196a1ba28a0bf5a8d955639b0809584ae6c66"
   dependencies:
     lodash.template "^4.4.0"
     plugin-error "^0.1.2"
@@ -9147,6 +9147,10 @@ tslib@^1.7.1, tslib@~1.8.0:
 tslib@~1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
+
+tslib@~1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
 
 tslint-loader@~3.5.3:
   version "3.5.3"

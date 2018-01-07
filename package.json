@@ -74,7 +74,7 @@
     "@ngx-cache/platform-browser": "4.0.1",
     "@ngx-cache/platform-server": "4.0.1",
     "@ngx-cache/fs-storage": "4.0.1",
-    "@ngx-universal/config-loader": "4.0.1",
+    "@ngx-universal/config-loader": "5.0.0",
     "@ngx-auth/core": "4.1.0",
     "@ngx-translate/core": "~6.0.1",
     "@ngx-translate/http-loader": "~0.0.3",
