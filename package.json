@@ -78,7 +78,7 @@
     "@ngx-auth/core": "4.1.0",
     "@ngx-translate/core": "~6.0.1",
     "@ngx-translate/http-loader": "~0.0.3",
-    "@ngx-universal/translate-loader": "4.0.1",
+    "@ngx-universal/translate-loader": "5.0.0",
     "@ngx-meta/core": "4.0.1",
     "@ngx-i18n-router/core": "4.0.1",
     "@ngx-i18n-router/config-loader": "4.0.1",
