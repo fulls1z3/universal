@@ -70,7 +70,7 @@
     "@ngx-config/core": "4.0.1",
     "@ngx-config/http-loader": "4.0.1",
     "@ngx-config/fs-loader": "4.0.1",
-    "@ngx-cache/core": "4.0.1",
+    "@ngx-cache/core": "5.0.0",
     "@ngx-cache/platform-browser": "4.0.1",
     "@ngx-cache/platform-server": "4.0.1",
     "@ngx-cache/fs-storage": "4.0.1",
