@@ -1,5 +1,6 @@
 // polyfills
 import 'zone.js/dist/zone';
+// tslint:disable-next-line
 import 'reflect-metadata';
 
 // angular

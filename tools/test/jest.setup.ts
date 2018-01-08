@@ -1,4 +1,5 @@
 import 'jest-preset-angular';
+import * as hammerjs from 'hammerjs';
 
 const mock = () => {
   let storage = {};
@@ -14,12 +15,8 @@ const mock = () => {
 Object.defineProperty(window, 'CSS', {value: mock()});
 Object.defineProperty(window, 'localStorage', {value: mock()});
 Object.defineProperty(window, 'sessionStorage', {value: mock()});
-Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn(() => ({ matches: true }))
-});
-Object.defineProperty(document, 'doctype', {
-  value: '<!DOCTYPE html>'
-});
+Object.defineProperty(window, 'matchMedia', {value: jest.fn(() => ({matches: true}))});
+Object.defineProperty(document, 'doctype', {value: '<!DOCTYPE html>'});
 
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ({
@@ -27,3 +24,14 @@ Object.defineProperty(window, 'getComputedStyle', {
     appearance: ['-webkit-appearance']
   })
 });
+
+Object.defineProperty(document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  }
+});
+
+(window as any).Hammer = hammerjs;

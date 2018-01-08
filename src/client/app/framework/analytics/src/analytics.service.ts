@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 
 // libs
 import * as _ from 'lodash';
-import { Angulartics2, Angulartics2Segment } from 'angulartics2';
+import { Angulartics2 } from 'angulartics2';
 
 export interface AnalyticsProperties {
   category?: string;
@@ -17,8 +17,7 @@ export interface IAnalytics {
 
 @Injectable()
 export class AnalyticsService implements IAnalytics {
-  constructor(private readonly angulartics: Angulartics2,
-              private readonly segment: Angulartics2Segment) {
+  constructor(private readonly angulartics: Angulartics2) {
     // options
     // https://github.com/angulartics/angulartics2/blob/master/src/core/angulartics2.ts#L90-L104
     // angulartics2.virtualPageviews(value: boolean);
@@ -31,17 +30,17 @@ export class AnalyticsService implements IAnalytics {
 
   track(action: string, properties: AnalyticsProperties): void {
     if (!this.devMode())
-      this.segment.eventTrack(action, properties);
+      this.angulartics.eventTrack.next({action, properties});
   }
 
   pageTrack(path: string, location: any): void {
     if (!this.devMode())
-      this.segment.pageTrack(path, location);
+      this.angulartics.pageTrack.next({path, location});
   }
 
   identify(properties: any): void {
     if (!this.devMode())
-      this.segment.setUserProperties(properties);
+      this.angulartics.setUserProperties.next(properties);
   }
 
   devMode(enable?: boolean): boolean {

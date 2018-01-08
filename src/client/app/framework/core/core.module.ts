@@ -1,15 +1,13 @@
 // angular
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 // libs
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { HttpTransferModule } from '@ngx-universal/state-transfer';
 import { ConfigLoader, ConfigModule, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
 import { ConfigFsLoader } from '@ngx-config/fs-loader';
-import { ConfigMergeLoader } from '@ngx-config/merge-loader';
 import { CacheModule } from '@ngx-cache/core';
 import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
@@ -34,7 +32,7 @@ export const CORE_PROVIDERS: Array<any> = [
 ];
 
 // for AoT compilation
-export function configFactory(platformId: any, http: Http): ConfigLoader {
+export function configFactory(platformId: any, http: HttpClient): ConfigLoader {
   const serverLoader = new ConfigFsLoader('./public/assets/config.local.json');
   const browserLoader = new ConfigHttpLoader(http, './assets/config.local.json');
 
@@ -70,7 +68,6 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
   imports: [
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    HttpTransferModule.forRoot(),
     ConfigModule.forRoot(),
     CacheModule.forRoot(),
     MetaModule.forRoot()
