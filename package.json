@@ -187,9 +187,6 @@
   },
   "greenkeeper": {
     "ignore": [
-      "@ngx-universal/express-engine",
-      "@ngx-translate/core",
-      "@ngx-translate/http-loader",
       "@types/lodash",
       "json-sub",
       "supports-color",
