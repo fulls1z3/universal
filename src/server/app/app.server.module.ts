@@ -1,37 +1,46 @@
 // angular
 import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { ServerModule } from '@angular/platform-server';
+import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 // libs
+import * as express from 'express';
 import { Subscription } from 'rxjs/Subscription';
-import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
+import { filter, first } from 'rxjs/operators';
 import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
 import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
 import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
 import { AuthModule } from '@ngx-auth/core';
 
 // modules & components
-import { AppModule } from '../../client/app/app.module';
+import { AppModule, REQ_KEY } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
 
 export function bootstrapFactory(appRef: ApplicationRef,
-                                 stateTransfer: StateTransferService,
+                                 transferState: TransferState,
+                                 request: express.Request,
                                  cache: CacheService): () => Subscription {
   return () => appRef.isStable
-    .filter(stable => stable)
-    .first()
+    .pipe(
+      filter(stable => stable),
+      first()
+    )
     .subscribe(() => {
-      stateTransfer.set(cache.key, JSON.stringify(cache.dehydrate()));
-      stateTransfer.inject();
+      transferState.set<any>(REQ_KEY, {
+        hostname: request.hostname,
+        originalUrl: request.originalUrl,
+        referer: request.get('referer')
+      });
+
+      transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
     });
 }
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({appId: 'my-app-id'}),
     ServerModule,
-    ServerStateTransferModule.forRoot(),
+    ServerTransferStateModule,
     ServerCacheModule.forRoot([
       {
         provide: CACHE,
@@ -52,15 +61,17 @@ export function bootstrapFactory(appRef: ApplicationRef,
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: bootstrapFactory,
+      useFactory: (bootstrapFactory),
       multi: true,
       deps: [
         ApplicationRef,
-        StateTransferService,
+        TransferState,
+        REQUEST,
         CacheService
       ]
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppServerModule {}
+export class AppServerModule {
+}

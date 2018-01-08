@@ -1,8 +1,8 @@
 // angular
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { Http } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
@@ -15,11 +15,11 @@ import { ConfigLoader, ConfigService } from '@ngx-config/core';
 import { t } from '../../testing';
 import { configFactory, CoreModule } from '../../core/core.module';
 import { CoreTestingModule } from '../../core/testing/core-testing.module';
-import { HttpTestingModule } from '../../http/testing/http-testing.module';
 import { NgrxTestingModule } from '../../ngrx/testing/ngrx-testing.module';
 
 // module
 import { I18NTestingModule } from '../testing/i18n-testing.module';
+import { AnalyticsModule } from '../../analytics/analytics.module';
 import { I18NService } from './i18n.service';
 import * as language from './language.actions';
 import { LanguageEffects } from './language.effects';
@@ -40,13 +40,13 @@ const testModuleConfig = () => {
             useFactory: configFactory,
             deps: [
               PLATFORM_ID,
-              Http
+              HttpClient
             ]
           }
         ]),
         CoreTestingModule,
-        HttpTestingModule,
         NgrxTestingModule,
+        AnalyticsModule,
         I18NTestingModule
       ],
       providers: [

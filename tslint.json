@@ -6,6 +6,11 @@
     "angular-tslint-rules"
   ],
   "rules": {
+    "no-unnecessary-class": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
     "directive-selector": [
       true,
       "attribute",

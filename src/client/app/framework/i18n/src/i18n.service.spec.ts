@@ -1,9 +1,9 @@
 // angular
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { Http } from '@angular/http';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
@@ -15,10 +15,10 @@ import { ConfigLoader, ConfigService } from '@ngx-config/core';
 import { t } from '../../testing';
 import { configFactory, CoreModule, WindowService } from '../../core/core.module';
 import { CoreTestingModule, MockWindowFrench, MockWindowNoLanguage } from '../../core/testing/core-testing.module';
-import { HttpTestingModule, mockBackendResponse } from '../../http/testing/http-testing.module';
 
 // module
 import { I18NTestingModule } from '../testing/i18n-testing.module';
+import { AnalyticsModule } from '../../analytics/analytics.module';
 import { Language } from './models/language';
 import { I18NService } from './i18n.service';
 import { LanguageEffects } from './language.effects';
@@ -53,6 +53,7 @@ const testModuleConfig = (options?: any) => {
   TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
     .configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         RouterTestingModule,
         StoreModule.forFeature('i18n', reducers),
         EffectsModule.forFeature([LanguageEffects]),
@@ -62,12 +63,12 @@ const testModuleConfig = (options?: any) => {
             useFactory: configFactory,
             deps: [
               PLATFORM_ID,
-              Http
+              HttpClient
             ]
           }
         ]),
         CoreTestingModule.withOptions(options),
-        HttpTestingModule,
+        AnalyticsModule,
         I18NTestingModule
       ]
     });
@@ -108,10 +109,8 @@ t.describe('ng-seed/universal', () => {
       });
 
       t.it('should be able to support `french` by default',
-        t.inject([MockBackend, ConfigService, I18NService, Store, WindowService],
-          (backend: MockBackend, config: ConfigService, i18n: I18NService, languageStore: Store<Language>, win: WindowService) => {
-            backend.connections.subscribe((c: MockConnection) => mockBackendResponse(c, testSettings));
-
+        t.inject([ConfigService, I18NService, Store, WindowService],
+          (config: ConfigService, i18n: I18NService, languageStore: Store<Language>, win: WindowService) => {
             config.init()
               .then(() => {
                 i18n.init(config.getSettings('i18n'));

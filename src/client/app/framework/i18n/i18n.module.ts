@@ -1,6 +1,6 @@
 // angular
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 // libs
 import { StoreModule } from '@ngrx/store';
@@ -28,7 +28,7 @@ export const I18N_COMPONENTS: Array<any> = [
 ];
 
 // for AoT compilation
-export function translateFactory(platformId: any, http: Http): TranslateLoader {
+export function translateFactory(platformId: any, http: HttpClient): TranslateLoader {
   const browserLoader = new TranslateHttpLoader(http);
 
   return new UniversalTranslateLoader(platformId, browserLoader, './public/assets/i18n');

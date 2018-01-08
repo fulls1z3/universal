@@ -22,11 +22,11 @@ in file and application organization, providing the following features:
 - [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
 - [x] Development, staging and production modes.
 - [x] Performing [AoT compilation] for rapid page loads on staging/production builds (*using [@ngtools/webpack]*).
-- [x] Minifying the production builds using [UglifyJS Webpack Plugin].
+- [ ] ~~Minifying the production builds using [UglifyJS Webpack Plugin].~~
 - [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
+- [x] Transferring server responses on client bootstrap to prevent app flickering with native [TransferState]`.
 - [x] Deferring initialization of modules via [Lazy loading].
-- [ ] Uses **[@ngx-universal/state-transfer]** to cache server responses on client bootstrap (*w/o flickering*).
 - [x] Uses [ngrx/store] for **state management**.
 - [x] Uses **[ngx-config]** for configuration management.
 - [x] Uses **[ngx-auth]** for basic JWT-based authentication (*w/Universal support*).
@@ -228,7 +228,7 @@ If you want to file a bug, contribute some code, or improve documentation, pleas
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2017 [Burak Tasci]
+Copyright (c) 2018 [Burak Tasci]
 
 [Angular]: https://angular.io
 [Angular Material]: https://material.angular.io
@@ -248,7 +248,7 @@ Copyright (c) 2017 [Burak Tasci]
 [stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
 [stylelint]: https://stylelint.io/ 
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html
-[@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
+[TransferState]: https://angular.io/api/platform-browser/TransferState
 [ngrx/store]: https://github.com/ngrx/store
 [ngx-config]: https://github.com/fulls1z3/ngx-config
 [ngx-auth]:  https://github.com/fulls1z3/ngx-auth

@@ -1,8 +1,8 @@
 // angular
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { Http } from '@angular/http';
 
 // libs
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
@@ -11,7 +11,6 @@ import { ConfigLoader, ConfigService } from '@ngx-config/core';
 import { t } from '../../testing';
 import { configFactory, CoreModule } from '../../core/core.module';
 import { CoreTestingModule } from '../../core/testing/core-testing.module';
-import { HttpTestingModule } from '../../http/testing/http-testing.module';
 
 // module
 import { initialLanguage } from './models/language';
@@ -30,12 +29,11 @@ const testModuleConfig = () => {
             useFactory: configFactory,
             deps: [
               PLATFORM_ID,
-              Http
+              HttpClient
             ]
           }
         ]),
-        CoreTestingModule,
-        HttpTestingModule
+        CoreTestingModule
       ]
     });
 };

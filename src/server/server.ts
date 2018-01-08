@@ -1,5 +1,6 @@
 // polyfills
 import 'zone.js/dist/zone-node';
+// tslint:disable-next-line
 import 'reflect-metadata';
 import 'rxjs/Rx';
 
