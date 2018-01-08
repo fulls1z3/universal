@@ -11,6 +11,7 @@ import { ConfigService } from '@ngx-config/core';
 import { I18NState, LANGUAGE_ACTIONS } from './framework/i18n/i18n.module';
 
 // styles
+import '../assets/sass/lib.scss';
 import '../assets/sass/layout.scss';
 
 @Component({
