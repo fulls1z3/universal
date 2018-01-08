@@ -87,7 +87,7 @@
     "ngx-perfect-scrollbar": "~5.3.1"
   },
   "devDependencies": {
-    "nodemon": "~1.14.7",
+    "nodemon": "~1.14.9",
     "@angular/compiler": "~5.2.0-rc.0",
     "@angular/compiler-cli": "~5.2.0-rc.0",
     "@types/node": "~8.5.7",
@@ -111,7 +111,7 @@
     "webpack": "~3.10.0",
     "angular-webpack-config": "5.0.1",
     "webpack-merge": "~4.1.1",
-    "webpack-dev-middleware": "~2.0.3",
+    "webpack-dev-middleware": "~2.0.4",
     "webpack-hot-middleware": "~2.21.0",
     "@ngtools/webpack": "~1.9.3",
     "tslint-loader": "~3.5.3",
