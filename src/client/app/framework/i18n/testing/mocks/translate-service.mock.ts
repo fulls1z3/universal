@@ -1,6 +1,6 @@
 // libs
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of as observableOf } from 'rxjs/observable/of';
 import { EventEmitter } from '@angular/core';
 
 export class MockTranslateService {
@@ -13,7 +13,7 @@ export class MockTranslateService {
   }
 
   use(lang: string): Observable<any> {
-    return Observable.of(lang);
+    return observableOf(lang);
   }
 
   addLangs(langs: Array<string>): void {
@@ -21,6 +21,6 @@ export class MockTranslateService {
   }
 
   get(key: string | Array<string>, interpolateParams?: Object): Observable<string | any> {
-    return Observable.of(key);
+    return observableOf(key);
   }
 }

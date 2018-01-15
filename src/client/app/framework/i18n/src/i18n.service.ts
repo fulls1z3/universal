@@ -3,8 +3,9 @@ import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 // libs
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { of as observableOf } from 'rxjs/observable/of';
+import { Store } from '@ngrx/store';
 import { MetaService } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
 // import { I18NRouterService } from '@ngx-language-router/core';
@@ -96,7 +97,7 @@ export class I18NService extends Analytics {
       res = this.availableLanguages
         .find(cur => cur.code === languageCode);
 
-    return Observable.of(res || {
+    return observableOf(res || {
       ...(this.defaultLanguage || {
         ...initialLanguage,
         code: languageCode

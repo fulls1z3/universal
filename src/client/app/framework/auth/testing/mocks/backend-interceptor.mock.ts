@@ -4,7 +4,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } fr
 
 // libs
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of as observableOf } from 'rxjs/observable/of';
 
 // module
 import { MOCK_AUTH_PATH } from '../auth-testing.module';
@@ -24,12 +24,12 @@ export class MockBackendInterceptor implements HttpInterceptor {
       const body = JSON.parse(request.body);
 
       if (body.username === testUser.username && body.password === testUser.password)
-        return Observable.of(new HttpResponse({
+        return observableOf(new HttpResponse({
           status: 200,
           body: {token: 'fake-jwt-token'}
         }));
       else
-        return Observable.of(new HttpResponse({status: 401}));
+        return observableOf(new HttpResponse({status: 401}));
     }
 
     return next.handle(request);
