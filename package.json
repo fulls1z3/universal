@@ -77,7 +77,7 @@
     "@ngx-cache/fs-storage": "5.0.0",
     "@ngx-universal/config-loader": "5.0.0",
     "@ngx-auth/core": "5.0.0",
-    "@ngx-translate/core": "~9.0.2",
+    "@ngx-translate/core": "~9.1.0",
     "@ngx-translate/http-loader": "~2.0.1",
     "@ngx-universal/translate-loader": "5.0.0",
     "@ngx-meta/core": "5.0.0",
