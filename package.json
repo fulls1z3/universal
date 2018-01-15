@@ -158,7 +158,7 @@
     "@compodoc/compodoc": "~1.0.5",
     "standard-version": "~4.3.0",
     "codelyzer": "~4.0.2",
-    "tslint": "~5.8.0",
+    "tslint": "~5.9.1",
     "angular-tslint-rules": "1.1.0",
     "tslib": "~1.8.1",
     "typescript": "~2.5.3"
