@@ -195,9 +195,9 @@
   version "5.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0-beta.5.tgz#3cbc0fb7f928012d61240681631581fb0ad327f5"
 
-"@ngx-auth/core@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-5.0.0.tgz#b37883e8a8f6e004efdf0833867ab0824be7eaee"
+"@ngx-auth/core@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-5.1.0.tgz#53df032557dd91c31dd52a0b580a1abd17d4135c"
   dependencies:
     tslib "~1.8.1"
 
@@ -6787,7 +6787,7 @@ node-uuid@^1.4.7:
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907"
 
-nodemon@~1.14.11:
+nodemon@~1.14.9:
   version "1.14.11"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.11.tgz#cc0009dd8d82f126f3aba50ace7e753827a8cebc"
   dependencies:
