@@ -170,9 +170,9 @@
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-4.1.1.tgz#cb758b8527964b258ea41951f59aa144e3ef9fae"
 
-"@ngrx/store@~4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-4.1.1.tgz#680e34df2775e8852754ed777ffac95bd81b7de0"
+"@ngrx/store@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-5.0.0.tgz#483a955ea99a63ee083675ce0596d505e5501747"
 
 "@ngtools/webpack@~1.9.4":
   version "1.9.4"
@@ -6787,7 +6787,7 @@ node-uuid@^1.4.7:
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907"
 
-nodemon@~1.14.11:
+nodemon@~1.14.9:
   version "1.14.11"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.11.tgz#cc0009dd8d82f126f3aba50ace7e753827a8cebc"
   dependencies:
