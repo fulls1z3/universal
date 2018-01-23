@@ -92,7 +92,7 @@
     "@angular/compiler-cli": "~5.2.0",
     "@types/node": "~9.3.0",
     "@types/express": "~4.11.0",
-    "@types/jest": "~22.0.1",
+    "@types/jest": "~22.1.0",
     "@types/lodash": "4.14.55",
     "@types/nightmare": "~2.10.1",
     "rimraf": "~2.6.2",
