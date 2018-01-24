@@ -7,7 +7,7 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
-import { Store, StoreModule } from '@ngrx/store';
+import { select, Store, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
 
@@ -120,7 +120,7 @@ t.describe('ng-seed/universal', () => {
                 t.e(i18n.availableLanguages[1].code).toBe('fr');
                 t.e(win.navigator.language).toBe('fr-FR');
 
-                languageStore.select(getWorkingLanguage)
+                languageStore.pipe(select(getWorkingLanguage))
                   .subscribe((state: Language) => {
                     t.e(state.code).toBe('fr');
                   });
@@ -144,7 +144,7 @@ t.describe('ng-seed/universal', () => {
             t.e(i18n.availableLanguages[0].code).toBe('en');
             t.e(win.navigator.language).toBeUndefined();
 
-            languageStore.select(getWorkingLanguage)
+            languageStore.pipe(select(getWorkingLanguage))
               .subscribe((state: Language) => {
                 t.e(state.code).toBe('en');
               });

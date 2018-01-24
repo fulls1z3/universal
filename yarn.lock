@@ -12,7 +12,7 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cdk@5.1.0":
+"@angular/cdk@~5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.1.0.tgz#e04547609d96d8b6fe0dac17bed323760c3952e9"
   dependencies:
@@ -63,7 +63,7 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/material@5.1.0":
+"@angular/material@~5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.1.0.tgz#038803b6a52e484c6bf9bb413714795952d61d49"
   dependencies:
@@ -166,11 +166,11 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ngrx/effects@~4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-4.1.1.tgz#cb758b8527964b258ea41951f59aa144e3ef9fae"
+"@ngrx/effects@~5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-5.0.0.tgz#8c815e26dcfdd87e3da03ad90f13b97f5df88b73"
 
-"@ngrx/store@5.0.0":
+"@ngrx/store@~5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-5.0.0.tgz#483a955ea99a63ee083675ce0596d505e5501747"
 
@@ -310,7 +310,7 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/jest@22.1.0":
+"@types/jest@~22.1.0":
   version "22.1.0"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.1.0.tgz#c1de03bbac66fac4cc741f7a69cb73bc01a1707c"
 
@@ -1697,7 +1697,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@4.1.0:
+codelyzer@~4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.1.0.tgz#3117754538d8f5ffa36dff91d340573a836cf373"
   dependencies:
@@ -9753,10 +9753,6 @@ tsickle@^0.26.0:
     source-map "^0.5.6"
     source-map-support "^0.4.2"
 
-tslib@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
-
 tslib@^1.7.1:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.0.tgz#dc604ebad64bcbf696d613da6c954aa0e7ea1eb6"
@@ -9764,6 +9760,10 @@ tslib@^1.7.1:
 tslib@^1.8.0, tslib@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
+
+tslib@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
 
 tslint-loader@~3.5.3:
   version "3.5.3"

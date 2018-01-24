@@ -5,7 +5,7 @@ import { isPlatformBrowser } from '@angular/common';
 // libs
 import { Observable } from 'rxjs/Observable';
 import { of as observableOf } from 'rxjs/observable/of';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { MetaService } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
 // import { I18NRouterService } from '@ngx-language-router/core';
@@ -39,7 +39,7 @@ export class I18NService extends Analytics {
     super(analytics);
 
     this.category = CATEGORY;
-    this.store.select(getWorkingLanguage)
+    this.store.pipe(select(getWorkingLanguage))
       .subscribe((state: Language) => {
         if (state && state.code) {
           this.translate.use(state.code)
