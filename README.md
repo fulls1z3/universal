@@ -60,9 +60,9 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [License](#license)
 
 ## <a name="prerequisites"></a> Prerequisites
-Packages in this seed project depend on `@angular v4.4.x`. Older versions contain outdated dependencies, might produce errors.
+Packages in this seed project depend on `@angular v6.x.x`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.5.x`** or higher.
+Also, please ensure that you are using **`Typescript v2.6.x`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
