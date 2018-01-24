@@ -41,7 +41,7 @@ in file and application organization, providing the following features:
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v4.4.x`, bundled with `gulp v4` and `webpack v3`.
+> Built with `Angular v6.x.x`, bundled with `gulp v4` and `webpack v3`.
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
