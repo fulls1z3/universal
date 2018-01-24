@@ -55,7 +55,7 @@
     "@angular/platform-server": "~5.2.0",
     "@angular/router": "~5.2.0",
     "@angular/cdk": "~5.1.0",
-    "@angular/material": "~5.0.4",
+    "@angular/material": "~5.1.0",
     "@angular/flex-layout": "2.0.0-beta.12",
     "core-js": "~2.5.3",
     "rxjs": "~5.5.6",
