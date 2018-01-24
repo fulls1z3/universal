@@ -70,11 +70,10 @@ t.describe('ng-seed/universal', () => {
       t.it('should be able to pageTrack',
         t.inject([AnalyticsService, Angulartics2], (analyticsService: AnalyticsService, angulartics: Angulartics2) => {
           analyticsService.devMode(false);
-          analyticsService.pageTrack('/testing', {});
+          analyticsService.pageTrack('/testing');
 
           const expected = cold('c', {
             c: {
-              location: {},
               path: '/testing'
             }
           });
@@ -86,7 +85,7 @@ t.describe('ng-seed/universal', () => {
         t.inject([AnalyticsService, Angulartics2], (analyticsService: AnalyticsService, angulartics: Angulartics2) => {
           // dev mode: shouldn't track anything
           analyticsService.devMode(true);
-          analyticsService.pageTrack('/testing', {});
+          analyticsService.pageTrack('/testing');
 
           t.e((angulartics.pageTrack as any)._events).not.toHaveProperty('value');
         }));
