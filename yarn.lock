@@ -12,9 +12,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cdk@~5.0.4":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.0.4.tgz#f76a268e404f41aff0e908b21e7de9a5dfc07150"
+"@angular/cdk@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.1.0.tgz#e04547609d96d8b6fe0dac17bed323760c3952e9"
   dependencies:
     tslib "^1.7.1"
 
