@@ -35,7 +35,8 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             const fixture = TestBed.createComponent(HomeComponent);
             const instance = fixture.debugElement.componentInstance;
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
           });
       }));
     });

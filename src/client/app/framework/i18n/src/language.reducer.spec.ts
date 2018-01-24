@@ -48,7 +48,8 @@ t.describe('ng-seed/universal', () => {
               const action = {};
               const res = reducer(undefined, action as any);
 
-              t.e(res).toEqual(initialLanguage);
+              t.e(res)
+                .toEqual(initialLanguage);
             });
         });
 
@@ -61,7 +62,8 @@ t.describe('ng-seed/universal', () => {
               const action = new language.UseLanguageSuccess(defaultLanguage);
               const res = reducer(defaultLanguage, action);
 
-              t.e(res).toEqual(defaultLanguage);
+              t.e(res)
+                .toEqual(defaultLanguage);
             }));
         });
       });
@@ -74,7 +76,8 @@ t.describe('ng-seed/universal', () => {
             const defaultLanguage = config.getSettings('i18n.defaultLanguage');
             const res = getWorkingLanguage(defaultLanguage);
 
-            t.e(res).toBe(defaultLanguage);
+            t.e(res)
+              .toBe(defaultLanguage);
           }));
       });
     });

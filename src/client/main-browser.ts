@@ -13,7 +13,8 @@ import { bootloader } from '@angularclass/bootloader';
 import { AppBrowserModule } from './app/app.browser.module';
 
 export function main(): any {
-  return platformBrowserDynamic().bootstrapModule(AppBrowserModule);
+  return platformBrowserDynamic()
+    .bootstrapModule(AppBrowserModule);
 }
 
 bootloader(main);

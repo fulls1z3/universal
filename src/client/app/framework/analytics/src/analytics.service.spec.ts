@@ -64,7 +64,8 @@ t.describe('ng-seed/universal', () => {
             label: 'Testing'
           });
 
-          t.e((angulartics.eventTrack as any)._events).not.toHaveProperty('value');
+          t.e((angulartics.eventTrack as any)._events).not
+            .toHaveProperty('value');
         }));
 
       t.it('should be able to pageTrack',
@@ -87,7 +88,8 @@ t.describe('ng-seed/universal', () => {
           analyticsService.devMode(true);
           analyticsService.pageTrack('/testing');
 
-          t.e((angulartics.pageTrack as any)._events).not.toHaveProperty('value');
+          t.e((angulartics.pageTrack as any)._events).not
+            .toHaveProperty('value');
         }));
 
       t.it('should be able to identify',
@@ -120,7 +122,8 @@ t.describe('ng-seed/universal', () => {
             email: 'name@domain.com'
           });
 
-          t.e((angulartics.setUserProperties as any)._events).not.toHaveProperty('value');
+          t.e((angulartics.setUserProperties as any)._events).not
+            .toHaveProperty('value');
         }));
     });
 

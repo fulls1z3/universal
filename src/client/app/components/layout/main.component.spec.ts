@@ -40,7 +40,8 @@ t.describe('ng-seed/universal', () => {
             const fixture = TestBed.createComponent(MainComponent);
             const instance = fixture.debugElement.componentInstance;
             fixture.detectChanges();
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
           });
       }));
 
@@ -50,11 +51,13 @@ t.describe('ng-seed/universal', () => {
             const fixture = TestBed.createComponent(MainComponent);
             const instance = fixture.debugElement.componentInstance;
             fixture.detectChanges();
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
 
             const scrollContainer = TestBed.get(ElementRef);
             instance.onActivate(undefined, scrollContainer);
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
           });
       }));
     });

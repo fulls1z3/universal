@@ -39,7 +39,8 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
             t.tick();
 
-            t.e(fixture.nativeElement).toBeTruthy();
+            t.e(fixture.nativeElement)
+              .toBeTruthy();
           });
       }));
 
@@ -53,7 +54,8 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
             t.tick();
 
-            t.e(fixture.nativeElement).toBeTruthy();
+            t.e(fixture.nativeElement)
+              .toBeTruthy();
           });
       }));
     });

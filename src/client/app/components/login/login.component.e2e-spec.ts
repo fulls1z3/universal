@@ -13,7 +13,8 @@ e2e.describe('ng-seed/universal', () => {
           .evaluate(() => document.title)
           .end();
 
-        e2e.e(text).toContain('Log in | ng-seed/universal');
+        e2e.e(text)
+          .toContain('Log in | ng-seed/universal');
       });
     });
   });

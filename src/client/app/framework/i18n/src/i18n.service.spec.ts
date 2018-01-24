@@ -24,29 +24,6 @@ import { I18NService } from './i18n.service';
 import { LanguageEffects } from './language.effects';
 import { getWorkingLanguage, reducers } from './reducers';
 
-const testSettings = {
-  i18n: {
-    defaultLanguage: {
-      code: 'fr',
-      name: 'Français',
-      culture: 'fr-FR'
-    },
-    availableLanguages: [
-      {
-        code: 'en',
-        name: 'English',
-        culture: 'en-US'
-      },
-      {
-        code: 'fr',
-        name: 'Français',
-        culture: 'fr-FR'
-      }
-    ],
-    useLocalizedRoutes: false
-  }
-};
-
 const testModuleConfig = (options?: any) => {
   TestBed.resetTestEnvironment();
 
@@ -83,8 +60,10 @@ t.describe('ng-seed/universal', () => {
         t.inject([ConfigService, I18NService], (config: ConfigService, i18n: I18NService) => {
           i18n.init(config.getSettings('i18n'));
 
-          t.e(i18n.availableLanguages.length).toBe(1);
-          t.e(i18n.availableLanguages[0].code).toBe('en');
+          t.e(i18n.availableLanguages.length)
+            .toBe(1);
+          t.e(i18n.availableLanguages[0].code)
+            .toBe('en');
         }));
     });
 
@@ -95,8 +74,10 @@ t.describe('ng-seed/universal', () => {
         t.inject([ConfigService, I18NService], (config: ConfigService, i18n: I18NService) => {
           i18n.init(config.getSettings('i18n'));
 
-          t.e(i18n.availableLanguages.length).toBe(1);
-          t.e(i18n.availableLanguages[0].code).toBe('en');
+          t.e(i18n.availableLanguages.length)
+            .toBe(1);
+          t.e(i18n.availableLanguages[0].code)
+            .toBe('en');
         }));
       });
 
@@ -115,14 +96,19 @@ t.describe('ng-seed/universal', () => {
               .then(() => {
                 i18n.init(config.getSettings('i18n'));
 
-                t.e(i18n.availableLanguages.length).toBe(2);
-                t.e(i18n.availableLanguages[0].code).toBe('en');
-                t.e(i18n.availableLanguages[1].code).toBe('fr');
-                t.e(win.navigator.language).toBe('fr-FR');
+                t.e(i18n.availableLanguages.length)
+                  .toBe(2);
+                t.e(i18n.availableLanguages[0].code)
+                  .toBe('en');
+                t.e(i18n.availableLanguages[1].code)
+                  .toBe('fr');
+                t.e(win.navigator.language)
+                  .toBe('fr-FR');
 
                 languageStore.pipe(select(getWorkingLanguage))
                   .subscribe((state: Language) => {
-                    t.e(state.code).toBe('fr');
+                    t.e(state.code)
+                      .toBe('fr');
                   });
               });
           }));
@@ -140,13 +126,17 @@ t.describe('ng-seed/universal', () => {
           (config: ConfigService, i18n: I18NService, languageStore: Store<Language>, win: WindowService) => {
             i18n.init(config.getSettings('i18n'));
 
-            t.e(i18n.availableLanguages.length).toBe(1);
-            t.e(i18n.availableLanguages[0].code).toBe('en');
-            t.e(win.navigator.language).toBeUndefined();
+            t.e(i18n.availableLanguages.length)
+              .toBe(1);
+            t.e(i18n.availableLanguages[0].code)
+              .toBe('en');
+            t.e(win.navigator.language)
+              .toBeUndefined();
 
             languageStore.pipe(select(getWorkingLanguage))
               .subscribe((state: Language) => {
-                t.e(state.code).toBe('en');
+                t.e(state.code)
+                  .toBe('en');
               });
           }));
     });

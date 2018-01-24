@@ -68,7 +68,8 @@ t.describe('ng-seed/universal', () => {
             const fixture = TestBed.createComponent(LoginComponent);
             const instance = fixture.debugElement.componentInstance;
             fixture.detectChanges();
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
           });
       }));
 
@@ -81,7 +82,8 @@ t.describe('ng-seed/universal', () => {
             auth.authenticate('valid', 'valid')
               .subscribe(() => {
                 const router = TestBed.get(Router);
-                t.e(router.url).toEqual(`${auth.defaultUrl}/`);
+                t.e(router.url)
+                  .toEqual(`${auth.defaultUrl}/`);
               });
           });
       })));
@@ -98,8 +100,10 @@ t.describe('ng-seed/universal', () => {
 
             instance.login();
 
-            t.e(instance.note$).toBeDefined();
-            t.e(instance.warn$).toBeUndefined();
+            t.e(instance.note$)
+              .toBeDefined();
+            t.e(instance.warn$)
+              .toBeUndefined();
           });
       }));
 
@@ -118,8 +122,10 @@ t.describe('ng-seed/universal', () => {
 
             instance.login();
 
-            t.e(instance.note$).toBeDefined();
-            t.e(instance.warn$).toBeDefined();
+            t.e(instance.note$)
+              .toBeDefined();
+            t.e(instance.warn$)
+              .toBeDefined();
           });
       }));
     });
