@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0"></a>
+# [5.0.0](https://github.com/ng-seed/universal/compare/v5.0.0...v6.0.0) (2018-01-24)
+
+
+### Bug Fixes
+
+* add lettable operators for [@ngrx](https://github.com/ngrx)/effects ([#300](https://github.com/ng-seed/universal/issues/300)) ([18537f7](https://github.com/ng-seed/universal/commit/18537f7))
+* fix angulartics2 ([#302](https://github.com/ng-seed/universal/issues/302)) ([b5cce17](https://github.com/ng-seed/universal/commit/b5cce17))
+* fix perfect-scrollbar directive ([#277](https://github.com/ng-seed/universal/issues/277)) ([c9724de](https://github.com/ng-seed/universal/commit/c9724de))
+
+
+### Features
+
+* upgrade to Angular 6.x ([#301](https://github.com/ng-seed/universal/issues/301)) ([a133067](https://github.com/ng-seed/universal/commit/a133067))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/ng-seed/universal/compare/v1.3.0...v5.0.0) (2018-01-08)
 
