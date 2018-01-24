@@ -65,7 +65,8 @@ t.describe('ng-seed/universal', () => {
             const fixture = TestBed.createComponent(HeaderComponent);
             const instance = fixture.debugElement.componentInstance;
             fixture.detectChanges();
-            t.e(instance).toBeTruthy();
+            t.e(instance)
+              .toBeTruthy();
           });
       }));
 
@@ -77,7 +78,8 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
 
             instance.logout();
-            t.e(instance.isAuthenticated).toBeFalsy();
+            t.e(instance.isAuthenticated)
+              .toBeFalsy();
           });
       }));
     });

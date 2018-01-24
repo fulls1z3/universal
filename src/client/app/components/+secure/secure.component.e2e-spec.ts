@@ -15,7 +15,8 @@ e2e.describe('ng-seed/universal', () => {
 
         // NOTE: title may change from login page to secure page
         // depending on auth status
-        e2e.e(text).toContain('ng-seed/universal');
+        e2e.e(text)
+          .toContain('ng-seed/universal');
       });
     });
   });
