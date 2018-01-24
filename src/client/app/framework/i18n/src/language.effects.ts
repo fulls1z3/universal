@@ -2,15 +2,15 @@
 import { Injectable } from '@angular/core';
 
 // libs
+import { Observable } from 'rxjs/Observable';
 import { map, switchMap } from 'rxjs/operators';
+import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
 // module
 import { Language } from './models/language';
 import { I18NService } from './i18n.service';
 import * as language from './language.actions';
-import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LanguageEffects {
