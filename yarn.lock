@@ -465,9 +465,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-tslint-rules@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.1.0.tgz#5015e86f9f83cc2619b7ab67fd872b033b6e638f"
+angular-tslint-rules@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.2.0.tgz#e3d3a553610a1d3aaa4c9642dec1f51fa744d7e8"
 
 angular-webpack-config@5.0.1:
   version "5.0.1"
@@ -6787,7 +6787,7 @@ node-uuid@^1.4.7:
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907"
 
-nodemon@~1.14.11:
+nodemon@~1.14.9:
   version "1.14.11"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.11.tgz#cc0009dd8d82f126f3aba50ace7e753827a8cebc"
   dependencies:
