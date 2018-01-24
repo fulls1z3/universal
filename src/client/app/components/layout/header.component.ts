@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // libs
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { ConfigService } from '@ngx-config/core';
 
 // framework
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'APP_NAME';
-    this.currentLanguage$ = this.store.select(getWorkingLanguage);
+    this.currentLanguage$ = this.store.pipe(select(getWorkingLanguage));
     this.availableLanguages = this.config.getSettings('i18n.availableLanguages');
     this.isAuthenticated = this.auth.isAuthenticated;
   }
