@@ -11,6 +11,10 @@
       true,
       "dev"
     ],
+    "angular-whitespace": [
+      true,
+      "check-interpolation"
+    ],
     "directive-selector": [
       true,
       "attribute",
@@ -30,16 +34,7 @@
       ],
       "kebab-case"
     ],
-    "angular-whitespace": [
-      true,
-      "check-interpolation"
-    ],
     "use-view-encapsulation": false,
-    "no-forward-ref": false,
-    "pipe-naming": [
-      true,
-      "camelCase",
-      "app"
-    ]
+    "no-forward-ref": false
   }
 }

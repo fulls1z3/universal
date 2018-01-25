@@ -465,9 +465,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-tslint-rules@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.2.0.tgz#e3d3a553610a1d3aaa4c9642dec1f51fa744d7e8"
+angular-tslint-rules@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.2.1.tgz#782ead1ad088b556f90dee403d5e73627af6ba8b"
 
 angular-webpack-config@5.0.1:
   version "5.0.1"
