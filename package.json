@@ -179,7 +179,7 @@
     "moduleNameMapper": null,
     "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "cache": false,
-    "silent": false,
+    "silent": true,
     "collectCoverageFrom": [
       "src/**/*(*.service|*.component|*.pipe|*.directive).{ts,html}",
       "src/**/models/**.ts"
