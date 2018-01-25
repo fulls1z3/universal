@@ -37,7 +37,8 @@
         "root": "{{public_root}}/assets"
       }
     },
-    "server": "{{root}}/.server"
+    "server": "{{root}}/.server",
+    "temp": "{{root}}/.temp"
   },
   "publicPaths": {
     "assets": "assets/"
