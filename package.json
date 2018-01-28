@@ -120,7 +120,7 @@
     "ng-router-loader": "~2.1.0",
     "json-loader": "~0.5.7",
     "to-string-loader": "~1.1.5",
-    "style-loader": "~0.19.1",
+    "style-loader": "~0.20.0",
     "css-loader": "~0.28.9",
     "postcss-loader": "~2.0.10",
     "autoprefixer": "~7.2.5",
