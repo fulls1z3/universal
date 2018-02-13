@@ -166,9 +166,9 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ngrx/effects@~5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-5.0.0.tgz#8c815e26dcfdd87e3da03ad90f13b97f5df88b73"
+"@ngrx/effects@~5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-5.1.0.tgz#cef84576b2d0333f19188aedfe156fd301bff70a"
 
 "@ngrx/store@~5.0.0":
   version "5.0.0"
