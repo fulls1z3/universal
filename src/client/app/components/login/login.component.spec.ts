@@ -118,8 +118,7 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
 
             instance.username = 'invalid';
-            instance.username = 'invalid';
-
+            
             instance.login();
 
             t.e(instance.note$)
