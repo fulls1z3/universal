@@ -96,7 +96,7 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
 
             instance.username = 'valid';
-            instance.username = 'valid';
+            instance.password = 'valid';
 
             instance.login();
 
@@ -118,6 +118,7 @@ t.describe('ng-seed/universal', () => {
             fixture.detectChanges();
 
             instance.username = 'invalid';
+            instance.password = 'invalid';
             
             instance.login();
 
