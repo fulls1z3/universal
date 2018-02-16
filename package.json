@@ -113,7 +113,7 @@
     "webpack-merge": "~4.1.1",
     "webpack-dev-middleware": "~2.0.4",
     "webpack-hot-middleware": "~2.21.0",
-    "@ngtools/webpack": "~1.9.5",
+    "@ngtools/webpack": "~1.10.0",
     "tslint-loader": "~3.5.3",
     "awesome-typescript-loader": "~3.4.1",
     "angular2-template-loader": "0.6.0",
