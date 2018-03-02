@@ -154,7 +154,7 @@
     "jest-preset-angular": "~5.0.0",
     "jest-junit-reporter": "~1.1.0",
     "jasmine-marbles": "~0.2.0",
-    "nightmare": "~2.10.0",
+    "nightmare": "~3.0.0",
     "@compodoc/compodoc": "~1.0.5",
     "standard-version": "~4.3.0",
     "codelyzer": "~4.1.0",
