@@ -2,7 +2,7 @@
 import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
-import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { REQUEST } from '@nguniversal/express-engine';
 
 // libs
 import * as express from 'express';
