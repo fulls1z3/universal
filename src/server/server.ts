@@ -34,8 +34,7 @@ server.get('*', (req, res) => {
   });
 });
 
-const port = 8000;
-const PORT = process.env.PORT || port;
+const PORT = process.env.PORT || 8000;
 const HOST = process.env.BASE_URL || 'localhost';
 const baseUrl = `http://${HOST}:${PORT}`;
 
