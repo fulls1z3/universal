@@ -35,6 +35,7 @@
       "kebab-case"
     ],
     "use-view-encapsulation": false,
-    "no-forward-ref": false
+    "no-forward-ref": false,
+    "i18n": false
   }
 }
