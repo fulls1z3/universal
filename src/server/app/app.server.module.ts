@@ -2,6 +2,7 @@
 import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { REQUEST } from '@nguniversal/express-engine';
 
 // libs
@@ -56,7 +57,8 @@ export function bootstrapFactory(appRef: ApplicationRef,
       }
     ]),
     AuthModule.forServer(),
-    AppModule
+    AppModule,
+    FlexLayoutServerModule
   ],
   providers: [
     {
