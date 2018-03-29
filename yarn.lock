@@ -41,9 +41,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/flex-layout@5.0.0-beta.13":
-  version "5.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-5.0.0-beta.13.tgz#81ad6ad461003946e7c522920821a56ba7292a85"
+"@angular/flex-layout@5.0.0-beta.14":
+  version "5.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-5.0.0-beta.14.tgz#300e1cba2ef1a70f43fe7ea68ea78267cb4241e4"
   dependencies:
     tslib "^1.7.1"
 
