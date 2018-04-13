@@ -115,7 +115,7 @@
     "webpack-hot-middleware": "~2.22.0",
     "@ngtools/webpack": "~1.10.1",
     "tslint-loader": "~3.6.0",
-    "awesome-typescript-loader": "~4.0.0",
+    "awesome-typescript-loader": "~5.0.0",
     "angular2-template-loader": "0.6.0",
     "ng-router-loader": "~2.1.0",
     "json-loader": "~0.5.7",
