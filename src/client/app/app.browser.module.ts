@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { REQUEST } from '@nguniversal/express-engine';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 // libs
 import { CACHE } from '@ngx-cache/core';
