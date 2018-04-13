@@ -3,11 +3,11 @@ import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core'
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
-import { REQUEST } from '@nguniversal/express-engine';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 // libs
 import * as express from 'express';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { filter, first } from 'rxjs/operators';
 import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
 import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
