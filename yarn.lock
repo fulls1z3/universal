@@ -8651,9 +8651,9 @@ sass-lint@^1.12.0:
     path-is-absolute "^1.0.0"
     util "^0.10.3"
 
-sass-loader@~6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.7.tgz#dd2fdb3e7eeff4a53f35ba6ac408715488353d00"
+sass-loader@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.0.0.tgz#bdc9653eaf569f0ce77ac01efcaa0b92ca5e0571"
   dependencies:
     clone-deep "^2.0.1"
     loader-utils "^1.0.1"
@@ -10481,9 +10481,9 @@ webpack-dll-bundles-plugin@~1.0.0-beta.5:
     find-root "^1.0.0"
     jsonfile "^2.4.0"
 
-webpack-hot-middleware@~2.21.1:
-  version "2.21.1"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.21.1.tgz#1b03b20a1a65a2e2ea0ea987476a5d23370ff176"
+webpack-hot-middleware@~2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.22.0.tgz#db58c9dd2bd78e7f3868cccb42a20d24b00a7ade"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
