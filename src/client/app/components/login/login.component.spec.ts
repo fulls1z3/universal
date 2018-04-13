@@ -119,7 +119,7 @@ t.describe('ng-seed/universal', () => {
 
             instance.username = 'invalid';
             instance.password = 'invalid';
-            
+
             instance.login();
 
             t.e(instance.note$)

@@ -34,7 +34,7 @@
   .content {
     @include soft($space--xl rem(4.2) rem(4.2));
 
-    mat-input-container {
+    mat-form-field {
       @include push(rem(0.6) 0);
 
       width: 100%;

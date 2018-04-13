@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // libs
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { ConfigService } from '@ngx-config/core';
 

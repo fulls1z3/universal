@@ -1,6 +1,5 @@
 // libs
-import { Observable } from 'rxjs/Observable';
-import { of as observableOf } from 'rxjs/observable/of';
+import { Observable, of as observableOf } from 'rxjs';
 import { EventEmitter } from '@angular/core';
 
 export class MockTranslateService {

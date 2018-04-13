@@ -3,8 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 
 // libs
-import { Observable } from 'rxjs/Observable';
-import { of as observableOf } from 'rxjs/observable/of';
+import { Observable, of as observableOf } from 'rxjs';
 
 // module
 import { MOCK_AUTH_PATH } from '../auth-testing.module';
