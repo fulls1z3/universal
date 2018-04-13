@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 // libs
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';

@@ -2,8 +2,7 @@
 import { Injectable } from '@angular/core';
 
 // libs
-import { Observable } from 'rxjs/Observable';
-import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
+import { EMPTY, Observable } from 'rxjs';
 import { Actions } from '@ngrx/effects';
 
 export function getMockActions(): Actions {
@@ -14,7 +13,7 @@ export function getMockActions(): Actions {
 export class MockActions extends Actions {
   constructor() {
     /* istanbul ignore next */
-    super(new EmptyObservable());
+    super(EMPTY);
   }
 
   set stream(source: Observable<any>) {

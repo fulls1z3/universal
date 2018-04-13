@@ -4,12 +4,12 @@
             <div class="title">{{ 'PUBLIC.LOGIN.LOG_IN' | translate }}</div>
             <form #form="ngForm" autocomplete="off" (ngSubmit)="form.valid && login()">
                 <div class="content" fxLayout="column" fxLayoutAlign="start stretch">
-                    <mat-input-container>
+                    <mat-form-field>
                         <input matInput required type="text" name="username" placeholder="{{ 'PUBLIC.LOGIN.USERNAME' | translate }}" [(ngModel)]="username">
-                    </mat-input-container>
-                    <mat-input-container>
+                    </mat-form-field>
+                    <mat-form-field>
                         <input matInput required type="password" name="password" placeholder="{{ 'PUBLIC.LOGIN.PASSWORD' | translate }}" [(ngModel)]="password">
-                    </mat-input-container>
+                    </mat-form-field>
                     <button mat-raised-button color="primary" [disabled]="!form.valid || isProcessing">
                         {{ 'PUBLIC.LOGIN.LOG_IN' | translate }}
                     </button>

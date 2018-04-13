@@ -3,8 +3,7 @@ import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 // libs
-import { Observable } from 'rxjs/Observable';
-import { of as observableOf } from 'rxjs/observable/of';
+import { Observable, of as observableOf } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { MetaService } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
