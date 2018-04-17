@@ -24,7 +24,7 @@ export const MOCK_AUTH_PATH = new InjectionToken<string>('MOCK_AUTH_PATH');
     },
     {
       provide: AuthLoader,
-      useFactory: (authFactory)
+      useFactory: authFactory
     },
     {
       provide: HTTP_INTERCEPTORS,
@@ -43,7 +43,7 @@ export const MOCK_AUTH_PATH = new InjectionToken<string>('MOCK_AUTH_PATH');
 export class AuthTestingModule {
   static withParams(configuredProvider: any = {
                       provide: AuthLoader,
-                      useFactory: (authFactory)
+                      useFactory: authFactory
                     },
                     path: string): ModuleWithProviders {
     return {

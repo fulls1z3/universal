@@ -1,9 +1,9 @@
 // angular
-import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-// import { TransferHttpCacheModule } from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 // libs
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
@@ -18,6 +18,7 @@ import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrol
 // framework
 import { configFactory, CoreModule, metaFactory } from './framework/core/core.module';
 import { SharedModule } from './framework/core/shared.module';
+import { HttpInterceptorModule } from './framework/http/http-interceptor.module';
 import { MaterialModule } from './framework/material/material.module';
 import { ChangeLanguageComponent, I18NModule, translateFactory } from './framework/i18n/i18n.module';
 import { AnalyticsModule } from './framework/analytics/analytics.module';
@@ -35,17 +36,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app-id'}),
+    TransferHttpCacheModule,
     RouterModule.forRoot(routes),
-    // TransferHttpCacheModule, // TODO: fix cyclic dependency with @ngx-config/http-loader
     PerfectScrollbarModule,
     CoreModule.forRoot([
       {
         provide: ConfigLoader,
         useFactory: configFactory,
-        deps: [
-          PLATFORM_ID,
-          HttpClient
-        ]
+        deps: [Injector]
       },
       {
         provide: MetaLoader,
@@ -57,15 +55,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
       }
     ]),
     SharedModule,
+    HttpInterceptorModule,
     MaterialModule,
     I18NModule.forRoot([
       {
         provide: TranslateLoader,
         useFactory: translateFactory,
-        deps: [
-          PLATFORM_ID,
-          HttpClient
-        ]
+        deps: [HttpClient]
       }
     ]),
     // TODO: ngx-i18n-router
@@ -106,6 +102,4 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
-  }
 }

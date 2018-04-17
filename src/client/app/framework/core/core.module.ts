@@ -1,5 +1,5 @@
 // angular
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { forwardRef, Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // libs
@@ -7,9 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ConfigLoader, ConfigModule, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
-import { ConfigFsLoader } from '@ngx-config/fs-loader';
 import { CacheModule } from '@ngx-cache/core';
-import { UniversalConfigLoader } from '@ngx-universal/config-loader';
 import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
 // import { I18N_ROUTER_PROVIDERS, I18NRouterLoader } from '@ngx-language-router/core';
@@ -32,11 +30,10 @@ export const CORE_PROVIDERS: Array<any> = [
 ];
 
 // for AoT compilation
-export function configFactory(platformId: any, http: HttpClient): ConfigLoader {
-  const serverLoader = new ConfigFsLoader('./public/assets/config.local.json');
-  const browserLoader = new ConfigHttpLoader(http, './assets/config.local.json');
+export function configFactory(injector: Injector): ConfigLoader {
+  const http = forwardRef(() => injector.get(HttpClient)) as any;
 
-  return new UniversalConfigLoader(platformId, serverLoader, browserLoader);
+  return new ConfigHttpLoader(http, './assets/config.local.json');
 }
 
 // TODO: ngx-i18n-router

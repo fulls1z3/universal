@@ -2,25 +2,7 @@ const webpackMerge = require('webpack-merge'),
   webpackConfig = require('angular-webpack-config');
 
 const copyWebpackPlugin = require('copy-webpack-plugin'),
-  htmlElementsWebpackPlugin = require('html-elements-webpack-plugin'),
-  uglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
-// const _ = require('lodash');
-
-// const mergeUnique = function(key, uniques, getter = a => a) {
-//   return (a, b, k) => (
-//     k === key && [
-//       ...b,
-//       ..._.differenceWith(
-//         a, b, item => uniques.indexOf(getter(item)) >= 0
-//       )
-//     ]
-//   );
-// };
-//
-// const mergePlugins = function(plugins) {
-//   return mergeUnique('plugins', plugins, plugin => plugin.constructor && plugin.constructor.name);
-// };
+  htmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
 
 const browserConfig = function(root, settings) {
   return {
@@ -61,31 +43,6 @@ const browserConfig = function(root, settings) {
   };
 };
 
-const prodConfig = function(mangle = true) {
-  return {
-    /**
-     * Add additional plugins to the compiler.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#plugins
-     */
-    plugins: [
-      /**
-       * Plugin: UglifyJsPlugin
-       * Description: Minimize all JavaScript output of chunks.
-       * Loaders are switched into minimizing mode.
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-       */
-      new uglifyJsPlugin({
-        uglifyOptions: {
-          ecma: 6,
-          mangle
-        }
-      })
-    ]
-  };
-};
-
 module.exports = function(options, root, settings) {
   switch (options.env) {
     case 'prod':
@@ -93,24 +50,15 @@ module.exports = function(options, root, settings) {
       return options.mode === 'stage' || options.mode === 'staging'
         ? !!options.platform
           ? options.platform === 'server'
-            // ? webpackMerge({
-            //   customizeArray: mergePlugins(['UglifyJsPlugin'])
-            // })(webpackConfig.universal.server.prod(root, settings), {})
             ? webpackMerge(webpackConfig.universal.server.prod(root, settings))
-            // : webpackMerge({
-            //   customizeArray: mergePlugins(['UglifyJsPlugin'])
-            // })(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
             : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
-          // : webpackMerge({
-          //   customizeArray: mergePlugins(['UglifyJsPlugin'])
-          // })(webpackConfig.spa.prod(root, settings), browserConfig(root, settings))
           : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings))
         : !!options.platform
           ? options.platform === 'server'
-            // ? webpackConfig.universal.server.prod(root, settings)
-            ? webpackMerge(webpackConfig.universal.server.prod(root, settings), prodConfig(false))
-            : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings), prodConfig())
-          : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings), prodConfig());
+            ? webpackMerge(webpackConfig.universal.server.prod(root, Object.assign(settings, {minimize: true})))
+            : webpackMerge(webpackConfig.universal.browser.prod(root, Object.assign(settings, {minimize: true})),
+              browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.prod(root, Object.assign(settings, {minimize: true})), browserConfig(root, settings));
     case 'dev':
     case 'development':
       return !!options.platform
