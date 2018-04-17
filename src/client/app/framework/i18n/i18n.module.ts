@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { UniversalTranslateLoader } from '@ngx-universal/translate-loader';
 
 // module
 import { ChangeLanguageComponent } from './src/change-language.component';
@@ -28,10 +27,8 @@ export const I18N_COMPONENTS: Array<any> = [
 ];
 
 // for AoT compilation
-export function translateFactory(platformId: any, http: HttpClient): TranslateLoader {
-  const browserLoader = new TranslateHttpLoader(http);
-
-  return new UniversalTranslateLoader(platformId, browserLoader, './public/assets/i18n');
+export function translateFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/');
 }
 
 @NgModule({

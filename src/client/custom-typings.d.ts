@@ -47,7 +47,6 @@
 declare module '*';
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
-declare const ENV: string;
 declare const System: SystemJS;
 
 interface SystemJS {
@@ -55,7 +54,6 @@ interface SystemJS {
 }
 
 interface GlobalEnvironment {
-  ENV: string;
   SystemJS: SystemJS;
   System: SystemJS;
 }

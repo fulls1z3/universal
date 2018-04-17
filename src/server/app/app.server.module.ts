@@ -63,7 +63,7 @@ export function bootstrapFactory(appRef: ApplicationRef,
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: (bootstrapFactory),
+      useFactory: bootstrapFactory,
       multi: true,
       deps: [
         ApplicationRef,
