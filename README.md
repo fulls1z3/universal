@@ -18,12 +18,12 @@ in file and application organization, providing the following features:
 - [x] Ready-to-go build system using [gulp] and [Webpack] to work with [TypeScript].
 - [x] Managing the type definitions using [@types].
 - [x] **[angular-webpack-config]** as configuration preset for [Webpack].
-- [x] The [Dll Bundle] and [Hard Source] plugins for **lightning-fast** development builds.
+- [x] The ~~[Dll Bundle] and~~ [Hard Source] plugins for **lightning-fast** development builds.
 - [x] **Hot Module Replacement** with [Webpack] and [webpack-hot-middleware].
 - [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
 - [x] Development, staging and production modes.
 - [x] Performing [AoT compilation] for rapid page loads on staging/production builds (*using [@ngtools/webpack]*).
-- [ ] ~~Minifying the production builds using [UglifyJS Webpack Plugin].~~
+- [x] Minifying the production builds using [UglifyJS Webpack Plugin].
 - [x] Both **inline** and **external** **[SCSS]** compilation.
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
 - [x] Transferring server responses on client bootstrap to prevent app flickering with native [TransferState]`.
@@ -34,7 +34,7 @@ in file and application organization, providing the following features:
 - [x] Uses **[ngx-cache]** for application-wide caching.
 - [x] Uses [ngx-translate] for i18n support.
 - [x] Uses **[ngx-meta]** for SEO (*title, meta tags, and Open Graph tags for social sharing*).
-- [ ] Uses **[ngx-i18n-router]** for localized routes.
+- [ ] ~~Uses **[ngx-i18n-router]** for localized routes.~~
 - [x] Uses [ngx-perfect-scrollbar] for scrollbars.
 - [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
@@ -42,7 +42,7 @@ in file and application organization, providing the following features:
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v6.x.x`, bundled with `gulp v4` and `webpack v3`.
+> Built with `Angular v6.x.x`, bundled with `gulp v4` and `webpack v4`.
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
@@ -63,7 +63,7 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 ## <a name="prerequisites"></a> Prerequisites
 Packages in this seed project depend on `@angular v6.x.x`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.6.x`** or higher.
+Also, please ensure that you are using **`Typescript v2.7.x`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
