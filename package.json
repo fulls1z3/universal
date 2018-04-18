@@ -156,7 +156,6 @@
     "tslib": "~1.9.0",
     "typescript": "~2.7.2"
   },
-  "sideEffects": true,
   "jest": {
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "./tools/test/jest.setup.ts",
