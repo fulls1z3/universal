@@ -79,7 +79,7 @@ t.describe('ng-seed/universal', () => {
           t.e(i18n.availableLanguages[0].code)
             .toBe('en');
         }));
-      });
+    });
 
     t.describe('i18n: I18NService for `fr` browser', () => {
       t.be(() => {
