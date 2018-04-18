@@ -30,7 +30,10 @@ export class AnalyticsService implements IAnalytics {
 
   track(action: string, properties: AnalyticsProperties): void {
     if (!this.devMode())
-      this.angulartics.eventTrack.next({action, properties});
+      this.angulartics.eventTrack.next({
+        action,
+        properties
+      });
   }
 
   pageTrack(path: string): void {

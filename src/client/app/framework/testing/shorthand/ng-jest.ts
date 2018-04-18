@@ -6,8 +6,11 @@ import { TestApi } from './ng-base';
 
 export interface JestApi extends TestApi {
   async(fn: Function): Function;
+
   fakeAsync(fn: Function): Function;
+
   inject(tokens: Array<any>, fn: Function): Function;
+
   tick(delay?: number): void;
 }
 
