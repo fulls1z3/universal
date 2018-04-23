@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 
 // libs
-import * as _ from 'lodash';
+import * as _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { AuthLoader } from '@ngx-auth/core';
 

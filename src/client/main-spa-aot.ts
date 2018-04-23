@@ -1,6 +1,6 @@
 // angular
 import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowser } from '@angular/platform-browser';
 
 // libs
 import { bootloader } from '@angularclass/bootloader';
@@ -9,7 +9,7 @@ import { bootloader } from '@angularclass/bootloader';
 import { AppBrowserModuleNgFactory } from './app/app.browser.module.ngfactory';
 
 export function main(): any {
-  return platformBrowserDynamic()
+  return platformBrowser()
     .bootstrapModuleFactory(AppBrowserModuleNgFactory);
 }
 
