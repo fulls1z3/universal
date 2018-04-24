@@ -8,9 +8,11 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
 
 // framework
-import { t } from '../../testing';
-import { configFactory, CoreModule } from '../../core/core.module';
-import { CoreTestingModule } from '../../core/testing/core-testing.module';
+import { configFactory, CoreModule } from '~/app/framework/core/core.module';
+
+// testing
+import { t } from '~/app/framework/testing';
+import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
 
 // module
 import { initialLanguage } from './models/language';

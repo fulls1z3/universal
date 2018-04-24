@@ -6,8 +6,8 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 // libs
 import { ConfigLoader, ConfigModule, ConfigService, ConfigStaticLoader } from '@ngx-config/core';
 
-// framework
-import { t } from '../../testing';
+// testing
+import { t } from '~/app/framework/testing';
 
 // module
 import { LogLevel } from './models/log-level';

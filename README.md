@@ -13,6 +13,7 @@
 in file and application organization, providing the following features:
 
 - [x] Providing a seed project using the [Angular] framework.
+- [x] **NEW:** [CLI Scaffolding](#cli-scaffolding) improving development productivity. 
 - [x] Using the modern **UI components** of [Angular Material].
 - [x] Dynamic **responsive** layouts via [flex-layout].
 - [x] Ready-to-go build system using [gulp] and [Webpack] to work with [TypeScript].
@@ -54,6 +55,7 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
   - [Installation](#installation)
   - [Setting up upstream repository](#setting-up-upstream-repository)
   - [Building](#building)
+  - [CLI Scaffolding](#cli-scaffolding)
 - [Directory structure](#directory-structure)
 - [Configuring `ng-seed/universal`](#configuring)
 - [External stylesheets](#external-scss)
@@ -156,6 +158,46 @@ $ npm run serve:watch
 Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular
 Universal** (*server-side rendering*) in your browser.
 
+### <a name="cli-scaffolding"> CLI Scaffolding
+The project currently performs **CLI scaffolding** using the official `@schematics/angular` collection and `@ngrx/schematics`
+collection.
+
+`@schematics/angular` blueprints :
+* class
+* component
+* directive
+* enum
+* guard
+* interface
+* module
+* pipe
+* service
+
+#### Example
+```
+# add module `todos`
+$ ng g module todos
+# create src/client/app/todos/todos.module.ts (183 bytes)
+```
+
+`@ngrx/schematics` blueprints :
+* action
+* container
+* effect
+* entity
+* feature
+* reducer
+* store
+
+```
+# add entity `+todos/Item`
+$ ng g entity +todos/Item
+# create src/client/app/+todos/item.actions.ts (2094 bytes)
+# create src/client/app/+todos/item.model.ts (40 bytes)
+# create src/client/app/+todos/item.reducer.ts (1746 bytes)
+# create src/client/app/+todos/item.reducer.spec.ts (322 bytes)
+```
+
 ## <a name="directory-structure"></a> Directory structure
 We use the **component approach** in this seed project, which is a *standard for developing Angular apps* and also a great
 way to ensure maintainable code by encapsulation of our behavior logic.
@@ -181,10 +223,11 @@ universal/
  ├──src/
  |   ├──client/                     * client code
  |   |   ├──app/
- |   |   |   ├──components/         * components (USE HERE)
- |   |   |   |   ├──some-module/    * some module (as an example)
- |   |   |   |   └──+lazy-module/   * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
- |   |   |   └──framework/          * client framework
+ |   |   |   ├──+lazy-module/       * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
+ |   |   |   |  ...
+ |   |   |   ├──framework/          * client framework
+ |   |   |   ├──layout/             * layout (app module)
+ |   |   |   └──login/              * login (app module)
  |   |   └──assets/                 * static assets (scss, img, json, etc.)
  |   └──server/                     * server code
  |

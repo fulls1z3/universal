@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 // libs
 import { StoreModule } from '@ngrx/store';
 
-// framework
-import { t } from '../../testing';
-import { CoreTestingModule } from '../../core/testing/core-testing.module';
-import { RouterTestingModule } from '../../router/testing/router-testing.module';
+// testing
+import { t } from '~/app/framework/testing';
+import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
+import { RouterTestingModule } from '~/app/framework/router/testing/router-testing.module';
 
 // module
 import { ChangeLanguageComponent } from './change-language.component';

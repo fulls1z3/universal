@@ -9,7 +9,7 @@
     "no-unnecessary-class": false,
     "no-implicit-dependencies": [
       true,
-      "dev"
+      "optional"
     ],
     "angular-whitespace": [
       true,

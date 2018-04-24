@@ -8,7 +8,7 @@ import { CacheService } from '@ngx-cache/core';
 import { MetaService } from '@ngx-meta/core';
 
 // framework
-import { ANALYTICS_PROVIDERS } from '../../analytics/analytics.module';
+import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics/analytics.module';
 
 // module
 import { ConsoleService, LogService, WindowService } from '../core.module';
