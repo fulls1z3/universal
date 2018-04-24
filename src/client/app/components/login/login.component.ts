@@ -4,8 +4,12 @@ import { Router } from '@angular/router';
 
 // libs
 import { Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '@ngx-auth/core';
 import { TranslateService } from '@ngx-translate/core';
+
+// framework
+import { BaseComponent } from '../../framework/core/src/base.component';
 
 // app
 import { routeAnimation } from '../../app.animations';
@@ -15,7 +19,7 @@ import { routeAnimation } from '../../app.animations';
   styleUrls: ['./login.component.scss'],
   animations: [routeAnimation]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
   username: string;
   password: string;
   isProcessing: boolean;
@@ -25,6 +29,7 @@ export class LoginComponent implements OnInit {
   constructor(private readonly auth: AuthService,
               private readonly translate: TranslateService,
               private readonly router: Router) {
+    super();
   }
 
   ngOnInit(): void {
@@ -37,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.note$ = this.translate.get('PUBLIC.LOGIN.NOTE');
 
     this.auth.authenticate(this.username, this.password)
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(() => {
         this.isProcessing = false;
 

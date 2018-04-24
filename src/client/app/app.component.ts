@@ -8,6 +8,7 @@ import { ConfigService } from '@ngx-config/core';
 // import { I18NRouterService } from '@ngx-i18n-router/core';
 
 // framework
+import { BaseComponent } from './framework/core/src/base.component';
 import { I18NState, LANGUAGE_ACTIONS } from './framework/i18n/i18n.module';
 
 // styles
@@ -18,9 +19,10 @@ import '../assets/sass/layout.scss';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends BaseComponent implements OnInit {
   constructor(private readonly i18nStore: Store<I18NState>,
               private readonly config: ConfigService) {
+    super();
     // TODO: ngx-i18n-router
     // private readonly i18nRouter: I18NRouterService) {
   }

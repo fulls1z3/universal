@@ -5,17 +5,18 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { ConfigService } from '@ngx-config/core';
+import { AuthService } from '@ngx-auth/core';
 
 // framework
+import { BaseComponent } from '../../framework/core/src/base.component';
 import { getWorkingLanguage, Language } from '../../framework/i18n/i18n.module';
-import { AuthService } from '@ngx-auth/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends BaseComponent implements OnInit {
   title: string;
   currentLanguage$: Observable<Language>;
   availableLanguages: Array<Language>;
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
   constructor(private readonly store: Store<Language>,
               private readonly config: ConfigService,
               private readonly auth: AuthService) {
+    super();
   }
 
   ngOnInit(): void {
