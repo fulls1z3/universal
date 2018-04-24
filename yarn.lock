@@ -302,9 +302,9 @@
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-5.0.0.tgz#e89fdc34c540f3b818873f7d85d7da48abfc41ee"
 
-"@nguniversal/express-engine@~5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0.tgz#e218fa9fbc7b47379bc106f69ada274e05631243"
+"@nguniversal/express-engine@~6.0.0-rc.0":
+  version "6.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0-rc.0.tgz#72fe81ccf50d9a2179bea33f8416caad449b453e"
 
 "@ngx-auth/core@6.0.0-rc.1":
   version "6.0.0-rc.1"
