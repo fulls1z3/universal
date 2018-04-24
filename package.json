@@ -68,7 +68,7 @@
     "@ngrx/store": "6.0.0-beta.1",
     "@ngrx/effects": "6.0.0-beta.1",
     "@nguniversal/common": "~5.0.0",
-    "@nguniversal/express-engine": "~5.0.0",
+    "@nguniversal/express-engine": "~6.0.0-rc.0",
     "@ngx-config/core": "6.0.0-rc.1",
     "@ngx-config/http-loader": "6.0.0-rc.1",
     "@ngx-cache/core": "6.0.0-rc.1",
