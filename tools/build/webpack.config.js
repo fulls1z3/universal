@@ -4,8 +4,14 @@ const webpackMerge = require('webpack-merge'),
 const copyWebpackPlugin = require('copy-webpack-plugin'),
   htmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
 
-const defaultConfig = function() {
+const defaultConfig = function(root) {
   return {
+    resolve: {
+      alias: {
+        '~': root('src/client')
+      }
+    },
+
     module: {
       rules: [
         /**
@@ -67,23 +73,23 @@ module.exports = function(options, root, settings) {
       return options.mode === 'stage' || options.mode === 'staging'
         ? !!options.platform
           ? options.platform === 'server'
-            ? webpackMerge(webpackConfig.universal.server.prod(root, settings), defaultConfig())
-            : webpackMerge(webpackConfig.universal.browser.prod(root, settings), defaultConfig(), browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.prod(root, settings), defaultConfig(), browserConfig(root, settings))
+            ? webpackMerge(webpackConfig.universal.server.prod(root, settings), defaultConfig(root))
+            : webpackMerge(webpackConfig.universal.browser.prod(root, settings), defaultConfig(root), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.prod(root, settings), defaultConfig(root), browserConfig(root, settings))
         : !!options.platform
           ? options.platform === 'server'
-            ? webpackMerge(webpackConfig.universal.server.prod(root, Object.assign(settings, {minimize: true})), defaultConfig())
-            : webpackMerge(webpackConfig.universal.browser.prod(root, Object.assign(settings, {minimize: true}), defaultConfig()),
+            ? webpackMerge(webpackConfig.universal.server.prod(root, Object.assign(settings, {minimize: true})), defaultConfig(root))
+            : webpackMerge(webpackConfig.universal.browser.prod(root, Object.assign(settings, {minimize: true}), defaultConfig(root)),
               browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.prod(root, Object.assign(settings, {minimize: true})), defaultConfig(), browserConfig(root, settings));
+          : webpackMerge(webpackConfig.spa.prod(root, Object.assign(settings, {minimize: true})), defaultConfig(root), browserConfig(root, settings));
     case 'dev':
     case 'development':
       return !!options.platform
         ? options.platform === 'server'
-          ? webpackMerge(webpackConfig.universal.server.dev(root, settings), defaultConfig())
-          : webpackMerge(webpackConfig.universal.browser.dev(root, settings), defaultConfig(), browserConfig(root, settings))
+          ? webpackMerge(webpackConfig.universal.server.dev(root, settings), defaultConfig(root))
+          : webpackMerge(webpackConfig.universal.browser.dev(root, settings), defaultConfig(root), browserConfig(root, settings))
         : options.hmr
-          ? webpackMerge(webpackConfig.spa.hmr(root, settings), defaultConfig(), browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.dev(root, settings), defaultConfig(), browserConfig(root, settings));
+          ? webpackMerge(webpackConfig.spa.hmr(root, settings), defaultConfig(root), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.dev(root, settings), defaultConfig(root), browserConfig(root, settings));
   }
 };

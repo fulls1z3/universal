@@ -1,0 +1,57 @@
+@import '../../assets/sass/variables';
+@import '../../assets/sass/mixins';
+
+.login {
+  @include absolute(0);
+
+  display: block;
+  background-color: c(grey);
+
+  .container {
+    @include absolute(50% null null);
+
+    display: block;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
+  .container > div {
+    @include size(rem(38));
+    @include push(0 auto);
+
+    background: c(white);
+    text-align: center;
+  }
+
+  .title {
+    @include soft($space--xl);
+    @include font(#{$h2}/#{$space--xxl} $font--preferred, c(white));
+
+    width: rem(38);
+    background: mat-color($primary-dark);
+  }
+
+  .content {
+    @include soft($space--xl rem(4.2) rem(4.2));
+
+    mat-form-field {
+      @include push(rem(0.6) 0);
+
+      width: 100%;
+    }
+
+    .note {
+      @include push($space--xl 0 0);
+
+      color: c(grey);
+      text-align: center;
+    }
+
+    .warn {
+      @include push($space--xl 0 0);
+
+      color: mat-color($warn);
+      text-align: center;
+    }
+  }
+}

@@ -159,6 +159,11 @@
     "tslib": "~1.9.0",
     "typescript": "~2.7.2"
   },
+  "optionalDependencies": {
+    "~": "tslint-hack",
+    "jasmine-marbles": "tslint-hack",
+    "nightmare": "tslint-hack"
+  },
   "jest": {
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "./tools/test/jest.setup.ts",
@@ -172,7 +177,9 @@
       "^.+\\.(css|less|scss|styl|sss)$": "<rootDir>/tools/test/style-processor.js",
       "^.+\\.(ts|js|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js"
     },
-    "moduleNameMapper": null,
+    "moduleNameMapper": {
+      "~(.*)$": "<rootDir>/src/client/$1"
+    },
     "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "cache": false,
     "silent": true,

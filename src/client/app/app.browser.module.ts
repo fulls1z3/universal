@@ -11,8 +11,8 @@ import { AuthModule } from '@ngx-auth/core';
 import 'hammerjs';
 
 // framework
-import { ConsoleService, CoreModule, WindowService } from './framework/core/core.module';
-import { AuthTestingModule } from './framework/auth/testing/auth-testing.module';
+import { ConsoleService, CoreModule, WindowService } from '~/app/framework/core/core.module';
+import { AuthTestingModule } from '~/app/framework/auth/testing/auth-testing.module';
 
 // modules & components
 import { AppModule, REQ_KEY } from './app.module';

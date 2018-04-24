@@ -12,14 +12,16 @@ import { Actions, EffectsModule } from '@ngrx/effects';
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
 
 // framework
-import { t } from '../../testing';
-import { configFactory, CoreModule } from '../../core/core.module';
-import { CoreTestingModule } from '../../core/testing/core-testing.module';
-import { NgrxTestingModule } from '../../ngrx/testing/ngrx-testing.module';
+import { configFactory, CoreModule } from '~/app/framework/core/core.module';
+import { AnalyticsModule } from '~/app/framework/analytics/analytics.module';
+
+// testing
+import { t } from '~/app/framework/testing';
+import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
+import { NgrxTestingModule } from '~/app/framework/ngrx/testing/ngrx-testing.module';
 
 // module
 import { I18NTestingModule } from '../testing/i18n-testing.module';
-import { AnalyticsModule } from '../../analytics/analytics.module';
 import { I18NService } from './i18n.service';
 import * as language from './language.actions';
 import { LanguageEffects } from './language.effects';

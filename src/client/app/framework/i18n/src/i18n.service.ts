@@ -11,8 +11,8 @@ import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
 
 // framework
-import { Analytics, AnalyticsService } from '../../analytics/analytics.module';
-import { WindowService } from '../../core/core.module';
+import { Analytics, AnalyticsService } from '~/app/framework/analytics/analytics.module';
+import { WindowService } from '~/app/framework/core/core.module';
 
 // module
 import { CATEGORY } from './models/category';

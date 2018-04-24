@@ -6,8 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { cold } from 'jasmine-marbles';
 import { Angulartics2 } from 'angulartics2';
 
-// framework
-import { t } from '../../testing';
+// testing
+import { t } from '~/app/framework/testing';
 
 // module
 import { Analytics, AnalyticsService } from './analytics.service';

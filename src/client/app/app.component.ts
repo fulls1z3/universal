@@ -8,12 +8,12 @@ import { ConfigService } from '@ngx-config/core';
 // import { I18NRouterService } from '@ngx-i18n-router/core';
 
 // framework
-import { BaseComponent } from './framework/core/core.module';
-import { I18NState, LANGUAGE_ACTIONS } from './framework/i18n/i18n.module';
+import { BaseComponent } from '~/app/framework/core/core.module';
+import { I18NState, LANGUAGE_ACTIONS } from '~/app/framework/i18n/i18n.module';
 
 // styles
-import '../assets/sass/lib.scss';
-import '../assets/sass/layout.scss';
+import '~/assets/sass/lib.scss';
+import '~/assets/sass/layout.scss';
 
 @Component({
   selector: 'app-root',

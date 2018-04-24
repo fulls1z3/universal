@@ -5,9 +5,9 @@ import { Routes } from '@angular/router';
 import { MetaGuard } from '@ngx-meta/core';
 
 // components
-import { LoginComponent } from './components/login';
-import { MainComponent } from './components/layout';
-import { ChangeLanguageComponent } from './framework/i18n/i18n.module';
+import { LoginComponent } from './login';
+import { MainComponent } from './layout';
+import { ChangeLanguageComponent } from '~/app/framework/i18n/i18n.module';
 
 export const routes: Routes = [
   {
@@ -26,15 +26,15 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './components/+home/home.module#HomeModule'
+        loadChildren: './+home/home.module#HomeModule'
       },
       {
         path: 'about',
-        loadChildren: './components/+about/about.module#AboutModule'
+        loadChildren: './+about/about.module#AboutModule'
       },
       {
         path: 'secure-page',
-        loadChildren: './components/+secure/secure.module#SecureModule'
+        loadChildren: './+secure/secure.module#SecureModule'
       }
     ],
     canActivateChild: [MetaGuard],

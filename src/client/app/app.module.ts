@@ -16,18 +16,18 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 // framework
-import { configFactory, CoreModule, metaFactory } from './framework/core/core.module';
-import { SharedModule } from './framework/core/shared.module';
-import { HttpInterceptorModule } from './framework/http/http-interceptor.module';
-import { MaterialModule } from './framework/material/material.module';
-import { ChangeLanguageComponent, I18NModule, translateFactory } from './framework/i18n/i18n.module';
-import { AnalyticsModule } from './framework/analytics/analytics.module';
+import { configFactory, CoreModule, metaFactory } from '~/app/framework/core/core.module';
+import { SharedModule } from '~/app/framework/core/shared.module';
+import { HttpInterceptorModule } from '~/app/framework/http/http-interceptor.module';
+import { MaterialModule } from '~/app/framework/material/material.module';
+import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n/i18n.module';
+import { AnalyticsModule } from '~/app/framework/analytics/analytics.module';
 
 // routes & components
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import { LAYOUT_COMPONENTS } from './components/layout';
-import { LOGIN_COMPONENTS } from './components/login';
+import { LAYOUT_COMPONENTS } from './layout';
+import { LOGIN_COMPONENTS } from './login';
 
 export const REQ_KEY = makeStateKey<string>('req');
 

@@ -6,8 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
 // testing
-import { t } from './framework/testing';
-import { CoreTestingModule } from './framework/core/testing/core-testing.module';
+import { t } from '~/app/framework/testing';
+import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
 
 // routes & components
 import { AppComponent } from './app.component';

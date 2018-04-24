@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 // framework
-import { BaseComponent } from '../../core/core.module';
+import { BaseComponent } from '~/app/framework/core/core.module';
 
 // module
 import { Language } from './models/language';

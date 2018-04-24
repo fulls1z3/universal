@@ -12,13 +12,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
 
 // framework
-import { t } from '../../testing';
-import { configFactory, CoreModule, WindowService } from '../../core/core.module';
-import { CoreTestingModule, MockWindowFrench, MockWindowNoLanguage } from '../../core/testing/core-testing.module';
+import { configFactory, CoreModule, WindowService } from '~/app/framework/core/core.module';
+import { AnalyticsModule } from '~/app/framework/analytics/analytics.module';
+
+// testing
+import { t } from '~/app/framework/testing';
+import { CoreTestingModule, MockWindowFrench, MockWindowNoLanguage } from '~/app/framework/core/testing/core-testing.module';
 
 // module
 import { I18NTestingModule } from '../testing/i18n-testing.module';
-import { AnalyticsModule } from '../../analytics/analytics.module';
 import { Language } from './models/language';
 import { I18NService } from './i18n.service';
 import { LanguageEffects } from './language.effects';
