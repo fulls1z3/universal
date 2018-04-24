@@ -76,26 +76,6 @@
       "DEV": "cheap-module-source-map",
       "PROD": "source-map",
       "TEST": "inline-source-map"
-    },
-    "bundles": {
-      "polyfills": [
-        "core-js",
-        {
-          "name": "zone.js",
-          "path": "zone.js/dist/zone.js"
-        },
-        {
-          "name": "zone.js",
-          "path": "zone.js/dist/long-stack-trace-zone.js"
-        }
-      ],
-      "server": [
-        "express",
-        "debug",
-        "compression",
-        "morgan",
-        "body-parser"
-      ]
     }
   }
 }

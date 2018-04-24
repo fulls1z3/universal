@@ -8,10 +8,10 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 import * as express from 'express';
 import { Observable } from 'rxjs';
 
-const getBaseUrl = (protocol: string) => {
+const getBaseUrl = (req: express.Request) => {
   return process.env.PORT
-    ? `${protocol}://${process.env.HOST}:${process.env.PORT}`
-    : `${protocol}://${process.env.HOST}`;
+    ? `${req.protocol}://${req.hostname}:${process.env.PORT}`
+    : `${req.protocol}://${req.hostname}`;
 };
 
 @Injectable()
@@ -25,7 +25,7 @@ export class UniversalInterceptor implements HttpInterceptor {
 
     if (isServer && !request.url.includes('http') && request.url.includes('./')) {
       const serverRequest = this.injector.get(REQUEST) as express.Request;
-      const baseUrl = getBaseUrl(serverRequest.protocol);
+      const baseUrl = getBaseUrl(serverRequest);
 
       request = request.clone({
         url: `${baseUrl}/${request.url.replace('./', '')}`
