@@ -9120,9 +9120,9 @@ rx@2.3.24:
   version "2.3.24"
   resolved "https://registry.yarnpkg.com/rx/-/rx-2.3.24.tgz#14f950a4217d7e35daa71bbcbe58eff68ea4b2b7"
 
-rxjs-compat@6.0.0-uncanny-rc.7:
-  version "6.0.0-uncanny-rc.7"
-  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.0.0-uncanny-rc.7.tgz#4d9d88c2296aefda6b6503a52c27d1bf7e6ff1f0"
+rxjs-compat@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.0.0.tgz#2496403f74042d07899faeeac0bd703e4bce6710"
 
 rxjs@6.0.0-uncanny-rc.7, rxjs@^6.0.0-beta.3:
   version "6.0.0-uncanny-rc.7"
