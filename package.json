@@ -67,7 +67,7 @@
     "@angularclass/bootloader": "~1.0.1",
     "@ngrx/store": "6.0.0-beta.1",
     "@ngrx/effects": "6.0.0-beta.1",
-    "@nguniversal/common": "~5.0.0",
+    "@nguniversal/common": "~6.0.0-rc.2",
     "@nguniversal/express-engine": "6.0.0-rc.2",
     "@ngx-config/core": "6.0.0-rc.1",
     "@ngx-config/http-loader": "6.0.0-rc.1",
