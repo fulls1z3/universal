@@ -18,8 +18,17 @@ const browserConfig = function(root, settings) {
           test: /\.css$/,
           use: ['raw-loader', 'css-loader'],
           include: root('node_modules')
+        },
+
+        /**
+         * Temporary parser rule until Angular remains compatible with modern tooling
+         *
+         * See: https://github.com/angular/angular/issues/21560
+         */
+        {
+          parser: {system: true}
         }
-      ]
+      ],
     },
 
     plugins: [

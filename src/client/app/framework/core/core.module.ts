@@ -15,10 +15,12 @@ import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
 
 // module
+import { BaseComponent } from './src/base.component';
 import { ConsoleService } from './src/console.service';
 import { LogService } from './src/log.service';
 import { WindowService } from './src/window.service';
 
+export * from './src/base.component';
 export * from './src/console.service';
 export * from './src/log.service';
 export * from './src/window.service';
@@ -70,6 +72,7 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
     CacheModule.forRoot(),
     MetaModule.forRoot()
   ],
+  declarations: [BaseComponent],
   providers: [
     CORE_PROVIDERS
     // I18N_ROUTER_PROVIDERS
