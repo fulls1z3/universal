@@ -7,10 +7,7 @@
   ],
   "rules": {
     "no-unnecessary-class": false,
-    "no-implicit-dependencies": [
-      true,
-      "optional"
-    ],
+    "no-implicit-dependencies": false,
     "angular-whitespace": [
       true,
       "check-interpolation"
