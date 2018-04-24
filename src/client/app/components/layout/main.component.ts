@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 // framework
-import { BaseComponent } from '../../framework/core/src/base.component';
+import { BaseComponent } from '../../framework/core/core.module';
 
 @Component({
   selector: 'app-main',
