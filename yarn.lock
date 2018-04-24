@@ -417,13 +417,13 @@
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
 
-"@nguniversal/common@~5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-5.0.0.tgz#e89fdc34c540f3b818873f7d85d7da48abfc41ee"
+"@nguniversal/common@~6.0.0-rc.2":
+  version "6.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-6.0.0-rc.2.tgz#82dc74b3cd53932eef6a5084f61e74ed1b555bfe"
 
-"@nguniversal/express-engine@~6.0.0-rc.0":
-  version "6.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0-rc.0.tgz#72fe81ccf50d9a2179bea33f8416caad449b453e"
+"@nguniversal/express-engine@6.0.0-rc.2":
+  version "6.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0-rc.2.tgz#ca4a576d62614e04aea8a03f603b7e1235dff033"
 
 "@ngx-auth/core@6.0.0-rc.1":
   version "6.0.0-rc.1"
@@ -7150,9 +7150,9 @@ ng-router-loader@~2.1.0:
     loader-utils "^0.2.16"
     recast "^0.11.20"
 
-ngx-perfect-scrollbar@~5.3.5:
-  version "5.3.5"
-  resolved "https://registry.yarnpkg.com/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-5.3.5.tgz#adb0ddd6f1a376dc43e99db7fa8540046fa36a5a"
+ngx-perfect-scrollbar@~6.0.0-0:
+  version "6.0.0-0"
+  resolved "https://registry.yarnpkg.com/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-6.0.0-0.tgz#8f0567f8c8252babeee60bfd6b4d1bf6d9182834"
   dependencies:
     perfect-scrollbar "^1.3.0"
     resize-observer-polyfill "^1.4.0"

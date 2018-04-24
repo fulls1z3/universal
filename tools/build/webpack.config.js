@@ -4,6 +4,23 @@ const webpackMerge = require('webpack-merge'),
 const copyWebpackPlugin = require('copy-webpack-plugin'),
   htmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
 
+const defaultConfig = function() {
+  return {
+    module: {
+      rules: [
+        /**
+         * Temporary parser rule until Angular remains compatible with modern tooling
+         *
+         * See: https://github.com/angular/angular/issues/21560
+         */
+        {
+          parser: {system: true}
+        }
+      ]
+    }
+  };
+};
+
 const browserConfig = function(root, settings) {
   return {
     module: {
@@ -18,15 +35,6 @@ const browserConfig = function(root, settings) {
           test: /\.css$/,
           use: ['raw-loader', 'css-loader'],
           include: root('node_modules')
-        },
-
-        /**
-         * Temporary parser rule until Angular remains compatible with modern tooling
-         *
-         * See: https://github.com/angular/angular/issues/21560
-         */
-        {
-          parser: {system: true}
         }
       ],
     },
@@ -59,23 +67,23 @@ module.exports = function(options, root, settings) {
       return options.mode === 'stage' || options.mode === 'staging'
         ? !!options.platform
           ? options.platform === 'server'
-            ? webpackMerge(webpackConfig.universal.server.prod(root, settings))
-            : webpackMerge(webpackConfig.universal.browser.prod(root, settings), browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.prod(root, settings), browserConfig(root, settings))
+            ? webpackMerge(webpackConfig.universal.server.prod(root, settings), defaultConfig())
+            : webpackMerge(webpackConfig.universal.browser.prod(root, settings), defaultConfig(), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.prod(root, settings), defaultConfig(), browserConfig(root, settings))
         : !!options.platform
           ? options.platform === 'server'
-            ? webpackMerge(webpackConfig.universal.server.prod(root, Object.assign(settings, {minimize: true})))
-            : webpackMerge(webpackConfig.universal.browser.prod(root, Object.assign(settings, {minimize: true})),
+            ? webpackMerge(webpackConfig.universal.server.prod(root, Object.assign(settings, {minimize: true})), defaultConfig())
+            : webpackMerge(webpackConfig.universal.browser.prod(root, Object.assign(settings, {minimize: true}), defaultConfig()),
               browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.prod(root, Object.assign(settings, {minimize: true})), browserConfig(root, settings));
+          : webpackMerge(webpackConfig.spa.prod(root, Object.assign(settings, {minimize: true})), defaultConfig(), browserConfig(root, settings));
     case 'dev':
     case 'development':
       return !!options.platform
         ? options.platform === 'server'
-          ? webpackConfig.universal.server.dev(root, settings)
-          : webpackMerge(webpackConfig.universal.browser.dev(root, settings), browserConfig(root, settings))
+          ? webpackMerge(webpackConfig.universal.server.dev(root, settings), defaultConfig())
+          : webpackMerge(webpackConfig.universal.browser.dev(root, settings), defaultConfig(), browserConfig(root, settings))
         : options.hmr
-          ? webpackMerge(webpackConfig.spa.hmr(root, settings), browserConfig(root, settings))
-          : webpackMerge(webpackConfig.spa.dev(root, settings), browserConfig(root, settings));
+          ? webpackMerge(webpackConfig.spa.hmr(root, settings), defaultConfig(), browserConfig(root, settings))
+          : webpackMerge(webpackConfig.spa.dev(root, settings), defaultConfig(), browserConfig(root, settings));
   }
 };
