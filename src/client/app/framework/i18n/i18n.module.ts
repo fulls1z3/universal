@@ -22,10 +22,6 @@ export * from './src/i18n.service';
 export * from './src/reducers';
 export { _languageActions as LANGUAGE_ACTIONS };
 
-export const I18N_COMPONENTS: Array<any> = [
-  ChangeLanguageComponent
-];
-
 // for AoT compilation
 export function translateFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -37,7 +33,7 @@ export function translateFactory(http: HttpClient): TranslateLoader {
     StoreModule.forFeature('i18n', reducers),
     EffectsModule.forFeature([LanguageEffects])
   ],
-  declarations: [I18N_COMPONENTS],
+  declarations: [ChangeLanguageComponent],
   providers: [
     I18NService
   ],

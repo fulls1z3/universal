@@ -38,7 +38,8 @@ export class I18NService extends Analytics {
     super(analytics);
 
     this.category = CATEGORY;
-    this.store.pipe(select(getWorkingLanguage))
+    this.store
+      .pipe(select(getWorkingLanguage))
       .subscribe((state: Language) => {
         if (state && state.code) {
           this.translate.use(state.code)
