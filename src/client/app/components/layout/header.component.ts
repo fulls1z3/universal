@@ -8,7 +8,7 @@ import { ConfigService } from '@ngx-config/core';
 import { AuthService } from '@ngx-auth/core';
 
 // framework
-import { BaseComponent } from '../../framework/core/src/base.component';
+import { BaseComponent } from '../../framework/core/core.module';
 import { getWorkingLanguage, Language } from '../../framework/i18n/i18n.module';
 
 @Component({

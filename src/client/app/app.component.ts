@@ -8,7 +8,7 @@ import { ConfigService } from '@ngx-config/core';
 // import { I18NRouterService } from '@ngx-i18n-router/core';
 
 // framework
-import { BaseComponent } from './framework/core/src/base.component';
+import { BaseComponent } from './framework/core/core.module';
 import { I18NState, LANGUAGE_ACTIONS } from './framework/i18n/i18n.module';
 
 // styles
