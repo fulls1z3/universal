@@ -30,36 +30,34 @@ const testModuleConfig = () => {
 };
 
 t.describe('ng-seed/universal', () => {
-  t.describe('components', () => {
-    t.describe('layout: MainComponent', () => {
-      t.be(testModuleConfig);
+  t.describe('layout: MainComponent', () => {
+    t.be(testModuleConfig);
 
-      t.it('should build without a problem', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(MainComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
-            t.e(instance)
-              .toBeTruthy();
-          });
-      }));
+    t.it('should build without a problem', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(MainComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
+          t.e(instance)
+            .toBeTruthy();
+        });
+    }));
 
-      t.it('should invoke `onActivate`', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(MainComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
-            t.e(instance)
-              .toBeTruthy();
+    t.it('should invoke `onActivate`', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(MainComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
+          t.e(instance)
+            .toBeTruthy();
 
-            const scrollContainer = TestBed.get(ElementRef);
-            instance.onActivate(undefined, scrollContainer);
-            t.e(instance)
-              .toBeTruthy();
-          });
-      }));
-    });
+          const scrollContainer = TestBed.get(ElementRef);
+          instance.onActivate(undefined, scrollContainer);
+          t.e(instance)
+            .toBeTruthy();
+        });
+    }));
   });
 });

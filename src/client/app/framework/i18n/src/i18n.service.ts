@@ -18,7 +18,7 @@ import { WindowService } from '~/app/framework/core/core.module';
 import { CATEGORY } from './models/category';
 import { I18NState } from './models/i18n-state';
 import { initialLanguage, Language } from './models/language';
-import * as language from './language.actions';
+import { UseLanguage } from './language.actions';
 import { getWorkingLanguage } from './reducers';
 
 @Injectable()
@@ -40,16 +40,16 @@ export class I18NService extends Analytics {
     this.category = CATEGORY;
     this.store
       .pipe(select(getWorkingLanguage))
-      .subscribe((state: Language) => {
-        if (state && state.code) {
-          this.translate.use(state.code)
+      .subscribe(res => {
+        if (res && res.code) {
+          this.translate.use(res.code)
             .subscribe(() => {
               // set og:locale
               const meta = this.injector.get(MetaService);
-              meta.setTag('og:locale', state.culture);
+              meta.setTag('og:locale', res.culture);
             });
 
-          this.translate.use(state.code);
+          this.translate.use(res.code);
 
           // TODO: ngx-i18n-router
           // if (this.availableLanguages.length > 1)
@@ -85,33 +85,26 @@ export class I18NService extends Analytics {
     const meta = this.injector.get(MetaService);
     meta.setTag('og:locale', this.defaultLanguage.culture);
 
-    this.store.dispatch(new language.UseLanguage(detectedLanguage));
+    this.store.dispatch(new UseLanguage(detectedLanguage));
 
     return this.getLanguageByCode(detectedLanguage);
   }
 
   getLanguageByCode(languageCode: string): Observable<Language> {
-    let res;
+    const defaultLanguage = {...(this.defaultLanguage || {
+       ...initialLanguage,
+       code: languageCode
+     })};
 
-    if (this.availableLanguages && Array.isArray(this.availableLanguages))
-      res = this.availableLanguages
-        .find(cur => cur.code === languageCode);
-
-    return observableOf(res || {
-      ...(this.defaultLanguage || {
-        ...initialLanguage,
-        code: languageCode
-      })
-    });
+    return observableOf(this.availableLanguages && Array.isArray(this.availableLanguages)
+      ? this.availableLanguages.find(cur => cur.code === languageCode) || defaultLanguage
+      : defaultLanguage);
   }
 
   private getLanguageFromBrowser(): string {
-    let res;
-
-    if (isPlatformBrowser(this.platformId))
-      res = this.win.navigator.language && this.win.navigator.language.split('-')[0];
-
-    return res || this.defaultLanguage.code;
+    return isPlatformBrowser(this.platformId)
+      ? this.win.navigator.language && this.win.navigator.language.split('-')[0] || this.defaultLanguage.code
+      : this.defaultLanguage.code;
   }
 
   // TODO: ngx-i18n-router

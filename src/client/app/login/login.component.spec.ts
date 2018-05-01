@@ -43,8 +43,8 @@ const testModuleConfig = () => {
     imports: [
       FormsModule,
       RouterTestingModule.withRoutes(testRoutes),
-      MaterialModule,
       StoreModule.forRoot({}),
+      MaterialModule,
       TestingModule,
       CoreTestingModule,
       AuthTestingModule,
@@ -58,76 +58,74 @@ const testModuleConfig = () => {
 };
 
 t.describe('ng-seed/universal', () => {
-  t.describe('components', () => {
-    t.describe('login: LoginComponent', () => {
-      t.be(testModuleConfig);
+  t.describe('login: LoginComponent', () => {
+    t.be(testModuleConfig);
 
-      t.it('should build without a problem', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(LoginComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
-            t.e(instance)
-              .toBeTruthy();
-          });
-      }));
+    t.it('should build without a problem', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(LoginComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
+          t.e(instance)
+            .toBeTruthy();
+        });
+    }));
 
-      t.it('should be able to redirect to `defaultUrl` while authenticated', t.async(t.inject([AuthService], (auth: AuthService) => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(LoginComponent);
-            fixture.detectChanges();
+    t.it('should be able to redirect to `defaultUrl` while authenticated', t.async(t.inject([AuthService], (auth: AuthService) => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(LoginComponent);
+          fixture.detectChanges();
 
-            auth.authenticate('valid', 'valid')
-              .subscribe(() => {
-                const router = TestBed.get(Router);
-                t.e(router.url)
-                  .toEqual(`${auth.defaultUrl}/`);
-              });
-          });
-      })));
+          auth.authenticate('valid', 'valid')
+            .subscribe(() => {
+              const router = TestBed.get(Router);
+              t.e(router.url)
+                .toEqual(`${auth.defaultUrl}/`);
+            });
+        });
+    })));
 
-      t.it('should be able to authenticate w/valid combination', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(LoginComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
+    t.it('should be able to authenticate w/valid combination', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(LoginComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
 
-            instance.username = 'valid';
-            instance.password = 'valid';
+          instance.username = 'valid';
+          instance.password = 'valid';
 
-            instance.login();
+          instance.login();
 
-            t.e(instance.note$)
-              .toBeDefined();
-            t.e(instance.warn$)
-              .toBeUndefined();
-          });
-      }));
+          t.e(instance.note$)
+            .toBeDefined();
+          t.e(instance.warn$)
+            .toBeUndefined();
+        });
+    }));
 
-      t.it('should not authenticate w/o valid combination', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const auth = TestBed.get(AuthService);
-            auth.invalidate();
+    t.it('should not authenticate w/o valid combination', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const auth = TestBed.get(AuthService);
+          auth.invalidate();
 
-            const fixture = TestBed.createComponent(LoginComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
+          const fixture = TestBed.createComponent(LoginComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
 
-            instance.username = 'invalid';
-            instance.password = 'invalid';
+          instance.username = 'invalid';
+          instance.password = 'invalid';
 
-            instance.login();
+          instance.login();
 
-            t.e(instance.note$)
-              .toBeDefined();
-            t.e(instance.warn$)
-              .toBeDefined();
-          });
-      }));
-    });
+          t.e(instance.note$)
+            .toBeDefined();
+          t.e(instance.warn$)
+            .toBeDefined();
+        });
+    }));
   });
 });

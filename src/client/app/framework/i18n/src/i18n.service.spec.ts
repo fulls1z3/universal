@@ -108,8 +108,8 @@ t.describe('ng-seed/universal', () => {
                   .toBe('fr-FR');
 
                 languageStore.pipe(select(getWorkingLanguage))
-                  .subscribe((state: Language) => {
-                    t.e(state.code)
+                  .subscribe(res => {
+                    t.e(res.code)
                       .toBe('fr');
                   });
               });
@@ -136,8 +136,8 @@ t.describe('ng-seed/universal', () => {
               .toBeUndefined();
 
             languageStore.pipe(select(getWorkingLanguage))
-              .subscribe((state: Language) => {
-                t.e(state.code)
+              .subscribe(res => {
+                t.e(res.code)
                   .toBe('en');
               });
           }));
