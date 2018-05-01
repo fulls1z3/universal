@@ -20,7 +20,7 @@ import { MockElementRef } from './mocks/element-ref.mock';
 import { MockMetaService } from './mocks/meta-service.mock';
 import { MockWindow } from './mocks/window.mock';
 
-export * from './mocks/window.mock';
+export { MockWindowFrench, MockWindowNoLanguage } from './mocks/window.mock';
 
 export function mockElementFactory(): ElementRef {
   return new MockElementRef();

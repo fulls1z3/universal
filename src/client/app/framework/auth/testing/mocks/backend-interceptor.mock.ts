@@ -16,7 +16,7 @@ export class MockBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (request.url.split('?')[0]
       .endsWith(this.path) && request.method === 'POST') {
-      const testUser: any = {
+      const testUser = {
         username: 'valid',
         password: 'valid'
       };

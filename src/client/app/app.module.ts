@@ -23,11 +23,12 @@ import { MaterialModule } from '~/app/framework/material/material.module';
 import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n/i18n.module';
 import { AnalyticsModule } from '~/app/framework/analytics/analytics.module';
 
-// routes & components
-import { routes } from './app.routes';
+// module
+import { HeaderComponent } from '~/app/layout/header.component';
+import { MainComponent } from '~/app/layout/main.component';
+import { LoginComponent } from '~/app/login/login.component';
 import { AppComponent } from './app.component';
-import { LAYOUT_COMPONENTS } from './layout';
-import { LOGIN_COMPONENTS } from './login';
+import { routes } from './app.routes';
 
 export const REQ_KEY = makeStateKey<string>('req');
 
@@ -86,9 +87,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     ])
   ],
   declarations: [
-    AppComponent,
-    LOGIN_COMPONENTS,
-    LAYOUT_COMPONENTS
+    HeaderComponent,
+    MainComponent,
+    LoginComponent,
+    AppComponent
   ],
   providers: [
     // I18N_ROUTER_PROVIDERS

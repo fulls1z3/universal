@@ -14,9 +14,9 @@ import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
 import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
 import { AuthModule } from '@ngx-auth/core';
 
-// modules & components
-import { AppModule, REQ_KEY } from '../../client/app/app.module';
-import { AppComponent } from '../../client/app/app.component';
+// app
+import { AppModule, REQ_KEY } from '~/app/app.module';
+import { AppComponent } from '~/app/app.component';
 
 export function bootstrapFactory(appRef: ApplicationRef,
                                  transferState: TransferState,

@@ -11,16 +11,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // module
 import { ChangeLanguageComponent } from './src/change-language.component';
 import { I18NService } from './src/i18n.service';
-import * as _languageActions from './src/language.actions';
+import { Init } from './src/language.actions';
 import { LanguageEffects } from './src/language.effects';
 import { reducers } from './src/reducers';
 
-export * from './src/models/i18n-state';
-export * from './src/models/language';
-export * from './src/change-language.component';
-export * from './src/i18n.service';
-export * from './src/reducers';
-export { _languageActions as LANGUAGE_ACTIONS };
+export { ChangeLanguageComponent, Init, I18NService };
+export { I18NState } from './src/models/i18n-state';
+export { Language } from './src/models/language';
+export { getWorkingLanguage } from './src/reducers';
 
 // for AoT compilation
 export function translateFactory(http: HttpClient): TranslateLoader {
