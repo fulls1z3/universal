@@ -58,7 +58,7 @@
     "@angular/material": "6.0.0-rc.12",
     "@angular/flex-layout": "6.0.0-beta.15",
     "core-js": "~2.5.5",
-    "rxjs": "6.0.0-uncanny-rc.7",
+    "rxjs": "6.0.0",
     "rxjs-compat": "6.0.0",
     "zone.js": "~0.8.26",
     "request": "~2.85.0",
