@@ -8,37 +8,34 @@ import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
 // module
-import { Language } from './models/language';
 import { I18NService } from './i18n.service';
-import * as language from './language.actions';
+import { Init, LanguageAction, UseLanguage, UseLanguageSuccess, UseLanguageUnsupported } from './language.actions';
 
 @Injectable()
 export class LanguageEffects {
-  @Effect()
-  init$: Observable<Action> = this.actions
+  @Effect() init$: Observable<Action> = this.actions
     .pipe(
-      ofType(language.INIT),
-      map((action: language.Init) => action.payload),
-      switchMap((settings: any) => this.i18n.init(settings)),
-      map((res: Language) => new language.UseLanguageSuccess(res))
+      ofType(LanguageAction.INIT),
+      map((cur: Init) => cur.payload),
+      switchMap(res => this.i18n.init(res)),
+      map(cur => new UseLanguageSuccess(cur))
     );
 
-  @Effect()
-  useLanguage$: Observable<Action> = this.actions
+  @Effect() useLanguage$: Observable<Action> = this.actions
     .pipe(
-      ofType(language.USE_LANGUAGE),
-      map((action: language.UseLanguage) => action.payload),
-      switchMap((languageCode: string) => this.i18n.getLanguageByCode(languageCode)),
-      map((res: any) => {
-        if (res.name) {
-          const useLanguageSuccess = new language.UseLanguageSuccess(res);
+      ofType(LanguageAction.USE_LANGUAGE),
+      map((cur: UseLanguage) => cur.payload),
+      switchMap(res => this.i18n.getLanguageByCode(res)),
+      map(cur => {
+        if (cur.name) {
+          const useLanguageSuccess = new UseLanguageSuccess(cur);
 
           // track analytics
           this.i18n.track(useLanguageSuccess.type, {label: useLanguageSuccess.payload.code});
 
           return useLanguageSuccess;
         } else
-          return new language.UseLanguageUnsupported(res.code);
+          return new UseLanguageUnsupported(cur.code);
       })
     );
 

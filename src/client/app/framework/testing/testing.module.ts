@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // mocks
 import { MockComponent } from './mocks/component.mock';
 
-export * from './mocks/component.mock';
+export { MockComponent };
 
 @NgModule({
   declarations: [MockComponent],

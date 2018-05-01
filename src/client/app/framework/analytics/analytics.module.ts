@@ -15,7 +15,8 @@ export const ANALYTICS_PROVIDERS: Array<any> = [
   AnalyticsService
 ];
 
-export * from './src/analytics.service';
+export { AnalyticsService };
+export { Analytics } from './src/analytics.service';
 
 @NgModule({
   imports: [

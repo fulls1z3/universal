@@ -9,7 +9,7 @@ import { ConfigService } from '@ngx-config/core';
 
 // framework
 import { BaseComponent } from '~/app/framework/core/core.module';
-import { I18NState, LANGUAGE_ACTIONS } from '~/app/framework/i18n/i18n.module';
+import { I18NState, Init } from '~/app/framework/i18n/i18n.module';
 
 // styles
 import '~/assets/sass/lib.scss';
@@ -28,6 +28,6 @@ export class AppComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.i18nStore.dispatch(new LANGUAGE_ACTIONS.Init(this.config.getSettings('i18n')));
+    this.i18nStore.dispatch(new Init(this.config.getSettings('i18n')));
   }
 }

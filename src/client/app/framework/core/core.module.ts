@@ -20,10 +20,7 @@ import { ConsoleService } from './src/console.service';
 import { LogService } from './src/log.service';
 import { WindowService } from './src/window.service';
 
-export * from './src/base.component';
-export * from './src/console.service';
-export * from './src/log.service';
-export * from './src/window.service';
+export { BaseComponent, ConsoleService, LogService, WindowService };
 
 export const CORE_PROVIDERS: Array<any> = [
   ConsoleService,
@@ -45,7 +42,7 @@ export function configFactory(injector: Injector): ConfigLoader {
 
 export function metaFactory(config: ConfigService, translate: TranslateService): MetaLoader {
   return new MetaStaticLoader({
-    callback: (key: string) => translate.get(key),
+    callback: (cur: string) => translate.get(cur),
     pageTitlePositioning: config.getSettings('seo.pageTitlePositioning'),
     pageTitleSeparator: config.getSettings('seo.pageTitleSeparator'),
     applicationName: config.getSettings('system.applicationName'),
@@ -58,7 +55,7 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
       'og:type': 'website',
       'og:locale': config.getSettings('i18n.defaultLanguage.culture'),
       'og:locale:alternate': config.getSettings('i18n.availableLanguages')
-        .map((language: any) => language.culture)
+        .map((cur: any) => cur.culture)
         .toString()
     }
   });
