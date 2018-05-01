@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 
 // libs
 import { Angulartics2 } from 'angulartics2';
+import { extend } from 'lodash/fp';
 
 export interface AnalyticsProperties {
   category?: string;
@@ -60,6 +61,6 @@ export class Analytics implements IAnalytics {
   }
 
   track(action: string, properties: AnalyticsProperties): void {
-    this.analytics.track(action, {...properties, category: this.category});
+    this.analytics.track(action, extend({category: this.category}, properties));
   }
 }
