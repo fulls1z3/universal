@@ -16,7 +16,7 @@ import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.mod
 
 // module
 import { initialLanguage } from './models/language';
-import * as language from './language.actions';
+import { UseLanguageSuccess } from './language.actions';
 import { getWorkingLanguage, reducer } from './language.reducer';
 
 const testModuleConfig = () => {
@@ -61,7 +61,7 @@ t.describe('ng-seed/universal', () => {
           t.it('should be able to return the selected `Language` on the state',
             t.inject([ConfigService], (config: ConfigService) => {
               const defaultLanguage = config.getSettings('i18n.defaultLanguage');
-              const action = new language.UseLanguageSuccess(defaultLanguage);
+              const action = new UseLanguageSuccess(defaultLanguage);
               const res = reducer(defaultLanguage, action);
 
               t.e(res)

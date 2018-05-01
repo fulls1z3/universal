@@ -1,9 +1,9 @@
 export class MockWindow {
-  navigator: any = {
+  navigator = {
     language: 'en-US',
     userAgent: 'testing'
   };
-  location: any = {};
+  location = {};
 }
 
 export class MockWindowFrench extends MockWindow {

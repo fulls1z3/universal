@@ -11,7 +11,7 @@ import { BaseComponent } from '~/app/framework/core/core.module';
 
 // module
 import { Language } from './models/language';
-import * as language from './language.actions';
+import { UseLanguage } from './language.actions';
 
 @Component({
   selector: 'i18n-change-language',
@@ -27,9 +27,9 @@ export class ChangeLanguageComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe((params: { languageCode: string }) => {
-        if (params.languageCode)
-          this.store.dispatch(new language.UseLanguage(params.languageCode));
+      .subscribe(res => {
+        if (res.languageCode)
+          this.store.dispatch(new UseLanguage(res.languageCode));
 
         this.router.navigate(['']);
       });
