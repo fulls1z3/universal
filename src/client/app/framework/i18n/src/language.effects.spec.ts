@@ -23,7 +23,7 @@ import { NgrxTestingModule } from '~/app/framework/ngrx/testing/ngrx-testing.mod
 // module
 import { I18NTestingModule } from '../testing/i18n-testing.module';
 import { I18NService } from './i18n.service';
-import * as language from './language.actions';
+import { Init, UseLanguage, UseLanguageSuccess, UseLanguageUnsupported } from './language.actions';
 import { LanguageEffects } from './language.effects';
 import { reducers } from './reducers';
 
@@ -67,8 +67,8 @@ t.describe('ng-seed/universal', () => {
           t.inject([LanguageEffects, ConfigService], (effects: LanguageEffects, config: ConfigService) => {
             const defaultLanguage = config.getSettings('i18n.defaultLanguage');
 
-            const action = new language.Init(config.getSettings('i18n'));
-            const completion = new language.UseLanguageSuccess(defaultLanguage);
+            const action = new Init(config.getSettings('i18n'));
+            const completion = new UseLanguageSuccess(defaultLanguage);
 
             const actions$ = TestBed.get(Actions);
             actions$.stream = hot('-a', {a: action});
@@ -83,8 +83,8 @@ t.describe('ng-seed/universal', () => {
           t.inject([LanguageEffects], (effects: LanguageEffects) => {
             const unsupportedLanguageCode = 'xx';
 
-            const action = new language.UseLanguage(unsupportedLanguageCode);
-            const completion = new language.UseLanguageUnsupported(unsupportedLanguageCode);
+            const action = new UseLanguage(unsupportedLanguageCode);
+            const completion = new UseLanguageUnsupported(unsupportedLanguageCode);
 
             const actions$ = TestBed.get(Actions);
             actions$.stream = hot('-a', {a: action});
@@ -101,8 +101,8 @@ t.describe('ng-seed/universal', () => {
               .subscribe(() => {
                 const defaultLanguage = config.getSettings('i18n.defaultLanguage');
 
-                const action = new language.UseLanguage(defaultLanguage.code);
-                const completion = new language.UseLanguageSuccess(defaultLanguage);
+                const action = new UseLanguage(defaultLanguage.code);
+                const completion = new UseLanguageSuccess(defaultLanguage);
 
                 const actions$ = TestBed.get(Actions);
                 actions$.stream = hot('-a', {a: action});
@@ -119,8 +119,8 @@ t.describe('ng-seed/universal', () => {
                 const unsupportedLanguageCode = 'xx';
                 const defaultLanguage = config.getSettings('i18n.defaultLanguage');
 
-                const action = new language.UseLanguage(unsupportedLanguageCode);
-                const completion = new language.UseLanguageSuccess(defaultLanguage);
+                const action = new UseLanguage(unsupportedLanguageCode);
+                const completion = new UseLanguageSuccess(defaultLanguage);
 
                 const actions$ = TestBed.get(Actions);
                 actions$.stream = hot('-a', {a: action});

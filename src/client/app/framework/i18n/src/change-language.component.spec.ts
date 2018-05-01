@@ -16,9 +16,9 @@ import { ChangeLanguageComponent } from './change-language.component';
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
-      RouterTestingModule,
+      StoreModule.forRoot({}),
       CoreTestingModule,
-      StoreModule.forRoot({})
+      RouterTestingModule
     ],
     declarations: [ChangeLanguageComponent]
   });

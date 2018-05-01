@@ -12,6 +12,7 @@
   },
   "testRegex": "(/__tests__/.*|\\.(test|e2e-spec))\\.(ts|js)$",
   "moduleNameMapper": {
+    "~(.*)$": "<rootDir>/src/client/$1",
     "^e2e-config$": "<rootDir>/tools/test/nightmare.config.ts"
   },
   "moduleFileExtensions": [

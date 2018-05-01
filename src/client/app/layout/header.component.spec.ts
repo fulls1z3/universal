@@ -40,8 +40,8 @@ const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule.withRoutes(testRoutes),
-      MaterialModule,
       StoreModule.forRoot({}),
+      MaterialModule,
       TestingModule,
       CoreTestingModule,
       AuthTestingModule,
@@ -55,33 +55,31 @@ const testModuleConfig = () => {
 };
 
 t.describe('ng-seed/universal', () => {
-  t.describe('components', () => {
-    t.describe('layout: HeaderComponent', () => {
-      t.be(testModuleConfig);
+  t.describe('layout: HeaderComponent', () => {
+    t.be(testModuleConfig);
 
-      t.it('should build without a problem', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(HeaderComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
-            t.e(instance)
-              .toBeTruthy();
-          });
-      }));
+    t.it('should build without a problem', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(HeaderComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
+          t.e(instance)
+            .toBeTruthy();
+        });
+    }));
 
-      t.it('should be able to log out', t.async(() => {
-        TestBed.compileComponents()
-          .then(() => {
-            const fixture = TestBed.createComponent(HeaderComponent);
-            const instance = fixture.debugElement.componentInstance;
-            fixture.detectChanges();
+    t.it('should be able to log out', t.async(() => {
+      TestBed.compileComponents()
+        .then(() => {
+          const fixture = TestBed.createComponent(HeaderComponent);
+          const instance = fixture.debugElement.componentInstance;
+          fixture.detectChanges();
 
-            instance.logout();
-            t.e(instance.isAuthenticated)
-              .toBeFalsy();
-          });
-      }));
-    });
+          instance.logout();
+          t.e(instance.isAuthenticated)
+            .toBeFalsy();
+        });
+    }));
   });
 });

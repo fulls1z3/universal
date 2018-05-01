@@ -9,9 +9,6 @@ import { authFactory, AuthLoader, AuthModule } from '@ngx-auth/core';
 import { MockBackendInterceptor } from './mocks/backend-interceptor.mock';
 import { MockJwtInterceptor } from './mocks/jwt-interceptor.mock';
 
-export * from './mocks/backend-interceptor.mock';
-export * from './mocks/jwt-interceptor.mock';
-
 export const MOCK_AUTH_PATH = new InjectionToken<string>('MOCK_AUTH_PATH');
 
 @NgModule({
@@ -41,7 +38,7 @@ export const MOCK_AUTH_PATH = new InjectionToken<string>('MOCK_AUTH_PATH');
   ]
 })
 export class AuthTestingModule {
-  static withParams(configuredProvider: any = {
+  static withParams(configuredProvider = {
                       provide: AuthLoader,
                       useFactory: authFactory
                     },
