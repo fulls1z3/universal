@@ -39,6 +39,9 @@
         <button mat-menu-item [routerLink]="['/', 'change-language', 'tr']">
             {{ 'PUBLIC.MENU.TURKISH' | translate }}
         </button>
+        <button mat-menu-item [routerLink]="['/', 'change-language', 'fa']">
+            {{ 'PUBLIC.MENU.PERSIAN' | translate }}
+        </button>
     </mat-menu>
     <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
         <mat-icon>language</mat-icon>
