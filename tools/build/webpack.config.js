@@ -58,6 +58,10 @@ const browserConfig = function(root, settings) {
         {
           from: `${root(settings.paths.src.client.assets.root)}/i18n/tr.json`,
           to: './i18n/tr.json'
+        },
+        {
+          from: `${root(settings.paths.src.client.assets.root)}/i18n/fa.json`,
+          to: './i18n/fa.json'
         }
       ]),
 

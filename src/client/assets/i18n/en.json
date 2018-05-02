@@ -24,6 +24,7 @@
   "PUBLIC.MENU.SECURE": "Secure page",
   "PUBLIC.MENU.ENGLISH": "English",
   "PUBLIC.MENU.TURKISH": "Turkish",
+  "PUBLIC.MENU.PERSIAN": "فارسی",
   "PUBLIC.LOGIN.USERNAME": "Username",
   "PUBLIC.LOGIN.PASSWORD": "Password",
   "PUBLIC.LOGIN.LOG_IN": "Log in",
@@ -40,5 +41,6 @@
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Apple or pear",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "I want an apple but you give me a pear, shame on you",
   "PUBLIC.SECURE.CARD_TITLE": "Secure page",
-  "PUBLIC.SECURE.CARD_SUBTITLE": "You shouldn't be here"
+  "PUBLIC.SECURE.CARD_SUBTITLE": "You shouldn't be here",
+  "PUBLIC.DIRECTION": "ltr"
 }

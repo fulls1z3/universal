@@ -25,6 +25,11 @@
         "code": "tr",
         "name": "Türkçe",
         "culture": "tr-TR"
+      },
+      {
+        "code": "fa",
+        "name": "فارسی",
+        "culture": "fa-IR"
       }
     ],
     "useLocalizedRoutes": true
@@ -45,6 +50,14 @@
       "ROOT.ABOUT.APPLE": "elma",
       "ROOT.ABOUT.APPLE.PEAR": "armut",
       "CHANGE_LANGUAGE": "dil-secimi"
+    },
+    "fa": {
+      "ROOT.ABOUT": "درباره",
+      "ROOT.ABOUT.US": "ما",
+      "ROOT.ABOUT.BANANA": "موز",
+      "ROOT.ABOUT.APPLE": "سیب",
+      "ROOT.ABOUT.APPLE.PEAR": "گلابی",
+      "CHANGE_LANGUAGE": "تغییر"
     }
   }
 }

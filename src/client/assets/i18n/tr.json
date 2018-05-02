@@ -22,8 +22,9 @@
   "PUBLIC.MENU.ABOUT_BANANA": "Muz cumhuriyeti",
   "PUBLIC.MENU.ABOUT_APPLE_PEAR": "Elma veya armut",
   "PUBLIC.MENU.SECURE": "Güvenli sayfa",
-  "PUBLIC.MENU.ENGLISH": "İngilizce",
+  "PUBLIC.MENU.ENGLISH": "English",
   "PUBLIC.MENU.TURKISH": "Türkçe",
+  "PUBLIC.MENU.PERSIAN": "فارسی",
   "PUBLIC.LOGIN.USERNAME": "Kullanıcı adı",
   "PUBLIC.LOGIN.PASSWORD": "Parola",
   "PUBLIC.LOGIN.LOG_IN": "Giriş",
@@ -40,5 +41,6 @@
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Elma veya armut",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "Ben elma istedim ama sen bana armut verdin, olmadı",
   "PUBLIC.SECURE.CARD_TITLE": "Güvenli sayfa",
-  "PUBLIC.SECURE.CARD_SUBTITLE": "Burada olmamalısın"
+  "PUBLIC.SECURE.CARD_SUBTITLE": "Burada olmamalısın",
+  "PUBLIC.DIRECTION": "ltr"
 }
