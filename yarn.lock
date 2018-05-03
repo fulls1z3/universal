@@ -188,9 +188,9 @@
     tslib "^1.9.0"
     xhr2 "^0.1.4"
 
-"@angular/router@6.0.0-rc.6":
-  version "6.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.0.0-rc.6.tgz#bff90444836a8199eefe23c1362dbec1d2f0844b"
+"@angular/router@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.0.0.tgz#09a5c6f6220084c3575df81e8b36cbe9fff10d1f"
   dependencies:
     tslib "^1.9.0"
 
