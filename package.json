@@ -52,7 +52,7 @@
     "@angular/http": "6.0.0-rc.6",
     "@angular/platform-browser": "6.0.0-rc.6",
     "@angular/platform-browser-dynamic": "6.0.0-rc.6",
-    "@angular/platform-server": "6.0.0-rc.6",
+    "@angular/platform-server": "6.0.0",
     "@angular/router": "6.0.0-rc.6",
     "@angular/cdk": "6.0.0-rc.14",
     "@angular/material": "6.0.0-rc.14",
