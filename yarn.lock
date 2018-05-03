@@ -421,9 +421,9 @@
   version "6.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-6.0.0-rc.2.tgz#82dc74b3cd53932eef6a5084f61e74ed1b555bfe"
 
-"@nguniversal/express-engine@6.0.0-rc.2":
-  version "6.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0-rc.2.tgz#ca4a576d62614e04aea8a03f603b7e1235dff033"
+"@nguniversal/express-engine@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0.tgz#f8bc7b5e940afb1ffdbdcb1bb22665d440ea0b0b"
 
 "@ngx-auth/core@6.0.0-rc.1":
   version "6.0.0-rc.1"
