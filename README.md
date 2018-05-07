@@ -175,9 +175,9 @@ collection.
 
 #### Example
 ```
-# add module `todos`
-$ ng g module todos
-# create src/client/app/todos/todos.module.ts (183 bytes)
+# add module `todo`
+$ ng g module todo --project client
+# create src/client/app/todo/todo.module.ts (183 bytes)
 ```
 
 `@ngrx/schematics` blueprints :
@@ -191,7 +191,7 @@ $ ng g module todos
 
 ```
 # add entity `+todos/Item`
-$ ng g entity +todos/Item
+$ ng g entity --name=+todos/Item --project client
 # create src/client/app/+todos/item.actions.ts (2094 bytes)
 # create src/client/app/+todos/item.model.ts (40 bytes)
 # create src/client/app/+todos/item.reducer.ts (1746 bytes)
