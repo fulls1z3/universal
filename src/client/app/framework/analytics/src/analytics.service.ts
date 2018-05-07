@@ -18,13 +18,6 @@ export interface IAnalytics {
 @Injectable()
 export class AnalyticsService implements IAnalytics {
   constructor(private readonly angulartics: Angulartics2) {
-    // options
-    // https://github.com/angulartics/angulartics2/blob/master/src/core/angulartics2.ts#L90-L104
-    // angulartics2.virtualPageviews(value: boolean);
-    // angulartics2.excludeRoutes(routes: Array<string>);
-    // angulartics2.firstPageview(value: boolean);
-    // angulartics2.withBase(value: string);
-
     this.devMode(false);
   }
 
@@ -48,7 +41,7 @@ export class AnalyticsService implements IAnalytics {
 
   devMode(enable?: boolean): boolean {
     if (typeof enable !== 'undefined')
-      this.angulartics.developerMode(enable);
+      this.angulartics.settings.developerMode = enable;
 
     return this.angulartics.settings.developerMode;
   }
