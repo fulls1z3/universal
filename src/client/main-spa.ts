@@ -12,7 +12,7 @@ export function main(): any {
     .bootstrapModule(AppBrowserModule);
 }
 
-// HMR support
+// hmr support
 if (module['hot'])
   module['hot'].accept();
 
