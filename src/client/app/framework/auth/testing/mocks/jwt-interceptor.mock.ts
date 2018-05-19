@@ -13,7 +13,7 @@ export class MockJwtInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = get(JSON.parse(this.loader.storage.getItem(this.loader.storageKey)), 'token');
+    const token = get('token')(JSON.parse(this.loader.storage.getItem(this.loader.storageKey)));
 
     if (token)
       request = request.clone({
