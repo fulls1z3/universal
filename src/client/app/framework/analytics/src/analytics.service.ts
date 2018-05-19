@@ -54,6 +54,6 @@ export class Analytics implements IAnalytics {
   }
 
   track(action: string, properties: AnalyticsProperties): void {
-    this.analytics.track(action, extend({category: this.category}, properties));
+    this.analytics.track(action, extend({category: this.category})(properties));
   }
 }
