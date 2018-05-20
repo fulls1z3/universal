@@ -80,7 +80,7 @@
     "@ngx-translate/http-loader": "~3.0.1",
     "@ngx-meta/core": "6.0.0-rc.1",
     "angulartics2": "~6.1.0",
-    "ngx-perfect-scrollbar": "~6.0.0"
+    "ngx-perfect-scrollbar": "~6.1.0"
   },
   "devDependencies": {
     "nodemon": "~1.17.4",
