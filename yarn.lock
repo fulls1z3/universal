@@ -232,9 +232,9 @@
   version "6.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.0.0-beta.2.tgz#c22f5c584566dd7046884643344bf077c6c824f6"
 
-"@ngrx/schematics@6.0.0-beta.2":
-  version "6.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-6.0.0-beta.2.tgz#3fb8c783db045848a1b5998bf254767e8ccf6ef5"
+"@ngrx/schematics@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-6.0.0.tgz#e5c490e979eb9e0147425ce50666db72cd587c3a"
 
 "@ngrx/store@6.0.0-beta.2":
   version "6.0.0-beta.2"
