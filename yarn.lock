@@ -228,9 +228,9 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ngrx/effects@6.0.0-beta.2":
-  version "6.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.0.0-beta.2.tgz#c22f5c584566dd7046884643344bf077c6c824f6"
+"@ngrx/effects@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.0.0.tgz#da1baa08514179ee07df81f81b297f1c98e0f1ff"
 
 "@ngrx/schematics@6.0.0-beta.2":
   version "6.0.0-beta.2"
