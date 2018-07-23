@@ -72,7 +72,7 @@
     "@ngx-config/core": "6.0.0-rc.1",
     "@ngx-config/http-loader": "6.0.0-rc.1",
     "@ngx-cache/core": "6.0.0-rc.1",
-    "@ngx-cache/platform-browser": "6.0.0-rc.1",
+    "@ngx-cache/platform-browser": "6.0.0",
     "@ngx-cache/platform-server": "6.0.0-rc.1",
     "@ngx-cache/fs-storage": "6.0.0-rc.1",
     "@ngx-auth/core": "6.0.0-rc.1",
