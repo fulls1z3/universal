@@ -286,9 +286,9 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-config/core@6.0.0-rc.1":
-  version "6.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ngx-config/core/-/core-6.0.0-rc.1.tgz#dd8f240365b374c4933fa2738d7ee020069d6f34"
+"@ngx-config/core@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-config/core/-/core-6.0.0.tgz#580a9eb6dddec27201a45c6de4fe29abc90438fd"
   dependencies:
     tslib "~1.9.0"
 
