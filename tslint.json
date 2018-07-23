@@ -8,18 +8,14 @@
   "rules": {
     "no-unnecessary-class": false,
     "no-implicit-dependencies": false,
+    "comment-format": false,
+    "i18n": false,
+    "no-forward-ref": false,
+    "no-unused-css": false,
+    "use-view-encapsulation": false,
     "angular-whitespace": [
       true,
       "check-interpolation"
-    ],
-    "directive-selector": [
-      true,
-      "attribute",
-      [
-        "app",
-        "routerLink"
-      ],
-      "kebab-case"
     ],
     "component-selector": [
       true,
@@ -31,8 +27,14 @@
       ],
       "kebab-case"
     ],
-    "use-view-encapsulation": false,
-    "no-forward-ref": false,
-    "i18n": false
+    "directive-selector": [
+      true,
+      "attribute",
+      [
+        "app",
+        "routerLink"
+      ],
+      "kebab-case"
+    ]
   }
 }
