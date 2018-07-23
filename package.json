@@ -70,7 +70,7 @@
     "@nguniversal/common": "~6.0.0",
     "@nguniversal/express-engine": "~6.0.0",
     "@ngx-config/core": "6.0.0-rc.1",
-    "@ngx-config/http-loader": "6.0.0-rc.1",
+    "@ngx-config/http-loader": "6.0.0",
     "@ngx-cache/core": "6.0.0-rc.1",
     "@ngx-cache/platform-browser": "6.0.0-rc.1",
     "@ngx-cache/platform-server": "6.0.0-rc.1",
