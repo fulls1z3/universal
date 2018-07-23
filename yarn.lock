@@ -268,9 +268,9 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/fs-storage@6.0.0-rc.1":
-  version "6.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/fs-storage/-/fs-storage-6.0.0-rc.1.tgz#b688dd18c921c018720cabc811d3bf2eff2e30e6"
+"@ngx-cache/fs-storage@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/fs-storage/-/fs-storage-6.0.0.tgz#0e4bc6ded6917cf4d64817402d30c52399f18122"
   dependencies:
     tslib "~1.9.0"
 
