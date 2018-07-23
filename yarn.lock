@@ -280,9 +280,9 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/platform-server@6.0.0-rc.1":
-  version "6.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-server/-/platform-server-6.0.0-rc.1.tgz#c332c216bc1fac06e471895d6b96a5a59df01bd5"
+"@ngx-cache/platform-server@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-server/-/platform-server-6.0.0.tgz#f53499767558a481442e4a8d5e3abfce95f43a40"
   dependencies:
     tslib "~1.9.0"
 
