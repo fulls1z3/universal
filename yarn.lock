@@ -274,9 +274,9 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/platform-browser@6.0.0-rc.1":
-  version "6.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-6.0.0-rc.1.tgz#50bb709e82e55d29b9b41c6b9d71c19c4406f93d"
+"@ngx-cache/platform-browser@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-6.0.0.tgz#4e25ebed614a290c038f6f9754dd12e6920f43a1"
   dependencies:
     tslib "~1.9.0"
 
