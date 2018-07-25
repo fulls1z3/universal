@@ -59,6 +59,7 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [Directory structure](#directory-structure)
 - [Configuring `ng-seed/universal`](#configuring)
 - [External stylesheets](#external-scss)
+- [Server-side rendering](#ssr)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -261,6 +262,15 @@ Any stylesheets (*SCSS*) placed in the **`src/client/assets/scss`** directory an
 be compiled into an **external .css file** and embedded in your staging/production builds.
 
 All other stylesheets (*SCSS*) located below **`src/client/app`** will be **extracted into** the generated bundle (*inline*).
+
+## <a name="ssr"></a> Server-side rendering (Angular Universal)
+All the html is compiled once on build and re-rendered each time user send a request to the node.js server.js
+All the requests are hepening in the server.js before HTML code is returned so BE CAREFUL. This can impact the speed and performance. Do only the necesery requests on the server. All other request should be insde
+```
+if (isPlatformBrowser(this.platform)) {
+        this.http.get(...)
+}
+```
 
 ## <a name="contributing"></a> Contributing
 If you want to file a bug, contribute some code, or improve documentation, please read up on the following contribution guidelines:
