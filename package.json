@@ -91,7 +91,7 @@
     "@angular/language-service": "~6.0.9",
     "@angular-devkit/core": "~0.6.8",
     "@angular-devkit/schematics": "~0.6.8",
-    "@ngrx/schematics": "~6.0.1",
+    "@ngrx/schematics": "~6.1.0",
     "@types/express": "~4.16.0",
     "@types/jest": "~23.3.0",
     "@types/lodash": "~4.14.112",
