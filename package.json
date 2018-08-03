@@ -124,7 +124,7 @@
     "style-loader": "~0.21.0",
     "css-loader": "~1.0.0",
     "postcss-loader": "~2.1.6",
-    "autoprefixer": "~9.0.1",
+    "autoprefixer": "~9.1.0",
     "stylefmt-loader": "~1.2.3",
     "sass-loader": "~7.0.3",
     "html-loader": "~0.5.5",
