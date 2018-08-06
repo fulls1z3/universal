@@ -141,7 +141,7 @@
     "extract-text-webpack-plugin": "~4.0.0-beta.0",
     "gulp-sass": "~4.0.1",
     "gulp-sourcemaps": "~2.6.4",
-    "gulp-postcss": "~7.0.1",
+    "gulp-postcss": "~8.0.0",
     "postcss-scss": "~2.0.0",
     "postcss-reporter": "~5.0.0",
     "gulp-sass-lint": "~1.4.0",
