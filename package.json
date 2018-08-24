@@ -98,7 +98,7 @@
     "@types/nightmare": "~2.10.4",
     "@types/node": "~10.5.2",
     "rimraf": "~2.6.2",
-    "concurrently": "~3.6.0",
+    "concurrently": "~4.0.0",
     "json-sub": "1.1.0",
     "gulp": "~4.0.0",
     "gulp-load-plugins": "~1.5.0",
