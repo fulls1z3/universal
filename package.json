@@ -60,7 +60,7 @@
     "core-js": "~2.5.7",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.2.2",
-    "rxjs-compat": "~6.2.2",
+    "rxjs-compat": "~6.3.0",
     "zone.js": "~0.8.26",
     "request": "~2.87.0",
     "hammerjs": "~2.0.8",
