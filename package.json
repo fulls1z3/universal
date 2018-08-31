@@ -56,7 +56,7 @@
     "@angular/router": "~6.0.9",
     "@angular/cdk": "~6.4.1",
     "@angular/material": "~6.4.1",
-    "@angular/flex-layout": "6.0.0-beta.16",
+    "@angular/flex-layout": "6.0.0-beta.18",
     "core-js": "~2.5.7",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.2.2",
