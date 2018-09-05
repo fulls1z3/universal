@@ -8,7 +8,7 @@ const defaultConfig = function(root) {
   return {
     resolve: {
       alias: {
-        '~': root('src/client')
+        '~': root('src')
       }
     },
 

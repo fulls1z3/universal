@@ -10,7 +10,7 @@
     "importHelpers": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/client/*"],
+      "~/*": ["./src/*"],
       "e2e-config": ["./tools/test/nightmare.config.ts"]
     },
     "typeRoots": [

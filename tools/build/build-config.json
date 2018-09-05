@@ -11,7 +11,7 @@
     "src": {
       "root": "{{root}}/src",
       "client": {
-        "root": "{{src_root}}/client",
+        "root": "{{src_root}}",
         "app": {
           "root": "{{src_client_root}}/app"
         },
