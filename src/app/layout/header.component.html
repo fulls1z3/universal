@@ -1,7 +1,7 @@
 ﻿<mat-toolbar class="mat-elevation-z2" color="primary">
     <span>
         <mat-icon class="icon">developer_board</mat-icon>
-        <span class="title">{{ title | translate }}</span>
+        <span class="title">{{ title | translate }} A</span>
     </span>
     <span fxFlex></span>
     <button mat-button [routerLink]="['/', '']">
@@ -21,6 +21,9 @@
     </button>
     <button mat-button [routerLink]="['/', 'secure-page']">
         {{ 'PUBLIC.MENU.SECURE' | translate }}
+    </button>
+    <button mat-button [routerLink]="['hello']">
+        Hello boy
     </button>
     <span fxFlex></span>
     <a mat-button href="https://www.github.com/ng-seed/universal">

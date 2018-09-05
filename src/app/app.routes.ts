@@ -23,6 +23,10 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'hello',
+    loadChildren: './hello/hello.module#HelloModule'
+  },
+  {
     path: '',
     component: MainComponent,
     children: [
@@ -30,6 +34,7 @@ export const routes: Routes = [
         path: '',
         loadChildren: './+home/home.module#HomeModule'
       },
+
       {
         path: 'about',
         loadChildren: './+about/about.module#AboutModule'

@@ -28,6 +28,7 @@
     "serve:spa": "nodemon ./.server/spa-server.js",
     "serve:spa-hmr": "node ./.server/spa-server.hmr.js",
     "serve:watch": "npm run build:spa-dev && concurrently -n \"NODE,JEST\" \"npm run serve:spa-hmr\" \"npm run test:watch\"",
+    "serve1": "npm run build:spa-dev && concurrently -n \"NODE,JEST\" \"npm run serve:spa-hmr\"",
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
     "lint": "tslint -p ./tsconfig.json --force",

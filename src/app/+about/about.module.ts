@@ -22,6 +22,7 @@ import { AboutApplePearComponent } from './about-apple-pear.component';
   imports: [
     CommonModule,
     // TODO: ngx-i18n-router
+    // tslint:disable-next-line:comment-format
     // I18NRouterModule.forChild(routes, 'about')
     RouterModule.forChild(routes),
     MaterialModule,
