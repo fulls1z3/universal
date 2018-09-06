@@ -7,6 +7,7 @@ const mock = () => {
   return {
     getItem: (key: string) => key in storage ? (storage as any)[key] : undefined,
     setItem: (key: string, value: any) => (storage as any)[key] = value || '',
+    // tslint:disable-next-line:no-dynamic-delete
     removeItem: (key: string) => delete (storage as any)[key],
     clear: () => storage = {}
   };

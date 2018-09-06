@@ -72,6 +72,7 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
   declarations: [BaseComponent],
   providers: [
     CORE_PROVIDERS
+    // tslint:disable-next-line:comment-format
     // I18N_ROUTER_PROVIDERS
   ]
 })
