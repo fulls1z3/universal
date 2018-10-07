@@ -547,15 +547,10 @@
   resolved "https://registry.yarnpkg.com/@types/fancy-log/-/fancy-log-1.3.0.tgz#a61ab476e5e628cd07a846330df53b85e05c8ce0"
   integrity sha512-mQjDxyOM1Cpocd+vm1kZBP7smwKZ4TNokFeds9LV7OZibmPJFEzY3+xZMrKfUdNT71lv8GoCPD6upKwHxubClw==
 
-"@types/jest@^23.3.1":
+"@types/jest@^23.3.1", "@types/jest@~23.3.3":
   version "23.3.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.3.tgz#246ebcc52771d2327bb8e37aa971b412d9dc4237"
   integrity sha512-G6EBrbjWDfmIpYu8UcRBOhwtDiYaLj5N5jUR5rx0YvbKxRBhXPZVLUmtfShewSUNKiQwpHavpML69a2WMbIlEQ==
-
-"@types/jest@~23.3.0":
-  version "23.3.0"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.0.tgz#5dd70033b616a6228042244ebd992f6426808810"
-  integrity sha512-wjOtCEZ9z5ZamhrapT1ew9g1O0aJk6dkd2SwhUJMmySz7upVgC+7xft8joxGJA+/Q8HOcx3sG/T/+tCAA1oHPA==
 
 "@types/lodash@~4.14.116":
   version "4.14.116"

@@ -93,7 +93,7 @@
     "@angular-devkit/schematics": "~0.8.4",
     "@ngrx/schematics": "~6.1.0",
     "@types/express": "~4.16.0",
-    "@types/jest": "~23.3.0",
+    "@types/jest": "~23.3.3",
     "@types/lodash": "~4.14.116",
     "@types/nightmare": "~2.10.4",
     "@types/node": "~10.11.4",
