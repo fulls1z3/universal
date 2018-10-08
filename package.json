@@ -96,7 +96,7 @@
     "@types/jest": "~23.3.0",
     "@types/lodash": "~4.14.112",
     "@types/nightmare": "~2.10.4",
-    "@types/node": "~10.5.2",
+    "@types/node": "~10.11.5",
     "rimraf": "~2.6.2",
     "concurrently": "~3.6.0",
     "json-sub": "1.1.0",
