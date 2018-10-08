@@ -121,7 +121,7 @@
     "angular2-template-loader": "0.6.0",
     "ng-router-loader": "~2.1.0",
     "to-string-loader": "~1.1.5",
-    "style-loader": "~0.21.0",
+    "style-loader": "~0.23.1",
     "css-loader": "~1.0.0",
     "postcss-loader": "~2.1.6",
     "autoprefixer": "~9.0.1",
