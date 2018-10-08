@@ -63,6 +63,11 @@
 "@angular/compiler-cli@~6.0.9":
   version "6.0.9"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-6.0.9.tgz#a4b48b37d8b3dd8d702e034d4f062596d048a8a2"
+  dependencies:
+    chokidar "^1.4.2"
+    minimist "^1.2.0"
+    reflect-metadata "^0.1.2"
+    tsickle "^0.29.0"
 
 "@angular/compiler@~6.0.9":
   version "6.0.9"
@@ -615,6 +620,10 @@ acorn@^3.0.4, acorn@^3.3.0:
 acorn@^5.6.2:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.1.tgz#f095829297706a7c9776958c0afc8930a9b9d9d8"
+
+ajv-errors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
 
 ajv-keywords@^1.0.0:
   version "1.5.1"
@@ -8751,6 +8760,14 @@ schema-utils@^0.4.0, schema-utils@^0.4.4, schema-utils@^0.4.5:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
 
+schema-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-1.0.0.tgz#0b79a93204d7b600d4b2850d1f66c2a34951c770"
+  dependencies:
+    ajv "^6.1.0"
+    ajv-errors "^1.0.0"
+    ajv-keywords "^3.1.0"
+
 script-ext-html-webpack-plugin@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/script-ext-html-webpack-plugin/-/script-ext-html-webpack-plugin-2.0.1.tgz#90ac3d77f1892ad9054c3752f0e4673607f6d9a3"
@@ -9388,12 +9405,12 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@~0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.21.0.tgz#68c52e5eb2afc9ca92b6274be277ee59aea3a852"
+style-loader@~0.23.1:
+  version "0.23.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
   dependencies:
     loader-utils "^1.1.0"
-    schema-utils "^0.4.5"
+    schema-utils "^1.0.0"
 
 style-search@^0.1.0:
   version "0.1.0"
@@ -10268,6 +10285,8 @@ url-join@^4.0.0:
 url-parse-lax@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/url-parse-lax/-/url-parse-lax-1.0.0.tgz#7af8f303645e9bd79a272e7a14ac68bc0609da73"
+  dependencies:
+    prepend-http "^1.0.1"
 
 url@^0.11.0:
   version "0.11.0"
