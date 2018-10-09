@@ -43,7 +43,7 @@ in file and application organization, providing the following features:
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v6.x.x`, bundled with `gulp v4` and `webpack v4`.
+> Built with `Angular v7.x.x`, bundled with `gulp v4` and `webpack v4`.
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
@@ -63,9 +63,9 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [License](#license)
 
 ## <a name="prerequisites"></a> Prerequisites
-Packages in this seed project depend on `@angular v6.x.x`. Older versions contain outdated dependencies, might produce errors.
+Packages in this seed project depend on `@angular v7.x.x`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.7.x`** or higher.
+Also, please ensure that you are using **`Typescript v3.1.x`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
