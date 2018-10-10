@@ -8,9 +8,10 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "importHelpers": true,
+    "outDir": "../out-tsc/app",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/client/*"],
+      "~/*": ["./src/*"],
       "e2e-config": ["./tools/test/nightmare.config.ts"]
     },
     "typeRoots": [
@@ -23,13 +24,5 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
-  "angularCompilerOptions": {
-    "genDir": ".",
-    "skipMetadataEmit": true
-  },
-  "awesomeTypescriptLoaderOptions": {
-    "usePrecompiledFiles": true,
-    "useWebpackText": true
-  }
+  ]
 }
