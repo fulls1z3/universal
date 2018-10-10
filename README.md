@@ -13,19 +13,16 @@
 in file and application organization, providing the following features:
 
 - [x] Providing a seed project using the [Angular] framework.
-- [x] **NEW:** [CLI Scaffolding](#cli-scaffolding) improving development productivity. 
+- [x] **WoW:** Compiling bundles for both browser (*SPA*) and server ([Angular Universal]) platforms.
+- [x] **NEW:** Rebased on [Angular CLI] to focus on features and development productivity, not on build tools.
+- [x] **NEW:** Customizable webpack configuration via [@angular-builders].
 - [x] Using the modern **UI components** of [Angular Material].
 - [x] Dynamic **responsive** layouts via [flex-layout].
-- [x] Ready-to-go build system using [gulp] and [Webpack] to work with [TypeScript].
-- [x] Managing the type definitions using [@types].
-- [x] **[angular-webpack-config]** as configuration preset for [Webpack].
-- [x] The ~~[Dll Bundle] and~~ [Hard Source] plugins for **lightning-fast** development builds.
-- [x] **Hot Module Replacement** with [Webpack] and [webpack-hot-middleware].
-- [x] Adjustable **build configuration** via `json` file (*`./tools/build/build-config.json`*).
+- [x] Built-in **Hot Module Replacement** to save valuable development time.
 - [x] Development, staging and production modes.
-- [x] Performing [AoT compilation] for rapid page loads on staging/production builds (*using [@ngtools/webpack]*).
-- [x] Minifying the production builds using [UglifyJS Webpack Plugin].
-- [x] Both **inline** and **external** **[SCSS]** compilation.
+- [x] Performing [AoT compilation] for rapid page loads on staging/production builds.
+- [x] Tree-shaking and minifying the production builds using [Angular Devkit].
+- [x] Cross-browser **[SCSS]** with [autoprefixer] and [browserslist].
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
 - [x] Transferring server responses on client bootstrap to prevent app flickering with native [TransferState]`.
 - [x] Deferring initialization of modules via [Lazy loading].
@@ -43,7 +40,7 @@ in file and application organization, providing the following features:
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v6.x.x`, bundled with `gulp v4` and `webpack v4`.
+> Built with `Angular v7.x.x`, bundled with `Angular CLI`.
 
 You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
 
@@ -54,18 +51,16 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [Getting started](#getting-started)
   - [Installation](#installation)
   - [Setting up upstream repository](#setting-up-upstream-repository)
-  - [Building](#building)
+  - [Development and builds](#development-and-builds)
   - [CLI Scaffolding](#cli-scaffolding)
 - [Directory structure](#directory-structure)
-- [Configuring `ng-seed/universal`](#configuring)
-- [External stylesheets](#external-scss)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## <a name="prerequisites"></a> Prerequisites
-Packages in this seed project depend on `@angular v6.x.x`. Older versions contain outdated dependencies, might produce errors.
+Packages in this seed project depend on `@angular v7.x.x`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.7.x`** or higher.
+Also, please ensure that you are using **`Typescript v3.1.x`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
@@ -109,54 +104,58 @@ $ git merge upstream/master
 ```
 then handle any conflicts, and go on with building your app.
 
-### <a name="building"> Building
-These are the scripts to lint, test and build this seed project:
+### <a name="development-builds"> Development & Builds
+Below are the scripts to dev, build, lint, and test this seed project:
+
+##### Install dependencies
 ```
 # use `yarn` to install the dependencies
 $ yarn
+```
 
-# clean artifacts & DLL cache
-$ npm run clean
+##### Development servers
+```
+# dev server
+$ ng serve
 
-# run tslint
-$ npm run lint
+# dev server (HMR-enabled)
+$ yarn run start:hmr
 
+# dev server (AoT compilation) 
+$ yarn run start:prod
+
+# dev server (SSR)
+$ yarn run start:ssr-prod
+
+# dev server (SSR & AoT compilation)
+$ yarn run start:ssr
+```
+
+##### Build
+```
+# development build
+$ ng build
+
+# production build 
+$ ng build --prod
+
+# development build (SSR)
+$ yarn run build:ssr
+
+# production build (SSR)
+$ yarn run build:ssr-prod
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+##### Running tests
+```
 # run unit tests
 $ npm test
 
 # run e2e tests
 $ npm run e2e
-
-# dev build (lean Angular / Angular Universal)
-$ npm run build:spa-dev
-# OR
-$ npm run build:universal-dev
-
-# stage build (lean Angular / Angular Universal)
-$ npm run build:spa-stage
-# OR
-$ npm run build:universal-stage
-
-# prod build (lean Angular / Angular Universal)
-$ npm run build:spa-prod
-# OR
-$ npm run build:universal-prod
-
-# start the server (lean Angular)
-$ npm run serve:spa
-
-# start the server (lean Angular w/HMR support)
-$ npm run serve:spa-hmr
-
-# start the server (Angular Universal)
-$ npm run serve
-
-# watch mode (build, and then HMR and test watch)
-$ npm run serve:watch
 ```
-
-Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular
-Universal** (*server-side rendering*) in your browser.
 
 ### <a name="cli-scaffolding"> CLI Scaffolding
 The project currently performs **CLI scaffolding** using the official `@schematics/angular` collection and `@ngrx/schematics`
@@ -215,52 +214,46 @@ universal/
  ├──.circleci/
  |   └──config.yml                  * CircleCI config
  ├──.github/                        * issue & pr templates
- ├──.server/                        * dev server, output directory to extract server bundles
  ├──coverage/                       * test coverage reports
+ ├──dist/                           * output directory to extract bundles
+ |  ├──browser/                     * browser bundles
+ |  └──server/                      * server bundles
  ├──node_modules/                   * dependencies
- ├──public/                         * output directory to extract client bundles
  |
  ├──src/
- |   ├──client/                     * client code
- |   |   ├──app/
- |   |   |   ├──+lazy-module/       * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
- |   |   |   |  ...
- |   |   |   ├──framework/          * client framework
- |   |   |   ├──layout/             * layout (app module)
- |   |   |   └──login/              * login (app module)
- |   |   └──assets/                 * static assets (scss, img, json, etc.)
- |   └──server/                     * server code
+ |   ├──app/                        * application code
+ |   |   ├──+lazy-module/           * some LAZY module (attn to the `+` prefix for lazy-loaded modules)
+ |   |   |  ...
+ |   |   ├──framework/              * client framework
+ |   |   ├──layout/                 * layout (app module)
+ |   |   └──login/                  * login (app module)
+ |   └──assets/                     * static assets (scss, img, json, etc.)
+ |   └──environments/               * environment settings
  |
  ├──tools/
- |   ├──build/                      * build config and scripts (gulp, webpack, etc.)
- |   ├──config/                     * config files for static-assets (stylelint, postcss, etc.)
+ |   ├──build/                      * build config and scripts (webpack, etc.)
+ |   ├──config/                     * config files for static-assets (stylelint, etc.)
  |   └──test/                       * test config
  |
  ├──.gitignore                      * GIT settings
  ├──.jshintrc                       * jshint config
+ ├──angular.json                    * Angular CLI config
  ├──CHANGELOG.md                    * change log
  ├──CODE_OF_CONDUCT.md              * code of conduct
  ├──CONTRIBUTING.md                 * contributing info
- ├──gulpfile.js                     * gulp entry point
  ├──LICENSE                         * software license
  ├──package.json                    * deps management
  ├──README.md                       * project information
+ ├──server.ts                       * server code
+ ├──stylelint.config.js             * stylelint config locator
  ├──test-report.xml                 * JUNIT test results
  ├──tsconfig.json                   * typescript config
+ ├──tsconfig.server.json            * typescript config (for server build)
+ ├──tsconfig.server-compile.json    * typescript config (for server compilation)
  ├──tsconfig.spec.json              * typescript config (for unit/e2e tests)
  ├──tslint.json                     * tslint config
  └──yarn.lock                       * deps lockfile
 ```
-
-## <a name="configuring"></a> Configuring `ng-seed/universal`
-Most of the configuration is done via **`./tools/build/build-config.json`**, where you can customize **host name**, **port numbers**,
-and **output directories** for your app.
-
-## <a name="external-scss"></a> External stylesheets
-Any stylesheets (*SCSS*) placed in the **`src/client/assets/scss`** directory and imported into your project will automatically
-be compiled into an **external .css file** and embedded in your staging/production builds.
-
-All other stylesheets (*SCSS*) located below **`src/client/app`** will be **extracted into** the generated bundle (*inline*).
 
 ## <a name="contributing"></a> Contributing
 If you want to file a bug, contribute some code, or improve documentation, please read up on the following contribution guidelines:
@@ -278,20 +271,16 @@ The MIT License (MIT)
 Copyright (c) 2018 [Burak Tasci]
 
 [Angular]: https://angular.io
+[Angular Universal]: https://angular.io/guide/universal
+[Angular CLI]: https://cli.angular.io
+[@angular-builders]: https://github.com/meltedspark/angular-builders
 [Angular Material]: https://material.angular.io
 [flex-layout]: https://github.com/angular/flex-layout
-[gulp]: http://gulpjs.com
-[Webpack]: http://webpack.github.io
-[TypeScript]: http://www.typescriptlang.org
-[angular-webpack-config]: https://github.com/ng-seed/angular-webpack-config
-[@types]: https://www.npmjs.com/~types
-[Dll Bundle]: https://github.com/shlomiassaf/webpack-dll-bundles-plugin
-[Hard Source]: https://github.com/mzgoddard/hard-source-webpack-plugin
-[webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
-[@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
-[UglifyJS Webpack Plugin]: https://github.com/webpack-contrib/uglifyjs-webpack-plugin
+[Angular Devkit]: https://github.com/angular/angular-cli
 [SCSS]: http://sass-lang.com
+[autoprefixer]: https://github.com/postcss/autoprefixer
+[browserslist]: https://github.com/browserslist/browserslist
 [stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
 [stylelint]: https://stylelint.io/ 
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html

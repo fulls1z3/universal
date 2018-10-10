@@ -2,11 +2,8 @@
 
 # compiled output
 /.cache
-/.server
-!.server/spa-server*.js
-/.temp
+/dist
 /docs
-/public
 
 # dependencies
 node_modules/
