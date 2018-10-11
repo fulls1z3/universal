@@ -119,16 +119,16 @@ $ yarn
 $ ng serve
 
 # dev server (HMR-enabled)
-$ yarn run start:hmr
+$ yarn start:hmr
 
 # dev server (AoT compilation) 
-$ yarn run start:prod
+$ yarn start:prod
 
 # dev server (SSR)
-$ yarn run start:ssr-prod
+$ yarn start:ssr
 
 # dev server (SSR & AoT compilation)
-$ yarn run start:ssr
+$ yarn start:ssr-prod
 ```
 
 ##### Build
@@ -140,10 +140,10 @@ $ ng build
 $ ng build --prod
 
 # development build (SSR)
-$ yarn run build:ssr
+$ yarn build:ssr
 
 # production build (SSR)
-$ yarn run build:ssr-prod
+$ yarn build:ssr-prod
 ```
 
 The build artifacts will be stored in the `dist/` directory.
@@ -151,10 +151,10 @@ The build artifacts will be stored in the `dist/` directory.
 ##### Running tests
 ```
 # run unit tests
-$ npm test
+$ yarn test
 
 # run e2e tests
-$ npm run e2e
+$ yarn e2e
 ```
 
 ### <a name="cli-scaffolding"> CLI Scaffolding
