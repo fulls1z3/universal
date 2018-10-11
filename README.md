@@ -105,15 +105,15 @@ $ git merge upstream/master
 then handle any conflicts, and go on with building your app.
 
 ### <a name="development-builds"> Development & Builds
-Below are the scripts to dev, build, lint, and test this seed project:
+Below are the scripts to dev, build, and test this seed project:
 
-##### Install dependencies
+#### Install dependencies
 ```
 # use `yarn` to install the dependencies
 $ yarn
 ```
 
-##### Development servers
+#### Development servers
 ```
 # dev server
 $ ng serve
@@ -131,7 +131,7 @@ $ yarn start:ssr
 $ yarn start:ssr-prod
 ```
 
-##### Build
+#### Build
 ```
 # development build
 $ ng build
@@ -148,7 +148,7 @@ $ yarn build:ssr-prod
 
 The build artifacts will be stored in the `dist/` directory.
 
-##### Running tests
+#### Running tests
 ```
 # run unit tests
 $ yarn test
