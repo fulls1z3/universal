@@ -23,7 +23,7 @@ export { Analytics } from './src/analytics.service';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    Angulartics2Module.forRoot([])
+    Angulartics2Module.forRoot()
   ],
   exports: [Angulartics2Module],
   providers: [
