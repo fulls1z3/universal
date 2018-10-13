@@ -461,10 +461,20 @@
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.1.0.tgz#3c1e1ab1e5a86c6d9c29d4f3771e42cc9bd8576c"
   integrity sha512-euR/VHn0cEOkdZ3SqCzUvYHT0P5FcTBm4/xSE8gH85ORP0//owD3L6o8X3etfWLRS+BAELk1JcXkFeAVG9CXiQ==
 
+"@ngrx/entity@~6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-6.1.0.tgz#9ea34beef25e458b45638095875b2548d484df9f"
+  integrity sha512-hUi+ejnyCtK1vYQHq1mvrkp0mxzqvw9kxluuzOQkb89A3JruBOFBV/TwpXNo8EU+FJZ+SacZoEDadBuZKkIA5g==
+
 "@ngrx/schematics@~6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-6.1.0.tgz#4e784da5502829700895ca87d4cc5da93bf3ec84"
   integrity sha512-GEDpJ1jKPxDEerkI2gepzir59ovgF/0S30TXnsVGHLlZ72JFEPwNqpraQzF/zF4qW4QRG2H7LkNkd2PGqMEBSg==
+
+"@ngrx/store-devtools@~6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-6.1.0.tgz#cf65a3149628dc37badd094204484dde9ba14200"
+  integrity sha512-Uc0g/NCbJIbzvIMuCy3skiZVD5hoIrOAAvaninXkVHt7bXpbsSAdvJlmnozuGQqTbC0UQhYRwAR7InRSrzIbMQ==
 
 "@ngrx/store@~6.1.0":
   version "6.1.0"
@@ -10253,6 +10263,11 @@ union-value@^1.0.0:
     get-value "^2.0.6"
     is-extendable "^0.1.1"
     set-value "^0.4.3"
+
+unionize@~2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/unionize/-/unionize-2.1.2.tgz#2513b148de515bec93f045d1685bd88eab62b608"
+  integrity sha1-JROxSN5RW+yT8EXRaFvYjqtitgg=
 
 uniq@^1.0.1:
   version "1.0.1"
