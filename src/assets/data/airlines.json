@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "5bbf81e5cfdb223b57e82ef8",
+    "iataCode": "SL",
+    "name": "Supportal"
+  },
+  {
+    "_id": "5bbf81e5775a31399456f054",
+    "iataCode": "ES",
+    "name": "Ewaves"
+  },
+  {
+    "_id": "5bbf81e5dc5fcaf1a4073041",
+    "iataCode": "ST",
+    "name": "Shopabout"
+  },
+  {
+    "_id": "5bbf81e5936602b8dc8125b9",
+    "iataCode": "PS",
+    "name": "Plasmosis"
+  },
+  {
+    "_id": "5bbf81e5e194ebea0372e4db",
+    "iataCode": "FM",
+    "name": "Flum"
+  }
+]
