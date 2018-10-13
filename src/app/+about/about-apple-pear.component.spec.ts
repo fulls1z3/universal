@@ -10,7 +10,7 @@ import { MaterialModule } from '~/app/framework/material/material.module';
 import { I18NTestingModule } from '~/app/framework/i18n/testing/i18n-testing.module';
 import { t } from '~/app/framework/testing';
 
-// routes & components
+// module
 import { AboutApplePearComponent } from './about-apple-pear.component';
 
 const testModuleConfig = () => {

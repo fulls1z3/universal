@@ -17,7 +17,7 @@ import { I18NTestingModule } from '~/app/framework/i18n/testing/i18n-testing.mod
 import { MockComponent, TestingModule } from '~/app/framework/testing/testing.module';
 import { t } from '~/app/framework/testing';
 
-// routes & components
+// module
 import { HeaderComponent } from './header.component';
 
 const testRoutes: Routes = [

@@ -11,9 +11,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '~/app/framework/core/shared.module';
 import { MaterialModule } from '~/app/framework/material/material.module';
 
-// routes & components
-import { routes } from './secure.routes';
+// module
 import { SecureComponent } from './secure.component';
+import { routes } from './secure.routes';
 
 @NgModule({
   imports: [

@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { t } from '~/app/framework/testing';
 import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
 
-// routes & components
+// module
 import { AppComponent } from './app.component';
 
 const testModuleConfig = () => {
