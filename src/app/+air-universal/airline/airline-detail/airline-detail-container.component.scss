@@ -1,0 +1,9 @@
+@import '../../../../assets/sass/variables';
+@import '../../../../assets/sass/mixins';
+
+@include page--tabbed;
+@include form--shared;
+
+mat-card {
+  max-width: 90%;
+}

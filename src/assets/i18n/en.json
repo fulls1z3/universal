@@ -2,10 +2,22 @@
   "APP_NAME": "ng-seed/universal",
   "DEFAULT_TITLE": "showcasing the ng-seed app",
   "DEFAULT_META_DESCRIPTION": "ng-seed is an open-source seed project for Angular Universal",
+
+  "PUBLIC.SHARED.ACTION.TOOLTIP": "Actions",
+  "PUBLIC.SHARED.ACTION.EDIT": "Edit",
+  "PUBLIC.SHARED.ACTION.DELETE": "Delete",
+  "PUBLIC.SHARED.ACTION.SAVE": "Save",
+  "PUBLIC.SHARED.WIDGET.REFRESH.TOOLTIP": "Refresh",
+  "PUBLIC.SHARED.DATA_TABLE.FILTER": "Filter results",
+  "PUBLIC.SHARED.TAB.TAB_GENERAL": "General",
+
   "PUBLIC.LOGIN.PAGE_TITLE": "Log in",
   "PUBLIC.LOGIN.META_DESCRIPTION": "",
   "PUBLIC.HOME.PAGE_TITLE": "",
   "PUBLIC.HOME.META_DESCRIPTION": "Welcome to ng-seed",
+  "PUBLIC.AIR_UNIVERSAL.META_DESCRIPTION": "Air Universal ensures you to get stuck at the airport",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.PAGE_TITLE": "Airlines",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.PAGE_TITLE": "Airline details",
   "PUBLIC.ABOUT.PAGE_TITLE": "About",
   "PUBLIC.ABOUT.META_DESCRIPTION": "This page provides a dummy overview of nothing",
   "PUBLIC.ABOUT_US.PAGE_TITLE": "Us",
@@ -16,7 +28,10 @@
   "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "I want an apple but you give me a pear, shame on you",
   "PUBLIC.SECURE.PAGE_TITLE": "Secure page",
   "PUBLIC.SECURE.META_DESCRIPTION": "You shouldn't be here",
+
   "PUBLIC.MENU.HOME": "Home",
+  "PUBLIC.MENU.AIR_UNIVERSAL.AIRLINE": "Airlines",
+  "PUBLIC.MENU.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL": "Airline details",
   "PUBLIC.MENU.ABOUT": "About",
   "PUBLIC.MENU.ABOUT_US": "Us",
   "PUBLIC.MENU.ABOUT_BANANA": "Banana republic",
@@ -24,13 +39,24 @@
   "PUBLIC.MENU.SECURE": "Secure page",
   "PUBLIC.MENU.ENGLISH": "English",
   "PUBLIC.MENU.TURKISH": "Turkish",
+
   "PUBLIC.LOGIN.USERNAME": "Username",
   "PUBLIC.LOGIN.PASSWORD": "Password",
   "PUBLIC.LOGIN.LOG_IN": "Log in",
   "PUBLIC.LOGIN.NOTE": "Trying to log in...",
   "PUBLIC.LOGIN.WARN": "Login unsuccessful!",
+
   "PUBLIC.HOME.CARD_TITLE": "Home",
   "PUBLIC.HOME.CARD_SUBTITLE": "Welcome to ng-seed",
+
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE": "Airlines",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID_COL_TITLE": "ID",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE_COL_TITLE": "IATA code",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.NAME_COL_TITLE": "Airline name",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE": "Create a new airline",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.IATA_CODE": "IATA code",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.NAME": "Airline name",
+
   "PUBLIC.ABOUT.CARD_TITLE": "About",
   "PUBLIC.ABOUT.CARD_SUBTITLE": "This page provides a dummy overview of nothing",
   "PUBLIC.ABOUT_US.CARD_TITLE": "Us",
@@ -39,6 +65,7 @@
   "PUBLIC.ABOUT_BANANA.CARD_SUBTITLE": "If your life sucks, start a new one in Banana Republic",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Apple or pear",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "I want an apple but you give me a pear, shame on you",
+
   "PUBLIC.SECURE.CARD_TITLE": "Secure page",
   "PUBLIC.SECURE.CARD_SUBTITLE": "You shouldn't be here"
 }

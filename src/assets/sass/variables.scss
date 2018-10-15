@@ -54,7 +54,7 @@ $font--normal: map-get($font-weights, normal) !default;
 $font--medium: map-get($font-weights, medium) !default;
 
 $font-sizes: (
-  base: 1.6rem,
+  base: 1rem,
   root: 62.5%,
   h1: rem(2.4), // headline
   h2: rem(2),   // title
@@ -132,3 +132,9 @@ $ui-colors: (
 // colors
 $primary-light: mat-palette($mat-indigo, 300);
 $primary-dark: mat-palette($mat-indigo, 700);
+
+/**
+ * Components
+ */
+$header--height: ($space--xxl * 2);
+$toolbar--height: ($space--xxl * 2);

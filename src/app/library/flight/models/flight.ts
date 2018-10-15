@@ -1,5 +1,5 @@
 // shared
-import { BaseDocument } from '~/app/shared/common/models/base-document';
+import { BaseDocument } from '~/app/framework/ngrx';
 
 // module
 import { Airport } from './airport';

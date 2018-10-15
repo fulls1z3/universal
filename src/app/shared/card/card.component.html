@@ -1,0 +1,26 @@
+<mat-card class="card mat-card">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <span>
+                <mat-icon *ngIf="icon" class="icon">{{ icon }}</mat-icon>
+                <span class="title">{{ title | translate }}</span>
+            </span>
+            <span *ngIf="menuGroups" fxFlex></span>
+            <span *ngFor="let group of menuGroups; trackBy: trackByFn">
+                <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+                    <button *ngFor="let item of group.items; trackBy: trackByFn" mat-menu-item (click)="onClick(item.menuClick, item.isDialog)">
+                        <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+                        <span>{{ item.label }}</span>
+                    </button>
+                </mat-menu>
+                <button mat-icon-button matTooltip="{{ group.tooltip | translate }}" matTooltipPosition="below" [matMenuTriggerFor]="menu">
+                    <mat-icon>{{ group.icon }}</mat-icon>
+                </button>
+            </span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="content-container">
+        <ng-content></ng-content>
+    </div>
+    <app-loading-overlay [isProcessing]="!data || isProcessing"></app-loading-overlay>
+</mat-card>

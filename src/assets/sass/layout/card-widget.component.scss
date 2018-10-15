@@ -1,0 +1,57 @@
+@import '../variables';
+@import '../mixins';
+
+@mixin card-widget--shared() {
+  @include soft(0 !important);
+
+  position: relative;
+  background: c(white);
+
+  mat-toolbar {
+    @include soft($space--md $space--lg);
+
+    height: $header--height;
+    background: transparent;
+    color: c(grey, boulder);
+
+    mat-toolbar-row {
+      @extend %hard--sides;
+    }
+
+    .icon {
+      color: c(grey, slate);
+      vertical-align: middle;
+    }
+
+    .title {
+      @include push--left(rem(0.5));
+      @include truncate;
+
+      font-size: $font-size;
+    }
+  }
+
+  .content-container {
+    @include soft($space--md $space--lg $space--lg);
+  }
+
+  @each $name, $value in $spacing-units {
+    .scrollable-#{$name} {
+      height: #{$value * 20};
+      max-height: #{$value * 20};
+    }
+  }
+
+  $space--full: calc(#{100vh} - (
+    #{$toolbar--height} /* header container */
+    + #{$space--md} /* content spacing (top) */
+    + #{$header--height} /* card widget header */
+    + #{$space--xl * 4} /* card widget footer */
+    + #{$space--xl} /* content spacing (bottom) */
+  ));
+
+  .scrollable-full {
+    height: calc(#{$space--full} + (#{rem(0.4)}));
+    max-height: calc(#{$space--full} + (#{rem(0.4)}));
+  }
+}

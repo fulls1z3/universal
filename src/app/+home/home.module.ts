@@ -21,8 +21,8 @@ import { routes } from './home.routes';
     // TODO: ngx-i18n-router
     // I18NRouterModule.forChild(routes, 'home')
     RouterModule.forChild(routes),
-    MaterialModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   declarations: [HomeComponent]
 })

@@ -29,4 +29,48 @@
   .container {
     position: relative !important;
   }
+
+  /deep/.card-narrow {
+    @include soft($space--xl);
+    @include push--sides(auto);
+
+    max-width: rem(80) !important;
+  }
+}
+
+@mixin page--tabbed() {
+  @include page--shared;
+
+  :host {
+    @include push(0);
+    @include soft(0);
+  }
+
+  /deep/.mat-tab-header {
+    background: c(white);
+  }
+
+  /deep/.mat-tab-labels {
+    @include soft(0 $space--xl);
+  }
+
+  /deep/.mat-tab-body-content {
+    overflow: hidden !important;
+  }
+
+  /deep/mat-tab-body {
+    @extend %flush;
+
+    display: block;
+  }
+
+  .tab-content {
+    @include push($space--xl);
+  }
+}
+
+@mixin form--shared() {
+  .actions {
+    @include soft--top($space--md);
+  }
 }

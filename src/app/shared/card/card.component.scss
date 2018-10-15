@@ -1,0 +1,9 @@
+@import '../../../assets/sass/layout/card-widget.component';
+
+:host {
+  max-width: 100% !important;
+}
+
+.card {
+  @include card-widget--shared;
+}

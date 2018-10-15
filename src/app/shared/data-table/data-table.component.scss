@@ -1,0 +1,45 @@
+@import '../../../assets/sass/layout/card-widget.component';
+
+:host {
+  min-width: 90%;
+}
+
+.data-table-card {
+  @include card-widget--shared;
+
+  .title {
+    @include soft--right($space--lg);
+
+    min-width: rem(14.4);
+
+    &-filter {
+      border-right: rem(0.1) solid $black-12-opacity;
+    }
+  }
+
+  .filter {
+    @include soft--sides($space--lg);
+
+    font-size: $font-size;
+    max-width: calc(100% - #{rem(14.4)});
+  }
+
+  mat-header-cell.buttons {
+    flex: 0 0 5%;
+  }
+
+  mat-cell.buttons {
+    flex: 0 0 5%;
+    color: c(grey, boulder);
+    text-align: right;
+  }
+
+  .paginator {
+    background: c(grey, alabaster);
+
+    mat-paginator {
+      font-size: $font-size;
+      background: transparent;
+    }
+  }
+}

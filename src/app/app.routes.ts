@@ -35,6 +35,10 @@ export const routes: Routes = [
         loadChildren: './+about/about.module#AboutModule'
       },
       {
+        path: 'air-universal',
+        loadChildren: './+air-universal/air-universal.module#AirUniversalModule'
+      },
+      {
         path: 'secure-page',
         loadChildren: './+secure/secure.module#SecureModule'
       }

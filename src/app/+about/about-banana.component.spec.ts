@@ -17,8 +17,8 @@ const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      MaterialModule,
       SharedModule,
+      MaterialModule,
       I18NTestingModule
     ],
     declarations: [AboutBananaComponent]
