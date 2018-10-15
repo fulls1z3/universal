@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "5bbf82eef97088d83d91bce5",
+    "departure": "5bbf81b8ecf28c578d1fbbeb",
+    "arrival": "5bbf81b830831317162da824",
+    "segments": [
+      "5bbf850b1f6c3218c487b3e8",
+      "5bbf850baaae01b734d33b38"
+    ]
+  },
+  {
+    "_id": "5bbf82ee3172a86dfbb66fb7",
+    "departure": "5bbf81b849dd6ab4b1ef5454",
+    "arrival": "5bbf81b80d106a08179328e1",
+    "segments": [
+      "5bbf850b3f10bf8606f9bce4"
+    ]
+  },
+  {
+    "_id": "5bbf82ee40af386f0ee7cc4c",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b80d106a08179328e1",
+    "segments": [
+      "5bbf850b650e86b4b4e1a728"
+    ]
+  },
+  {
+    "_id": "5bbf82ee944f9a2a69b3d7f9",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b8ecf28c578d1fbbeb",
+    "segments": [
+      "5bbf850b1d2acf3a6352bfd8"
+    ]
+  },
+  {
+    "_id": "5bbf82ee9f875024b20c2231",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b80d106a08179328e1",
+    "segments": [
+      "5bbf850bdbd35b3bc34ed505",
+      "5bbf850b4465ec38aa77336c"
+    ]
+  }
+]

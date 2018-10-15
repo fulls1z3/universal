@@ -25,8 +25,9 @@ import { MaterialModule } from '~/app/framework/material/material.module';
 
 // module
 import { HeaderComponent } from './layout/header.component';
-import { LoginComponent } from './login/login.component';
 import { MainComponent } from './layout/main.component';
+import { LoginComponent } from './login/login.component';
+import { StoreModule } from './store/store.module';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
@@ -84,7 +85,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
           settings: {}
         }
       }
-    ])
+    ]),
+    StoreModule.forRoot()
   ],
   declarations: [
     HeaderComponent,

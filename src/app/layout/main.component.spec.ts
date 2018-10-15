@@ -12,7 +12,7 @@ import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.mod
 import { I18NTestingModule } from '~/app/framework/i18n/testing/i18n-testing.module';
 import { t } from '~/app/framework/testing';
 
-// routes & components
+// module
 import { MainComponent } from './main.component';
 
 const testModuleConfig = () => {

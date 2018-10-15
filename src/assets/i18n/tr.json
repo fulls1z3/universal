@@ -2,10 +2,22 @@
   "APP_NAME": "ng-seed/universal",
   "DEFAULT_TITLE": "ng-seed uygulama sunumu",
   "DEFAULT_META_DESCRIPTION": "ng-seed açık kaynaklı Angular Univesal temel uygulamasıdır",
+
+  "PUBLIC.SHARED.ACTION.TOOLTIP": "Hareketler",
+  "PUBLIC.SHARED.ACTION.EDIT": "Düzenle",
+  "PUBLIC.SHARED.ACTION.DELETE": "Sil",
+  "PUBLIC.SHARED.ACTION.SAVE": "Kaydet",
+  "PUBLIC.SHARED.WIDGET.REFRESH.TOOLTIP": "Yenile",
+  "PUBLIC.SHARED.DATA_TABLE.FILTER": "Sonuçları filtele",
+  "PUBLIC.SHARED.TAB.TAB_GENERAL": "Genel",
+
   "PUBLIC.LOGIN.PAGE_TITLE": "Giriş yap",
   "PUBLIC.LOGIN.META_DESCRIPTION": "",
   "PUBLIC.HOME.PAGE_TITLE": "",
   "PUBLIC.HOME.META_DESCRIPTION": "ng-seed uygulamasına hoşgeldiniz",
+  "PUBLIC.AIR_UNIVERSAL.META_DESCRIPTION": "Air Universal havalimanında mahsur kalmanızı temin eder",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.PAGE_TITLE": "Havayolları",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.PAGE_TITLE": "Havayolları",
   "PUBLIC.ABOUT.PAGE_TITLE": "Hakkında",
   "PUBLIC.ABOUT.META_DESCRIPTION": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
   "PUBLIC.ABOUT_US.PAGE_TITLE": "Biz",
@@ -16,7 +28,10 @@
   "PUBLIC.ABOUT_APPLE_PEAR.META_DESCRIPTION": "Ben elma istedim ama sen bana armut verdin, olmadı",
   "PUBLIC.SECURE.PAGE_TITLE": "Güvenli sayfa",
   "PUBLIC.SECURE.META_DESCRIPTION": "Burada olmamalısın",
+
   "PUBLIC.MENU.HOME": "Ana sayfa",
+  "PUBLIC.MENU.AIR_UNIVERSAL.AIRLINE": "Havayolları",
+  "PUBLIC.MENU.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL": "Havayolu detayları",
   "PUBLIC.MENU.ABOUT": "Hakkında",
   "PUBLIC.MENU.ABOUT_US": "Biz",
   "PUBLIC.MENU.ABOUT_BANANA": "Muz cumhuriyeti",
@@ -24,13 +39,24 @@
   "PUBLIC.MENU.SECURE": "Güvenli sayfa",
   "PUBLIC.MENU.ENGLISH": "İngilizce",
   "PUBLIC.MENU.TURKISH": "Türkçe",
+
   "PUBLIC.LOGIN.USERNAME": "Kullanıcı adı",
   "PUBLIC.LOGIN.PASSWORD": "Parola",
   "PUBLIC.LOGIN.LOG_IN": "Giriş",
   "PUBLIC.LOGIN.NOTE": "Giriş yapılıyor...",
   "PUBLIC.LOGIN.WARN": "Giriş başarısız!",
+
   "PUBLIC.HOME.CARD_TITLE": "Ana sayfa",
   "PUBLIC.HOME.CARD_SUBTITLE": "ng-seed uygulamasına hoşgeldiniz",
+
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE": "Havayolları",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID_COL_TITLE": "ID",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE_COL_TITLE": "IATA kodu",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.NAME_COL_TITLE": "Havayolu adı",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE": "Yeni bir havayolu oluştur",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.IATA_CODE": "IATA kodu",
+  "PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.NAME": "Havayolu adı",
+
   "PUBLIC.ABOUT.CARD_TITLE": "Hakkında",
   "PUBLIC.ABOUT.CARD_SUBTITLE": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
   "PUBLIC.ABOUT_US.CARD_TITLE": "Biz",
@@ -39,6 +65,7 @@
   "PUBLIC.ABOUT_BANANA.CARD_SUBTITLE": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_TITLE": "Elma veya armut",
   "PUBLIC.ABOUT_APPLE_PEAR.CARD_SUBTITLE": "Ben elma istedim ama sen bana armut verdin, olmadı",
+
   "PUBLIC.SECURE.CARD_TITLE": "Güvenli sayfa",
   "PUBLIC.SECURE.CARD_SUBTITLE": "Burada olmamalısın"
 }

@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "5bbf850b1f6c3218c487b3e8",
+    "iataCode": "ES 461",
+    "airline": "5bbf81e5775a31399456f054",
+    "carrier": "5bbf81e5775a31399456f054",
+    "departure": "5bbf81b8ecf28c578d1fbbeb",
+    "arrival": "5bbf81b849dd6ab4b1ef5454"
+  },
+  {
+    "_id": "5bbf850baaae01b734d33b38",
+    "iataCode": "SL 449",
+    "airline": "5bbf81e5775a31399456f054",
+    "carrier": "5bbf81e5cfdb223b57e82ef8",
+    "departure": "5bbf81b849dd6ab4b1ef5454",
+    "arrival": "5bbf81b830831317162da824"
+  },
+  {
+    "_id": "5bbf850b3f10bf8606f9bce4",
+    "iataCode": "ES 945",
+    "airline": "5bbf81e5775a31399456f054",
+    "carrier": "5bbf81e5775a31399456f054",
+    "departure": "5bbf81b849dd6ab4b1ef5454",
+    "arrival": "5bbf81b80d106a08179328e1"
+  },
+  {
+    "_id": "5bbf850b650e86b4b4e1a728",
+    "iataCode": "FM 965",
+    "airline": "5bbf81e5cfdb223b57e82ef8",
+    "carrier": "5bbf81e5e194ebea0372e4db",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b80d106a08179328e1"
+  },
+  {
+    "_id": "5bbf850b1d2acf3a6352bfd8",
+    "iataCode": "ST 736",
+    "airline": "5bbf81e5dc5fcaf1a4073041",
+    "carrier": "5bbf81e5dc5fcaf1a4073041",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b8ecf28c578d1fbbeb"
+  },
+  {
+    "_id": "5bbf850bdbd35b3bc34ed505",
+    "iataCode": "PS 663",
+    "airline": "5bbf81e5936602b8dc8125b9",
+    "carrier": "5bbf81e5936602b8dc8125b9",
+    "departure": "5bbf81b830831317162da824",
+    "arrival": "5bbf81b87fc6b047a737f6bd"
+  },
+  {
+    "_id": "5bbf850b4465ec38aa77336c",
+    "iataCode": "PS 757",
+    "airline": "5bbf81e5936602b8dc8125b9",
+    "carrier": "5bbf81e5936602b8dc8125b9",
+    "departure": "5bbf81b87fc6b047a737f6bd",
+    "arrival": "5bbf81b80d106a08179328e1"
+  }
+]

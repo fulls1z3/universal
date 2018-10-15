@@ -12,11 +12,17 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
+        "@schematics/angular:module": {
+          "spec": false
+        },
         "@schematics/angular:component": {
           "styleext": "scss"
         },
-        "@schematics/angular:module": {
-          "spec": false
+        "@ngrx/schematics:component": {
+          "styleext": "scss"
+        },
+        "@ngrx/schematics:container": {
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -40,6 +46,7 @@
                 "input": "src",
                 "output": "/"
               },
+              "src/assets/data",
               "src/assets/i18n",
               "src/assets/config.local.json"
             ],

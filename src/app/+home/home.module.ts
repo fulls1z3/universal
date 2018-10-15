@@ -11,9 +11,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '~/app/framework/core/shared.module';
 import { MaterialModule } from '~/app/framework/material/material.module';
 
-// routes & components
-import { routes } from './home.routes';
+// module
 import { HomeComponent } from './home.component';
+import { routes } from './home.routes';
 
 @NgModule({
   imports: [
@@ -21,8 +21,8 @@ import { HomeComponent } from './home.component';
     // TODO: ngx-i18n-router
     // I18NRouterModule.forChild(routes, 'home')
     RouterModule.forChild(routes),
-    MaterialModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   declarations: [HomeComponent]
 })

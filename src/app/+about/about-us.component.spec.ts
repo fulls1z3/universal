@@ -10,15 +10,15 @@ import { MaterialModule } from '~/app/framework/material/material.module';
 import { I18NTestingModule } from '~/app/framework/i18n/testing/i18n-testing.module';
 import { t } from '~/app/framework/testing';
 
-// routes & components
+// module
 import { AboutUsComponent } from './about-us.component';
 
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      MaterialModule,
       SharedModule,
+      MaterialModule,
       I18NTestingModule
     ],
     declarations: [AboutUsComponent]

@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "5bbf81b8ecf28c578d1fbbeb",
+    "iataCode": "ELX",
+    "name": "Elentrix"
+  },
+  {
+    "_id": "5bbf81b849dd6ab4b1ef5454",
+    "iataCode": "XOE",
+    "name": "Xoggle"
+  },
+  {
+    "_id": "5bbf81b87fc6b047a737f6bd",
+    "iataCode": "EXE",
+    "name": "Exospace"
+  },
+  {
+    "_id": "5bbf81b80d106a08179328e1",
+    "iataCode": "EMT",
+    "name": "Emergent"
+  },
+  {
+    "_id": "5bbf81b830831317162da824",
+    "iataCode": "FUE",
+    "name": "Futurize"
+  }
+]

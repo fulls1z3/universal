@@ -1,0 +1,86 @@
+@import '../mixins';
+
+// Variables
+// ---------------------
+$table-header-font-weight:      400;
+$table-header-font-color:       #757575;
+$table-cell-padding:            $space--lg;
+$table-condensed-cell-padding:  $table-cell-padding/2;
+$table-bg:                      #fff;
+$table-bg-accent:               #f5f5f5;
+$table-bg-hover:                rgba(0,0,0,.12);
+$table-bg-active:               $table-bg-hover;
+$table-border-color:            #e0e0e0;
+$table-grey-header-color:       #FAFAFA;
+
+// Baseline styles
+.table {
+  mat-header-row {
+    @include soft--sides(rem(0.6));
+
+    border-bottom: rem(0.1) solid $black-12-opacity;
+  }
+
+  mat-row {
+    @include soft($space--xs $table-condensed-cell-padding);
+
+    border-bottom: 0;
+  }
+
+  mat-header-cell {
+    @include font($table-header-font-weight $font-size $font--preferred, $table-header-font-color);
+  }
+
+  mat-cell {
+    font-size: $font-size;
+  }
+
+  mat-cell:first-child,
+  mat-header-cell:first-child {
+    @extend %hard--left;
+  }
+
+  mat-cell:last-child,
+  mat-header-cell:last-child {
+    @extend %hard--right;
+  }
+}
+
+// Condensed table w/ half padding
+.table-condensed {
+  mat-row {
+    @include soft(0 $table-condensed-cell-padding);
+  }
+}
+
+// Zebra-striping
+.table-striped {
+  mat-row:nth-child(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+// Hover effect
+.table-hover {
+  mat-row:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+// Actions buttons
+mat-table {
+  .actions {
+    color: c(grey, boulder);
+  }
+}
+
+// Column sizes
+mat-header-cell.dynamic,
+mat-cell.dynamic {
+  max-width: rem(9.6);
+}
+
+mat-header-cell.dynamic--sm,
+mat-cell.dynamic--sm {
+  max-width: rem(6.4);
+}

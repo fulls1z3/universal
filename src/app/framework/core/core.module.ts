@@ -16,11 +16,12 @@ import { TranslateService } from '@ngx-translate/core';
 
 // module
 import { BaseComponent } from './src/base.component';
+import { BaseContainerComponent } from './src/base-container.component';
 import { ConsoleService } from './src/console.service';
 import { LogService } from './src/log.service';
 import { WindowService } from './src/window.service';
 
-export { BaseComponent, ConsoleService, LogService, WindowService };
+export { BaseContainerComponent, BaseComponent, ConsoleService, LogService, WindowService };
 
 export const CORE_PROVIDERS: Array<any> = [
   ConsoleService,
@@ -69,7 +70,10 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
     CacheModule.forRoot(),
     MetaModule.forRoot()
   ],
-  declarations: [BaseComponent],
+  declarations: [
+    BaseComponent,
+    BaseContainerComponent
+  ],
   providers: [
     CORE_PROVIDERS
     // I18N_ROUTER_PROVIDERS

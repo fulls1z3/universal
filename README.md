@@ -13,6 +13,7 @@
 in file and application organization, providing the following features:
 
 - [x] Providing a seed project using the [Angular] framework.
+- [x] **WoW:** Includes [ngrx-powered] **CRUD feature** tutorial.
 - [x] **WoW:** Compiling bundles for both browser (*SPA*) and server ([Angular Universal]) platforms.
 - [x] **NEW:** Rebased on [Angular CLI] to focus on features and development productivity, not on build tools.
 - [x] **NEW:** Customizable webpack configuration via [@angular-builders].
@@ -27,6 +28,9 @@ in file and application organization, providing the following features:
 - [x] Transferring server responses on client bootstrap to prevent app flickering with native [TransferState]`.
 - [x] Deferring initialization of modules via [Lazy loading].
 - [x] Uses [ngrx/store] for **state management**.
+- [x] **NEW** Uses [ngrx/entity] state adapter to **manipulate** and **query** entity collections.
+- [x] **NEW** Uses [ngrx/effects]  side effect model to  to model **event sources** as **actions**.
+- [x] **NEW** Uses [unionize] for **boilerplate-free** functional sum types.
 - [x] Uses **[ngx-config]** for configuration management.
 - [x] Uses **[ngx-auth]** for basic JWT-based authentication (*w/Universal support*).
 - [x] Uses **[ngx-cache]** for application-wide caching.
@@ -91,8 +95,8 @@ upstream  https://github.com/ng-seed/universal.git (push)
 $ git push
 ```
 
-Now, you can create a new directory (*ex: `src/client/app/shared`*) to build your codebase out, while benefiting from the
-client framework located at the `src/client/app/framework` directory.
+Now, you can create a new directory (*ex: `src/app/shared`*) to build your codebase out, while benefiting from the
+client framework located at the `src/app/framework` directory.
 
 In order to merge the latest upstream changes, simply follow:
 ```
@@ -175,8 +179,8 @@ collection.
 #### Example
 ```
 # add module `todo`
-$ ng g module todo --project client
-# create src/client/app/todo/todo.module.ts (183 bytes)
+$ ng g module todo
+# create src/app/todo/todo.module.ts (183 bytes)
 ```
 
 `@ngrx/schematics` blueprints :
@@ -188,13 +192,87 @@ $ ng g module todo --project client
 * reducer
 * store
 
+##### Initial store setup
 ```
-# add entity `+todos/Item`
-$ ng g entity --name=+todos/Item --project client
-# create src/client/app/+todos/item.actions.ts (2094 bytes)
-# create src/client/app/+todos/item.model.ts (40 bytes)
-# create src/client/app/+todos/item.reducer.ts (1746 bytes)
-# create src/client/app/+todos/item.reducer.spec.ts (322 bytes)
+# add store module
+$ ng g m store --m app.module.ts
+# CREATE src/app/store/store.module.ts (189 bytes)
+# UPDATE src/app/app.module.ts (3525 bytes)
+
+# add root state interface
+# ng g i store/state
+# CREATE src/app/store/state.ts (27 bytes)
+```
+
+##### Feature store module setup
+```
+# add module `store/todo/Todo`
+$ ng g m store/todo/Todo --flat
+# CREATE src/app/store/todo/todo.module.ts (196 bytes)
+
+// TODO: remove
+# add reducer `store/todo/todo`
+$ ng g r store/todo/todo --spec false
+# CREATE src/app/store/todo/todo.reducer.ts (247 bytes)
+
+# add entity `store/todo/item/Item`
+$ ng g en store/todo/item/Item -m ../../todo/todo.module.ts
+--reducers ../../store/todo.reducer.ts
+# CREATE src/app/store/todo/item/item.actions.ts (2078 bytes)
+# CREATE src/app/store/todo/item/item.model.ts (40 bytes)
+# CREATE src/app/store/todo/item/item.reducer.ts (1746 bytes)
+# CREATE src/app/store/todo/item/item.reducer.spec.ts (322 bytes)
+# UPDATE src/app/store/todo/todo.module.ts (340 bytes)
+
+# add effects `store/todo/item/Item`
+$ ng g ef store/todo/item/Item -m +todo/todo.module.ts
+# CREATE src/app/store/todo/item/item.effects.ts (183 bytes)
+# CREATE src/app/store/todo/item/item.effects.spec.ts (577 bytes)
+# UPDATE src/app/store/todo/todo.module.ts (489 bytes)
+
+# add service `store/todo/Item`
+$ ng g s store/todo/Item
+# CREATE src/app/store/todo/item/item.service.spec.ts (323 bytes)
+# CREATE src/app/store/todo/item/item.service.ts (133 bytes)
+```
+
+##### Container & child components setup
+```
+# add module `+todo/Todo`
+$ ng g m +todo/Todo --flat
+# CREATE src/app/+todo/todo.module.ts (188 bytes)
+
+# add container component `+todo/item/item-container`
+$ ng g co +todo/item/item-container --flat --state ../../store/todo/item/item.reducer.ts
+# CREATE src/app/+todo/item/item-container.component.html (33 bytes)
+# CREATE src/app/+todo/item/item-container.component.ts (432 bytes)
+# CREATE src/app/+todo/item/item-container.component.scss (0 bytes)
+# CREATE src/app/+todo/item/item-container.component.spec.ts (884 bytes)
+# UPDATE src/app/+todo/todo.module.ts (829 bytes)
+
+# add child component `+todo/item`
+$ ng g c +todo/item -c OnPush
+# CREATE src/app/+todo/item/item.component.html (23 bytes)
+# CREATE src/app/+todo/item/item.component.spec.ts (614 bytes)
+# CREATE src/app/+todo/item/item.component.ts (262 bytes)
+# CREATE src/app/+todo/item/item.component.scss (0 bytes)
+# UPDATE src/app/+todo/todo.module.ts (829 bytes)
+
+# add container component `+todo/item/item-detail/item-detail-container`
+$ ng g co +todo/item/item-detail/item-detail-container --flat --state ../../../store/todo/item/item.reducer.ts
+# CREATE src/app/+todo/item/item-detail/item-detail-container.component.html (40 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail-container.component.ts (462 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail-container.component.scss (0 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail-container.component.spec.ts (927 bytes)
+# UPDATE src/app/+todo/todo.module.ts (946 bytes)
+
+# add child component `+todo/item-detail`
+$ ng g c +todo/item/item-detail -c OnPush
+# CREATE src/app/+todo/item/item-detail/item-detail.component.html (30 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail.component.spec.ts (657 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail.component.ts (289 bytes)
+# CREATE src/app/+todo/item/item-detail/item-detail.component.scss (0 bytes)
+# UPDATE src/app/+todo/todo.module.ts (946 bytes)
 ```
 
 ## <a name="directory-structure"></a> Directory structure
@@ -211,13 +289,17 @@ by having a straight look at the directory structure.
 ```
 universal/
  ├──.cache/                         * cache directory for ngx-cache
+ |
  ├──.circleci/
  |   └──config.yml                  * CircleCI config
+ |
  ├──.github/                        * issue & pr templates
  ├──coverage/                       * test coverage reports
+ |
  ├──dist/                           * output directory to extract bundles
  |  ├──browser/                     * browser bundles
  |  └──server/                      * server bundles
+ |
  ├──node_modules/                   * dependencies
  |
  ├──src/
@@ -226,7 +308,10 @@ universal/
  |   |   |  ...
  |   |   ├──framework/              * client framework
  |   |   ├──layout/                 * layout (app module)
- |   |   └──login/                  * login (app module)
+ |   |   ├──library/                * application library (models, services, state management, etc.)
+ |   |   ├──login/                  * login (app module)
+ |   |   ├──shared/                 * shared codebase
+ |   |   └──store/                  * state (ngrx) module
  |   └──assets/                     * static assets (scss, img, json, etc.)
  |   └──environments/               * environment settings
  |
@@ -271,6 +356,7 @@ The MIT License (MIT)
 Copyright (c) 2018 [Burak Tasci]
 
 [Angular]: https://angular.io
+[ngrx-powered]: http://ngrx.github.io
 [Angular Universal]: https://angular.io/guide/universal
 [Angular CLI]: https://cli.angular.io
 [@angular-builders]: https://github.com/meltedspark/angular-builders
@@ -286,6 +372,9 @@ Copyright (c) 2018 [Burak Tasci]
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html
 [TransferState]: https://angular.io/api/platform-browser/TransferState
 [ngrx/store]: https://github.com/ngrx/store
+[ngrx/entity]: https://github.com/ngrx/platform/tree/master/docs/entity
+[ngrx/effects]: https://github.com/ngrx/platform/blob/master/docs/effects/README.md
+[unionize]: https://github.com/pelotom/unionize
 [ngx-config]: https://github.com/fulls1z3/ngx-config
 [ngx-auth]:  https://github.com/fulls1z3/ngx-auth
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
