@@ -69,7 +69,7 @@
     "@ngrx/entity": "~6.1.0",
     "@nguniversal/common": "~6.1.0",
     "@nguniversal/express-engine": "~6.1.0",
-    "@nguniversal/module-map-ngfactory-loader": "~6.1.0",
+    "@nguniversal/module-map-ngfactory-loader": "~7.0.0",
     "@ngx-config/core": "~6.0.0",
     "@ngx-config/http-loader": "~6.0.0",
     "@ngx-cache/core": "~6.0.0",
