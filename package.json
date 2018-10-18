@@ -67,7 +67,7 @@
     "@ngrx/store": "~6.1.0",
     "@ngrx/effects": "~6.1.0",
     "@ngrx/entity": "~6.1.0",
-    "@nguniversal/common": "~6.1.0",
+    "@nguniversal/common": "~7.0.0",
     "@nguniversal/express-engine": "~6.1.0",
     "@nguniversal/module-map-ngfactory-loader": "~6.1.0",
     "@ngx-config/core": "~6.0.0",
