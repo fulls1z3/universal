@@ -89,7 +89,7 @@
     "@angular/compiler": "7.0.0-rc.0",
     "@angular/compiler-cli": "7.0.0-rc.0",
     "@angular/language-service": "7.0.0-rc.0",
-    "@angular-devkit/build-angular": "0.9.0-rc.2",
+    "@angular-devkit/build-angular": "0.10.0",
     "@angular-devkit/core": "7.0.0-rc.2",
     "@angular-devkit/schematics": "7.0.0-rc.2",
     "@angular-builders/custom-webpack": "~2.5.4",
