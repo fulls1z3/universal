@@ -91,7 +91,7 @@
     "@angular/language-service": "7.0.0-rc.0",
     "@angular-devkit/build-angular": "0.9.0-rc.2",
     "@angular-devkit/core": "7.0.0-rc.2",
-    "@angular-devkit/schematics": "7.0.0-rc.2",
+    "@angular-devkit/schematics": "7.0.1",
     "@angular-builders/custom-webpack": "~2.5.4",
     "@angular-builders/dev-server": "~2.3.5",
     "@angularclass/hmr": "~2.1.3",
