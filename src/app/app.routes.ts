@@ -5,7 +5,7 @@ import { Routes } from '@angular/router';
 import { MetaGuard } from '@ngx-meta/core';
 
 // framework
-import { ChangeLanguageComponent } from '~/app/framework/i18n/i18n.module';
+import { ChangeLanguageComponent } from '~/app/framework/i18n';
 
 // components
 import { LoginComponent } from './login/login.component';

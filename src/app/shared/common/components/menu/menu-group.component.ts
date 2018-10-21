@@ -2,7 +2,7 @@
 import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 // module
 import { MenuItemComponent } from './menu-item.component';

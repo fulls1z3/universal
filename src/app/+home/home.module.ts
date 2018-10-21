@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
 // import { I18NRouterModule } from '@ngx-i18n-router/core';
 
 // framework
-import { SharedModule } from '~/app/framework/core/shared.module';
-import { MaterialModule } from '~/app/framework/material/material.module';
+import { SharedModule } from '~/app/framework/core';
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { HomeComponent } from './home.component';

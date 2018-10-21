@@ -8,18 +8,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 // framework
-import { APP_LAYOUT_CONFIG } from '~/app/framework/core/shared.module';
-import { MaterialModule } from '~/app/framework/material/material.module';
+import { APP_LAYOUT_CONFIG } from '~/app/framework/core';
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { CommonModule } from '../common/common.module';
 import { DataTableComponent } from './data-table.component';
-
-export { DataTableComponent };
-export { buttonFactory, DataTableButton } from './models/data-table-button';
-export { columnFactory, DataTableColumn, localizedColumnFactory } from './models/data-table-column';
-export { DataTableLinkButton, linkButtonFactory } from './models/data-table-link-button';
-export { DataTableOptions, optionsFactory } from './models/data-table-options';
+import { DataTableBaseComponent } from './data-table-base.component';
 
 @NgModule({
   imports: [
@@ -31,7 +26,10 @@ export { DataTableOptions, optionsFactory } from './models/data-table-options';
     CommonModule
   ],
   exports: [DataTableComponent],
-  declarations: [DataTableComponent],
+  declarations: [
+    DataTableComponent,
+    DataTableBaseComponent
+  ],
   providers: [
     {
       provide: LAYOUT_CONFIG,

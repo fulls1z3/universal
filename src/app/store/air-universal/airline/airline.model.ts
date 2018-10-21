@@ -1,7 +1,9 @@
 // library
-export { Airline } from '~/app/library/flight/models/airline.ts';
+import { Airline } from '~/app/library/flight/models/airline.ts';
 
-export const initialAirline = {
+export { Airline };
+
+export const initialAirline: Airline = {
   _id: '',
   iataCode: '',
   name: ''

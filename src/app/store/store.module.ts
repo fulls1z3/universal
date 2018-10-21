@@ -10,18 +10,22 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 // env
 import { environment } from '~/environments/environment';
 
+// framework
+import { StoreFrameworkModule } from '~/app/framework/store';
+
 // module
 import { AirUniversalModule } from './air-universal';
 
 @NgModule({
   imports: [
     CommonModule,
-    AirUniversalModule,
     NgrxStoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     !environment.production
       ? StoreDevtoolsModule.instrument()
-      : []
+      : [],
+    StoreFrameworkModule.forRoot(),
+    AirUniversalModule
   ]
 })
 export class StoreModule {

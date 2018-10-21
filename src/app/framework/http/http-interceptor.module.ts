@@ -3,8 +3,8 @@ import { Injector, NgModule, PLATFORM_ID } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // module
-import { BaseUrlInterceptor } from './src/base-url.interceptor';
-import { UniversalInterceptor } from './src/universal.interceptor';
+import { BaseUrlInterceptor } from './base-url.interceptor';
+import { UniversalInterceptor } from './universal.interceptor';
 
 @NgModule({
   providers: [

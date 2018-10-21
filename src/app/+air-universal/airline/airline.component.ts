@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
 // framework
-import { BaseContainerComponent } from '~/app/framework/core/core.module';
+import { BaseContainerComponent } from '~/app/framework/core';
 
 // shared
-import { columnFactory, DataTableColumn, DataTableLinkButton, linkButtonFactory } from '~/app/shared/data-table/data-table.module';
+import { columnFactory, DataTableColumn, DataTableLinkButton, DataTableOptions, linkButtonFactory } from '~/app/shared/data-table';
 
 // app
 import { routeAnimation } from '~/app/app.animations';
@@ -28,7 +28,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   cols: Array<DataTableColumn>;
   filterCol: string;
   buttons: Array<DataTableLinkButton>;
-  options: any;
+  options: DataTableOptions;
 
   private baseRoute: Array<any>;
 
@@ -52,9 +52,12 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
       scrollable: 'full'
     };
 
-    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
-    this.airlines$ = this.store$.pipe(select(AirlineSelectors.selectAll));
+    this.isProcessing$ = this.store$
+      .pipe(select(AirlineSelectors.getIsProcessing));
+    this.error$ = this.store$
+      .pipe(select(AirlineSelectors.getError));
+    this.airlines$ = this.store$
+      .pipe(select(AirlineSelectors.selectAll));
 
     this.store$.dispatch(airlineActions.getAll(false));
   }

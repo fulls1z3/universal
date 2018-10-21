@@ -1,16 +1,20 @@
+// testing
+import { t } from '~/app/framework/testing';
+
 // module
 import { reducer } from './airline.reducer';
 import { initialState } from './airline.state';
 
-describe('Airline Reducer', () => {
-  describe('unknown action', () => {
-    it('should return the initial state', () => {
-      const action = {} as any;
+t.describe('ng-seed/universal', () => {
+  t.describe('store', () => {
+    t.describe('air-universal: airline reducer', () => {
+      it('should return the initial state', () => {
+        const action = {} as any;
+        const res = reducer(undefined, action);
 
-      const result = reducer(initialState, action);
-
-      expect(result)
-        .toBe(initialState);
+        expect(res)
+          .toBe(initialState);
+      });
     });
   });
 });

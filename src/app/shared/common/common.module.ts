@@ -4,7 +4,7 @@ import { CommonModule as CommonAngularModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 // framework
-import { MaterialModule } from '~/app/framework/material/material.module';
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';

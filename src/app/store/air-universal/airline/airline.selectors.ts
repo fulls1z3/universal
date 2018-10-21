@@ -13,11 +13,8 @@ export const {
   selectTotal
 } = adapter.getSelectors(getState);
 
-const isProcessing = (state: State) => state.isProcessing;
-const error = (state: State) => state.error;
-
-export const getIsProcessing = createSelector(getState, isProcessing);
-export const getError = createSelector(getState, error);
+export const getIsProcessing = createSelector(getState, ({ isProcessing }) => isProcessing);
+export const getError = createSelector(getState, ({ error }) => error);
 
 const getSelectedId = createSelector(getState, ({ selectedId }) => selectedId);
 export const getSelected = createSelector(selectEntities, getSelectedId, (entities, id) => !isNil(id) && entities[id]);

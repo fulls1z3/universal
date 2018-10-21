@@ -2,7 +2,7 @@
 import { Component, Input } from '@angular/core';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 @Component({
   selector: 'app-loading-overlay',

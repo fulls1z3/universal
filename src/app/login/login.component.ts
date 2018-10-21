@@ -9,7 +9,7 @@ import { AuthService } from '@ngx-auth/core';
 import { TranslateService } from '@ngx-translate/core';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 // app
 import { routeAnimation } from '~/app/app.animations';

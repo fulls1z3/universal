@@ -3,39 +3,58 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
-import { StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { ConfigService } from '@ngx-config/core';
+import { configureTestSuite } from 'ng-bullet';
 
 // testing
+import { CoreTestingModule } from '~/app/framework/core/testing';
+import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
-import { CoreTestingModule } from '~/app/framework/core/testing/core-testing.module';
+
+// store
+import { languageActions } from '~/app/store';
 
 // module
 import { AppComponent } from './app.component';
 
-const testModuleConfig = () => {
+configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      StoreModule.forRoot({}),
-      CoreTestingModule
+      CoreTestingModule,
+      NgrxTestingModule
     ],
     declarations: [AppComponent]
   });
-};
+});
 
 t.describe('ng-seed/universal', () => {
   t.describe('AppComponent', () => {
-    t.be(testModuleConfig);
+    t.it('should build without a problem', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const instance = fixture.componentInstance;
 
-    t.it('should build without a problem', t.async(() => {
-      TestBed.compileComponents()
-        .then(() => {
-          const fixture = TestBed.createComponent(AppComponent);
-          const instance = fixture.debugElement.componentInstance;
-          fixture.detectChanges();
-          t.e(instance)
-            .toBeTruthy();
-        });
-    }));
+      fixture.detectChanges();
+
+      t.e(instance)
+        .toBeTruthy();
+    });
+
+    t.it('should dispatch `init` action',
+      t.inject([ConfigService], (config: ConfigService) => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const store$ = fixture.debugElement.injector.get(Store);
+        const spy = t.spyOn(store$, 'dispatch');
+
+        fixture.detectChanges();
+
+        const settings = config.getSettings('i18n');
+
+        t.e(spy)
+          .toHaveBeenCalledTimes(1);
+        t.e(spy)
+          .toHaveBeenCalledWith(languageActions.init(settings));
+      }));
   });
 });

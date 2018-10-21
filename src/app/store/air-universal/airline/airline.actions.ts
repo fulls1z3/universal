@@ -1,4 +1,4 @@
-// libs;
+// libs
 import { UnionOf } from 'unionize';
 
 // framework

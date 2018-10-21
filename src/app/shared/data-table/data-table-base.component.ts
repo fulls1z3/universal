@@ -6,14 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { get } from 'lodash/fp';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 // module
-import { toSlug } from '../common/util';
 import { DataTableButton } from './models/data-table-button';
 import { DataTableColumn } from './models/data-table-column';
 import { DataTableLinkButton } from './models/data-table-link-button';
 import { DataTableOptions } from './models/data-table-options';
+import { toSlug } from '../index';
 
 export class DataTableBaseComponent extends BaseComponent {
   @Input() data: Observable<Array<any>> | Array<any>;

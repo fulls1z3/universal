@@ -8,10 +8,10 @@ import { CacheService } from '@ngx-cache/core';
 import { MetaService } from '@ngx-meta/core';
 
 // framework
-import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics/analytics.module';
+import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics';
 
 // module
-import { ConsoleService, LogService, WindowService } from '../core.module';
+import { ConsoleService, LogService, WindowService } from '../index';
 
 // mocks
 import { MockCacheService } from './mocks/cache-service.mock';
@@ -20,11 +20,7 @@ import { MockElementRef } from './mocks/element-ref.mock';
 import { MockMetaService } from './mocks/meta-service.mock';
 import { MockWindow } from './mocks/window.mock';
 
-export { MockWindowFrench, MockWindowNoLanguage } from './mocks/window.mock';
-
-export function mockElementFactory(): ElementRef {
-  return new MockElementRef();
-}
+const mockElementFactory = () => new MockElementRef();
 
 @NgModule({
   imports: [NoopAnimationsModule],

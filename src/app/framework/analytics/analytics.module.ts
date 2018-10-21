@@ -8,15 +8,12 @@ import { RouterModule } from '@angular/router';
 import { Angulartics2, Angulartics2Module } from 'angulartics2';
 
 // module
-import { AnalyticsService } from './src/analytics.service';
+import { AnalyticsService } from './analytics.service';
 
 export const ANALYTICS_PROVIDERS: Array<any> = [
   Angulartics2,
   AnalyticsService
 ];
-
-export { AnalyticsService };
-export { Analytics } from './src/analytics.service';
 
 @NgModule({
   imports: [

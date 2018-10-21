@@ -6,8 +6,8 @@ import { FlexLayoutModule, LAYOUT_CONFIG } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
 // framework
-import { APP_LAYOUT_CONFIG } from '~/app/framework/core/shared.module';
-import { MaterialModule } from '~/app/framework/material/material.module';
+import { APP_LAYOUT_CONFIG } from '~/app/framework/core';
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { CommonModule } from '../common/common.module';

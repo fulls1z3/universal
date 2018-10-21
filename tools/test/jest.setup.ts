@@ -25,13 +25,17 @@ Object.defineProperty(window, 'getComputedStyle', {
   })
 });
 
+Object.defineProperty(window, 'getComputedStyle', {
+  value: () => ({
+    getPropertyValue: () => ''
+  })
+});
+
 Object.defineProperty(document.body.style, 'transform', {
-  value: () => {
-    return {
-      enumerable: true,
-      configurable: true
-    };
-  }
+  value: () => ({
+    enumerable: true,
+    configurable: true
+  })
 });
 
 (window as any).Hammer = hammerjs;
