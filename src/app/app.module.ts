@@ -16,18 +16,17 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 // framework
-import { AnalyticsModule } from '~/app/framework/analytics/analytics.module';
-import { configFactory, CoreModule, metaFactory } from '~/app/framework/core/core.module';
-import { SharedModule } from '~/app/framework/core/shared.module';
-import { HttpInterceptorModule } from '~/app/framework/http/http-interceptor.module';
-import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n/i18n.module';
-import { MaterialModule } from '~/app/framework/material/material.module';
+import { AnalyticsModule } from '~/app/framework/analytics';
+import { configFactory, CoreModule, metaFactory, SharedModule } from '~/app/framework/core';
+import { HttpInterceptorModule } from '~/app/framework/http';
+import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n';
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { HeaderComponent } from './layout/header.component';
 import { MainComponent } from './layout/main.component';
 import { LoginComponent } from './login/login.component';
-import { StoreModule } from './store/store.module';
+import { StoreModule } from './store';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 

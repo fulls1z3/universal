@@ -11,11 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { MetaService } from '@ngx-meta/core';
 
 // framework
-import { BaseContainerComponent } from '~/app/framework/core/core.module';
+import { BaseContainerComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
 
 // shared
-import { RenderFlag } from '~/app/shared/common/models';
+import { RenderFlag } from '~/app/shared';
 
 // app
 import { routeAnimation } from '~/app/app.animations';
@@ -44,9 +44,12 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
   ngOnInit(): void {
     this.baseRoute = ['/', 'air-universal', 'airlines'];
 
-    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
-    this.airline$ = this.store$.pipe(select(AirlineSelectors.getSelected));
+    this.isProcessing$ = this.store$
+      .pipe(select(AirlineSelectors.getIsProcessing));
+    this.error$ = this.store$
+      .pipe(select(AirlineSelectors.getError));
+    this.airline$ = this.store$
+      .pipe(select(AirlineSelectors.getSelected));
 
     this.route.data
       .pipe(

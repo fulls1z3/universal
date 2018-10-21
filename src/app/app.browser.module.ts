@@ -11,25 +11,16 @@ import { AuthModule } from '@ngx-auth/core';
 import 'hammerjs';
 
 // framework
-import { AuthTestingModule } from '~/app/framework/auth/testing/auth-testing.module';
-import { ConsoleService, CoreModule, WindowService } from '~/app/framework/core/core.module';
+import { AuthTestingModule } from '~/app/framework/auth/testing';
+import { ConsoleService, CoreModule, WindowService } from '~/app/framework/core';
 
 // module
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
 
-// for AoT compilation
-export function windowFactory(): any {
-  return window;
-}
-
-export function consoleFactory(): any {
-  return console;
-}
-
-export function requestFactory(transferState: TransferState): any {
-  return transferState.get<any>(REQ_KEY, {});
-}
+const windowFactory = () => window;
+const consoleFactory = () => console;
+const requestFactory = (transferState: TransferState) => transferState.get<any>(REQ_KEY, {});
 
 @NgModule({
   imports: [

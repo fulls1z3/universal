@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, On
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
 
 // store

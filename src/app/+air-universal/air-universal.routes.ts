@@ -2,7 +2,7 @@
 import { Routes } from '@angular/router';
 
 // shared
-import { RenderFlag } from '~/app/shared/common/models';
+import { RenderFlag } from '~/app/shared';
 
 // components
 import { AirlineDetailContainerComponent } from './airline/airline-detail/airline-detail-container.component';

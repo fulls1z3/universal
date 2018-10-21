@@ -1,6 +1,7 @@
-export { BaseDocument } from './src/models/base-document';
-export { UniqueId } from './src/models/unique-id';
-export { BaseEntityService } from './src/base-entity.service';
-export { createEntityActions } from './src/entity-actions.util';
-export { getAll$, getOne$ } from './src/entity-effects.util';
-export { errorFn, startProcessingFn, stopProcessingFn } from './src/entity-reducer.util';
+export { BaseDocument } from './models/base-document';
+export { UniqueId } from './models/unique-id';
+export { BaseEntityService } from './base-entity.service';
+export { createEntityActions } from './entity-actions.util';
+export { getAll$, getOne$ } from './entity-effects.util';
+export { entityErrorFn, entityStartProcessingFn, entityStopProcessingFn, entityResetFn } from './entity-reducer.util';
+export { errorFn, startProcessingFn, stopProcessingFn } from './reducer.util';

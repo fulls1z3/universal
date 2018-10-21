@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 // app
 import { routeAnimation } from '~/app/app.animations';

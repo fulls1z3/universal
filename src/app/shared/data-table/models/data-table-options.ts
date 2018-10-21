@@ -1,9 +1,9 @@
 export interface DataTableOptions {
-  icon: string;
+  icon?: string;
   title: string;
   scrollable: string;
   condensed?: boolean;
-  parameters: Array<any>;
+  parameters?: Array<any>;
 }
 
 export const optionsFactory = (icon: string, title: string, scrollable = '', condensed = false): DataTableOptions => ({

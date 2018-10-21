@@ -5,7 +5,7 @@ import { Component, ContentChildren, EventEmitter, Input, OnInit, QueryList } fr
 import { Observable } from 'rxjs';
 
 // framework
-import { BaseComponent } from '~/app/framework/core/core.module';
+import { BaseComponent } from '~/app/framework/core';
 
 // module
 import { MenuGroupComponent } from '../common/components/menu/menu-group.component';
@@ -21,7 +21,7 @@ export class CardComponent extends BaseComponent implements OnInit {
   @Input() data: Observable<any> | any;
   @Input() isProcessing: boolean;
 
-  @ContentChildren(MenuGroupComponent) private readonly menuGroups: QueryList<MenuGroupComponent>;
+  @ContentChildren(MenuGroupComponent) readonly menuGroups: QueryList<MenuGroupComponent>;
 
   constructor() {
     super();
