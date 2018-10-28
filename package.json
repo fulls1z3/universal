@@ -106,7 +106,7 @@
     "rimraf": "~2.6.2",
     "concurrently": "~4.0.1",
     "tslint-loader": "~3.6.0",
-    "stylelint": "~9.6.0",
+    "stylelint": "~9.7.0",
     "stylelint-config-standard": "~18.2.0",
     "jest": "~23.6.0",
     "jest-preset-angular": "~6.0.1",
