@@ -82,7 +82,7 @@
     "@ngx-meta/core": "~6.0.0",
     "unionize": "~2.1.2",
     "angulartics2": "~7.0.2",
-    "ngx-perfect-scrollbar": "~6.3.1"
+    "ngx-perfect-scrollbar": "~7.0.0"
   },
   "devDependencies": {
     "@angular/cli": "~7.0.2",
