@@ -59,7 +59,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
     this.airlines$ = this.store$
       .pipe(select(AirlineSelectors.selectAll));
 
-    this.store$.dispatch(airlineActions.getAll(false));
+    this.store$.dispatch(airlineActions.getAllAirlines());
   }
 
   createAirline(): void {
@@ -67,6 +67,6 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   }
 
   refresh(): void {
-    this.store$.dispatch(airlineActions.getAll(true));
+    this.store$.dispatch(airlineActions.getAllAirlines());
   }
 }
