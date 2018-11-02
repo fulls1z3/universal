@@ -72,9 +72,11 @@ export class DataTableBaseComponent extends BaseComponent {
     return [
       ...button.route
         .reduce((acc, cur) => cur === '{0}'
-          ? [...acc, row._id]
+          ? [...acc, row.id]
           : [...acc, cur], []),
-      toSlug(get(button.target)(row))
+      ...(!button.replaceWithId
+        ? [toSlug(get(button.target)(row))]
+        : [])
     ];
   }
 }

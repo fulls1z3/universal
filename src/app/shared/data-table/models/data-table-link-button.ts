@@ -4,6 +4,7 @@ export interface DataTableLinkButton {
   target: any;
   label: string;
   icon?: string;
+  replaceWithId: boolean;
 }
 
 export const linkButtonFactory = (route: Array<any>, target: any, label: string, icon?: string): DataTableLinkButton => ({
@@ -11,5 +12,6 @@ export const linkButtonFactory = (route: Array<any>, target: any, label: string,
   route,
   target,
   label,
-  icon
+  icon,
+  replaceWithId: false
 });
