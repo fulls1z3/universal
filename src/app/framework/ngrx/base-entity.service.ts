@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 // libs
 import { Observable } from 'rxjs';
-import { delay, map, retry } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
+import { flow } from 'lodash/fp';
 import { ConfigService } from '@ngx-config/core';
 
 // shared
@@ -16,7 +17,7 @@ import { UniqueId } from './models/unique-id';
 export abstract class BaseEntityService<T extends BaseDocument> {
   protected constructor(protected readonly config: ConfigService,
                         protected readonly http: HttpClient,
-                        private readonly settingsKey: string | Array<string>) {
+                        protected readonly settingsKey: string | Array<string>) {
   }
 
   getAll$(): Observable<Array<T>> {
@@ -24,31 +25,73 @@ export abstract class BaseEntityService<T extends BaseDocument> {
 
     return this.http
       .get<Array<T>>(backend.endpoint)
-      .pipe(
-        delay(2000), // NOTE: simulate slow network
-        retry(HTTP_CLIENT__MAX_RETRIES)
-      );
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
   get$(id: UniqueId): Observable<T> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
-      .get<Array<T>>(backend.endpoint)
+      .get<T>(`${backend.endpoint}/${id}`)
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
+  }
+
+  createMany$(resources: Array<T>): Observable<Array<T>> {
+    const backend = this.config.getSettings(this.settingsKey);
+
+    return this.http
+      .post<Array<T>>(`${backend.endpoint}`, resources)
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
+  }
+
+  createOne$(resource: T): Observable<T> {
+    const backend = this.config.getSettings(this.settingsKey);
+
+    return this.http
+      .post<T>(`${backend.endpoint}`, resource)
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
+  }
+
+  updateMany$(resources: Array<T>): Observable<Array<T>> {
+    const backend = this.config.getSettings(this.settingsKey);
+
+    return flow(
+      (cur: Array<T>) => cur
+        .map(resource => resource._id)
+        .join(','),
+      cur => this.http
+        .patch<Array<T>>(`${backend.endpoint}/${cur}`, resources)
+        .pipe(retry(HTTP_CLIENT__MAX_RETRIES))
+    )(resources);
+  }
+
+  updateOne$(resource: T): Observable<T> {
+    const backend = this.config.getSettings(this.settingsKey);
+
+    return this.http
+      .patch<T>(`${backend.endpoint}/${resource._id}`, resource)
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
+  }
+
+  deleteMany$(ids: Array<UniqueId>): Observable<Array<UniqueId>> {
+    const backend = this.config.getSettings(this.settingsKey);
+
+    return this.http
+      .delete<UniqueId>(`${backend.endpoint}/${ids.join(',')}`)
       .pipe(
-        delay(2000), // NOTE: simulate slow network
-        retry(HTTP_CLIENT__MAX_RETRIES),
-        map(cur => cur
-          .find(airline => airline._id === id))
+        map(() => ids),
+        retry(HTTP_CLIENT__MAX_RETRIES)
       );
   }
 
-  abstract createMany$(resources: Array<T>): Observable<T>;
-  abstract createOne$(resource: T): Observable<T>;
+  deleteOne$(id: UniqueId): Observable<UniqueId> {
+    const backend = this.config.getSettings(this.settingsKey);
 
-  abstract updateMany$(resources: Array<T>): Observable<T>;
-  abstract updateOne$(resource: T): Observable<T>;
-
-  abstract deleteMany$(ids: Array<UniqueId>): Observable<UniqueId>;
-  abstract deleteOne$(id: UniqueId): Observable<UniqueId>;
+    return this.http
+      .delete<UniqueId>(`${backend.endpoint}/${id}`)
+      .pipe(
+        map(() => id),
+        retry(HTTP_CLIENT__MAX_RETRIES)
+      );
+  }
 }
