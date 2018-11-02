@@ -8,16 +8,11 @@ import { adapter, initialState, State } from './airline.state';
 
 export function reducer(state: State = initialState, action: AirlineAction): State {
   return airlineActions.match({
-    getAll: (force: boolean) => {
-      if (!force && state.ids.length > 0)
-        return state;
-
-      return entityStartProcessingFn<State>(state);
-    },
-    getAllSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
-    getAllFail: entityErrorFn<State>(state),
-    getOne: () => entityStartProcessingFn<State>(state),
-    getOneSuccess: (airline: Airline) => {
+    getAllAirlines: () => entityStartProcessingFn<State>(state),
+    getAllAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
+    getAllAirlinesFail: entityErrorFn<State>(state),
+    getOneAirline: () => entityStartProcessingFn<State>(state),
+    getOneAirlineSuccess: (airline: Airline) => {
       const { _id } = airline;
 
       return adapter.addOne(airline, {
@@ -25,13 +20,13 @@ export function reducer(state: State = initialState, action: AirlineAction): Sta
         selectedId: _id
       });
     },
-    getOneFail: entityErrorFn<State>(state),
-    addOne: () => adapter.addOne(initialAirline, {
+    getOneAirlineFail: entityErrorFn<State>(state),
+    addOneAirline: () => adapter.addOne(initialAirline, {
         ...entityStopProcessingFn<State>(state),
         selectedId: ''
     }),
-    createOne: () => entityStartProcessingFn<State>(state),
-    createOneSuccess: (airline: Airline) => {
+    createOneAirline: () => entityStartProcessingFn<State>(state),
+    createOneAirlineSuccess: (airline: Airline) => {
       return adapter.updateOne({
         id: '',
         changes: airline
@@ -40,9 +35,9 @@ export function reducer(state: State = initialState, action: AirlineAction): Sta
         selectedId: undefined
       });
     },
-    createOneFail: entityResetFn<State>(state),
-    updateOne: () => entityStartProcessingFn<State>(state),
-    updateOneSuccess: (airline: Airline) => {
+    createOneAirlineFail: entityResetFn<State>(state),
+    updateOneAirline: () => entityStartProcessingFn<State>(state),
+    updateOneAirlineSuccess: (airline: Airline) => {
       return adapter.updateOne({
         id: airline._id,
         changes: airline
@@ -51,15 +46,15 @@ export function reducer(state: State = initialState, action: AirlineAction): Sta
         selectedId: undefined
       });
     },
-    updateOneFail: entityResetFn<State>(state),
-    deleteOne: () => entityStartProcessingFn<State>(state),
-    deleteOneSuccess: (id: UniqueId) => {
+    updateOneAirlineFail: entityResetFn<State>(state),
+    deleteOneAirline: () => entityStartProcessingFn<State>(state),
+    deleteOneAirlineSuccess: (id: UniqueId) => {
       return adapter.removeOne(id, {
         ...entityStopProcessingFn<State>(state),
         selectedId: undefined
       });
     },
-    deleteOneFail: entityResetFn<State>(state),
+    deleteOneAirlineFail: entityResetFn<State>(state),
     default: () => state
   })(action);
 }
