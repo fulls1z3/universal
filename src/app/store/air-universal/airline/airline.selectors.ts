@@ -1,20 +1,16 @@
 // libs
-import { isNil } from 'lodash/fp';
+import { get, isNil } from 'lodash/fp';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 // module
 import { adapter, AIRLINE, State } from './airline.state';
 
 const getState = createFeatureSelector<State>(AIRLINE);
-export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal
-} = adapter.getSelectors(getState);
 
-export const getIsProcessing = createSelector(getState, ({ isProcessing }) => isProcessing);
-export const getError = createSelector(getState, ({ error }) => error);
+export const getIsProcessing = createSelector(getState, state => get('isProcessing')(state) || false);
+export const getError = createSelector(getState, state => get('error')(state));
 
-const getSelectedId = createSelector(getState, ({ selectedId }) => selectedId);
-export const getSelected = createSelector(selectEntities, getSelectedId, (entities, id) => !isNil(id) && entities[id]);
+const getSelectedId = createSelector(getState, state => get('selectedId')(state));
+export const getSelected = createSelector((state: any) => get('entities')(state), getSelectedId, (entities, id) =>
+  !isNil(id) && entities[id]);
+export const { selectAll: getAll } = adapter.getSelectors(getState);
