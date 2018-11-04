@@ -1,0 +1,13 @@
+@import '../variables/color';
+
+@function c($color, $value: base) {
+  @if map-has-key($base-colors, $color) {
+    $color: map-get($base-colors, $color);
+    $value: map-get($color, $value);
+
+    @return $value;
+  }
+  @else {
+    @warn 'There is no color "#{$color}" in this list; choose one of: #{$base-colors}';
+  }
+}

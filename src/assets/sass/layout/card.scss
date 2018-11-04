@@ -1,0 +1,16 @@
+@import '../mixin/spacing';
+
+@mixin card_layout() {
+  mat-card {
+    max-width: 90%;
+  }
+
+  ::ng-deep .card {
+    &-narrow {
+      @include soft($space--xl);
+      @include push--sides(auto);
+
+      max-width: rem(80) !important;
+    }
+  }
+}

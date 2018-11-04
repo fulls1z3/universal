@@ -1,19 +1,20 @@
-@import '../../../assets/sass/layout/card-widget.component';
+@import '~src/assets/sass/component/mat-card';
+@import '~src/assets/sass/component/mat-table';
+@import '~src/assets/sass/component/mat-toolbar';
+@import '~src/assets/sass/component/scrollable';
+@import '~src/assets/sass/mixin/bem';
 
 :host {
   min-width: 90%;
 }
 
-.data_table {
-  @include card-widget--shared;
+.toolbar {
+  @include mat_toolbar;
 
-  @include mod('filtered') {
-    border-right: rem(0.1) solid $black-12-opacity;
-  }
-
-  @include el('icon') {
-    color: c(grey, slate);
-    vertical-align: middle;
+  @include el('row') {
+    @include mod('has-filter') {
+      border-right: rem(0.1) solid $black-12-opacity;
+    }
   }
 
   @include el('title') {
@@ -29,18 +30,22 @@
     font-size: $font-size;
     max-width: calc(100% - #{rem(14.4)});
   }
+}
+
+.data_table {
+  @include mat_card;
 
   @include el('button') {
     flex: 0 0 5%;
 
     @include mod('row') {
-      color: c(grey, boulder);
+      color: c(grey);
       text-align: right;
     }
   }
+}
 
-  @include el('paginator') {
-    font-size: $font-size;
-    background: c(grey, alabaster);
-  }
+.paginator {
+  font-size: $font-size;
+  background: c(grey, alabaster);
 }

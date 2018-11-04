@@ -1,4 +1,3 @@
-@import '../../../assets/sass/variables';
-@import '../../../assets/sass/mixins';
+@import '~src/assets/sass/layout/page';
 
-@include page--shared;
+@include page_layout;

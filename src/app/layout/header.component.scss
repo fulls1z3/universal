@@ -1,4 +1,4 @@
-@import '../../assets/sass/mixins';
+@import '~src/assets/sass/mixin/bem';
 
 .header {
   @include el('logo') {

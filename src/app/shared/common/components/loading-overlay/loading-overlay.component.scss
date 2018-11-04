@@ -1,17 +1,20 @@
-@import '../../../../../assets/sass/variables';
-@import '../../../../../assets/sass/mixins';
+@import '~src/assets/sass/func/depth';
+@import '~src/assets/sass/mixin/positioning';
+@import '~src/assets/sass/mixin/bem';
+@import '~src/assets/sass/mixin/sizing';
+@import '~src/assets/sass/variables/theme';
 
-.loading-overlay {
+.loading_overlay {
   @include absolute(0 null null 0);
   @include size(100%);
 
-  z-index: z(loading-overlay);
+  z-index: z(loading_overlay);
   background-color: $white-87-opacity;
   opacity: 0;
   visibility: hidden;
   transition: all 0.25s ease-in-out;
 
-  &.show {
+  @include mod('is-visible') {
     opacity: 1;
     visibility: visible;
   }

@@ -1,0 +1,41 @@
+@import '../func/rem';
+
+$font--preferred: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+$font--console: 'Monaco', 'Menlo', 'Consolas', 'Ubuntu Mono', monospace;
+
+$font-weights: (
+  //ultra-light: 100,
+  //light: 200,
+  //book: 300,
+  normal: 400,
+  medium: 500,
+  //semibold: 600,
+  //bold: 700,
+  //black: 800,
+  //ultra-black: 900
+);
+
+$font--normal: map-get($font-weights, normal) !default;
+$font--medium: map-get($font-weights, medium) !default;
+
+$font-sizes: (
+  base: 1rem,
+  root: 62.5%,
+  h1: rem(2.4), // headline
+  h2: rem(2),   // title
+  h3: rem(1.6), // subheading
+  h4: rem(1.4), // body
+  h5: rem(1.3),
+  h6: rem(1.2),
+);
+
+$font-size--root: map-get($font-sizes, base) !default;
+$font-size--base: map-get($font-sizes, root) !default;
+$h1: map-get($font-sizes, h1) !default;
+$h2: map-get($font-sizes, h2) !default;
+$h3: map-get($font-sizes, h3) !default;
+$h4: map-get($font-sizes, h4) !default;
+$h5: map-get($font-sizes, h5) !default;
+$h6: map-get($font-sizes, h6) !default;
+
+$font-size: map-get($font-sizes, base) !default;

@@ -52,7 +52,7 @@
             ],
             "styles": [
               "src/assets/sass/lib.scss",
-              "src/assets/sass/layout.scss"
+              "src/assets/sass/style.scss"
             ],
             "progress": true
           },

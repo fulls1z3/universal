@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+
+$base-colors: (
+  black: (
+    base: black
+  ),
+  grey: (
+    base: rgba(119, 119, 119, 1),
+    gallery: rgba(238, 238, 238, 1),
+    concrete: rgba(242, 242, 242, 1),
+    alabaster: rgba(250, 250, 250, 1)
+  ),
+  white: (
+    base: white
+  )
+);
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-deep-purple, A200, A100, A400);
+$warn: mat-palette($mat-red);
+
+$mat-colors: (
+  red: $mat-red,
+  pink: $mat-pink,
+  purple: $mat-purple,
+  deep-purple: $mat-deep-purple,
+  indigo: $mat-indigo,
+  blue: $mat-blue,
+  light-blue: $mat-light-blue,
+  cyan: $mat-cyan,
+  teal: $mat-teal,
+  green: $mat-green,
+  light-green: $mat-light-green,
+  lime: $mat-lime,
+  yellow: $mat-yellow,
+  amber: $mat-amber,
+  orange: $mat-orange,
+  deep-orange: $mat-deep-orange,
+  brown: $mat-brown,
+  grey: $mat-grey,
+  blue-grey: $mat-blue-grey
+);

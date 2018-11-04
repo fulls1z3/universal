@@ -1,9 +1,17 @@
-@import '../../../assets/sass/layout/card-widget.component';
+@import '~src/assets/sass/component/mat-card';
+@import '~src/assets/sass/component/mat-toolbar';
 
-:host {
-  max-width: 100% !important;
+.toolbar {
+  @include mat_toolbar;
+
+  @include el('title') {
+    @include push--left(rem(0.5));
+    @include truncate;
+
+    font-size: $font-size;
+  }
 }
 
 .card {
-  @include card-widget--shared;
+  @include mat_card;
 }

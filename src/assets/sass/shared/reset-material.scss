@@ -1,0 +1,31 @@
+@import '../mixin/spacing';
+@import '../mixin/typography';
+
+button {
+  @extend %flush;
+  @extend %hard;
+  @include font(inherit inherit);
+
+  border-radius: 0;
+  appearance: none;
+}
+
+*:not(mat-form-field) {
+  > input[type='text'],
+  > input[type='tel'],
+  > input[type='email'],
+  > input[type='search'],
+  > input[type='password'],
+  > input[type='button'],
+  > button,
+  > input[type='submit'],
+  > input[type='image'],
+  > textarea {
+    @extend %flush;
+    @extend %hard;
+
+    border: none;
+    border-radius: 0;
+    appearance: none;
+  }
+}

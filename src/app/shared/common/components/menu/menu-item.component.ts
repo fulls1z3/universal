@@ -9,6 +9,7 @@ import { BaseComponent } from '~/app/framework/core';
   template: ''
 })
 export class MenuItemComponent extends BaseComponent {
+  @Input() cssClass: string;
   @Input() icon: string;
   @Input() label: string;
   @Input() isDialog: boolean;

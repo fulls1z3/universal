@@ -1,9 +1,13 @@
-@import '../../assets/sass/variables';
-@import '../../assets/sass/mixins';
+@import '~src/assets/sass/mixin/bem';
+@import '~src/assets/sass/layout/card';
+@import '~src/assets/sass/layout/page';
 
-@include page--shared;
+@include page_layout;
+@include card_layout;
 
-.header-image {
-  background-image: url('https://avatars3.githubusercontent.com/u/19705696');
-  background-size: cover;
+.card_header {
+  @include el('image') {
+    background-image: url('https://avatars3.githubusercontent.com/u/19705696');
+    background-size: cover;
+  }
 }

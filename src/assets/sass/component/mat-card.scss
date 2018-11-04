@@ -1,0 +1,26 @@
+@import '../func/color';
+@import '../mixin/bem';
+@import '../mixin/spacing';
+@import '../mixin/typography';
+@import '../variables/layout';
+
+@mixin mat_card() {
+  @include soft(0 !important);
+
+  position: relative;
+  background: c(white);
+
+  @include el('toolbar') {
+    @include soft($space--md $space--lg);
+
+    height: $header_height;
+    background: transparent;
+    color: c(grey);
+  }
+
+  @include el('content') {
+    @include soft($space--md $space--lg $space--lg);
+
+    position: relative;
+  }
+}
