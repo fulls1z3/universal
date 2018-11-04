@@ -9,8 +9,6 @@ import { Actions } from '@ngrx/effects';
 import { MockActions } from './mocks/actions.mock';
 import { MockStore } from './mocks/store.mock';
 
-const mockActionsFactory = () => new MockActions();
-
 @NgModule({
   imports: [
     StoreModule.forRoot({})
@@ -22,7 +20,7 @@ const mockActionsFactory = () => new MockActions();
     },
     {
       provide: Actions,
-      useFactory: mockActionsFactory
+      useFactory: () => new MockActions()
     }
   ]
 })
