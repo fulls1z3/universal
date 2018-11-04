@@ -1,7 +1,7 @@
-﻿<mat-toolbar class="mat-elevation-z2" color="primary">
+﻿<mat-toolbar class="header mat-elevation-z2" color="primary">
     <span>
-        <mat-icon class="logo">developer_board</mat-icon>
-        <span class="title">{{ title | translate }}</span>
+        <mat-icon class="header__logo">developer_board</mat-icon>
+        <span class="header__title">{{ title | translate }}</span>
     </span>
     <span fxFlex></span>
     <button mat-button [routerLink]="['/', '']">
@@ -29,22 +29,22 @@
     <a mat-button href="https://www.github.com/ng-seed/universal">
         Github
     </a>
-    <ng-container class="account_menu">
-        <button *ngIf="!isAuthenticated" class="account_menu__button--login" mat-icon-button [routerLink]="['/', 'login']">
+    <ng-container>
+        <button *ngIf="!isAuthenticated" class="header__login" mat-icon-button [routerLink]="['/', 'login']">
             <mat-icon>account_circle</mat-icon>
         </button>
-        <button *ngIf="isAuthenticated" class="account_menu__button--logout" mat-icon-button (click)="logout()">
+        <button *ngIf="isAuthenticated" class="header__logout" mat-icon-button (click)="logout()">
             <mat-icon>lock_outline</mat-icon>
         </button>
     </ng-container>
-    <mat-menu #i18nMenu="matMenu" class="i18n_menu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+    <mat-menu #i18nMenu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
         <button mat-menu-item *ngFor="let language of availableLanguages; trackBy: trackByFn"
-                [ngClass]="'i18n_menu__button--language-' + language.code"
+                [ngClass]="'i18n_menu__language-' + language.code"
                 [routerLink]="['/', 'change-language', language.code]">
             {{ language.name }}
         </button>
     </mat-menu>
-    <button mat-icon-button class="i18n_menu__button--toggle" [matMenuTriggerFor]="i18nMenu">
+    <button mat-icon-button class="header__language" [matMenuTriggerFor]="i18nMenu">
         <mat-icon>language</mat-icon>
     </button>
 </mat-toolbar>

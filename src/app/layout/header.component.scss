@@ -1,3 +1,7 @@
-.logo {
-  vertical-align: middle;
+@import '../../assets/sass/mixins';
+
+.header {
+  @include el('logo') {
+    vertical-align: middle;
+  }
 }
