@@ -4,8 +4,11 @@ import { Injectable } from '@angular/core';
 // libs
 import { of as observableOf } from 'rxjs';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
-import { get, isNil } from 'lodash/fp';
+import { flow, get, isEmpty, isNil, negate } from 'lodash/fp';
 import { Actions, Effect } from '@ngrx/effects';
+
+// framework
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 
 // shared
 import { ERR__NO_PAYLOAD } from '~/app/shared';
@@ -19,10 +22,10 @@ export class AirlineEffects {
   @Effect() getAll$ = this.actions$.pipe(
     filter(airlineActions.is.getAllAirlines),
     switchMap(() => {
-      return this.airline.getAll$()
+      return this.airline.getMany$()
         .pipe(
           map(airlineActions.getAllAirlinesSuccess),
-          catchError(err => observableOf(airlineActions.getAllAirlinesFail(err.message)))
+          catchError(error => observableOf(airlineActions.getAllAirlinesFail(error.message)))
         );
     })
   );
@@ -30,11 +33,11 @@ export class AirlineEffects {
   @Effect() getOne$ = this.actions$.pipe(
     filter(airlineActions.is.getOneAirline),
     map(get('payload')),
-    switchMap(payload => !isNil(payload)
-      ? this.airline.get$(payload)
+    switchMap(payload => !isEmpty(payload)
+      ? this.airline.getOne$(payload)
         .pipe(
           map(airlineActions.getOneAirlineSuccess),
-          catchError(err => observableOf(airlineActions.getOneAirlineFail(err.message)))
+          catchError(error => observableOf(airlineActions.getOneAirlineFail(error.message)))
         )
       : observableOf(airlineActions.getOneAirlineFail(ERR__NO_PAYLOAD.message)))
   );
@@ -47,7 +50,7 @@ export class AirlineEffects {
         .pipe(
           map(airlineActions.createOneAirlineSuccess),
           tap(() => payload.router.navigate(payload.route)),
-          catchError(err => observableOf(airlineActions.createOneAirlineFail(err)))
+          catchError(error => observableOf(airlineActions.createOneAirlineFail({id: EMPTY_UNIQUE_ID, error: error.message})))
         ))
     );
 
@@ -55,14 +58,14 @@ export class AirlineEffects {
     .pipe(
       filter(airlineActions.is.updateOneAirline),
       map(get('payload')),
-      switchMap(payload => !isNil(payload.resource._id)
+      switchMap(payload => flow(get('_id'), negate(isNil))(payload.resource)
         ? this.airline.updateOne$(payload.resource)
           .pipe(
             map(airlineActions.updateOneAirlineSuccess),
             tap(() => payload.router.navigate(payload.route)),
-            catchError(err => observableOf(airlineActions.updateOneAirlineFail(err)))
+            catchError(error => observableOf(airlineActions.updateOneAirlineFail({id: payload.resource._id, error: error.message})))
           )
-        : observableOf(airlineActions.updateOneAirlineFail({id: payload.resource._id, error: ERR__NO_PAYLOAD.message})))
+        : observableOf(airlineActions.updateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERR__NO_PAYLOAD.message})))
     );
 
   @Effect() deleteOne$ = this.actions$
@@ -74,7 +77,7 @@ export class AirlineEffects {
           .pipe(
             map(airlineActions.deleteOneAirlineSuccess),
             tap(() => payload.router.navigate(payload.route)),
-            catchError(err => observableOf(airlineActions.deleteOneAirlineFail(err)))
+            catchError(error => observableOf(airlineActions.deleteOneAirlineFail({id: payload.id, error: error.message})))
           )
         : observableOf(airlineActions.deleteOneAirlineFail({id: payload.id, error: ERR__NO_PAYLOAD.message})))
     );
