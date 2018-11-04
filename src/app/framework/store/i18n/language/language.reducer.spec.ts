@@ -33,7 +33,7 @@ t.describe('ng-seed/universal', () => {
           const action = {} as any;
           const res = reducer(undefined, action);
 
-          expect(res)
+          t.e(res)
             .toBe(initialState);
         });
 

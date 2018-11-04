@@ -50,11 +50,12 @@ t.describe('ng-seed/universal', () => {
         fixture.detectChanges();
 
         const settings = config.getSettings('i18n');
+        const action = languageActions.init(settings);
 
         t.e(spy)
-          .toHaveBeenCalledTimes(1);
+          .toHaveBeenCalledWith(action);
         t.e(spy)
-          .toHaveBeenCalledWith(languageActions.init(settings));
+          .toHaveBeenCalledTimes(1);
       }));
   });
 });

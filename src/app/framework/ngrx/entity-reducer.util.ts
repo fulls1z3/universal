@@ -1,5 +1,5 @@
 // framework
-import { UniqueId } from '~/app/framework/ngrx';
+import { UniqueId } from './models/base-document';
 
 export const entityStartProcessingFn = <T>(state: T) => ({...(state as any), isProcessing: true, selectedId: undefined});
 export const entityStopProcessingFn = <T>(state: T) => ({...(state as any), isProcessing: false});

@@ -56,10 +56,12 @@ t.describe('ng-seed/universal', () => {
 
         fixture.detectChanges();
 
+        const action = languageActions.use(mockParams.languageCode);
+
+        t.e(spy)
+          .toHaveBeenCalledWith(action);
         t.e(spy)
           .toHaveBeenCalledTimes(1);
-        t.e(spy)
-          .toHaveBeenCalledWith(languageActions.use(mockParams.languageCode));
       });
 
       t.it('should not dispatch `use` action w/o `languageCode` param', () => {

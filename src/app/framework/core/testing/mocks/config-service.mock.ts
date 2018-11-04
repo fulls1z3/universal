@@ -33,6 +33,32 @@ export class MockConfigService extends ConfigService {
             culture: 'en-US'
           }
         ]
+      },
+      backend: {
+        baseBrowserUrl: 'http://localhost:4200',
+        baseServerUrl: 'http://localhost:4000',
+        test: {
+          local: {
+            endpoint: './test'
+          },
+          remote: {
+            endpoint: '{baseUrl}/test'
+          }
+        },
+        flight: {
+          airline: {
+            endpoint: '{baseUrl}/assets/data/airlines.json'
+          },
+          airport: {
+            endpoint: '{baseUrl}/assets/data/airports.json'
+          },
+          'flight-segment': {
+            endpoint: '{baseUrl}/assets/data/flight-segments.json'
+          },
+          flight: {
+            endpoint: '{baseUrl}/assets/data/flights.json'
+          }
+        }
       }
     };
 

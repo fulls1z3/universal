@@ -11,8 +11,7 @@ import { ConfigService } from '@ngx-config/core';
 import { HTTP_CLIENT__MAX_RETRIES } from '~/app/shared';
 
 // module
-import { BaseDocument } from './models/base-document';
-import { UniqueId } from './models/unique-id';
+import { BaseDocument, UniqueId } from './models/base-document';
 
 export abstract class BaseEntityService<T extends BaseDocument> {
   protected constructor(protected readonly config: ConfigService,
@@ -20,7 +19,7 @@ export abstract class BaseEntityService<T extends BaseDocument> {
                         protected readonly settingsKey: string | Array<string>) {
   }
 
-  getAll$(): Observable<Array<T>> {
+  getMany$(): Observable<Array<T>> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
@@ -28,7 +27,7 @@ export abstract class BaseEntityService<T extends BaseDocument> {
       .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  get$(id: UniqueId): Observable<T> {
+  getOne$(id: UniqueId): Observable<T> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
@@ -40,7 +39,7 @@ export abstract class BaseEntityService<T extends BaseDocument> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
-      .post<Array<T>>(`${backend.endpoint}`, resources)
+      .post<Array<T>>(backend.endpoint, resources)
       .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
@@ -48,7 +47,7 @@ export abstract class BaseEntityService<T extends BaseDocument> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
-      .post<T>(`${backend.endpoint}`, resource)
+      .post<T>(backend.endpoint, resource)
       .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
@@ -77,7 +76,7 @@ export abstract class BaseEntityService<T extends BaseDocument> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http
-      .delete<UniqueId>(`${backend.endpoint}/${ids.join(',')}`)
+      .delete<Array<UniqueId>>(`${backend.endpoint}/${ids.join(',')}`)
       .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
