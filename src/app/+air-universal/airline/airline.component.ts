@@ -57,7 +57,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
     this.error$ = this.store$
       .pipe(select(AirlineSelectors.getError));
     this.airlines$ = this.store$
-      .pipe(select(AirlineSelectors.selectAll));
+      .pipe(select(AirlineSelectors.getAll));
 
     this.store$.dispatch(airlineActions.getAllAirlines());
   }
