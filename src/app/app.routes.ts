@@ -1,6 +1,3 @@
-// angular
-import { Routes } from '@angular/router';
-
 // libs
 import { MetaGuard } from '@ngx-meta/core';
 
@@ -11,7 +8,7 @@ import { ChangeLanguageComponent } from '~/app/framework/i18n';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './layout/main.component';
 
-export const routes: Routes = [
+export const routes = [
   {
     path: 'login',
     component: LoginComponent,
