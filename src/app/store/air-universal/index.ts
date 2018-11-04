@@ -5,4 +5,4 @@ export { Airline, initialAirline } from './airline/airline.model';
 export { AirlineSelectors };
 
 export { AirUniversalModule } from './air-universal.module';
-export { State } from './air-universal.state';
+export { State as AirUniversalState } from './air-universal.state';
