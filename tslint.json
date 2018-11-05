@@ -1,6 +1,7 @@
 ﻿{
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "node_modules/rxjs-tslint"
   ],
   "extends": [
     "angular-tslint-rules"
@@ -38,6 +39,9 @@
     ],
     "no-template-call-expression": false,
     "i18n": false,
-    "no-unused-css": false
+    "no-unused-css": false,
+    "rxjs-collapse-imports": true,
+    "rxjs-no-static-observable-methods": true,
+    "rxjs-proper-imports": true
   }
 }
