@@ -1947,7 +1947,7 @@ chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^2.4.1:
+chalk@^2.4.0, chalk@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
   integrity sha512-ObN6h1v2fTJSmUXoS3nMQ92LbDK9be4TV+6G+omQlGJFdcUX5heKi1LZ1YnRMIgwTLEj3E24bT6tYni50rlCfQ==
@@ -8752,10 +8752,15 @@ rx@^4.1.0:
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
 
-rxjs-compat@~6.3.3:
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.3.3.tgz#2ab3b9ac0dac0c073749d55fef9c03ea1df2045c"
-  integrity sha512-caGN7ixiabHpOofginKEquuHk7GgaCrC7UpUQ9ZqGp80tMc68msadOeP/2AKy2R4YJsT1+TX5GZCtxO82qWkyA==
+rxjs-tslint@~0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint/-/rxjs-tslint-0.1.5.tgz#9cddba80633e155fb47f7f0a25a6e33971f7dbf9"
+  integrity sha512-odvEAx6VoZSJs5o9gWZ7SxgTuS8ldq0mr4qnprbr6flNtIt4DtNJSYJpBK0WEy0o+f1oe92XVHrmgco1e7Cpdw==
+  dependencies:
+    chalk "^2.4.0"
+    optimist "^0.6.1"
+    tslint "^5.9.1"
+    tsutils "^2.25.0"
 
 rxjs@6.2.2:
   version "6.2.2"
@@ -10082,7 +10087,7 @@ tslint-loader@~3.5.4:
     rimraf "^2.4.4"
     semver "^5.3.0"
 
-tslint@~5.11.0:
+tslint@^5.9.1, tslint@~5.11.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.11.0.tgz#98f30c02eae3cde7006201e4c33cb08b48581eed"
   integrity sha1-mPMMAurjzecAYgHkwzywi0hYHu0=
@@ -10099,6 +10104,13 @@ tslint@~5.11.0:
     semver "^5.3.0"
     tslib "^1.8.0"
     tsutils "^2.27.2"
+
+tsutils@^2.25.0:
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
+  integrity sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==
+  dependencies:
+    tslib "^1.8.1"
 
 tsutils@^2.27.2:
   version "2.28.0"
