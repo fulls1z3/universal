@@ -29,7 +29,8 @@
     "build:ssr": "ng build && ng run universal:server && yarn compile:server",
     "build:ssr-prod": "ng build --prod && ng run universal:server:production && yarn compile:server",
     "serve:ssr": "node dist/server",
-    "test": "jest --coverage --colors",
+    "test": "jest --colors",
+    "test:coverage": "jest --coverage --colors",
     "test:ci": "jest --ci --maxWorkers=2 --coverage --colors",
     "e2e": "yarn build:ssr && concurrently -k --kill-others-on-fail -s first \"yarn serve:ssr\" \"jest -c ./tools/test/e2e-preset.json --runInBand --colors\"",
     "e2e:ci": "concurrently -k --kill-others-on-fail -s first \"yarn serve:ssr\" \"jest --ci -c ./tools/test/e2e-preset.json --colors\"",
@@ -139,7 +140,6 @@
       "~(.*)$": "<rootDir>/src/$1"
     },
     "testResultsProcessor": "./node_modules/jest-junit-reporter",
-    "cache": false,
     "silent": true,
     "collectCoverageFrom": [
       "src/**/**.ts",
