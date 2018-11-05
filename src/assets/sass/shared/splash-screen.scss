@@ -9,7 +9,7 @@
 .splash_screen {
   @include absolute(0);
 
-  z-index: z('splash-screen');
+  z-index: z(splash_screen);
   display: block;
   background-color: mat-color($primary--dark);
 
