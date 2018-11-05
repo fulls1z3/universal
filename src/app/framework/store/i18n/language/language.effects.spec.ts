@@ -5,8 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
 import { Actions } from '@ngrx/effects';
-import { cold, hot } from 'jasmine-marbles';
 import { ConfigService } from '@ngx-config/core';
+import { cold, hot } from 'jasmine-marbles';
 
 // framework
 import { AnalyticsModule } from '~/app/framework/analytics';

@@ -79,9 +79,8 @@ t.describe('ng-seed/universal', () => {
       instance.isAuthenticated = true;
       fixture.detectChanges();
 
-      const logoutButton = fixture.debugElement.query(By.css('button.header__logout'));
+      const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
       logoutButton.triggerEventHandler('click', {});
-      fixture.detectChanges();
 
       t.e(instance.isAuthenticated)
         .toBeFalsy();

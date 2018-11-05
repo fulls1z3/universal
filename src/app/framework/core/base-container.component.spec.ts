@@ -2,7 +2,6 @@
 import { TestBed } from '@angular/core/testing';
 
 // libs
-import { Store } from '@ngrx/store';
 import { configureTestSuite } from 'ng-bullet';
 
 // testing
@@ -27,8 +26,6 @@ t.describe('ng-seed/universal', () => {
         const instance = fixture.componentInstance;
 
         fixture.detectChanges();
-
-        const store$ = fixture.debugElement.injector.get(Store);
 
         t.e(instance)
           .toBeTruthy();
