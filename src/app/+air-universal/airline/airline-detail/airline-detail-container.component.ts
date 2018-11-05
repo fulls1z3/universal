@@ -30,8 +30,7 @@ import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
 })
 export class AirlineDetailContainerComponent extends BaseContainerComponent implements OnInit {
   airline$: Observable<Airline>;
-
-  private baseRoute: Array<string>;
+  baseRoute: Array<string>;
 
   constructor(private readonly router: Router,
               private readonly route: ActivatedRoute,

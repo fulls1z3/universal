@@ -29,8 +29,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   filterCol: string;
   buttons: Array<DataTableLinkButton>;
   options: DataTableOptions;
-
-  private baseRoute: Array<any>;
+  baseRoute: Array<any>;
 
   constructor(private readonly router: Router,
               protected readonly store$: Store<State>) {

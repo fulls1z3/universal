@@ -18,7 +18,7 @@ import { Airline, initialAirline } from '~/app/store';
 export class AirlineDetailComponent extends BaseComponent implements OnInit  {
   @ViewChild('delete') deleteRef: ElementRef;
   @ViewChild('submit') submitRef: ElementRef;
-  @Input() readonly airline: Airline;
+  @Input() airline: Airline;
   @Output() readonly deleteClick: EventEmitter<UniqueId> = new EventEmitter();
   @Output() readonly saveClick: EventEmitter<Airline> = new EventEmitter();
   airlineForm: FormGroup;
