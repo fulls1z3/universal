@@ -1,13 +1,10 @@
-// angular
-import { Routes } from '@angular/router';
-
 // libs
 import { AuthGuard } from '@ngx-auth/core';
 
 // components
 import { SecureComponent } from './secure.component';
 
-export const routes: Routes = [
+export const routes = [
   {
     path: '',
     component: SecureComponent,

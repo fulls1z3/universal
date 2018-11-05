@@ -1,21 +1,21 @@
 ﻿<div class="login">
-    <div class="container">
-        <div class="mat-elevation-z12">
-            <div class="title">{{ 'PUBLIC.LOGIN.LOG_IN' | translate }}</div>
-            <form #form="ngForm" autocomplete="off" (ngSubmit)="form.valid && login()">
-                <div class="content" fxLayout="column" fxLayoutAlign="start stretch">
-                    <mat-form-field>
-                        <input matInput required type="text" name="username" placeholder="{{ 'PUBLIC.LOGIN.USERNAME' | translate }}" [(ngModel)]="username">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input matInput required type="password" name="password" placeholder="{{ 'PUBLIC.LOGIN.PASSWORD' | translate }}" [(ngModel)]="password">
-                    </mat-form-field>
-                    <button mat-raised-button color="primary" [disabled]="!form.valid || isProcessing">
-                        {{ 'PUBLIC.LOGIN.LOG_IN' | translate }}
-                    </button>
-                    <p *ngIf="note$ && !warn$" class="note">{{ note$ | async }}</p>
-                    <p *ngIf="warn$" class="warn">{{ warn$ | async }}</p>
-                </div>
+    <div class="login__overlay">
+        <div class="login__content mat-elevation-z12">
+            <div class="login__title">{{ 'PUBLIC.LOGIN.LOG_IN' | translate }}</div>
+            <form #form="ngForm" class="login__form" fxLayout="column" fxLayoutAlign="start stretch" (ngSubmit)="form.valid && login()">
+                <mat-form-field class="form__control">
+                    <input matInput required type="text" name="username" [(ngModel)]="username"
+                           placeholder="{{ 'PUBLIC.LOGIN.USERNAME' | translate }}">
+                </mat-form-field>
+                <mat-form-field class="form__control">
+                    <input matInput required type="password" name="password" [(ngModel)]="password"
+                           placeholder="{{ 'PUBLIC.LOGIN.PASSWORD' | translate }}">
+                </mat-form-field>
+                <button mat-raised-button color="primary" [disabled]="!form.valid || isProcessing">
+                    {{ 'PUBLIC.LOGIN.LOG_IN' | translate }}
+                </button>
+                <p *ngIf="note$ && !warn$" class="form__message">{{ note$ | async }}</p>
+                <p *ngIf="warn$" class="form__message--warning">{{ warn$ | async }}</p>
             </form>
         </div>
     </div>

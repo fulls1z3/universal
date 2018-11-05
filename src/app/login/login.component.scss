@@ -1,5 +1,11 @@
-@import '../../assets/sass/variables';
-@import '../../assets/sass/mixins';
+@import '~src/assets/sass/func/color';
+@import '~src/assets/sass/func/rem';
+@import '~src/assets/sass/mixin/bem';
+@import '~src/assets/sass/mixin/positioning';
+@import '~src/assets/sass/mixin/spacing';
+@import '~src/assets/sass/mixin/sizing';
+@import '~src/assets/sass/mixin/typography';
+@import '~src/assets/sass/variables/theme';
 
 .login {
   @include absolute(0);
@@ -7,7 +13,7 @@
   display: block;
   background-color: c(grey);
 
-  .container {
+  @include el('overlay') {
     @include absolute(50% null null);
 
     display: block;
@@ -15,7 +21,7 @@
     transform: translateY(-50%);
   }
 
-  .container > div {
+  @include el('content') {
     @include size(rem(38));
     @include push(0 auto);
 
@@ -23,31 +29,33 @@
     text-align: center;
   }
 
-  .title {
+  @include el('title') {
     @include soft($space--xl);
     @include font(#{$h2}/#{$space--xxl} $font--preferred, c(white));
 
     width: rem(38);
-    background: mat-color($primary-dark);
+    background: mat-color($primary--dark);
   }
 
-  .content {
+  @include el('form') {
     @include soft($space--xl rem(4.2) rem(4.2));
+  }
+}
 
-    mat-form-field {
-      @include push(rem(0.6) 0);
+.form {
+  @include el('control') {
+    @include push(rem(0.6) 0);
 
-      width: 100%;
-    }
+    width: 100%;
+  }
 
-    .note {
-      @include push($space--xl 0 0);
+  @include el('message') {
+    @include push($space--xl 0 0);
 
-      color: c(grey);
-      text-align: center;
-    }
+    color: c(grey);
+    text-align: center;
 
-    .warn {
+    @include mod('warning') {
       @include push($space--xl 0 0);
 
       color: mat-color($warn);

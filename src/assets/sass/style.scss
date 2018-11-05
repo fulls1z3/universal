@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@import 'func/color';
+@import 'mixin/typography';
+@import 'shared/reset';
+@import 'shared/reset-material';
+@import 'shared/typography';
+@import 'shared/root';
+@import 'shared/splash-screen';
+
+@include mat-core();
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+body {
+  @include font(#{$h4}/1.429 $font--preferred);
+
+  background-color: c(grey, gallery);
+}

@@ -73,6 +73,7 @@ module.exports = {
       'active',
       'after',
       'before',
+      'ng-deep',
       'focus',
       'hover',
       'host',

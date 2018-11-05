@@ -42,17 +42,18 @@ t.describe('ng-seed/universal', () => {
         .toBeTruthy();
     });
 
-    t.it('should invoke `onActivate`', () => {
-      const fixture = TestBed.createComponent(MainComponent);
-      const instance = fixture.componentInstance;
+    t.it('should invoke `onActivate`',
+      t.inject([ElementRef],
+        (scrollContainer: ElementRef) => {
+          const fixture = TestBed.createComponent(MainComponent);
+          const instance = fixture.componentInstance;
 
-      fixture.detectChanges();
+          fixture.detectChanges();
 
-      const scrollContainer = TestBed.get(ElementRef);
-      instance.onActivate(undefined, scrollContainer);
+          instance.onActivate(undefined, scrollContainer);
 
-      t.e(instance)
-        .toBeTruthy();
-    });
+          t.e(instance)
+            .toBeTruthy();
+        }));
   });
 });

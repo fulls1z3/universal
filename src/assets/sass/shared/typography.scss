@@ -1,6 +1,9 @@
-/**
- * Headings
- */
+@import '../func/color';
+@import '../mixin/spacing';
+@import '../mixin/typography';
+@import '../variables/theme';
+
+/// headings
 h1,
 h2,
 h3,
@@ -62,9 +65,7 @@ p {
   line-height: 1.5;
 }
 
-/**
- * Links
- */
+/// links
 a {
   color: mat-color($accent);
   text-decoration: none;
@@ -76,9 +77,7 @@ a {
   }
 }
 
-/**
- * Code snippets
- */
+/// snippets
 pre {
   @include push($space--sm $space--lg);
 
@@ -92,7 +91,7 @@ code {
   &:not(.highlight) {
     @include soft--right(rem(0.2) rem(0.3));
 
-    color: mat-color($primary-light);
+    color: mat-color($primary--light);
     background: rgba(0, 0, 0, 0.065);
     border-radius: rem(0.2);
   }

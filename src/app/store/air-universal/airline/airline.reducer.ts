@@ -1,5 +1,12 @@
 // framework
-import { entityErrorFn, entityResetFn, entityStartProcessingFn, entityStopProcessingFn, UniqueId } from '~/app/framework/ngrx';
+import {
+  EMPTY_UNIQUE_ID,
+  entityErrorFn,
+  entityResetFn,
+  entityStartProcessingFn,
+  entityStopProcessingFn,
+  UniqueId
+} from '~/app/framework/ngrx';
 
 // module
 import { AirlineAction, airlineActions } from './airline.actions';
@@ -8,58 +15,43 @@ import { adapter, initialState, State } from './airline.state';
 
 export function reducer(state: State = initialState, action: AirlineAction): State {
   return airlineActions.match({
-    getAll: (force: boolean) => {
-      if (!force && state.ids.length > 0)
-        return state;
-
-      return entityStartProcessingFn<State>(state);
-    },
-    getAllSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
-    getAllFail: entityErrorFn<State>(state),
-    getOne: () => entityStartProcessingFn<State>(state),
-    getOneSuccess: (airline: Airline) => {
-      const { _id } = airline;
-
-      return adapter.addOne(airline, {
-        ...entityStopProcessingFn<State>(state),
-        selectedId: _id
-      });
-    },
-    getOneFail: entityErrorFn<State>(state),
-    addOne: () => adapter.addOne(initialAirline, {
-        ...entityStopProcessingFn<State>(state),
-        selectedId: ''
+    getAllAirlines: () => entityStartProcessingFn<State>(state),
+    getAllAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
+    getAllAirlinesFail: entityErrorFn<State>(state),
+    getOneAirline: () => entityStartProcessingFn<State>(state),
+    getOneAirlineSuccess: (airline: Airline) => adapter.addOne(airline, {
+      ...entityStopProcessingFn<State>(state),
+      selectedId: airline._id
     }),
-    createOne: () => entityStartProcessingFn<State>(state),
-    createOneSuccess: (airline: Airline) => {
-      return adapter.updateOne({
-        id: '',
-        changes: airline
-      }, {
-        ...entityStopProcessingFn<State>(state),
-        selectedId: undefined
-      });
-    },
-    createOneFail: entityResetFn<State>(state),
-    updateOne: () => entityStartProcessingFn<State>(state),
-    updateOneSuccess: (airline: Airline) => {
-      return adapter.updateOne({
-        id: airline._id,
-        changes: airline
-      }, {
-        ...entityStopProcessingFn<State>(state),
-        selectedId: undefined
-      });
-    },
-    updateOneFail: entityResetFn<State>(state),
-    deleteOne: () => entityStartProcessingFn<State>(state),
-    deleteOneSuccess: (id: UniqueId) => {
-      return adapter.removeOne(id, {
-        ...entityStopProcessingFn<State>(state),
-        selectedId: undefined
-      });
-    },
-    deleteOneFail: entityResetFn<State>(state),
+    getOneAirlineFail: entityErrorFn<State>(state),
+    addOneAirline: () => adapter.addOne(initialAirline, {
+      ...entityStopProcessingFn<State>(state),
+      selectedId: EMPTY_UNIQUE_ID
+    }),
+    createOneAirline: () => entityStartProcessingFn<State>(state),
+    createOneAirlineSuccess: (airline: Airline) => adapter.updateOne({
+      id: EMPTY_UNIQUE_ID,
+      changes: airline
+    }, {
+      ...entityStopProcessingFn<State>(state),
+      selectedId: undefined
+    }),
+    createOneAirlineFail: entityResetFn<State>(state),
+    updateOneAirline: () => entityStartProcessingFn<State>(state),
+    updateOneAirlineSuccess: (airline: Airline) => adapter.updateOne({
+      id: airline._id,
+      changes: airline
+    }, {
+      ...entityStopProcessingFn<State>(state),
+      selectedId: undefined
+    }),
+    updateOneAirlineFail: entityResetFn<State>(state),
+    deleteOneAirline: () => entityStartProcessingFn<State>(state),
+    deleteOneAirlineSuccess: (id: UniqueId) => adapter.removeOne(id, {
+      ...entityStopProcessingFn<State>(state),
+      selectedId: undefined
+    }),
+    deleteOneAirlineFail: entityResetFn<State>(state),
     default: () => state
   })(action);
 }

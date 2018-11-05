@@ -1,0 +1,15 @@
+@import '../func/rem';
+@import '../mixin/spacing';
+
+@mixin page_layout() {
+  :host {
+    @include push(rem(2.4));
+  }
+}
+
+@mixin page_layout--no-spacing() {
+  :host {
+    @include push(0);
+    @include soft(0);
+  }
+}

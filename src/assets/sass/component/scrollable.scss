@@ -1,0 +1,23 @@
+@import '../func/rem';
+@import '../mixin/spacing';
+@import '../variables/layout';
+
+$space--full: calc(#{100vh} - (
+  #{$toolbar_height} /* header container */
+  + #{$space--md} /* content spacing (top) */
+  + #{$header_height} /* card widget header */
+  + #{$space--xl * 4} /* card widget footer */
+  + #{$space--xl} /* content spacing (bottom) */
+));
+
+@each $name, $value in $spacing-units {
+  .scrollable--#{$name} {
+    height: #{$value * 20};
+    max-height: #{$value * 20};
+  }
+}
+
+.scrollable--full {
+  height: calc(#{$space--full} + (#{rem(0.4)}));
+  max-height: calc(#{$space--full} + (#{rem(0.4)}));
+}

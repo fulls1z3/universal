@@ -1,0 +1,22 @@
+@import '../func/color';
+@import '../mixin/spacing';
+
+@mixin tab_layout() {
+  ::ng-deep mat-tab-header {
+    background: c(white);
+  }
+
+  ::ng-deep .mat-tab-labels {
+    @include soft(0 $space--xl);
+  }
+
+  ::ng-deep .mat-tab-body-content {
+    overflow: hidden;
+  }
+
+  ::ng-deep mat-tab-body {
+    @extend %flush;
+
+    display: block;
+  }
+}

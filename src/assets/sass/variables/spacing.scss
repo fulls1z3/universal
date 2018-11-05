@@ -1,0 +1,21 @@
+@import '../func/rem';
+
+$spacing-units: (
+  base: rem(1),
+  xs: rem(0.4),
+  sm: rem(0.8),
+  md: rem(1.2),
+  lg: rem(1.6),
+  xl: rem(2.4),
+  xxl: rem(3.2)
+);
+
+$space--base: map-get($spacing-units, base) !default;
+$space--xs: map-get($spacing-units, xs) !default;
+$space--sm: map-get($spacing-units, sm) !default;
+$space--md: map-get($spacing-units, md) !default;
+$space--lg: map-get($spacing-units, lg) !default;
+$space--xl: map-get($spacing-units, xl) !default;
+$space--xxl: map-get($spacing-units, xxl) !default;
+
+$space: map-get($spacing-units, base) !default;

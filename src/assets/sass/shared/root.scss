@@ -1,5 +1,4 @@
-@import '../variables';
-@import '../mixins';
+@import '../mixin/positioning';
 
 app-root {
   @include absolute(0);

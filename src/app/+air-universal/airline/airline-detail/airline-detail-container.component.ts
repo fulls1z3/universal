@@ -30,8 +30,7 @@ import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
 })
 export class AirlineDetailContainerComponent extends BaseContainerComponent implements OnInit {
   airline$: Observable<Airline>;
-
-  private baseRoute: Array<string>;
+  baseRoute: Array<string>;
 
   constructor(private readonly router: Router,
               private readonly route: ActivatedRoute,
@@ -70,9 +69,9 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       .pipe(
         map(([data, params]) => {
           if (data.renderFlag === RenderFlag.Create)
-            return this.store$.dispatch(airlineActions.addOne());
+            return this.store$.dispatch(airlineActions.addOneAirline());
 
-          return this.store$.dispatch(airlineActions.getOne(params.id));
+          return this.store$.dispatch(airlineActions.getOneAirline(params.id));
         }),
         takeUntil(this.ngUnsubscribe)
       )
@@ -81,7 +80,7 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
   }
 
   delete(id: UniqueId): void {
-    this.store$.dispatch(airlineActions.deleteOne({
+    this.store$.dispatch(airlineActions.deleteOneAirline({
       id,
       router: this.router,
       route: this.baseRoute
@@ -93,12 +92,12 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       .pipe(
         map(cur => {
           cur.renderFlag === RenderFlag.Create
-            ? this.store$.dispatch(airlineActions.createOne({
+            ? this.store$.dispatch(airlineActions.createOneAirline({
               resource,
               router: this.router,
               route: this.baseRoute
             }))
-            : this.store$.dispatch(airlineActions.updateOne({
+            : this.store$.dispatch(airlineActions.updateOneAirline({
               resource,
               router: this.router,
               route: this.baseRoute

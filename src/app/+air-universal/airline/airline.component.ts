@@ -29,8 +29,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   filterCol: string;
   buttons: Array<DataTableLinkButton>;
   options: DataTableOptions;
-
-  private baseRoute: Array<any>;
+  baseRoute: Array<any>;
 
   constructor(private readonly router: Router,
               protected readonly store$: Store<State>) {
@@ -57,9 +56,9 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
     this.error$ = this.store$
       .pipe(select(AirlineSelectors.getError));
     this.airlines$ = this.store$
-      .pipe(select(AirlineSelectors.selectAll));
+      .pipe(select(AirlineSelectors.getAll));
 
-    this.store$.dispatch(airlineActions.getAll(false));
+    this.store$.dispatch(airlineActions.getAllAirlines());
   }
 
   createAirline(): void {
@@ -67,6 +66,6 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   }
 
   refresh(): void {
-    this.store$.dispatch(airlineActions.getAll(true));
+    this.store$.dispatch(airlineActions.getAllAirlines());
   }
 }

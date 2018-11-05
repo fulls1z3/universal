@@ -20,14 +20,12 @@ import { MockElementRef } from './mocks/element-ref.mock';
 import { MockMetaService } from './mocks/meta-service.mock';
 import { MockWindow } from './mocks/window.mock';
 
-const mockElementFactory = () => new MockElementRef();
-
 @NgModule({
   imports: [NoopAnimationsModule],
   providers: [
     {
       provide: ElementRef,
-      useFactory: mockElementFactory
+      useFactory: () => new MockElementRef()
     },
     {
       provide: WindowService,

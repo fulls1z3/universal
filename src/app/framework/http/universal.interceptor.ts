@@ -5,10 +5,10 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 // libs
-import * as express from 'express';
+import { Request } from 'express';
 import { Observable } from 'rxjs';
 
-const getBaseUrl = (req: express.Request) => `${req.protocol}://${req.get('Host')}`;
+const getBaseUrl = (req: any) => `${req.protocol}://${req.get('Host')}`;
 
 @Injectable()
 export class UniversalInterceptor implements HttpInterceptor {
@@ -20,8 +20,7 @@ export class UniversalInterceptor implements HttpInterceptor {
     const isServer = isPlatformServer(this.platformId);
 
     if (isServer && !request.url.includes('http') && request.url.includes('./')) {
-      const serverRequest = this.injector.get(REQUEST) as express.Request;
-
+      const serverRequest = this.injector.get(REQUEST) as Request;
       const baseUrl = getBaseUrl(serverRequest);
 
       request = request.clone({

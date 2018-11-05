@@ -18,10 +18,6 @@ import { ConsoleService, CoreModule, WindowService } from '~/app/framework/core'
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
 
-const windowFactory = () => window;
-const consoleFactory = () => console;
-const requestFactory = (transferState: TransferState) => transferState.get<any>(REQ_KEY, {});
-
 @NgModule({
   imports: [
     BrowserTransferStateModule,
@@ -35,11 +31,11 @@ const requestFactory = (transferState: TransferState) => transferState.get<any>(
     CoreModule.forRoot([
       {
         provide: WindowService,
-        useFactory: windowFactory
+        useFactory: () => window
       },
       {
         provide: ConsoleService,
-        useFactory: consoleFactory
+        useFactory: () => console
       }
     ]),
     AuthModule.forRoot(),
@@ -49,7 +45,7 @@ const requestFactory = (transferState: TransferState) => transferState.get<any>(
   providers: [
     {
       provide: REQUEST,
-      useFactory: requestFactory,
+      useFactory: (transferState: TransferState) => transferState.get<any>(REQ_KEY, {}),
       deps: [TransferState]
     }
   ],

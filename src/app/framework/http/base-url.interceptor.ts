@@ -31,10 +31,9 @@ export class BaseUrlInterceptor implements HttpInterceptor {
               : 'backend.baseServerUrl')
           )(res);
 
-          if (baseUrl && request.url.indexOf('{baseUrl}') >= 0)
-            request = request.clone({
-              url: request.url.replace('{baseUrl}', baseUrl)
-            });
+          request = request.clone({
+            url: request.url.replace('{baseUrl}', baseUrl)
+          });
 
           return next.handle(request);
         })

@@ -1,21 +1,19 @@
-<div class="container" fxLayout="column" fxLayoutGap="24px" [@routeAnimation]>
-    <div fxLayout="row" fxLayoutAlign="center">
-        <div *ngIf="error$ | async">
-            Error: {{ (error$ | async) }}
-        </div>
-        <app-data-table *ngIf="!(error$ | async)"
-                        [data]="airlines$"
-                        [cols]="cols"
-                        [filterCol]="filterCol"
-                        [buttons]="buttons"
-                        [options]="options"
-                        [isProcessing]="isProcessing$ | async"
-                        (refreshClick)="refresh()">
-            <app-menu-group icon="more_vert" tooltip="PUBLIC.SHARED.ACTION.TOOLTIP">
-                <app-menu-item icon="add" label="{{ 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE' | translate }}"
-                               (menuClick)="createAirline()">
-                </app-menu-item>
-            </app-menu-group>
-        </app-data-table>
+<div fxLayoutAlign="center" [@routeAnimation]>
+    <div *ngIf="error$ | async">
+        Error: {{ (error$ | async) }}
     </div>
+    <app-data-table *ngIf="!(error$ | async)"
+                    [data]="airlines$"
+                    [cols]="cols"
+                    [filterCol]="filterCol"
+                    [buttons]="buttons"
+                    [options]="options"
+                    [isProcessing]="isProcessing$ | async"
+                    (refreshClick)="refresh()">
+        <app-menu-group cssClass="qa-menu" icon="more_vert" tooltip="PUBLIC.SHARED.ACTION.TOOLTIP">
+            <app-menu-item cssClass="qa-menu_item__create" icon="add" label="{{ 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE' | translate }}"
+                           (menuClick)="createAirline()">
+            </app-menu-item>
+        </app-menu-group>
+    </app-data-table>
 </div>

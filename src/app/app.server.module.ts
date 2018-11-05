@@ -18,24 +18,6 @@ import { AuthModule } from '@ngx-auth/core';
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
 
-const bootstrapFactory = (appRef: ApplicationRef,
-                          transferState: TransferState,
-                          request: express.Request,
-                          cache: CacheService) => () => appRef.isStable
-  .pipe(
-    filter(stable => stable),
-    first()
-  )
-  .subscribe(() => {
-    transferState.set<any>(REQ_KEY, {
-      hostname: request.hostname,
-      originalUrl: request.originalUrl,
-      referer: request.get('referer')
-    });
-
-    transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
-  });
-
 @NgModule({
   imports: [
     AppModule,
@@ -62,7 +44,23 @@ const bootstrapFactory = (appRef: ApplicationRef,
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: bootstrapFactory,
+      useFactory: (appRef: ApplicationRef,
+                   transferState: TransferState,
+                   request: express.Request,
+                   cache: CacheService) => () => appRef.isStable
+        .pipe(
+          filter(stable => stable),
+          first()
+        )
+        .subscribe(() => {
+          transferState.set<any>(REQ_KEY, {
+            hostname: request.hostname,
+            originalUrl: request.originalUrl,
+            referer: request.get('referer')
+          });
+
+          transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
+        }),
       multi: true,
       deps: [
         ApplicationRef,

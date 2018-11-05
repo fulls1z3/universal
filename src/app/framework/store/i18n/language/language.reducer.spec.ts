@@ -29,11 +29,11 @@ t.describe('ng-seed/universal', () => {
       t.describe('i18n: language reducer', () => {
         t.be(testModuleConfig);
 
-        it('should return the initial state', () => {
+        t.it('should return the initial state', () => {
           const action = {} as any;
           const res = reducer(undefined, action);
 
-          expect(res)
+          t.e(res)
             .toBe(initialState);
         });
 

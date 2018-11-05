@@ -1,6 +1,3 @@
-// angular
-import { Routes } from '@angular/router';
-
 // shared
 import { RenderFlag } from '~/app/shared';
 
@@ -8,7 +5,7 @@ import { RenderFlag } from '~/app/shared';
 import { AirlineDetailContainerComponent } from './airline/airline-detail/airline-detail-container.component';
 import { AirlineComponent } from './airline/airline.component';
 
-export const routes: Routes = [
+export const routes = [
   {
     path: '',
     children: [

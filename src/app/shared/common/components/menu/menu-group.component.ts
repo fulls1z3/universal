@@ -13,6 +13,7 @@ import { MenuItemComponent } from './menu-item.component';
 })
 export class MenuGroupComponent extends BaseComponent {
   @ContentChildren(MenuItemComponent) items: QueryList<MenuItemComponent>;
+  @Input() cssClass: string;
   @Input() icon: string;
   @Input() tooltip: string;
 }

@@ -1,0 +1,151 @@
+@import '../variables/spacing';
+
+@mixin push($spacing: $space) {
+  margin: $spacing;
+}
+
+@mixin push--top($spacing: $space) {
+  margin-top: $spacing;
+}
+
+@mixin push--right($spacing: $space) {
+  margin-right: $spacing;
+}
+
+@mixin push--bottom($spacing: $space) {
+  margin-bottom: $spacing;
+}
+
+@mixin push--left($spacing: $space) {
+  margin-left: $spacing;
+}
+
+@mixin push--ends($spacing: $space) {
+  margin: {
+    top: $spacing;
+    bottom: $spacing;
+  }
+}
+
+@mixin push--sides($spacing: $space) {
+  margin: {
+    right: $spacing;
+    left: $spacing;
+  }
+}
+
+@mixin push--auto {
+  margin: {
+    right: auto;
+    left: auto;
+  }
+}
+
+@mixin offset--sides($spacing: $space) {
+  margin: {
+    right: -$spacing;
+    left: -$spacing;
+  }
+}
+
+%flush {
+  margin: 0;
+}
+
+%flush--top {
+  margin-top: 0;
+}
+
+%flush--right {
+  margin-right: 0;
+}
+
+%flush--bottom {
+  margin-bottom: 0;
+}
+
+%flush--left {
+  margin-left: 0;
+}
+
+%flush--ends {
+  margin: {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+%flush--sides {
+  margin: {
+    right: 0;
+    left: 0;
+  }
+}
+
+@mixin soft($spacing: $space) {
+  padding: $spacing;
+}
+
+@mixin soft--top($spacing: $space) {
+  padding-top: $spacing;
+}
+
+@mixin soft--right($spacing: $space) {
+  padding-right: $spacing;
+}
+
+@mixin soft--bottom($spacing: $space) {
+  padding-bottom: $spacing;
+}
+
+@mixin soft--left($spacing: $space) {
+  padding-left: $spacing;
+}
+
+@mixin soft--ends($spacing: $space) {
+  padding: {
+    top: $spacing;
+    bottom: $spacing;
+  }
+}
+
+@mixin soft--sides($spacing: $space) {
+  padding: {
+    right: $spacing;
+    left: $spacing;
+  }
+}
+
+%hard {
+  padding: 0;
+}
+
+%hard--top {
+  padding-top: 0;
+}
+
+%hard--right {
+  padding-right: 0;
+}
+
+%hard--bottom {
+  padding-bottom: 0;
+}
+
+%hard--left {
+  padding-left: 0;
+}
+
+%hard--ends {
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+%hard--sides {
+  padding: {
+    right: 0;
+    left: 0;
+  }
+}

@@ -16,11 +16,6 @@ import { ConsoleService } from './console.service';
 import { LogService } from './log.service';
 
 const LOG_LEVEL = new InjectionToken<LogLevel>('LOG_LEVEL');
-const configFactory = (logLevel: LogLevel) => new ConfigStaticLoader(getTestSettings(logLevel));
-
-const getTestSettings = (logLevel: LogLevel) => ({
-  logging: {level: logLevel}
-});
 
 const testModuleConfig = (logLevel: LogLevel) => {
   TestBed.resetTestEnvironment();
@@ -30,10 +25,10 @@ const testModuleConfig = (logLevel: LogLevel) => {
       imports: [
         ConfigModule.forRoot({
           provide: ConfigLoader,
-          useFactory: configFactory,
-          deps: [
-            LOG_LEVEL
-          ]
+          useFactory: (logLevel: LogLevel) => new ConfigStaticLoader({
+            logging: {level: logLevel}
+          }),
+          deps: [LOG_LEVEL]
         })
       ],
       providers: [

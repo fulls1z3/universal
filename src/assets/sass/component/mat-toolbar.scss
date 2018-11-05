@@ -1,0 +1,14 @@
+@import '../func/color';
+@import '../mixin/bem';
+@import '../mixin/spacing';
+
+@mixin mat_toolbar() {
+  @include el('row') {
+    @extend %hard--sides;
+  }
+
+  @include el('icon') {
+    color: c(grey);
+    vertical-align: middle;
+  }
+}
