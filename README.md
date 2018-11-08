@@ -108,7 +108,7 @@ $ git merge upstream/master
 ```
 then handle any conflicts, and go on with building your app.
 
-### <a name="development-builds"> Development & Builds
+### <a name="development-builds"> Development and builds
 Below are the scripts to dev, build, and test this seed project:
 
 #### Install dependencies
