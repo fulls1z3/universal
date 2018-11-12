@@ -1,3 +1,4 @@
+// libs
 import 'jest-preset-angular';
 import * as hammerjs from 'hammerjs';
 

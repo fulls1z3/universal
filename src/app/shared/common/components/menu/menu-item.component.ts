@@ -1,7 +1,7 @@
 // angular
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
 
 @Component({

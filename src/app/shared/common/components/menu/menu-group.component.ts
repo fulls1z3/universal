@@ -1,7 +1,7 @@
 // angular
 import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
 
 // module

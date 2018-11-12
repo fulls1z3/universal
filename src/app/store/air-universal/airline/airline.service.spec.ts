@@ -3,13 +3,13 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
-// framework
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
+
+// app
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 
 // module
 import { AirlineService } from './airline.service';

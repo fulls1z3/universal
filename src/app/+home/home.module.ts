@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 // TODO: ngx-i18n-router
 // import { I18NRouterModule } from '@ngx-i18n-router/core';
 
-// framework
+// app
 import { SharedModule } from '~/app/framework/core';
 import { MaterialModule } from '~/app/framework/material';
 

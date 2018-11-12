@@ -8,10 +8,8 @@ import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '@ngx-auth/core';
 import { TranslateService } from '@ngx-translate/core';
 
-// framework
-import { BaseComponent } from '~/app/framework/core';
-
 // app
+import { BaseComponent } from '~/app/framework/core';
 import { routeAnimation } from '~/app/app.animations';
 
 @Component({

@@ -1,7 +1,7 @@
 // angular
 import { NgModule } from '@angular/core';
 
-// mocks
+// module
 import { MockComponent } from './mocks/component.mock';
 
 @NgModule({

@@ -10,18 +10,12 @@ import { select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { MetaService } from '@ngx-meta/core';
 
-// framework
+// app
 import { BaseContainerComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
-
-// shared
 import { RenderFlag } from '~/app/shared';
-
-// app
-import { routeAnimation } from '~/app/app.animations';
-
-// store
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
+import { routeAnimation } from '~/app/app.animations';
 
 @Component({
   templateUrl: './airline-detail-container.component.html',

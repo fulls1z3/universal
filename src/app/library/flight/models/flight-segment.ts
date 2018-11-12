@@ -1,4 +1,4 @@
-// shared
+// app
 import { BaseDocument } from '~/app/framework/ngrx';
 
 // module

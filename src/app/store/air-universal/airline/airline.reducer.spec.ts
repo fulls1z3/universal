@@ -1,11 +1,9 @@
-// framework
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-
 // testing
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
 
-// shared
+// app
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module

@@ -6,14 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { configureTestSuite } from 'ng-bullet';
 
-// framework
-import { languageActions } from '~/app/framework/store';
-
 // testing
-import { t } from '~/app/framework/testing';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { RouterTestingModule } from '~/app/framework/router/testing';
+import { t } from '~/app/framework/testing';
+
+// app
+import { languageActions } from '~/app/framework/store';
 
 // module
 import { ChangeLanguageComponent } from './change-language.component';

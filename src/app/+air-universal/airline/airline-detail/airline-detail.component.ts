@@ -2,11 +2,9 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
-
-// store
 import { Airline, initialAirline } from '~/app/store';
 
 @Component({

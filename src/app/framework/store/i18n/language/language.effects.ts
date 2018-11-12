@@ -10,7 +10,7 @@ import { MetaService } from '@ngx-meta/core';
 // TODO: ngx-i18n-router
 // import { I18NRouterService } from '@ngx-language-router/core';
 
-// framework
+// app
 import { I18NService } from '~/app/framework/i18n/i18n.service';
 
 // module

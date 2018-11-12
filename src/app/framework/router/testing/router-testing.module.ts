@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-// mocks
+// module
 import { MockActivatedRoute } from './mocks/activated-route.mock';
 import { MockRouter } from './mocks/router.mock';
 import { RouterTestingModule as ROUTER_TESTING_MODULE } from '@angular/router/testing';

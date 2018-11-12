@@ -10,10 +10,6 @@ import { of as observableOf } from 'rxjs';
 import { flow } from 'lodash/fp';
 import { Store } from '@ngrx/store';
 
-// framework
-import { MaterialModule } from '~/app/framework/material';
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
@@ -21,11 +17,11 @@ import { getState, NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// shared
+// app
+import { MaterialModule } from '~/app/framework/material';
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { CardModule } from '~/app/shared/card';
 import { RenderFlag, SharedModule } from '~/app/shared';
-
-// store
 import { AIRLINE, Airline, airlineActions } from '~/app/store';
 
 // module
@@ -37,12 +33,12 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
     imports: [
       ReactiveFormsModule,
       RouterTestingModule,
-      MaterialModule,
       CoreTestingModule,
       I18NTestingModule,
       NgrxTestingModule,
-      SharedModule,
-      CardModule
+      MaterialModule,
+      CardModule,
+      SharedModule
     ],
     providers: [
       {

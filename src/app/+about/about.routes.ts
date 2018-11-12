@@ -1,4 +1,4 @@
-// components
+// module
 import { AboutComponent } from './about.component';
 import { AboutUsComponent } from './about-us.component';
 import { AboutBananaComponent } from './about-banana.component';

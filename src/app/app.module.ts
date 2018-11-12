@@ -15,14 +15,12 @@ import { ANGULARTICS2_TOKEN } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
-// framework
+// app
 import { AnalyticsModule } from '~/app/framework/analytics';
 import { configFactory, CoreModule, metaFactory, SharedModule } from '~/app/framework/core';
 import { HttpInterceptorModule } from '~/app/framework/http';
 import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n';
 import { MaterialModule } from '~/app/framework/material';
-
-// store
 import { StoreModule } from '~/app/store';
 
 // module
@@ -42,6 +40,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     TransferHttpCacheModule,
     RouterModule.forRoot(routes),
     PerfectScrollbarModule,
+    AnalyticsModule.forRoot([
+      {
+        provide: ANGULARTICS2_TOKEN,
+        useValue: {
+          providers: [Angulartics2GoogleAnalytics],
+          settings: {}
+        }
+      }
+    ]),
     CoreModule.forRoot([
       {
         provide: ConfigLoader,
@@ -59,7 +66,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     ]),
     SharedModule,
     HttpInterceptorModule,
-    MaterialModule,
     I18NModule.forRoot([
       {
         provide: TranslateLoader,
@@ -78,15 +84,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     //     ]
     //   }
     // ]),
-    AnalyticsModule.forRoot([
-      {
-        provide: ANGULARTICS2_TOKEN,
-        useValue: {
-          providers: [Angulartics2GoogleAnalytics],
-          settings: {}
-        }
-      }
-    ]),
+    MaterialModule,
     StoreModule.forRoot()
   ],
   declarations: [

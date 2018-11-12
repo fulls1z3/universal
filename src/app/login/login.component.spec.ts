@@ -9,15 +9,15 @@ import { AuthService } from '@ngx-auth/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { configureTestSuite } from 'ng-bullet';
 
-// framework
-import { MaterialModule } from '~/app/framework/material';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { AuthTestingModule } from '~/app/framework/auth/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { MockComponent, t, TestingModule } from '~/app/framework/testing';
+
+// app
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { LoginComponent } from './login.component';
@@ -43,12 +43,12 @@ configureTestSuite(() => {
     imports: [
       FormsModule,
       RouterTestingModule.withRoutes(mockRoutes),
-      MaterialModule,
       CoreTestingModule,
       AuthTestingModule,
       I18NTestingModule,
       NgrxTestingModule,
-      TestingModule
+      TestingModule,
+      MaterialModule
     ],
     declarations: [
       TranslatePipe,

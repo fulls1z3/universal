@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule as CommonAngularModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-// framework
+// app
 import { MaterialModule } from '~/app/framework/material';
 
 // module

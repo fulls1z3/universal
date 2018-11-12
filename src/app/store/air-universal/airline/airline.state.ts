@@ -1,7 +1,7 @@
 // libs
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
-// framework
+// app
 import { UniqueId } from '~/app/framework/ngrx';
 
 // module

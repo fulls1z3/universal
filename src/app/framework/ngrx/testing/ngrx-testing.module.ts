@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 
-// mocks
+// module
 import { MockActions } from './mocks/actions.mock';
 import { MockStore } from './mocks/store.mock';
 

@@ -1,10 +1,10 @@
 // libs
 import { MetaGuard } from '@ngx-meta/core';
 
-// framework
+// app
 import { ChangeLanguageComponent } from '~/app/framework/i18n';
 
-// components
+// module
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './layout/main.component';
 

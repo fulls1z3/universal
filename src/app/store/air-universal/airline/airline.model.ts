@@ -1,4 +1,4 @@
-// library
+// app
 import { Airline } from '~/app/library/flight/models/airline.ts';
 
 export { Airline };

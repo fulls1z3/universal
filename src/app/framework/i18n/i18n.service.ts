@@ -5,7 +5,7 @@ import { isPlatformBrowser } from '@angular/common';
 // libs
 import { isEmpty } from 'lodash/fp';
 
-// framework
+// app
 import { Analytics, AnalyticsService } from '~/app/framework/analytics';
 import { WindowService } from '~/app/framework/core';
 

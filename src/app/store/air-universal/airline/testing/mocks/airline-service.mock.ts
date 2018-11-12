@@ -1,10 +1,8 @@
 // libs
 import { Observable, of as observableOf, throwError } from 'rxjs';
 
-// framework
+// app
 import { UniqueId } from '~/app/framework/ngrx';
-
-// shared
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module

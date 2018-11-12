@@ -12,7 +12,7 @@ import { CoreTestingModule } from '~/app/framework/core/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
 
-// store
+// app
 import { languageActions } from '~/app/store';
 
 // module

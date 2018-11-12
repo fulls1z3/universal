@@ -6,17 +6,11 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
-// framework
-import { BaseContainerComponent } from '~/app/framework/core';
-
-// shared
-import { columnFactory, DataTableColumn, DataTableLinkButton, DataTableOptions, linkButtonFactory } from '~/app/shared/data-table';
-
 // app
-import { routeAnimation } from '~/app/app.animations';
-
-// store
+import { BaseContainerComponent } from '~/app/framework/core';
+import { columnFactory, DataTableColumn, DataTableLinkButton, DataTableOptions, linkButtonFactory } from '~/app/shared/data-table';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
+import { routeAnimation } from '~/app/app.animations';
 
 @Component({
   templateUrl: './airline.component.html',

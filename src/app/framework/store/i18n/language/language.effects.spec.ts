@@ -8,16 +8,16 @@ import { Actions } from '@ngrx/effects';
 import { ConfigService } from '@ngx-config/core';
 import { cold, hot } from 'jasmine-marbles';
 
-// framework
-import { AnalyticsModule } from '~/app/framework/analytics';
-import { I18NService } from '~/app/framework/i18n';
-import { languageActions } from '~/app/framework/store';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
+
+// app
+import { AnalyticsModule } from '~/app/framework/analytics';
+import { I18NService } from '~/app/framework/i18n';
+import { languageActions } from '~/app/framework/store';
 
 // module
 import { LanguageEffects } from './language.effects';
@@ -29,10 +29,10 @@ const testModuleConfig = () => {
     .configureTestingModule({
       imports: [
         RouterTestingModule,
-        AnalyticsModule,
         CoreTestingModule,
         NgrxTestingModule,
-        I18NTestingModule
+        I18NTestingModule,
+        AnalyticsModule
       ],
       providers: [LanguageEffects]
     });
