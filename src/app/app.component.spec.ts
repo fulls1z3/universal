@@ -41,7 +41,7 @@ t.describe('ng-seed/universal', () => {
         .toBeTruthy();
     });
 
-    t.it('should dispatch `init` action',
+    t.it('should dispatch `i18nInitLanguage` action',
       t.inject([ConfigService], (config: ConfigService) => {
         const fixture = TestBed.createComponent(AppComponent);
         const store$ = fixture.debugElement.injector.get(Store);
