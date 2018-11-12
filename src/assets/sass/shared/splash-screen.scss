@@ -2,29 +2,25 @@
 @import '../func/depth';
 @import '../mixin/bem';
 @import '../mixin/positioning';
+@import '../mixin/sizing';
 @import '../mixin/spacing';
 @import '../mixin/typography';
 @import '../variables/theme';
 
-.splash_screen {
+.overlay {
   @include absolute(0);
 
   z-index: z(splash_screen);
   display: block;
-  background-color: mat-color($primary--dark);
+  background: mat-color($primary--dark);
+}
 
-  @include el('overlay') {
-    @include absolute(50% null null);
+.splash_screen {
+  @include absolute(50%  null null 50%);
+  @include font(#{$h1}/#{rem(9.6)} $font--preferred, c(white));
 
-    display: block;
-    width: 100%;
-    transform: translateY(-50%);
-  }
-
-  @include el('content') {
-    @include push(0 auto);
-    @include font(#{$h1}/#{rem(9.6)} $font--preferred, c(white));
-
-    text-align: center;
-  }
+  display: block;
+  width: rem(38);
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
 }

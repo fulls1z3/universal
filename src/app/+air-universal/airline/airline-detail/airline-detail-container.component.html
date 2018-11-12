@@ -1,6 +1,6 @@
 <mat-tab-group [@routeAnimation]>
     <mat-tab label="{{ 'PUBLIC.SHARED.TAB.TAB_GENERAL' | translate }}">
-        <div class="card-narrow" fxLayout="column" fxFlex="100%">
+        <div class="card--narrow" fxLayout="column" fxFlex="100%">
             <div *ngIf="error$ | async">
                 Error: {{ (error$ | async) }}
             </div>

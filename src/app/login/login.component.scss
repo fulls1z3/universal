@@ -6,30 +6,24 @@
 @import '~src/assets/sass/mixin/sizing';
 @import '~src/assets/sass/mixin/typography';
 @import '~src/assets/sass/variables/theme';
+@import '~src/assets/sass/variables/typography';
 
-.login {
-  @include absolute(0);
+:host {
+  @include size(100%);
 
   display: block;
-  background-color: c(grey);
+  background: c(grey);
+}
 
-  @include el('overlay') {
-    @include absolute(50% null null);
+.login {
+  @include absolute(50%  null null 50%);
+  @include size(rem(38));
+  @include push(0 auto);
 
-    display: block;
-    width: 100%;
-    transform: translateY(-50%);
-  }
+  background: c(white);
+  transform: translateX(-50%) translateY(-50%);
 
-  @include el('content') {
-    @include size(rem(38));
-    @include push(0 auto);
-
-    background: c(white);
-    text-align: center;
-  }
-
-  @include el('title') {
+  @include el('header') {
     @include soft($space--xl);
     @include font(#{$h2}/#{$space--xxl} $font--preferred, c(white));
 
@@ -37,7 +31,7 @@
     background: mat-color($primary--dark);
   }
 
-  @include el('form') {
+  @include el('body') {
     @include soft($space--xl rem(4.2) rem(4.2));
   }
 }
@@ -55,7 +49,7 @@
     color: c(grey);
     text-align: center;
 
-    @include mod('warning') {
+    @include mod('error') {
       @include push($space--xl 0 0);
 
       color: mat-color($warn);

@@ -3,7 +3,9 @@
 
 @mixin page_layout() {
   :host {
-    @include push(rem(2.4));
+    @include push($space--xl);
+
+    display: block;
   }
 }
 

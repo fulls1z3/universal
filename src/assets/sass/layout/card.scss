@@ -1,12 +1,9 @@
+@import '../mixin/bem';
 @import '../mixin/spacing';
 
 @mixin card_layout() {
-  mat-card {
-    max-width: 90%;
-  }
-
   ::ng-deep .card {
-    &-narrow {
+    @include mod('narrow') {
       @include soft($space--xl);
       @include push--sides(auto);
 

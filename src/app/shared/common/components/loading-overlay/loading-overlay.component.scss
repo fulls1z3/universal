@@ -9,7 +9,7 @@
   @include size(100%);
 
   z-index: z(loading_overlay);
-  background-color: $white-87-opacity;
+  background: $white-87-opacity;
   opacity: 0;
   visibility: hidden;
   transition: all 0.25s ease-in-out;
