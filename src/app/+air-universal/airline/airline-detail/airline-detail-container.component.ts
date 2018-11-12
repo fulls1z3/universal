@@ -69,9 +69,9 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       .pipe(
         map(([data, params]) => {
           if (data.renderFlag === RenderFlag.Create)
-            return this.store$.dispatch(airlineActions.addOneAirline());
+            return this.store$.dispatch(airlineActions.airUniversalAddOneAirline());
 
-          return this.store$.dispatch(airlineActions.getOneAirline(params.id));
+          return this.store$.dispatch(airlineActions.airUniversalGetOneAirline(params.id));
         }),
         takeUntil(this.ngUnsubscribe)
       )
@@ -80,7 +80,7 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
   }
 
   delete(id: UniqueId): void {
-    this.store$.dispatch(airlineActions.deleteOneAirline({
+    this.store$.dispatch(airlineActions.airUniversalDeleteOneAirline({
       id,
       router: this.router,
       route: this.baseRoute
@@ -92,12 +92,12 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       .pipe(
         map(cur => {
           cur.renderFlag === RenderFlag.Create
-            ? this.store$.dispatch(airlineActions.createOneAirline({
+            ? this.store$.dispatch(airlineActions.airUniversalCreateOneAirline({
               resource,
               router: this.router,
               route: this.baseRoute
             }))
-            : this.store$.dispatch(airlineActions.updateOneAirline({
+            : this.store$.dispatch(airlineActions.airUniversalUpdateOneAirline({
               resource,
               router: this.router,
               route: this.baseRoute

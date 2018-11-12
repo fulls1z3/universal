@@ -19,7 +19,7 @@ import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE, MOCK_AIRLINES, MockAirlineService } from './testing';
 
 // shared
-import { ERR__NO_PAYLOAD } from '~/app/shared';
+import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module
 import { airlineActions } from './airline.actions';
@@ -59,11 +59,11 @@ t.describe('ng-seed/universal', () => {
         }));
 
       t.describe('getMany$', () => {
-        t.it('should dispatch `getAllAirlinesSuccess` action, on success',
+        t.it('should dispatch `airUniversalGetAllAirlinesSuccess` action, on success',
           t.inject([AirlineEffects],
             (effects: AirlineEffects) => {
-              const action = airlineActions.getAllAirlines();
-              const completion = airlineActions.getAllAirlinesSuccess(MOCK_AIRLINES);
+              const action = airlineActions.airUniversalGetAllAirlines();
+              const completion = airlineActions.airUniversalGetAllAirlinesSuccess(MOCK_AIRLINES);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -73,13 +73,13 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `getAllAirlinesFail` action, on fail',
+        t.it('should dispatch `airUniversalGetAllAirlinesFail` action, on fail',
           t.inject([AirlineEffects, AirlineService],
             (effects: AirlineEffects, airline: MockAirlineService) => {
               airline.isFailing = true;
 
-              const action = airlineActions.getAllAirlines();
-              const completion = airlineActions.getAllAirlinesFail(ERR__NO_PAYLOAD.message);
+              const action = airlineActions.airUniversalGetAllAirlines();
+              const completion = airlineActions.airUniversalGetAllAirlinesFail(ERROR__NO_PAYLOAD.message);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -91,11 +91,11 @@ t.describe('ng-seed/universal', () => {
       });
 
       t.describe('getOne$', () => {
-        t.it('should dispatch `getOneAirlineSuccess` action, on success',
+        t.it('should dispatch `airUniversalGetOneAirlineSuccess` action, on success',
           t.inject([AirlineEffects],
             (effects: AirlineEffects) => {
-              const action = airlineActions.getOneAirline(MOCK_AIRLINE._id);
-              const completion = airlineActions.getOneAirlineSuccess(MOCK_AIRLINE);
+              const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
+              const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -105,11 +105,11 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `getOneAirlineFail` action, w/o payload',
+        t.it('should dispatch `airUniversalGetOneAirlineFail` action, w/o payload',
           t.inject([AirlineEffects],
             (effects: AirlineEffects) => {
-              const action = airlineActions.getOneAirline(undefined);
-              const completion = airlineActions.getOneAirlineFail(ERR__NO_PAYLOAD.message);
+              const action = airlineActions.airUniversalGetOneAirline(undefined);
+              const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -119,13 +119,13 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `getOneAirlineFail` action, on fail',
+        t.it('should dispatch `airUniversalGetOneAirlineFail` action, on fail',
           t.inject([AirlineEffects, AirlineService],
             (effects: AirlineEffects, airline: MockAirlineService) => {
               airline.isFailing = true;
 
-              const action = airlineActions.getOneAirline(MOCK_AIRLINE._id);
-              const completion = airlineActions.getOneAirlineFail(ERR__NO_PAYLOAD.message);
+              const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
+              const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -137,15 +137,15 @@ t.describe('ng-seed/universal', () => {
       });
 
       t.describe('createOne$', () => {
-        t.it('should dispatch `createOneAirlineSuccess` action, on success',
+        t.it('should dispatch `airUniversalCreateOneAirlineSuccess` action, on success',
           t.inject([Router, AirlineEffects],
             (router: Router, effects: AirlineEffects) => {
-              const action = airlineActions.createOneAirline({
+              const action = airlineActions.airUniversalCreateOneAirline({
                 resource: MOCK_AIRLINE,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.createOneAirlineSuccess(MOCK_AIRLINE);
+              const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -155,19 +155,19 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `createOneAirlineFail` action, on fail',
+        t.it('should dispatch `airUniversalCreateOneAirlineFail` action, on fail',
           t.inject([Router, AirlineEffects, AirlineService],
             (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
               airline.isFailing = true;
 
-              const action = airlineActions.createOneAirline({
+              const action = airlineActions.airUniversalCreateOneAirline({
                 resource: MOCK_AIRLINE,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.createOneAirlineFail({
+              const completion = airlineActions.airUniversalCreateOneAirlineFail({
                 id: EMPTY_UNIQUE_ID,
-                error: ERR__NO_PAYLOAD.message
+                error: ERROR__NO_PAYLOAD.message
               });
 
               const actions$ = TestBed.get(Actions);
@@ -180,15 +180,15 @@ t.describe('ng-seed/universal', () => {
       });
 
       t.describe('updateOne$', () => {
-        t.it('should dispatch `updateOneAirlineSuccess` action, on success',
+        t.it('should dispatch `airUniversalUpdateOneAirlineSuccess` action, on success',
           t.inject([Router, AirlineEffects],
             (router: Router, effects: AirlineEffects) => {
-              const action = airlineActions.updateOneAirline({
+              const action = airlineActions.airUniversalUpdateOneAirline({
                 resource: MOCK_AIRLINE,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.updateOneAirlineSuccess(MOCK_AIRLINE);
+              const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -198,17 +198,17 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `updateOneAirlineFail` action, w/o payload',
+        t.it('should dispatch `airUniversalUpdateOneAirlineFail` action, w/o payload',
           t.inject([Router, AirlineEffects, AirlineService],
             (router: Router, effects: AirlineEffects) => {
-              const action = airlineActions.updateOneAirline({
+              const action = airlineActions.airUniversalUpdateOneAirline({
                 resource: undefined,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.updateOneAirlineFail({
+              const completion = airlineActions.airUniversalUpdateOneAirlineFail({
                 id: EMPTY_UNIQUE_ID,
-                error: ERR__NO_PAYLOAD.message
+                error: ERROR__NO_PAYLOAD.message
               });
 
               const actions$ = TestBed.get(Actions);
@@ -219,19 +219,19 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `updateOneAirlineFail` action, on fail',
+        t.it('should dispatch `airUniversalUpdateOneAirlineFail` action, on fail',
           t.inject([Router, AirlineEffects, AirlineService],
             (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
               airline.isFailing = true;
 
-              const action = airlineActions.updateOneAirline({
+              const action = airlineActions.airUniversalUpdateOneAirline({
                 resource: MOCK_AIRLINE,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.updateOneAirlineFail({
+              const completion = airlineActions.airUniversalUpdateOneAirlineFail({
                 id: MOCK_AIRLINE._id,
-                error: ERR__NO_PAYLOAD.message
+                error: ERROR__NO_PAYLOAD.message
               });
 
               const actions$ = TestBed.get(Actions);
@@ -244,15 +244,15 @@ t.describe('ng-seed/universal', () => {
       });
 
       t.describe('deleteOne$', () => {
-        t.it('should dispatch `deleteOneAirlineSuccess` action, on success',
+        t.it('should dispatch `airUniversalDeleteOneAirlineSuccess` action, on success',
           t.inject([Router, AirlineEffects],
             (router: Router, effects: AirlineEffects) => {
-              const action = airlineActions.deleteOneAirline({
+              const action = airlineActions.airUniversalDeleteOneAirline({
                 id: MOCK_AIRLINE._id,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.deleteOneAirlineSuccess(MOCK_AIRLINE._id);
+              const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE._id);
 
               const actions$ = TestBed.get(Actions);
               actions$.stream = hot('-a', {a: action});
@@ -262,17 +262,17 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `deleteOneAirlineFail` action, w/o payload',
+        t.it('should dispatch `airUniversalDeleteOneAirlineFail` action, w/o payload',
           t.inject([Router, AirlineEffects, AirlineService],
             (router: Router, effects: AirlineEffects) => {
-              const action = airlineActions.deleteOneAirline({
+              const action = airlineActions.airUniversalDeleteOneAirline({
                 id: undefined,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.deleteOneAirlineFail({
+              const completion = airlineActions.airUniversalDeleteOneAirlineFail({
                 id: undefined,
-                error: ERR__NO_PAYLOAD.message
+                error: ERROR__NO_PAYLOAD.message
               });
 
               const actions$ = TestBed.get(Actions);
@@ -283,19 +283,19 @@ t.describe('ng-seed/universal', () => {
                 .toBeObservable(expected);
             }));
 
-        t.it('should dispatch `deleteOneAirlineFail` action, on fail',
+        t.it('should dispatch `airUniversalDeleteOneAirlineFail` action, on fail',
           t.inject([Router, AirlineEffects, AirlineService],
             (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
               airline.isFailing = true;
 
-              const action = airlineActions.deleteOneAirline({
+              const action = airlineActions.airUniversalDeleteOneAirline({
                 id: MOCK_AIRLINE._id,
                 router,
                 route: undefined
               });
-              const completion = airlineActions.deleteOneAirlineFail({
+              const completion = airlineActions.airUniversalDeleteOneAirlineFail({
                 id: MOCK_AIRLINE._id,
-                error: ERR__NO_PAYLOAD.message
+                error: ERROR__NO_PAYLOAD.message
               });
 
               const actions$ = TestBed.get(Actions);
