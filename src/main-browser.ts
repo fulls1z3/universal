@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { bootloader } from '@angularclass/bootloader';
 
 // app
-import { AppBrowserModule } from '~/app/app.browser.module';
+import { AppBrowserModule } from './app/app.browser.module';
 import { environment } from './environments/environment';
 import { hmrBootstrap } from './hmr';
 

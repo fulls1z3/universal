@@ -16,7 +16,6 @@ import { LANGUAGE } from './language/language.state';
     CommonModule,
     StoreModule.forFeature(LANGUAGE, fromLanguage.reducer),
     EffectsModule.forFeature([LanguageEffects])
-  ],
-  declarations: []
+  ]
 })
 export class I18NModule { }

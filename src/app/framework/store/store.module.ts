@@ -20,6 +20,6 @@ export class StoreModule {
 
   constructor(@Optional() @SkipSelf() parentModule: StoreModule) {
     if (parentModule)
-      throw new Error('StoreModule already loaded. Import in root module only.');
+      throw new Error('StoreFrameworkModule already loaded. Import in root module only.');
   }
 }

@@ -12,7 +12,7 @@ import { BaseComponent } from '~/app/framework/core';
 import { Language } from '~/app/framework/i18n';
 
 // state
-import { LanguageSelectors } from '~/app/store';
+import { LanguageSelectors, State } from '~/app/store';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +25,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   availableLanguages: Array<Language>;
   isAuthenticated: boolean; // TODO: access only through getter
 
-  constructor(private readonly store$: Store<Language>,
+  constructor(private readonly store$: Store<State>,
               private readonly config: ConfigService,
               private readonly auth: AuthService) {
     super();

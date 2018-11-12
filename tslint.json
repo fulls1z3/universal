@@ -41,7 +41,6 @@
     "i18n": false,
     "no-unused-css": false,
     "rxjs-collapse-imports": true,
-    "rxjs-no-static-observable-methods": true,
     "rxjs-proper-imports": true
   }
 }

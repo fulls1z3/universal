@@ -28,6 +28,6 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     const settings = this.config.getSettings('i18n');
-    this.store$.dispatch(languageActions.init(settings));
+    this.store$.dispatch(languageActions.i18nInitLanguage(settings));
   }
 }

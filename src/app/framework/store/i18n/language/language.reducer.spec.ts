@@ -37,11 +37,11 @@ t.describe('ng-seed/universal', () => {
             .toBe(initialState);
         });
 
-        t.describe('use', () => {
+        t.describe('i18nUseLanguage', () => {
           t.it('should return the `isProcessing` on the state',
             t.inject([ConfigService], (config: ConfigService) => {
               const defaultLanguage = config.getSettings('i18n.defaultLanguage');
-              const action = languageActions.use(defaultLanguage.code);
+              const action = languageActions.i18nUseLanguage(defaultLanguage.code);
               const res = reducer(initialState, action);
 
               t.e(res.isProcessing)
@@ -49,11 +49,11 @@ t.describe('ng-seed/universal', () => {
             }));
         });
 
-        t.describe('useSuccess', () => {
+        t.describe('i18nUseLanguageSuccess', () => {
           t.it('should return the `selectedItem` on the state',
             t.inject([ConfigService], (config: ConfigService) => {
               const defaultLanguage = config.getSettings('i18n.defaultLanguage');
-              const action = languageActions.useSuccess(defaultLanguage);
+              const action = languageActions.i18nUseLanguageSuccess(defaultLanguage);
               const res = reducer(initialState, action);
 
               t.e(res.selectedItem)

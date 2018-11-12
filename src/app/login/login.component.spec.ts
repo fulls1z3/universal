@@ -96,7 +96,7 @@ t.describe('ng-seed/universal', () => {
 
       t.e(instance.note$)
         .toBeDefined();
-      t.e(instance.warn$)
+      t.e(instance.error$)
         .toBeUndefined();
     });
 
@@ -116,7 +116,7 @@ t.describe('ng-seed/universal', () => {
 
         t.e(instance.note$)
           .toBeDefined();
-        t.e(instance.warn$)
+        t.e(instance.error$)
           .toBeDefined();
       }));
   });

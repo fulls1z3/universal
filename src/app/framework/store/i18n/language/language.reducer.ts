@@ -8,14 +8,12 @@ import { initialState, State } from './language.state';
 
 export function reducer(state: State = initialState, action: LanguageAction): State {
   return languageActions.match({
-    use: () => startProcessingFn<State>(state),
-    useSuccess: (language: Language) => {
-      return {
-        ...stopProcessingFn<State>(state),
-        selectedItem: language
-      };
-    },
-    useFail: errorFn<State>(state),
+    i18nUseLanguage: () => startProcessingFn<State>(state),
+    i18nUseLanguageSuccess: (language: Language) => ({
+      ...stopProcessingFn<State>(state),
+      selectedItem: language
+    }),
+    i18nUseLanguageFail: errorFn<State>(state),
     default: () => state
   })(action);
 }

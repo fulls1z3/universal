@@ -22,11 +22,13 @@ import { HttpInterceptorModule } from '~/app/framework/http';
 import { ChangeLanguageComponent, I18NModule, translateFactory } from '~/app/framework/i18n';
 import { MaterialModule } from '~/app/framework/material';
 
+// store
+import { StoreModule } from '~/app/store';
+
 // module
 import { HeaderComponent } from './layout/header.component';
 import { MainComponent } from './layout/main.component';
 import { LoginComponent } from './login/login.component';
-import { StoreModule } from './store';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
