@@ -1,10 +1,8 @@
 // angular
 import { Component } from '@angular/core';
 
-// framework
-import { BaseComponent } from '~/app/framework/core';
-
 // app
+import { BaseComponent } from '~/app/framework/core';
 import { routeAnimation } from '~/app/app.animations';
 
 @Component({

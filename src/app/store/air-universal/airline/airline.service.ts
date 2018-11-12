@@ -7,10 +7,8 @@ import { EMPTY, Observable, of as observableOf } from 'rxjs';
 import { delay, map, retry } from 'rxjs/operators';
 import { ConfigService } from '@ngx-config/core';
 
-// framework
+// app
 import { BaseEntityService, UniqueId } from '~/app/framework/ngrx';
-
-// shared
 import { HTTP_CLIENT__MAX_RETRIES } from '~/app/shared';
 
 // module

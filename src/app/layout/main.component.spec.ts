@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { configureTestSuite } from 'ng-bullet';
 
-// framework
+// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';

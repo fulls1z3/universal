@@ -1,3 +1,4 @@
+// module
 import { BaseDocument } from '../models/base-document';
 
 export const getState = <T extends BaseDocument>(featureName: string, item?: T) => ({

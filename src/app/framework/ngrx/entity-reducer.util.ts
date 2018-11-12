@@ -1,4 +1,4 @@
-// framework
+// module
 import { UniqueId } from './models/base-document';
 
 export const entityStartProcessingFn = <T>(state: T) => ({...(state as any), isProcessing: true, selectedId: undefined});

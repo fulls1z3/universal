@@ -1,4 +1,4 @@
-// framework
+// app
 import { errorFn, startProcessingFn, stopProcessingFn } from '~/app/framework/ngrx';
 
 // module

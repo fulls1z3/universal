@@ -1,3 +1,4 @@
+// module
 import { AirUniversalState } from './air-universal';
 
 export interface State {

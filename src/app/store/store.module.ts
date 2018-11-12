@@ -7,10 +7,8 @@ import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-// env
+// app
 import { environment } from '~/environments/environment';
-
-// framework
 import { StoreFrameworkModule } from '~/app/framework/store';
 
 // module

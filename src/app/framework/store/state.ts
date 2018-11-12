@@ -1,3 +1,4 @@
+// module
 import { State as I18NState } from './i18n';
 
 export interface State {

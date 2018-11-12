@@ -7,17 +7,15 @@ import { ActivatedRoute } from '@angular/router';
 // libs
 import { of as observableOf } from 'rxjs';
 
-// framework
-import { MaterialModule } from '~/app/framework/material';
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// shared
+// app
+import { MaterialModule } from '~/app/framework/material';
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { CardModule } from '~/app/shared/card';
 import { RenderFlag, SharedModule } from '~/app/shared';
 
@@ -28,11 +26,11 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
   TestBed.configureTestingModule({
     imports: [
       ReactiveFormsModule,
-      MaterialModule,
       CoreTestingModule,
       I18NTestingModule,
-      SharedModule,
-      CardModule
+      MaterialModule,
+      CardModule,
+      SharedModule
     ],
     providers: [
       {

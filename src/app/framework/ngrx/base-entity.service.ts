@@ -7,7 +7,7 @@ import { retry } from 'rxjs/operators';
 import { flow } from 'lodash/fp';
 import { ConfigService } from '@ngx-config/core';
 
-// shared
+// app
 import { HTTP_CLIENT__MAX_RETRIES } from '~/app/shared';
 
 // module

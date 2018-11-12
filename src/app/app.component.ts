@@ -7,10 +7,8 @@ import { ConfigService } from '@ngx-config/core';
 // TODO: ngx-i18n-router
 // import { I18NRouterService } from '@ngx-i18n-router/core';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
-
-// store
 import { languageActions, State } from '~/app/store';
 
 @Component({

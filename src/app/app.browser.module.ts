@@ -10,7 +10,7 @@ import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-brow
 import { AuthModule } from '@ngx-auth/core';
 import 'hammerjs';
 
-// framework
+// app
 import { AuthTestingModule } from '~/app/framework/auth/testing';
 import { ConsoleService, CoreModule, WindowService } from '~/app/framework/core';
 
@@ -28,6 +28,8 @@ import { AppModule, REQ_KEY } from './app.module';
         useClass: MemoryCacheService
       }
     ]),
+    AuthModule.forRoot(),
+    AuthTestingModule,
     CoreModule.forRoot([
       {
         provide: WindowService,
@@ -38,8 +40,6 @@ import { AppModule, REQ_KEY } from './app.module';
         useFactory: () => console
       }
     ]),
-    AuthModule.forRoot(),
-    AuthTestingModule,
     AppModule
   ],
   providers: [

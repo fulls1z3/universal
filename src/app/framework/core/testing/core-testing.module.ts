@@ -7,13 +7,11 @@ import { ConfigService } from '@ngx-config/core';
 import { CacheService } from '@ngx-cache/core';
 import { MetaService } from '@ngx-meta/core';
 
-// framework
+// app
 import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics';
+import { ConsoleService, LogService, WindowService } from '~/app/framework/core';
 
 // module
-import { ConsoleService, LogService, WindowService } from '../index';
-
-// mocks
 import { MockCacheService } from './mocks/cache-service.mock';
 import { MockConfigService } from './mocks/config-service.mock';
 import { MockElementRef } from './mocks/element-ref.mock';

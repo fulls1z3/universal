@@ -7,11 +7,9 @@ import { select, Store } from '@ngrx/store';
 import { ConfigService } from '@ngx-config/core';
 import { AuthService } from '@ngx-auth/core';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
 import { Language } from '~/app/framework/i18n';
-
-// state
 import { LanguageSelectors, State } from '~/app/store';
 
 @Component({

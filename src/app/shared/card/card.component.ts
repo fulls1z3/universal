@@ -4,7 +4,7 @@ import { Component, ContentChildren, EventEmitter, Input, OnInit, QueryList } fr
 // libs
 import { Observable } from 'rxjs';
 
-// framework
+// app
 import { BaseComponent } from '~/app/framework/core';
 
 // module

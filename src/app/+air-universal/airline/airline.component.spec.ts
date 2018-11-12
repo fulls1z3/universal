@@ -9,22 +9,18 @@ import { Store } from '@ngrx/store';
 import { configureTestSuite } from 'ng-bullet';
 import { cold } from 'jasmine-marbles';
 
-// framework
-import { MaterialModule } from '~/app/framework/material';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
-import { RouterTestingModule } from '~/app/framework/router/testing';
 import { getState, NgrxTestingModule } from '~/app/framework/ngrx/testing';
+import { RouterTestingModule } from '~/app/framework/router/testing';
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// shared
+// app
+import { MaterialModule } from '~/app/framework/material';
 import { DataTableModule } from '~/app/shared/data-table';
 import { SharedModule } from '~/app/shared';
-
-// store
 import { AIRLINE, Airline, airlineActions } from '~/app/store';
 
 // module
@@ -34,13 +30,13 @@ configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      MaterialModule,
+      FlexModule,
       CoreTestingModule,
       I18NTestingModule,
       NgrxTestingModule,
-      SharedModule,
+      MaterialModule,
       DataTableModule,
-      FlexModule
+      SharedModule
     ],
     declarations: [AirlineComponent]
   });

@@ -7,15 +7,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslatePipe } from '@ngx-translate/core';
 import { configureTestSuite } from 'ng-bullet';
 
-// framework
-import { MaterialModule } from '~/app/framework/material';
-
 // testing
 import { AuthTestingModule } from '~/app/framework/auth/testing';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { MockComponent, t, TestingModule } from '~/app/framework/testing';
+
+// app
+import { MaterialModule } from '~/app/framework/material';
 
 // module
 import { HeaderComponent } from './header.component';
@@ -44,12 +44,12 @@ configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
       RouterTestingModule.withRoutes(mockRoutes),
-      MaterialModule,
-      CoreTestingModule,
       AuthTestingModule,
+      CoreTestingModule,
       I18NTestingModule,
       NgrxTestingModule,
-      TestingModule
+      TestingModule,
+      MaterialModule
     ],
     declarations: [
       TranslatePipe,

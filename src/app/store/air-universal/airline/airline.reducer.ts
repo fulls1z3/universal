@@ -1,4 +1,4 @@
-// framework
+// app
 import {
   EMPTY_UNIQUE_ID,
   entityErrorFn,

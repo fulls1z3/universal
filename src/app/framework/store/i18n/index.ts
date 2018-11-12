@@ -1,3 +1,4 @@
+// module
 import * as LanguageSelectors from './language/language.selectors';
 
 export { languageActions } from './language/language.actions';

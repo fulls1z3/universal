@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
 import { Actions } from '@ngrx/effects';
 import { cold, hot } from 'jasmine-marbles';
 
-// framework
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
@@ -18,7 +15,8 @@ import { RouterTestingModule } from '~/app/framework/router/testing';
 import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE, MOCK_AIRLINES, MockAirlineService } from './testing';
 
-// shared
+// app
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module
