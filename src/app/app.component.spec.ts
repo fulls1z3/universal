@@ -50,7 +50,7 @@ t.describe('ng-seed/universal', () => {
         fixture.detectChanges();
 
         const settings = config.getSettings('i18n');
-        const action = languageActions.init(settings);
+        const action = languageActions.i18nInitLanguage(settings);
 
         t.e(spy)
           .toHaveBeenCalledWith(action);

@@ -20,7 +20,7 @@ import { languageActions } from './language.actions';
 export class LanguageEffects {
   @Effect() init$ = this.actions
     .pipe(
-      filter(languageActions.is.init),
+      filter(languageActions.is.i18nInitLanguage),
       map(get('payload')),
       map(payload => {
         this.i18n.defaultLanguage = payload.defaultLanguage;
@@ -34,26 +34,15 @@ export class LanguageEffects {
           .map((cur: any) => cur.code));
         this.translate.setDefaultLang(payload.defaultLanguage.code);
 
-        // TODO: ngx-i18n-router
-        // detect language from location/browser (if applicable)
-        // let detectedLanguage;
-        //
-        // if (this.useLocalizedRoutes)
-        //   detectedLanguage = this.getLanguageFromLocation();
-        //
-        // if (!detectedLanguage)
         const detectedLanguage = this.i18n.getLanguageCodeFromBrowser();
 
-        // TODO: ngx-i18n-router
-        // this.i18nRouter.init(this.useLocalizedRoutes);
-
-        return languageActions.use(detectedLanguage);
+        return languageActions.i18nUseLanguage(detectedLanguage);
       })
     );
 
   @Effect() use$ = this.actions
     .pipe(
-      filter(languageActions.is.use),
+      filter(languageActions.is.i18nUseLanguage),
       map(get('payload')),
       map(payload => {
         const language = this.i18n.getLanguageByCode(payload);
@@ -65,26 +54,20 @@ export class LanguageEffects {
               meta.setTag('og:locale', language.culture);
             });
 
-          // TODO: ngx-i18n-router
-          // if (this.i18n.availableLanguages.length > 1)
-          //   this.i18nRouter.useLanguage(state.code);
-
-          const success = languageActions.useSuccess(language);
+          const success = languageActions.i18nUseLanguageSuccess(language);
 
           this.i18n.track(success.type, {label: language.code});
 
           return success;
         }
 
-        return languageActions.useFail(payload);
+        return languageActions.i18nUseLanguageFail(payload);
       })
     );
 
   constructor(private readonly injector: Injector,
               private readonly actions: Actions,
               private readonly translate: TranslateService,
-              // TODO: ngx-i18n-router
-              // private readonly i18nRouter: I18NRouterService,
               private readonly i18n: I18NService) {
   }
 }

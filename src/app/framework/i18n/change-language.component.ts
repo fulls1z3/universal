@@ -26,7 +26,7 @@ export class ChangeLanguageComponent extends BaseComponent implements OnInit {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
         if (res.languageCode)
-          this.store$.dispatch(languageActions.use(res.languageCode));
+          this.store$.dispatch(languageActions.i18nUseLanguage(res.languageCode));
 
         this.router.navigate(['']);
       });

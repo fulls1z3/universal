@@ -24,7 +24,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
   password: string;
   isProcessing: boolean;
   note$: Observable<string>;
-  warn$: Observable<string>;
+  error$: Observable<string>;
 
   constructor(private readonly auth: AuthService,
               private readonly translate: TranslateService,
@@ -47,7 +47,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.isProcessing = false;
 
         if (!this.auth.isAuthenticated)
-          this.warn$ = this.translate.get('PUBLIC.LOGIN.WARN');
+          this.error$ = this.translate.get('PUBLIC.LOGIN.ERROR');
       });
   }
 }

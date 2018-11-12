@@ -56,7 +56,7 @@ t.describe('ng-seed/universal', () => {
 
         fixture.detectChanges();
 
-        const action = languageActions.use(mockParams.languageCode);
+        const action = languageActions.i18nUseLanguage(mockParams.languageCode);
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
