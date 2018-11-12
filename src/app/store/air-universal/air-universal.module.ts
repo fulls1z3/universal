@@ -16,7 +16,6 @@ import { AIRLINE } from './airline/airline.state';
     CommonModule,
     StoreModule.forFeature(AIRLINE, fromAirline.reducer),
     EffectsModule.forFeature([AirlineEffects])
-  ],
-  declarations: []
+  ]
 })
 export class AirUniversalModule { }

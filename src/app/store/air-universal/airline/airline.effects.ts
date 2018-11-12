@@ -11,7 +11,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 
 // shared
-import { ERR__NO_PAYLOAD } from '~/app/shared';
+import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module
 import { airlineActions } from './airline.actions';
@@ -20,66 +20,64 @@ import { AirlineService } from './airline.service';
 @Injectable()
 export class AirlineEffects {
   @Effect() getAll$ = this.actions$.pipe(
-    filter(airlineActions.is.getAllAirlines),
-    switchMap(() => {
-      return this.airline.getMany$()
-        .pipe(
-          map(airlineActions.getAllAirlinesSuccess),
-          catchError(error => observableOf(airlineActions.getAllAirlinesFail(error.message)))
-        );
-    })
+    filter(airlineActions.is.airUniversalGetAllAirlines),
+    switchMap(() => this.airline.getMany$()
+      .pipe(
+        map(airlineActions.airUniversalGetAllAirlinesSuccess),
+        catchError(error => observableOf(airlineActions.airUniversalGetAllAirlinesFail(error.message)))))
   );
 
   @Effect() getOne$ = this.actions$.pipe(
-    filter(airlineActions.is.getOneAirline),
+    filter(airlineActions.is.airUniversalGetOneAirline),
     map(get('payload')),
     switchMap(payload => !isEmpty(payload)
       ? this.airline.getOne$(payload)
         .pipe(
-          map(airlineActions.getOneAirlineSuccess),
-          catchError(error => observableOf(airlineActions.getOneAirlineFail(error.message)))
+          map(airlineActions.airUniversalGetOneAirlineSuccess),
+          catchError(error => observableOf(airlineActions.airUniversalGetOneAirlineFail(error.message)))
         )
-      : observableOf(airlineActions.getOneAirlineFail(ERR__NO_PAYLOAD.message)))
+      : observableOf(airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message)))
   );
 
   @Effect() createOne$ = this.actions$
     .pipe(
-      filter(airlineActions.is.createOneAirline),
+      filter(airlineActions.is.airUniversalCreateOneAirline),
       map(get('payload')),
       switchMap(payload => this.airline.createOne$(payload.resource)
         .pipe(
-          map(airlineActions.createOneAirlineSuccess),
+          map(airlineActions.airUniversalCreateOneAirlineSuccess),
           tap(() => payload.router.navigate(payload.route)),
-          catchError(error => observableOf(airlineActions.createOneAirlineFail({id: EMPTY_UNIQUE_ID, error: error.message})))
+          catchError(error => observableOf(airlineActions.airUniversalCreateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: error.message})))
         ))
     );
 
   @Effect() updateOne$ = this.actions$
     .pipe(
-      filter(airlineActions.is.updateOneAirline),
+      filter(airlineActions.is.airUniversalUpdateOneAirline),
       map(get('payload')),
       switchMap(payload => flow(get('_id'), negate(isNil))(payload.resource)
         ? this.airline.updateOne$(payload.resource)
           .pipe(
-            map(airlineActions.updateOneAirlineSuccess),
+            map(airlineActions.airUniversalUpdateOneAirlineSuccess),
             tap(() => payload.router.navigate(payload.route)),
-            catchError(error => observableOf(airlineActions.updateOneAirlineFail({id: payload.resource._id, error: error.message})))
+            catchError(error =>
+              observableOf(airlineActions.airUniversalUpdateOneAirlineFail({id: payload.resource._id, error: error.message})))
           )
-        : observableOf(airlineActions.updateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERR__NO_PAYLOAD.message})))
+        : observableOf(airlineActions.airUniversalUpdateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERROR__NO_PAYLOAD.message})))
     );
 
   @Effect() deleteOne$ = this.actions$
     .pipe(
-      filter(airlineActions.is.deleteOneAirline),
+      filter(airlineActions.is.airUniversalDeleteOneAirline),
       map(get('payload')),
       switchMap(payload => !isNil(payload.id)
         ? this.airline.deleteOne$(payload.id)
           .pipe(
-            map(airlineActions.deleteOneAirlineSuccess),
+            map(airlineActions.airUniversalDeleteOneAirlineSuccess),
             tap(() => payload.router.navigate(payload.route)),
-            catchError(error => observableOf(airlineActions.deleteOneAirlineFail({id: payload.id, error: error.message})))
+            catchError(error => observableOf(airlineActions.airUniversalDeleteOneAirlineFail({id: payload.id, error: error.message})))
           )
-        : observableOf(airlineActions.deleteOneAirlineFail({id: payload.id, error: ERR__NO_PAYLOAD.message})))
+        : observableOf(airlineActions.airUniversalDeleteOneAirlineFail({id: payload.id, error: ERROR__NO_PAYLOAD.message})))
     );
 
   constructor(private readonly actions$: Actions,

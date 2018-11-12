@@ -83,7 +83,7 @@ t.describe('ng-seed/universal', () => {
         .toBeTruthy();
     });
 
-    t.it('should dispatch `addOneAirline` action on init',
+    t.it('should dispatch `airUniversalAddOneAirline` action on init',
       t.async(() => {
         const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
         const store$ = TestBed.get(Store);
@@ -93,7 +93,7 @@ t.describe('ng-seed/universal', () => {
 
         fixture.detectChanges();
 
-        const action = airlineActions.addOneAirline();
+        const action = airlineActions.airUniversalAddOneAirline();
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
@@ -101,7 +101,7 @@ t.describe('ng-seed/universal', () => {
           .toHaveBeenCalledTimes(1);
       }));
 
-    t.it('should dispatch `createOneAirline` action on save',
+    t.it('should dispatch `airUniversalCreateOneAirline` action on save',
       t.async(() => {
         const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
         const instance = fixture.componentInstance;
@@ -121,7 +121,7 @@ t.describe('ng-seed/universal', () => {
         saveClick.emit(MOCK_AIRLINE);
 
         const router = fixture.debugElement.injector.get(Router);
-        const action = airlineActions.createOneAirline({resource, router, route: instance.baseRoute});
+        const action = airlineActions.airUniversalCreateOneAirline({resource, router, route: instance.baseRoute});
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
@@ -133,7 +133,7 @@ t.describe('ng-seed/universal', () => {
   t.describe('+air-universal/airline/airline-detail-container: AirlineDetailContainerComponent for renderFlag=`Update`', () => {
     t.be(() => testModuleConfig(RenderFlag.Update));
 
-    t.it('should dispatch `getOneAirline` action on init',
+    t.it('should dispatch `airUniversalGetOneAirline` action on init',
       t.async(() => {
         const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
         const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
@@ -143,7 +143,7 @@ t.describe('ng-seed/universal', () => {
 
         fixture.detectChanges();
 
-        const action = airlineActions.getOneAirline(MOCK_AIRLINE._id);
+        const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
@@ -151,7 +151,7 @@ t.describe('ng-seed/universal', () => {
           .toHaveBeenCalledTimes(1);
       }));
 
-    t.it('should dispatch `updateOneAirline` action on save',
+    t.it('should dispatch `airUniversalUpdateOneAirline` action on save',
       t.async(() => {
         const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
         const instance = fixture.componentInstance;
@@ -170,7 +170,7 @@ t.describe('ng-seed/universal', () => {
         saveClick.emit(MOCK_AIRLINE);
 
         const router = fixture.debugElement.injector.get(Router);
-        const action = airlineActions.updateOneAirline({resource: MOCK_AIRLINE, router, route: instance.baseRoute});
+        const action = airlineActions.airUniversalUpdateOneAirline({resource: MOCK_AIRLINE, router, route: instance.baseRoute});
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
@@ -178,7 +178,7 @@ t.describe('ng-seed/universal', () => {
           .toHaveBeenCalledTimes(2);
       }));
 
-    t.it('should dispatch `updateOneAirline` action on save',
+    t.it('should dispatch `airUniversalDeleteOneAirline` action on delete',
       t.async(() => {
         const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
         const instance = fixture.componentInstance;
@@ -197,7 +197,7 @@ t.describe('ng-seed/universal', () => {
         deleteClick.emit(MOCK_AIRLINE._id);
 
         const router = fixture.debugElement.injector.get(Router);
-        const action = airlineActions.deleteOneAirline({id: MOCK_AIRLINE._id, router, route: instance.baseRoute});
+        const action = airlineActions.airUniversalDeleteOneAirline({id: MOCK_AIRLINE._id, router, route: instance.baseRoute});
 
         t.e(spy)
           .toHaveBeenCalledWith(action);

@@ -5,7 +5,7 @@ import { Observable, of as observableOf, throwError } from 'rxjs';
 import { UniqueId } from '~/app/framework/ngrx';
 
 // shared
-import { ERR__NO_PAYLOAD } from '~/app/shared';
+import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module
 import { Airline } from '../../airline.model';
@@ -21,7 +21,7 @@ export class MockAirlineService {
   getMany$(): Observable<Array<Airline>> {
     return !this.isFailing
       ? observableOf(MOCK_AIRLINES)
-      : throwError(ERR__NO_PAYLOAD);
+      : throwError(ERROR__NO_PAYLOAD);
   }
 
   getOne$(id: UniqueId): Observable<Airline> {
@@ -30,24 +30,24 @@ export class MockAirlineService {
         ...MOCK_AIRLINE,
         _id: id
       })
-      : throwError(ERR__NO_PAYLOAD);
+      : throwError(ERROR__NO_PAYLOAD);
   }
 
   createOne$(resource: Airline): Observable<Airline> {
     return !this.isFailing
       ? observableOf(resource)
-      : throwError(ERR__NO_PAYLOAD);
+      : throwError(ERROR__NO_PAYLOAD);
   }
 
   updateOne$(resource: Airline): Observable<Airline> {
     return !this.isFailing
       ? observableOf(resource)
-      : throwError(ERR__NO_PAYLOAD);
+      : throwError(ERROR__NO_PAYLOAD);
   }
 
   deleteOne$(id: UniqueId): Observable<UniqueId> {
     return !this.isFailing
       ? observableOf(id)
-      : throwError(ERR__NO_PAYLOAD);
+      : throwError(ERROR__NO_PAYLOAD);
   }
 }

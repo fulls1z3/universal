@@ -58,14 +58,14 @@ t.describe('ng-seed/universal', () => {
         .toBeTruthy();
     });
 
-    t.it('should dispatch `getAllAirlines` action on init', () => {
+    t.it('should dispatch `airUniversalGetAllAirlines` action on init', () => {
       const fixture = TestBed.createComponent(AirlineComponent);
       const store$ = fixture.debugElement.injector.get(Store);
       const spy = t.spyOn(store$, 'dispatch');
 
       fixture.detectChanges();
 
-      const action = airlineActions.getAllAirlines();
+      const action = airlineActions.airUniversalGetAllAirlines();
 
       t.e(spy)
         .toHaveBeenCalledWith(action);
@@ -109,7 +109,7 @@ t.describe('ng-seed/universal', () => {
           .toHaveBeenCalledTimes(1);
       }));
 
-    t.it('should dispatch `getAllAirlines` action on refresh button click', () => {
+    t.it('should dispatch `airUniversalGetAllAirlines` action on refresh button click', () => {
       const fixture = TestBed.createComponent(AirlineComponent);
       const store$ = fixture.debugElement.injector.get(Store);
       const spy = t.spyOn(store$, 'dispatch');
@@ -119,7 +119,7 @@ t.describe('ng-seed/universal', () => {
       const refreshButton = fixture.debugElement.query(By.css('button.qa-toolbar__refresh'));
       refreshButton.triggerEventHandler('click', {});
 
-      const action = airlineActions.getAllAirlines();
+      const action = airlineActions.airUniversalGetAllAirlines();
 
       t.e(spy)
         .toHaveBeenCalledWith(action);
