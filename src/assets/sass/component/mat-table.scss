@@ -3,6 +3,7 @@
 @import '../mixin/bem';
 @import '../mixin/spacing';
 @import '../mixin/typography';
+@import '../variables/typography';
 
 $padding: $space--lg;
 $padding--condensed: $padding/2;

@@ -6,15 +6,15 @@
                 <span class="toolbar__title">{{ options.title | translate }}</span>
             </span>
             <span *ngIf="filterCol" class="toolbar__filter" fxFlex>
-                <mat-form-field floatPlaceholder="never" fxFlex="100%" fxLayoutGap="5%">
+                <mat-form-field floatPlaceholder="never" fxLayoutGap="5%" fxFlex="100%">
                     <input #filter matInput placeholder="{{ 'PUBLIC.SHARED.DATA_TABLE.FILTER' | translate }}">
                 </mat-form-field>
             </span>
             <span fxFlex></span>
             <span>
-                <button class="qa-toolbar__refresh"
-                        mat-icon-button
-                        matTooltip="{{ 'PUBLIC.SHARED.WIDGET.REFRESH.TOOLTIP' | translate }}"
+                <button mat-icon-button
+                        class="qa-toolbar__refresh"
+                        matTooltip="{{ 'PUBLIC.SHARED.WIDGET.REFRESH_TOOLTIP' | translate }}"
                         matTooltipPosition="below"
                         (click)="onRefresh(refreshClick)">
                     <mat-icon>refresh</mat-icon>
@@ -23,15 +23,15 @@
             <span *ngFor="let group of menuGroups; trackBy: trackByFn">
                 <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
                     <button *ngFor="let item of group.items; trackBy: trackByFn"
-                            [ngClass]="item.cssClass"
                             mat-menu-item
+                            [ngClass]="item.cssClass"
                             (click)="onClick(item.menuClick)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
                         <span>{{ item.label }}</span>
                     </button>
                 </mat-menu>
-                <button [ngClass]="group.cssClass"
-                        mat-icon-button
+                <button mat-icon-button
+                        [ngClass]="group.cssClass"
                         matTooltip="{{ group.tooltip | translate }}"
                         matTooltipPosition="below"
                         [matMenuTriggerFor]="menu">

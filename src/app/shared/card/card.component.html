@@ -9,15 +9,15 @@
             <span *ngFor="let group of menuGroups; trackBy: trackByFn">
                 <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
                     <button *ngFor="let item of group.items; trackBy: trackByFn"
-                            [ngClass]="item.cssClass"
                             mat-menu-item
+                            [ngClass]="item.cssClass"
                             (click)="onClick(item.menuClick, item.isDialog)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
                         <span>{{ item.label }}</span>
                     </button>
                 </mat-menu>
-                <button [ngClass]="group.cssClass"
-                        mat-icon-button
+                <button mat-icon-button
+                        [ngClass]="group.cssClass"
                         matTooltip="{{ group.tooltip | translate }}"
                         matTooltipPosition="below"
                         [matMenuTriggerFor]="menu">

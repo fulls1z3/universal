@@ -1,5 +1,8 @@
 @import '~src/assets/sass/component/mat-card';
 @import '~src/assets/sass/component/mat-toolbar';
+@import '~src/assets/sass/mixin/spacing';
+@import '~src/assets/sass/mixin/typography';
+@import '~src/assets/sass/variables/typography';
 
 .toolbar {
   @include mat_toolbar;
