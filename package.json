@@ -81,7 +81,7 @@
     "@ngx-translate/http-loader": "~4.0.0",
     "@ngx-meta/core": "~6.0.0",
     "unionize": "~2.1.2",
-    "angulartics2": "~7.1.0",
+    "angulartics2": "~7.2.0",
     "ngx-perfect-scrollbar": "~7.0.0"
   },
   "devDependencies": {
