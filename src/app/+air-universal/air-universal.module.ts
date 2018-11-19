@@ -32,4 +32,5 @@ import { routes } from './air-universal.routes';
     AirlineComponent
   ]
 })
-export class AirUniversalModule { }
+export class AirUniversalModule {
+}

@@ -56,7 +56,7 @@ t.describe('ng-seed/universal', () => {
             .toBeTruthy();
         }));
 
-      t.describe('getMany$', () => {
+      t.describe('getAll$', () => {
         t.it('should dispatch `airUniversalGetAllAirlinesSuccess` action, on success',
           t.inject([AirlineEffects],
             (effects: AirlineEffects) => {

@@ -18,4 +18,5 @@ import { LANGUAGE } from './language/language.state';
     EffectsModule.forFeature([LanguageEffects])
   ]
 })
-export class I18NModule { }
+export class I18NModule {
+}

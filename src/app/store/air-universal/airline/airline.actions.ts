@@ -20,13 +20,13 @@ export const airlineActions = unionize({
   airUniversalAddOneAirline: {},
   airUniversalCreateOneAirline: ofType<{ resource: Airline, router: Router, route: Array<string> }>(),
   airUniversalCreateOneAirlineSuccess: ofType<Airline>(),
-  airUniversalCreateOneAirlineFail: ofType<{ id: UniqueId, error: string}>(),
+  airUniversalCreateOneAirlineFail: ofType<{ id: UniqueId, error: string }>(),
   airUniversalUpdateOneAirline: ofType<{ resource: Airline, router: Router, route: Array<string> }>(),
   airUniversalUpdateOneAirlineSuccess: ofType<Airline>(),
-  airUniversalUpdateOneAirlineFail: ofType<{ id: UniqueId, error: string}>(),
-  airUniversalDeleteOneAirline: ofType<{ id: UniqueId, router: Router, route: Array<string>}>(),
+  airUniversalUpdateOneAirlineFail: ofType<{ id: UniqueId, error: string }>(),
+  airUniversalDeleteOneAirline: ofType<{ id: UniqueId, router: Router, route: Array<string> }>(),
   airUniversalDeleteOneAirlineSuccess: ofType<UniqueId>(),
-  airUniversalDeleteOneAirlineFail: ofType<{ id: UniqueId, error: string}>()
+  airUniversalDeleteOneAirlineFail: ofType<{ id: UniqueId, error: string }>()
 }, {
   tag: 'type',
   value: 'payload'

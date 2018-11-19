@@ -18,4 +18,5 @@ import { AIRLINE } from './airline/airline.state';
     EffectsModule.forFeature([AirlineEffects])
   ]
 })
-export class AirUniversalModule { }
+export class AirUniversalModule {
+}

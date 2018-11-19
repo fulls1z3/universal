@@ -69,24 +69,25 @@ t.describe('ng-seed/universal', () => {
         .toHaveBeenCalledTimes(1);
     });
 
-    t.it('should `getAll` from AirlineSelectors on init', t.async(() => {
-      const fixture = TestBed.createComponent(AirlineComponent);
-      const store$ = TestBed.get(Store);
-      const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
-      store$.setState(state);
+    t.it('should `getAll` from AirlineSelectors on init',
+      t.async(() => {
+        const fixture = TestBed.createComponent(AirlineComponent);
+        const store$ = TestBed.get(Store);
+        const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
+        store$.setState(state);
 
-      fixture.detectChanges();
+        fixture.detectChanges();
 
-      const instance = fixture.componentInstance;
-      fixture.detectChanges();
+        const instance = fixture.componentInstance;
+        fixture.detectChanges();
 
-      const expected = cold('a', {a: [MOCK_AIRLINE]});
+        const expected = cold('a', {a: [MOCK_AIRLINE]});
 
-      (t.e(instance.airlines$) as any)
-        .toBeObservable(expected);
-    }));
+        (t.e(instance.airlines$) as any)
+          .toBeObservable(expected);
+      }));
 
-    t.it('should navigate to `create` on refresh button click',
+    t.it('should navigate to `create` on create button click',
       t.inject([Router], (router: Router) => {
         const fixture = TestBed.createComponent(AirlineComponent);
         const instance = fixture.componentInstance;

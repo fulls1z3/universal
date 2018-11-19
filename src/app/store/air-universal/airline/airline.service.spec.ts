@@ -38,7 +38,7 @@ t.describe('ng-seed/universal', () => {
             .toBeTruthy();
         }));
 
-      t.it('should `getMany`',
+      t.it('should `getMany$`',
         t.async(
           t.inject([AirlineService, HttpTestingController], (airline: AirlineService, http: HttpTestingController) => {
             airline.delay = 0;

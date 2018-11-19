@@ -34,7 +34,7 @@ t.describe('ng-seed/universal', () => {
           const res = reducer(undefined, action);
 
           t.e(res)
-            .toBe(initialState);
+            .toEqual(initialState);
         });
 
         t.describe('i18nUseLanguage', () => {

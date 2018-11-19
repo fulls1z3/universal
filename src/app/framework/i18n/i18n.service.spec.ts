@@ -60,7 +60,7 @@ t.describe('ng-seed/universal', () => {
           const language = i18n.getLanguageByCode('en');
 
           t.e(language.code)
-            .toBe('en');
+            .toEqual('en');
         }));
 
       t.it('should get default language (by code)',
@@ -71,7 +71,7 @@ t.describe('ng-seed/universal', () => {
           const language = i18n.getLanguageByCode('fr');
 
           t.e(language.code)
-            .toBe('en');
+            .toEqual('en');
         }));
     });
 
@@ -97,7 +97,7 @@ t.describe('ng-seed/universal', () => {
           const languageCode = i18n.getLanguageCodeFromBrowser();
 
           t.e(languageCode)
-            .toBe('en');
+            .toEqual('en');
         }));
     });
 
@@ -110,9 +110,9 @@ t.describe('ng-seed/universal', () => {
             const languageCode = i18n.getLanguageCodeFromBrowser();
 
             t.e(win.navigator.language)
-              .toBe('fr-FR');
+              .toEqual('fr-FR');
             t.e(languageCode)
-              .toBe('fr');
+              .toEqual('fr');
           }));
     });
 
@@ -129,7 +129,7 @@ t.describe('ng-seed/universal', () => {
             t.e(win.navigator.language)
               .toBeUndefined();
             t.e(languageCode)
-              .toBe('en');
+              .toEqual('en');
           }));
     });
   });

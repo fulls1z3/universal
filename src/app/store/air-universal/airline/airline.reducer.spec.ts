@@ -19,12 +19,12 @@ t.describe('ng-seed/universal', () => {
         const res = reducer(undefined, action);
 
         t.e(res)
-          .toBe(initialState);
+          .toEqual(initialState);
       });
 
       t.describe('airUniversalGetAllAirlines', () => {
         t.it('should return the `isProcessing` on the state', () => {
-          const action = airlineActions.airUniversalGetAllAirlines(MOCK_AIRLINE._id);
+          const action = airlineActions.airUniversalGetAllAirlines();
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -105,7 +105,11 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalCreateOneAirline', () => {
         t.it('should return the `isProcessing` on the state', () => {
-          const action = airlineActions.airUniversalCreateOneAirline({resource: MOCK_AIRLINE, router: undefined, route: undefined});
+          const action = airlineActions.airUniversalCreateOneAirline({
+            resource: MOCK_AIRLINE,
+            router: undefined,
+            route: undefined
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -125,7 +129,10 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalCreateOneAirlineFail', () => {
         t.it('should return the `error` on the state', () => {
-          const action = airlineActions.airUniversalCreateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERROR__NO_PAYLOAD.message});
+          const action = airlineActions.airUniversalCreateOneAirlineFail({
+            id: EMPTY_UNIQUE_ID,
+            error: ERROR__NO_PAYLOAD.message
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -137,7 +144,11 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalUpdateOneAirline', () => {
         t.it('should return the `isProcessing` on the state', () => {
-          const action = airlineActions.airUniversalUpdateOneAirline({resource: MOCK_AIRLINE, router: undefined, route: undefined});
+          const action = airlineActions.airUniversalUpdateOneAirline({
+            resource: MOCK_AIRLINE,
+            router: undefined,
+            route: undefined
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -157,7 +168,10 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalUpdateOneAirlineFail', () => {
         t.it('should return the `error` on the state', () => {
-          const action = airlineActions.airUniversalUpdateOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERROR__NO_PAYLOAD.message});
+          const action = airlineActions.airUniversalUpdateOneAirlineFail({
+            id: EMPTY_UNIQUE_ID,
+            error: ERROR__NO_PAYLOAD.message
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -169,7 +183,11 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalDeleteOneAirline', () => {
         t.it('should return the `isProcessing` on the state', () => {
-          const action = airlineActions.airUniversalDeleteOneAirline({id: MOCK_AIRLINE._id, router: undefined, route: undefined});
+          const action = airlineActions.airUniversalDeleteOneAirline({
+            id: MOCK_AIRLINE._id,
+            router: undefined,
+            route: undefined
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
@@ -191,7 +209,10 @@ t.describe('ng-seed/universal', () => {
 
       t.describe('airUniversalDeleteOneAirlineFail', () => {
         t.it('should return the `error` on the state', () => {
-          const action = airlineActions.airUniversalDeleteOneAirlineFail({id: EMPTY_UNIQUE_ID, error: ERROR__NO_PAYLOAD.message});
+          const action = airlineActions.airUniversalDeleteOneAirlineFail({
+            id: EMPTY_UNIQUE_ID,
+            error: ERROR__NO_PAYLOAD.message
+          });
           const res = reducer(initialState, action);
 
           t.e(res.isProcessing)
