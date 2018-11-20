@@ -54,7 +54,7 @@
     "@angular/platform-server": "~7.0.4",
     "@angular/router": "~7.0.4",
     "@angular/cdk": "~7.0.4",
-    "@angular/material": "~7.0.4",
+    "@angular/material": "~7.1.0",
     "@angular/flex-layout": "7.0.0-beta.19",
     "core-js": "~2.5.7",
     "reflect-metadata": "~0.1.12",
