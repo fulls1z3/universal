@@ -41,7 +41,8 @@ const testModuleConfig = () => {
 t.describe('ng-seed/universal', () => {
   t.describe('framework', () => {
     t.describe('store', () => {
-        t.describe('i18n: LanguageEffects', () => {
+      t.describe('i18n', () => {
+        t.describe('language: LanguageEffects', () => {
           t.be(testModuleConfig);
 
           t.it('should build without a problem',
@@ -128,6 +129,7 @@ t.describe('ng-seed/universal', () => {
                 }));
           });
         });
+      });
     });
   });
 });

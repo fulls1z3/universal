@@ -55,60 +55,64 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
 };
 
 t.describe('ng-seed/universal', () => {
-  t.describe('+air-universal/airline/airline-detail: AirlineDetailComponent', () => {
-    t.be(() => testModuleConfig());
+  t.describe('+air-universal', () => {
+    t.describe('airline', () => {
+      t.describe('airline-detail: AirlineDetailComponent', () => {
+        t.be(() => testModuleConfig());
 
-    t.it('should build without a problem', () => {
-      const fixture = TestBed.createComponent(AirlineDetailComponent);
-      const instance = fixture.componentInstance;
+        t.it('should build without a problem', () => {
+          const fixture = TestBed.createComponent(AirlineDetailComponent);
+          const instance = fixture.componentInstance;
 
-      fixture.detectChanges();
+          fixture.detectChanges();
 
-      t.e(instance)
-        .toBeTruthy();
-    });
+          t.e(instance)
+            .toBeTruthy();
+        });
 
-    t.it('should emit `saveClick` on save button click', () => {
-      const fixture = TestBed.createComponent(AirlineDetailComponent);
-      const instance = fixture.componentInstance;
-      const spy = t.spyOn(instance.saveClick, 'emit');
+        t.it('should emit `saveClick` on save button click', () => {
+          const fixture = TestBed.createComponent(AirlineDetailComponent);
+          const instance = fixture.componentInstance;
+          const spy = t.spyOn(instance.saveClick, 'emit');
 
-      fixture.detectChanges();
+          fixture.detectChanges();
 
-      const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
-      saveButton.triggerEventHandler('click', {});
+          const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
+          saveButton.triggerEventHandler('click', {});
 
-      t.e(spy)
-        .toHaveBeenCalled();
-    });
-  });
+          t.e(spy)
+            .toHaveBeenCalled();
+        });
+      });
 
-  t.describe('+air-universal/airline/airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
-    t.be(() => testModuleConfig(RenderFlag.Update));
+      t.describe('+air-universal/airline/airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
+        t.be(() => testModuleConfig(RenderFlag.Update));
 
-    t.it('should build without a problem', () => {
-      const fixture = TestBed.createComponent(AirlineDetailComponent);
-      const instance = fixture.componentInstance;
-      instance.airline = MOCK_AIRLINE;
+        t.it('should build without a problem', () => {
+          const fixture = TestBed.createComponent(AirlineDetailComponent);
+          const instance = fixture.componentInstance;
+          instance.airline = MOCK_AIRLINE;
 
-      fixture.detectChanges();
+          fixture.detectChanges();
 
-      t.e(instance)
-        .toBeTruthy();
-    });
+          t.e(instance)
+            .toBeTruthy();
+        });
 
-    t.it('should emit `deleteClick` on delete button click', () => {
-      const fixture = TestBed.createComponent(AirlineDetailComponent);
-      const instance = fixture.componentInstance;
-      const spy = t.spyOn(instance.deleteClick, 'emit');
+        t.it('should emit `deleteClick` on delete button click', () => {
+          const fixture = TestBed.createComponent(AirlineDetailComponent);
+          const instance = fixture.componentInstance;
+          const spy = t.spyOn(instance.deleteClick, 'emit');
 
-      fixture.detectChanges();
+          fixture.detectChanges();
 
-      const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));
-      deleteButton.triggerEventHandler('click', {});
+          const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));
+          deleteButton.triggerEventHandler('click', {});
 
-      t.e(spy)
-        .toHaveBeenCalled();
+          t.e(spy)
+            .toHaveBeenCalled();
+        });
+      });
     });
   });
 });
