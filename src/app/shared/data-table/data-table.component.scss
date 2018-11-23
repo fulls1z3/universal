@@ -5,7 +5,11 @@
 @import '~src/assets/sass/mixin/bem';
 
 :host {
-  min-width: 90%;
+  display: flex;
+  max-width: 100%;
+  flex: 1 1 100%;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .toolbar {
