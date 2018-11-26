@@ -85,7 +85,7 @@
     "ngx-perfect-scrollbar": "~7.0.0"
   },
   "devDependencies": {
-    "@angular/cli": "~7.0.6",
+    "@angular/cli": "~7.1.0",
     "@angular/compiler": "~7.0.4",
     "@angular/compiler-cli": "~7.0.4",
     "@angular/language-service": "~7.0.4",
