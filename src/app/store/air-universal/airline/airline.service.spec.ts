@@ -1,7 +1,6 @@
 // angular
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
@@ -15,16 +14,13 @@ import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { AirlineService } from './airline.service';
 
 const testModuleConfig = () => {
-  TestBed.resetTestEnvironment();
-
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-    .configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        CoreTestingModule
-      ],
-      providers: [AirlineService]
-    });
+  TestBed.configureTestingModule({
+    imports: [
+      HttpClientTestingModule,
+      CoreTestingModule
+    ],
+    providers: [AirlineService]
+  });
 };
 
 t.describe('ng-seed/universal', () => {
@@ -75,13 +71,13 @@ t.describe('ng-seed/universal', () => {
               http.verify();
             })));
 
-        t.it('should `createMany$`',
+        t.it('should block `createMany$`',
           t.async(
             t.inject([AirlineService], (airline: AirlineService) => {
               airline.createMany$(undefined)
                 .subscribe(res => {
                   t.e(res)
-                    .toEqual(undefined);
+                    .toBeUndefined();
                 });
             })));
 
@@ -96,13 +92,13 @@ t.describe('ng-seed/universal', () => {
                 });
             })));
 
-        t.it('should `updateMany$`',
+        t.it('should block `updateMany$`',
           t.async(
             t.inject([AirlineService], (airline: AirlineService) => {
               airline.updateMany$(undefined)
                 .subscribe(res => {
                   t.e(res)
-                    .toEqual(undefined);
+                    .toBeUndefined();
                 });
             })));
 
@@ -117,13 +113,13 @@ t.describe('ng-seed/universal', () => {
                 });
             })));
 
-        t.it('should `deleteMany$`',
+        t.it('should block `deleteMany$`',
           t.async(
             t.inject([AirlineService], (airline: AirlineService) => {
               airline.deleteMany$([EMPTY_UNIQUE_ID])
                 .subscribe(res => {
                   t.e(res)
-                    .toEqual(undefined);
+                    .toBeUndefined();
                 });
             })));
 

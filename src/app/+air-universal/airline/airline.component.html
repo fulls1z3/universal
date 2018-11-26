@@ -11,7 +11,7 @@
                     [options]="airlineTable.options"
                     (refreshClick)="refresh()">
         <app-menu-group cssClass="qa-menu" icon="more_vert" tooltip="PUBLIC.SHARED.ACTION.TOOLTIP">
-            <app-menu-item cssClass="qa-menu_item__create" icon="add" label="{{ 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE' | translate }}"
+            <app-menu-item cssClass="qa-menu_item__create" icon="add" text="{{ 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE' | translate }}"
                            (menuClick)="createAirline()">
             </app-menu-item>
         </app-menu-group>

@@ -12,7 +12,8 @@
             </span>
             <span fxFlex></span>
             <span>
-                <button mat-icon-button
+                <button *ngIf="!disableRefresh"
+                        mat-icon-button
                         class="qa-toolbar__refresh"
                         matTooltip="{{ 'PUBLIC.SHARED.WIDGET.REFRESH_TOOLTIP' | translate }}"
                         matTooltipPosition="below"
@@ -27,7 +28,7 @@
                             [ngClass]="item.cssClass"
                             (click)="onClick(item.menuClick)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
-                        <span>{{ item.label }}</span>
+                        <span>{{ item.text }}</span>
                     </button>
                 </mat-menu>
                 <button mat-icon-button
@@ -73,11 +74,11 @@
                         <ng-container *ngFor="let button of buttons; trackBy: trackByFn" [ngSwitch]="button.type">
                             <button *ngSwitchCase="'button'" mat-menu-item (click)="button.menuClick(getParams(row, button))">
                                 <mat-icon *ngIf="button.icon">{{ button.icon }}</mat-icon>
-                                <span>{{ button.label | translate }}</span>
+                                <span>{{ button.text | translate }}</span>
                             </button>
                             <button *ngSwitchCase="'link-button'" mat-menu-item [routerLink]="getRoute(row, button)">
                                 <mat-icon *ngIf="button.icon">{{ button.icon }}</mat-icon>
-                                <span>{{ button.label | translate }}</span>
+                                <span>{{ button.text | translate }}</span>
                             </button>
                         </ng-container>
                     </mat-menu>

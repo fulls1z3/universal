@@ -63,7 +63,6 @@ t.describe('ng-seed/universal', () => {
         t.it('should build without a problem', () => {
           const fixture = TestBed.createComponent(AirlineDetailComponent);
           const instance = fixture.componentInstance;
-
           fixture.detectChanges();
 
           t.e(instance)
@@ -74,7 +73,6 @@ t.describe('ng-seed/universal', () => {
           const fixture = TestBed.createComponent(AirlineDetailComponent);
           const instance = fixture.componentInstance;
           const spy = t.spyOn(instance.saveClick, 'emit');
-
           fixture.detectChanges();
 
           const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
@@ -85,14 +83,13 @@ t.describe('ng-seed/universal', () => {
         });
       });
 
-      t.describe('+air-universal/airline/airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
+      t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
         t.be(() => testModuleConfig(RenderFlag.Update));
 
         t.it('should build without a problem', () => {
           const fixture = TestBed.createComponent(AirlineDetailComponent);
           const instance = fixture.componentInstance;
           instance.airline = MOCK_AIRLINE;
-
           fixture.detectChanges();
 
           t.e(instance)
@@ -103,7 +100,6 @@ t.describe('ng-seed/universal', () => {
           const fixture = TestBed.createComponent(AirlineDetailComponent);
           const instance = fixture.componentInstance;
           const spy = t.spyOn(instance.deleteClick, 'emit');
-
           fixture.detectChanges();
 
           const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));

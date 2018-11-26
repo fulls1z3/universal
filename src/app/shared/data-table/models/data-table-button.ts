@@ -1,18 +1,17 @@
 export interface DataTableButton {
   type: string;
+  cssClass: string;
+  icon: string;
+  text: string;
   menuClick: any;
-  label: string;
-  icon?: string;
   params?: Array<any>;
 }
 
-export const buttonFactory = (menuClick: any,
-                              label: string,
-                              icon?: string,
-                              params?: Array<any>): DataTableButton => ({
+export const createButton = (cssClass: string, icon: string, text: string, menuClick: any, params?: Array<any>) => ({
   type: 'button',
-  menuClick,
-  label,
+  cssClass,
   icon,
+  text,
+  menuClick,
   params
 });
