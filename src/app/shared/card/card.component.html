@@ -13,7 +13,7 @@
                             [ngClass]="item.cssClass"
                             (click)="onClick(item.menuClick, item.isDialog)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
-                        <span>{{ item.label }}</span>
+                        <span>{{ item.text }}</span>
                     </button>
                 </mat-menu>
                 <button mat-icon-button

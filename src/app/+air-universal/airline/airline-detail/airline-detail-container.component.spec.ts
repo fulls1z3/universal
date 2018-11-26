@@ -68,13 +68,12 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
 t.describe('ng-seed/universal', () => {
   t.describe('+air-universal', () => {
     t.describe('airline', () => {
-      t.describe('airline-detail-container: AirlineDetailContainerComponent', () => {
+      t.describe('airline-detail: AirlineDetailContainerComponent', () => {
         t.be(() => testModuleConfig());
 
         t.it('should build without a problem', () => {
           const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
           const instance = fixture.componentInstance;
-
           fixture.detectChanges();
 
           t.e(instance)
@@ -88,7 +87,6 @@ t.describe('ng-seed/universal', () => {
             const state = getState<Airline>(AIRLINE);
             store$.setState(state);
             const spy = t.spyOn(store$, 'dispatch');
-
             fixture.detectChanges();
 
             const action = airlineActions.airUniversalAddOneAirline();
@@ -107,7 +105,6 @@ t.describe('ng-seed/universal', () => {
             const state = getState<Airline>(AIRLINE);
             store$.setState(state);
             const spy = t.spyOn(store$, 'dispatch');
-
             fixture.detectChanges();
 
             const saveClick = flow(
@@ -132,7 +129,7 @@ t.describe('ng-seed/universal', () => {
           }));
       });
 
-      t.describe('+air-universal/airline/airline-detail-container: AirlineDetailContainerComponent for renderFlag=`Update`', () => {
+      t.describe('airline-detail: AirlineDetailContainerComponent for renderFlag=`Update`', () => {
         t.be(() => testModuleConfig(RenderFlag.Update));
 
         t.it('should dispatch `airUniversalGetOneAirline` action on init',
@@ -142,7 +139,6 @@ t.describe('ng-seed/universal', () => {
             const store$ = TestBed.get(Store);
             store$.setState(state);
             const spy = t.spyOn(store$, 'dispatch');
-
             fixture.detectChanges();
 
             const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
@@ -161,7 +157,6 @@ t.describe('ng-seed/universal', () => {
             const state = getState<Airline>(AIRLINE);
             store$.setState(state);
             const spy = t.spyOn(store$, 'dispatch');
-
             fixture.detectChanges();
 
             const saveClick = flow(
@@ -192,7 +187,6 @@ t.describe('ng-seed/universal', () => {
             const state = getState<Airline>(AIRLINE);
             store$.setState(state);
             const spy = t.spyOn(store$, 'dispatch');
-
             fixture.detectChanges();
 
             const deleteClick = flow(

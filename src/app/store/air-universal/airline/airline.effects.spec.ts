@@ -1,7 +1,6 @@
 // angular
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 
 // libs
@@ -25,24 +24,21 @@ import { AirlineEffects } from './airline.effects';
 import { AirlineService } from './airline.service';
 
 const testModuleConfig = () => {
-  TestBed.resetTestEnvironment();
-
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-    .configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        CoreTestingModule,
-        NgrxTestingModule,
-        RouterTestingModule
-      ],
-      providers: [
-        AirlineEffects,
-        {
-          provide: AirlineService,
-          useClass: MockAirlineService
-        }
-      ]
-    });
+  TestBed.configureTestingModule({
+    imports: [
+      HttpClientTestingModule,
+      CoreTestingModule,
+      NgrxTestingModule,
+      RouterTestingModule
+    ],
+    providers: [
+      AirlineEffects,
+      {
+        provide: AirlineService,
+        useClass: MockAirlineService
+      }
+    ]
+  });
 };
 
 t.describe('ng-seed/universal', () => {
@@ -154,6 +150,27 @@ t.describe('ng-seed/universal', () => {
                   .toBeObservable(expected);
               }));
 
+          t.it('should dispatch `airUniversalCreateOneAirlineFail` action, w/o payload',
+            t.inject([Router, AirlineEffects],
+              (router: Router, effects: AirlineEffects) => {
+                const action = airlineActions.airUniversalCreateOneAirline({
+                  resource: undefined,
+                  router,
+                  route: undefined
+                });
+                const completion = airlineActions.airUniversalCreateOneAirlineFail({
+                  id: EMPTY_UNIQUE_ID,
+                  error: ERROR__NO_PAYLOAD.message
+                });
+
+                const actions$ = TestBed.get(Actions);
+                actions$.stream = hot('-a', {a: action});
+                const expected = cold('-c', {c: completion});
+
+                (t.e(effects.createOne$) as any)
+                  .toBeObservable(expected);
+              }));
+
           t.it('should dispatch `airUniversalCreateOneAirlineFail` action, on fail',
             t.inject([Router, AirlineEffects, AirlineService],
               (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
@@ -198,7 +215,7 @@ t.describe('ng-seed/universal', () => {
               }));
 
           t.it('should dispatch `airUniversalUpdateOneAirlineFail` action, w/o payload',
-            t.inject([Router, AirlineEffects, AirlineService],
+            t.inject([Router, AirlineEffects],
               (router: Router, effects: AirlineEffects) => {
                 const action = airlineActions.airUniversalUpdateOneAirline({
                   resource: undefined,
@@ -262,7 +279,7 @@ t.describe('ng-seed/universal', () => {
               }));
 
           t.it('should dispatch `airUniversalDeleteOneAirlineFail` action, w/o payload',
-            t.inject([Router, AirlineEffects, AirlineService],
+            t.inject([Router, AirlineEffects],
               (router: Router, effects: AirlineEffects) => {
                 const action = airlineActions.airUniversalDeleteOneAirline({
                   id: undefined,

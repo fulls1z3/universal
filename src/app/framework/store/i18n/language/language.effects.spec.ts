@@ -1,6 +1,5 @@
 // angular
 import { TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // libs
@@ -23,19 +22,16 @@ import { languageActions } from '~/app/framework/store';
 import { LanguageEffects } from './language.effects';
 
 const testModuleConfig = () => {
-  TestBed.resetTestEnvironment();
-
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-    .configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        CoreTestingModule,
-        NgrxTestingModule,
-        I18NTestingModule,
-        AnalyticsModule
-      ],
-      providers: [LanguageEffects]
-    });
+  TestBed.configureTestingModule({
+    imports: [
+      RouterTestingModule,
+      CoreTestingModule,
+      NgrxTestingModule,
+      I18NTestingModule,
+      AnalyticsModule
+    ],
+    providers: [LanguageEffects]
+  });
 };
 
 t.describe('ng-seed/universal', () => {

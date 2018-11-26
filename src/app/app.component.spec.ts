@@ -34,7 +34,6 @@ t.describe('ng-seed/universal', () => {
     t.it('should build without a problem', () => {
       const fixture = TestBed.createComponent(AppComponent);
       const instance = fixture.componentInstance;
-
       fixture.detectChanges();
 
       t.e(instance)
@@ -46,7 +45,6 @@ t.describe('ng-seed/universal', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const store$ = fixture.debugElement.injector.get(Store);
         const spy = t.spyOn(store$, 'dispatch');
-
         fixture.detectChanges();
 
         const settings = config.getSettings('i18n');

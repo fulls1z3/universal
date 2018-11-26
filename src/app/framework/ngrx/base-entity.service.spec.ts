@@ -2,7 +2,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
@@ -29,22 +28,19 @@ export const MOCK_ITEM = {
 };
 
 const testModuleConfig = () => {
-  TestBed.resetTestEnvironment();
-
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-    .configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        CoreTestingModule
-      ],
-      providers: [
-        {
-          provide: MockEntityService,
-          useFactory: (config: ConfigService, http: HttpClient) => new MockEntityService(config, http, 'backend.test.remote'),
-          deps: [ConfigService, HttpClient]
-        }
-      ]
-    });
+  TestBed.configureTestingModule({
+    imports: [
+      HttpClientTestingModule,
+      CoreTestingModule
+    ],
+    providers: [
+      {
+        provide: MockEntityService,
+        useFactory: (config: ConfigService, http: HttpClient) => new MockEntityService(config, http, 'backend.test.remote'),
+        deps: [ConfigService, HttpClient]
+      }
+    ]
+  });
 };
 
 t.describe('ng-seed/universal', () => {

@@ -1,6 +1,5 @@
 // angular
 import { TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
@@ -15,12 +14,9 @@ import { reducer } from './language.reducer';
 import { initialState } from './language.state';
 
 const testModuleConfig = () => {
-  TestBed.resetTestEnvironment();
-
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting())
-    .configureTestingModule({
-      imports: [CoreTestingModule]
-    });
+  TestBed.configureTestingModule({
+    imports: [CoreTestingModule]
+  });
 };
 
 t.describe('ng-seed/universal', () => {
@@ -46,7 +42,7 @@ t.describe('ng-seed/universal', () => {
                 const res = reducer(initialState, action);
 
                 t.e(res.isProcessing)
-                  .toEqual(true);
+                  .toBeTruthy();
               }));
           });
 

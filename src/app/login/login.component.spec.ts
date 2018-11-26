@@ -62,7 +62,6 @@ t.describe('ng-seed/universal', () => {
     t.it('should build without a problem', () => {
       const fixture = TestBed.createComponent(LoginComponent);
       const instance = fixture.debugElement.componentInstance;
-
       fixture.detectChanges();
 
       t.e(instance)
@@ -73,7 +72,6 @@ t.describe('ng-seed/universal', () => {
       t.async(
         t.inject([AuthService, Router], (auth: AuthService, router: Router) => {
           const fixture = TestBed.createComponent(LoginComponent);
-
           fixture.detectChanges();
 
           auth.authenticate('valid', 'valid')
@@ -86,12 +84,10 @@ t.describe('ng-seed/universal', () => {
     t.it('should authenticate w/valid combination', () => {
       const fixture = TestBed.createComponent(LoginComponent);
       const instance = fixture.debugElement.componentInstance;
-
       fixture.detectChanges();
 
       instance.username = 'valid';
       instance.password = 'valid';
-
       instance.login();
 
       t.e(instance.note$)
@@ -106,12 +102,10 @@ t.describe('ng-seed/universal', () => {
 
         const fixture = TestBed.createComponent(LoginComponent);
         const instance = fixture.debugElement.componentInstance;
-
         fixture.detectChanges();
 
         instance.username = 'invalid';
         instance.password = 'invalid';
-
         instance.login();
 
         t.e(instance.note$)

@@ -3,7 +3,7 @@ import { t } from '~/app/framework/testing';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
 
 // app
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
+import { EMPTY_UNIQUE_ID, entityReducer } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
 // module
@@ -29,7 +29,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(true);
+              .toBeTruthy();
           });
         });
 
@@ -40,11 +40,15 @@ t.describe('ng-seed/universal', () => {
 
             const ids = MOCK_AIRLINES
               .map(cur => cur._id);
+            const entities = MOCK_AIRLINES
+              .reduce(entityReducer, {});
 
-            t.e(res.isProcessing)
-              .toEqual(false);
             t.e(res.ids)
               .toEqual(ids);
+            t.e(res.entities)
+              .toEqual(entities);
+            t.e(res.isProcessing)
+              .toBeFalsy();
           });
         });
 
@@ -54,7 +58,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
             t.e(res.error)
               .toEqual(ERROR__NO_PAYLOAD.message);
           });
@@ -66,7 +70,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(true);
+              .toBeTruthy();
           });
         });
 
@@ -75,10 +79,10 @@ t.describe('ng-seed/universal', () => {
             const action = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
             const res = reducer(initialState, action);
 
-            t.e(res.isProcessing)
-              .toEqual(false);
             t.e(res.selectedId)
               .toEqual(MOCK_AIRLINE._id);
+            t.e(res.isProcessing)
+              .toBeFalsy();
           });
         });
 
@@ -88,7 +92,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
             t.e(res.error)
               .toEqual(ERROR__NO_PAYLOAD.message);
           });
@@ -114,17 +118,26 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(true);
+              .toBeTruthy();
           });
         });
 
         t.describe('airUniversalCreateOneAirlineSuccess', () => {
-          t.it('should return the `isProcessing` on the state', () => {
+          t.it('should return the `ids & entities` on the state', () => {
+            const add = airlineActions.airUniversalAddOneAirline();
+            const addState = reducer(initialState, add);
             const action = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
-            const res = reducer(initialState, action);
+            const res = reducer(addState, action);
 
+            const ids = [MOCK_AIRLINE._id];
+            const entities = {[MOCK_AIRLINE._id]: MOCK_AIRLINE};
+
+            t.e(res.ids)
+              .toEqual(ids);
+            t.e(res.entities)
+              .toEqual(entities);
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
           });
         });
 
@@ -137,7 +150,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
             t.e(res.error)
               .toEqual(ERROR__NO_PAYLOAD.message);
           });
@@ -153,17 +166,28 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(true);
+              .toBeTruthy();
           });
         });
 
         t.describe('airUniversalUpdateOneAirlineSuccess', () => {
-          t.it('should return the `isProcessing` on the state', () => {
+          t.it('should return the `ids & entities` on the state', () => {
+            const add = airlineActions.airUniversalAddOneAirline();
+            const addState = reducer(initialState, add);
+            const create = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
+            const createState = reducer(addState, create);
             const action = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
-            const res = reducer(initialState, action);
+            const res = reducer(createState, action);
 
+            const ids = [MOCK_AIRLINE._id];
+            const entities = {[MOCK_AIRLINE._id]: MOCK_AIRLINE};
+
+            t.e(res.ids)
+              .toEqual(ids);
+            t.e(res.entities)
+              .toEqual(entities);
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
           });
         });
 
@@ -176,7 +200,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
             t.e(res.error)
               .toEqual(ERROR__NO_PAYLOAD.message);
           });
@@ -192,19 +216,25 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(true);
+              .toBeTruthy();
           });
         });
 
         t.describe('airUniversalDeleteOneAirlineSuccess', () => {
           t.it('should return the `ids & entities` on the state', () => {
+            const add = airlineActions.airUniversalAddOneAirline();
+            const addState = reducer(initialState, add);
+            const create = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
+            const createState = reducer(addState, create);
             const action = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE._id);
-            const res = reducer(initialState, action);
+            const res = reducer(createState, action);
 
-            t.e(res.isProcessing)
-              .toEqual(false);
             t.e(res.ids)
               .toEqual([]);
+            t.e(res.entities)
+              .toEqual({});
+            t.e(res.isProcessing)
+              .toBeFalsy();
           });
         });
 
@@ -217,7 +247,7 @@ t.describe('ng-seed/universal', () => {
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
-              .toEqual(false);
+              .toBeFalsy();
             t.e(res.error)
               .toEqual(ERROR__NO_PAYLOAD.message);
           });
