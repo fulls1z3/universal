@@ -6,6 +6,8 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/ng-seed/universal.svg)](https://greenkeeper.io/)
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 [![Join the chat at https://gitter.im/ng-seed-universal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-seed-universal/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/context:javascript)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/alerts)
 
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
