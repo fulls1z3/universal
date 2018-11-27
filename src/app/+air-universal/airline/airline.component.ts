@@ -1,5 +1,5 @@
 // angular
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // libs
@@ -16,6 +16,7 @@ import { routeAnimation } from '~/app/app.animations';
 @Component({
   templateUrl: './airline.component.html',
   styleUrls: ['./airline.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [routeAnimation]
 })
 export class AirlineComponent extends BaseContainerComponent implements OnInit {
@@ -47,9 +48,9 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
     this.error$ = this.store$
       .pipe(select(AirlineSelectors.getError));
     this.airlines$ = this.store$
-      .pipe(select(AirlineSelectors.getAll));
+      .pipe(select(AirlineSelectors.getMany));
 
-    this.store$.dispatch(airlineActions.airUniversalGetAllAirlines());
+    this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
 
   createAirline(): void {
@@ -57,6 +58,6 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   }
 
   refresh(): void {
-    this.store$.dispatch(airlineActions.airUniversalGetAllAirlines());
+    this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
 }

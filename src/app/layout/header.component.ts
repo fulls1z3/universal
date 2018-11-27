@@ -16,6 +16,8 @@ import { LanguageSelectors, State } from '~/app/store';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['header.component.scss']
+  // TODO: maintain immutability
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
   title: string;

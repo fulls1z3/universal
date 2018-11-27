@@ -8,10 +8,13 @@
   @include mat_toolbar;
 
   @include el('title') {
-    @include push--left(rem(0.5));
     @include truncate;
 
     font-size: $font-size;
+
+    @include mod('icon') {
+      @include push--left(rem(0.5));
+    }
   }
 }
 

@@ -18,6 +18,8 @@ t.describe('ng-seed/universal', () => {
           .toEqual(
             {
               ...preState,
+              ids: [],
+              entities: {},
               isProcessing: true,
               selectedId: undefined
             }
@@ -49,6 +51,8 @@ t.describe('ng-seed/universal', () => {
           .toEqual(
             {
               ...preState,
+              ids: [],
+              entities: {},
               isProcessing: false,
               selectedId: undefined,
               error: ERROR_MESSAGE

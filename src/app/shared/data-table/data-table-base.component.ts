@@ -42,7 +42,11 @@ export class DataTableBaseComponent extends BaseComponent {
     super();
   }
 
-  onClick(callback: EventEmitter<string>): void {
+  onMenuClick(callback: EventEmitter<string>): void {
+    callback.emit();
+  }
+
+  onRefresh(callback: EventEmitter<void>): void {
     callback.emit();
   }
 

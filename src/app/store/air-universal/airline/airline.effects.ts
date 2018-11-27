@@ -17,12 +17,12 @@ import { AirlineService } from './airline.service';
 
 @Injectable()
 export class AirlineEffects {
-  @Effect() getAll$ = this.actions$.pipe(
-    filter(airlineActions.is.airUniversalGetAllAirlines),
+  @Effect() getMany$ = this.actions$.pipe(
+    filter(airlineActions.is.airUniversalGetManyAirlines),
     switchMap(() => this.airline.getMany$()
       .pipe(
-        map(airlineActions.airUniversalGetAllAirlinesSuccess),
-        catchError(error => observableOf(airlineActions.airUniversalGetAllAirlinesFail(error.message)))))
+        map(airlineActions.airUniversalGetManyAirlinesSuccess),
+        catchError(error => observableOf(airlineActions.airUniversalGetManyAirlinesFail(error.message)))))
   );
 
   @Effect() getOne$ = this.actions$.pipe(

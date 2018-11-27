@@ -15,9 +15,9 @@ import { adapter, initialState, State } from './airline.state';
 
 export function reducer(state: State = initialState, action: AirlineAction): State {
   return airlineActions.match({
-    airUniversalGetAllAirlines: () => entityStartProcessingFn<State>(state),
-    airUniversalGetAllAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
-    airUniversalGetAllAirlinesFail: entityErrorFn<State>(state),
+    airUniversalGetManyAirlines: () => entityStartProcessingFn<State>(state),
+    airUniversalGetManyAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
+    airUniversalGetManyAirlinesFail: entityErrorFn<State>(state),
     airUniversalGetOneAirline: () => entityStartProcessingFn<State>(state),
     airUniversalGetOneAirlineSuccess: (airline: Airline) => adapter.addOne(airline, {
       ...entityStopProcessingFn<State>(state),

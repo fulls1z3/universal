@@ -1,5 +1,5 @@
 // angular
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 // libs
 import { Store } from '@ngrx/store';
@@ -13,7 +13,8 @@ import { languageActions, State } from '~/app/store';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent extends BaseComponent implements OnInit {
   constructor(private readonly store$: Store<State>,

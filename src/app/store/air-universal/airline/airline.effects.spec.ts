@@ -53,34 +53,34 @@ t.describe('ng-seed/universal', () => {
               .toBeTruthy();
           }));
 
-        t.describe('getAll$', () => {
-          t.it('should dispatch `airUniversalGetAllAirlinesSuccess` action, on success',
+        t.describe('getMany$', () => {
+          t.it('should dispatch `airUniversalGetManyAirlinesSuccess` action, on success',
             t.inject([AirlineEffects],
               (effects: AirlineEffects) => {
-                const action = airlineActions.airUniversalGetAllAirlines();
-                const completion = airlineActions.airUniversalGetAllAirlinesSuccess(MOCK_AIRLINES);
+                const action = airlineActions.airUniversalGetManyAirlines();
+                const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
 
                 const actions$ = TestBed.get(Actions);
                 actions$.stream = hot('-a', {a: action});
                 const expected = cold('-c', {c: completion});
 
-                (t.e(effects.getAll$) as any)
+                (t.e(effects.getMany$) as any)
                   .toBeObservable(expected);
               }));
 
-          t.it('should dispatch `airUniversalGetAllAirlinesFail` action, on fail',
+          t.it('should dispatch `airUniversalGetManyAirlinesFail` action, on fail',
             t.inject([AirlineEffects, AirlineService],
               (effects: AirlineEffects, airline: MockAirlineService) => {
                 airline.isFailing = true;
 
-                const action = airlineActions.airUniversalGetAllAirlines();
-                const completion = airlineActions.airUniversalGetAllAirlinesFail(ERROR__NO_PAYLOAD.message);
+                const action = airlineActions.airUniversalGetManyAirlines();
+                const completion = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
 
                 const actions$ = TestBed.get(Actions);
                 actions$.stream = hot('-a', {a: action});
                 const expected = cold('-c', {c: completion});
 
-                (t.e(effects.getAll$) as any)
+                (t.e(effects.getMany$) as any)
                   .toBeObservable(expected);
               }));
         });
