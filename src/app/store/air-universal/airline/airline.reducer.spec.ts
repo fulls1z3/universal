@@ -23,9 +23,9 @@ t.describe('ng-seed/universal', () => {
             .toEqual(initialState);
         });
 
-        t.describe('airUniversalGetAllAirlines', () => {
+        t.describe('airUniversalGetManyAirlines', () => {
           t.it('should return the `isProcessing` on the state', () => {
-            const action = airlineActions.airUniversalGetAllAirlines();
+            const action = airlineActions.airUniversalGetManyAirlines();
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)
@@ -33,9 +33,9 @@ t.describe('ng-seed/universal', () => {
           });
         });
 
-        t.describe('airUniversalGetAllAirlinesSuccess', () => {
+        t.describe('airUniversalGetManyAirlinesSuccess', () => {
           t.it('should return the `ids & entities` on the state', () => {
-            const action = airlineActions.airUniversalGetAllAirlinesSuccess(MOCK_AIRLINES);
+            const action = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
             const res = reducer(initialState, action);
 
             const ids = MOCK_AIRLINES
@@ -52,9 +52,9 @@ t.describe('ng-seed/universal', () => {
           });
         });
 
-        t.describe('airUniversalGetAllAirlinesFail', () => {
+        t.describe('airUniversalGetManyAirlinesFail', () => {
           t.it('should return the `error` on the state', () => {
-            const action = airlineActions.airUniversalGetAllAirlinesFail(ERROR__NO_PAYLOAD.message);
+            const action = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
             const res = reducer(initialState, action);
 
             t.e(res.isProcessing)

@@ -1,5 +1,5 @@
 // angular
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 // libs
 import { Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { BaseComponent } from './base.component';
 import { State } from '~/app/store';
 
 @Component({
-  template: ''
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseContainerComponent extends BaseComponent {
   error$: Observable<string>;

@@ -1,7 +1,7 @@
 <mat-card class="data_table">
     <mat-toolbar *ngIf="options.title" class="data_table__toolbar">
         <mat-toolbar-row class="toolbar__row">
-            <span [ngClass]="filterCol ? 'toolbar__row--has-filter' : ''">
+            <span [ngClass]="{'toolbar__row--has-filter': filterCol}">
                 <mat-icon *ngIf="options.icon" class="toolbar__icon">{{ options.icon }}</mat-icon>
                 <span class="toolbar__title">{{ options.title | translate }}</span>
             </span>
@@ -26,7 +26,7 @@
                     <button *ngFor="let item of group.items; trackBy: trackByFn"
                             mat-menu-item
                             [ngClass]="item.cssClass"
-                            (click)="onClick(item.menuClick)">
+                            (click)="onMenuClick(item.menuClick)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
                         <span>{{ item.text }}</span>
                     </button>
@@ -93,7 +93,7 @@
             <mat-header-row *matHeaderRowDef="columns" class="table__row--header"></mat-header-row>
             <mat-row *matRowDef="let row; columns: columns;"
                      class="table__row"
-                     [ngClass]="options.condensed ? 'table__row--is-condensed' : ''"></mat-row>
+                     [ngClass]="{'table__row--is-condensed': options.condensed}"></mat-row>
         </mat-table>
     </div>
     <mat-divider></mat-divider>

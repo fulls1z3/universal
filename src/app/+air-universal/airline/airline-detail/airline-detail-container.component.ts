@@ -1,11 +1,11 @@
 // angular
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // libs
-import { Observable, zip } from 'rxjs';
-import { filter, switchMap, takeUntil } from 'rxjs/operators';
-import { isNil } from 'lodash/fp';
+import { Observable, of as observableOf, zip } from 'rxjs';
+import { skipWhile, switchMap, takeUntil } from 'rxjs/operators';
+import { getOr } from 'lodash/fp';
 import { select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { MetaService } from '@ngx-meta/core';
@@ -20,6 +20,7 @@ import { routeAnimation } from '~/app/app.animations';
 @Component({
   templateUrl: './airline-detail-container.component.html',
   styleUrls: ['./airline-detail-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [routeAnimation]
 })
 export class AirlineDetailContainerComponent extends BaseContainerComponent implements OnInit {
@@ -44,17 +45,15 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
     this.airline$ = this.store$
       .pipe(select(AirlineSelectors.getSelected));
 
-    this.route.data
+    this.airline$
       .pipe(
-        switchMap(res => zip(
-          this.translate.get(res.meta.title),
-          this.airline$
-            .pipe(filter(cur => !isNil(cur)))
-        )),
+        skipWhile(cur => !cur),
+        switchMap(res => zip(this.route.data, observableOf(res))),
+        switchMap(([data, airline]) => zip(this.translate.get(data.meta.title), observableOf(airline))),
         takeUntil(this.ngUnsubscribe)
       )
-      .subscribe(([title, res]) => {
-        const subtitle = res.name;
+      .subscribe(([title, airline]: Array<any>) => {
+        const subtitle = getOr('')('name')(airline);
 
         this.meta.setTitle(subtitle
           ? `${title} - ${subtitle}`

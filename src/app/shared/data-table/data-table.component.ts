@@ -1,5 +1,15 @@
 // angular
-import { AfterViewInit, ChangeDetectorRef, Component, ContentChildren, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild
+} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 // libs
@@ -14,7 +24,8 @@ import { DataTableBaseComponent } from './data-table-base.component';
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.scss']
+  styleUrls: ['./data-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataTableComponent extends DataTableBaseComponent implements AfterViewInit, OnInit {
   @ViewChild('filter') filter: ElementRef;

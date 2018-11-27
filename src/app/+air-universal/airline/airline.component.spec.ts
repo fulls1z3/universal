@@ -54,13 +54,13 @@ t.describe('ng-seed/universal', () => {
           .toBeTruthy();
       });
 
-      t.it('should dispatch `airUniversalGetAllAirlines` action on init', () => {
+      t.it('should dispatch `airUniversalGetManyAirlines` action on init', () => {
         const fixture = TestBed.createComponent(AirlineComponent);
         const store$ = fixture.debugElement.injector.get(Store);
         const spy = t.spyOn(store$, 'dispatch');
         fixture.detectChanges();
 
-        const action = airlineActions.airUniversalGetAllAirlines();
+        const action = airlineActions.airUniversalGetManyAirlines();
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
@@ -68,7 +68,7 @@ t.describe('ng-seed/universal', () => {
           .toHaveBeenCalledTimes(1);
       });
 
-      t.it('should `getAll` from AirlineSelectors on init', () => {
+      t.it('should `getMany` from AirlineSelectors on init', () => {
         const fixture = TestBed.createComponent(AirlineComponent);
         const instance = fixture.componentInstance;
         const store$ = TestBed.get(Store);
@@ -100,7 +100,7 @@ t.describe('ng-seed/universal', () => {
             .toHaveBeenCalledTimes(1);
         }));
 
-      t.it('should dispatch `airUniversalGetAllAirlines` action on refresh button click', () => {
+      t.it('should dispatch `airUniversalGetManyAirlines` action on refresh button click', () => {
         const fixture = TestBed.createComponent(AirlineComponent);
         const store$ = fixture.debugElement.injector.get(Store);
         const spy = t.spyOn(store$, 'dispatch');
@@ -109,12 +109,12 @@ t.describe('ng-seed/universal', () => {
         const refreshButton = fixture.debugElement.query(By.css('button.qa-toolbar__refresh'));
         refreshButton.triggerEventHandler('click', {});
 
-        const action = airlineActions.airUniversalGetAllAirlines();
+        const action = airlineActions.airUniversalGetManyAirlines();
 
         t.e(spy)
           .toHaveBeenCalledWith(action);
         t.e(spy)
-          .toHaveBeenCalledTimes(1);
+          .toHaveBeenCalledTimes(2);
       });
     });
   });

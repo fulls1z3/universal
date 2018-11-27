@@ -14,4 +14,4 @@ export const getError = createSelector(getState, state => get('error')(state));
 export const getSelectedId = createSelector(getState, state => get('selectedId')(state));
 export const getSelected = createSelector(get(`${AIRLINE}.entities`), getSelectedId, (entities, id) => !isNil(id) && entities[id]);
 
-export { selectAll as getAll };
+export { selectAll as getMany };

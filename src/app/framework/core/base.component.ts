@@ -1,5 +1,5 @@
 // angular
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 
 // libs
 import { Subject } from 'rxjs';
@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 import { BaseDocument } from '~/app/framework/ngrx';
 
 @Component({
-  template: ''
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseComponent implements OnDestroy {
   protected ngUnsubscribe: Subject<void>;
