@@ -35,7 +35,6 @@ t.describe('ng-seed/universal', () => {
     t.it('should build without a problem', () => {
       const fixture = TestBed.createComponent(AboutBananaComponent);
       const instance = fixture.componentInstance;
-
       fixture.detectChanges();
 
       t.e(instance)

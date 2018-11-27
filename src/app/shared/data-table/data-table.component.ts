@@ -3,7 +3,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, ContentChildren, ElementRe
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 // libs
-import { BehaviorSubject, EMPTY, fromEvent as observableFromEvent, isObservable, merge, Observable, of as observableOf } from 'rxjs';
+import { EMPTY, fromEvent as observableFromEvent, isObservable, merge, Observable, of as observableOf } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, share, startWith, switchMap, takeUntil } from 'rxjs/operators';
 
 // module
@@ -43,9 +43,11 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
   }
 
   ngAfterViewInit(): void {
-    (this.refresh
-      ? this.refresh
-      : new BehaviorSubject<boolean>(true))
+    const data = isObservable(this.data)
+      ? this.data
+      : observableOf(this.data);
+
+    data
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(() => {
         if (!this.disablePaginator)
@@ -74,12 +76,12 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
           this.paginator.pageIndex = 0;
       });
 
-    merge(this.refresh || EMPTY, filterChange$, this.sort.sortChange, this.paginator
+    merge(filterChange$, this.sort.sortChange, this.paginator
       ? this.paginator.page
       : EMPTY)
       .pipe(
         startWith({}),
-        switchMap(() => isObservable(this.data) ? this.data : observableOf(this.data)),
+        switchMap(() => data),
         catchError(() => observableOf([])),
         share(),
         takeUntil(this.ngUnsubscribe)

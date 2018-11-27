@@ -1,4 +1,5 @@
 export { RenderFlag } from './common/models/render-flag';
+export { Scrollable } from './common/models/scrollable';
 export { switchCase } from './common/util/func.util';
 export { fromSlug, toSlug } from './common/util/seo.util';
 export { LoadingOverlayComponent } from './common/components/loading-overlay/loading-overlay.component';

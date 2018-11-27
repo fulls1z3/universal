@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 // libs
 import { Observable, zip } from 'rxjs';
-import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
+import { filter, switchMap, takeUntil } from 'rxjs/operators';
 import { isNil } from 'lodash/fp';
 import { select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -54,22 +54,20 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe(([title, res]) => {
-        const subTitle = res.name;
+        const subtitle = res.name;
 
-        this.meta.setTitle(subTitle ? `${title} - ${subTitle}` : title);
+        this.meta.setTitle(subtitle
+          ? `${title} - ${subtitle}`
+          : title);
       });
 
     zip(this.route.data, this.route.params)
-      .pipe(
-        map(([data, params]) => {
-          if (data.renderFlag === RenderFlag.Create)
-            return this.store$.dispatch(airlineActions.airUniversalAddOneAirline());
-
-          return this.store$.dispatch(airlineActions.airUniversalGetOneAirline(params.id));
-        }),
-        takeUntil(this.ngUnsubscribe)
-      )
-      .subscribe(() => {/**/
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(([data, params]) => {
+        if (data.renderFlag === RenderFlag.Create)
+          this.store$.dispatch(airlineActions.airUniversalAddOneAirline());
+        else
+          this.store$.dispatch(airlineActions.airUniversalGetOneAirline(params.id));
       });
   }
 
@@ -83,23 +81,20 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
 
   save(resource: any): void {
     this.route.data
-      .pipe(
-        map(cur => {
-          cur.renderFlag === RenderFlag.Create
-            ? this.store$.dispatch(airlineActions.airUniversalCreateOneAirline({
-              resource,
-              router: this.router,
-              route: this.baseRoute
-            }))
-            : this.store$.dispatch(airlineActions.airUniversalUpdateOneAirline({
-              resource,
-              router: this.router,
-              route: this.baseRoute
-            }));
-        }),
-        takeUntil(this.ngUnsubscribe)
-      )
-      .subscribe(() => {/**/
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(res => {
+        if (res.renderFlag === RenderFlag.Create)
+          this.store$.dispatch(airlineActions.airUniversalCreateOneAirline({
+            resource,
+            router: this.router,
+            route: this.baseRoute
+          }));
+        else
+          this.store$.dispatch(airlineActions.airUniversalUpdateOneAirline({
+            resource,
+            router: this.router,
+            route: this.baseRoute
+          }));
       });
   }
 }

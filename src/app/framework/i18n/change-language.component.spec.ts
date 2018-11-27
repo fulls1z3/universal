@@ -40,7 +40,6 @@ t.describe('ng-seed/universal', () => {
         const instance = fixture.componentInstance;
         const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
         route.testParams = mockParams;
-
         fixture.detectChanges();
 
         t.e(instance)
@@ -53,7 +52,6 @@ t.describe('ng-seed/universal', () => {
         route.testParams = mockParams;
         const store$ = fixture.debugElement.injector.get(Store);
         const spy = t.spyOn(store$, 'dispatch');
-
         fixture.detectChanges();
 
         const action = languageActions.i18nUseLanguage(mockParams.languageCode);
@@ -70,7 +68,6 @@ t.describe('ng-seed/universal', () => {
         route.testParams = mockEmptyParams;
         const store$ = fixture.debugElement.injector.get(Store);
         const spy = t.spyOn(store$, 'dispatch');
-
         fixture.detectChanges();
 
         t.e(spy)

@@ -1,12 +1,14 @@
+import { Scrollable } from '~/app/shared';
+
 export interface DataTableOptions {
   icon?: string;
   title: string;
-  scrollable: string;
+  scrollable?: Scrollable;
   condensed?: boolean;
   parameters?: Array<any>;
 }
 
-export const optionsFactory = (icon: string, title: string, scrollable = '', condensed = false): DataTableOptions => ({
+export const createOptions = (icon: string, title: string, scrollable = Scrollable.None, condensed = false): DataTableOptions => ({
   icon,
   title,
   scrollable,

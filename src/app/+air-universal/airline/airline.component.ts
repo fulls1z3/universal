@@ -8,7 +8,8 @@ import { select, Store } from '@ngrx/store';
 
 // app
 import { BaseContainerComponent } from '~/app/framework/core';
-import { columnFactory, DataTable, linkButtonFactory } from '~/app/shared/data-table';
+import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
+import { Scrollable } from '~/app/shared';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
 import { routeAnimation } from '~/app/app.animations';
 
@@ -32,16 +33,13 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
 
     this.airlineTable = {
       cols: [
-        columnFactory('_id', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID_COL_TITLE'),
-        columnFactory('iataCode', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE_COL_TITLE'),
-        columnFactory('name', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.NAME_COL_TITLE')
+        createColumn('_id', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID_COL_TITLE'),
+        createColumn('iataCode', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE_COL_TITLE'),
+        createColumn('name', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.NAME_COL_TITLE')
       ],
       filterCol: 'name',
-      buttons: [linkButtonFactory(this.baseRoute, '_id', 'PUBLIC.SHARED.ACTION.EDIT', 'edit')],
-      options: {
-        title: 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE',
-        scrollable: 'full'
-      }
+      buttons: [createRouteButton('', 'edit', 'PUBLIC.SHARED.ACTION.EDIT', this.baseRoute, '_id')],
+      options: createOptions('', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE', Scrollable.Full)
     };
 
     this.isProcessing$ = this.store$

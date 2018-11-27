@@ -63,7 +63,6 @@ t.describe('ng-seed/universal', () => {
     t.it('should build without a problem', () => {
       const fixture = TestBed.createComponent(HeaderComponent);
       const instance = fixture.componentInstance;
-
       fixture.detectChanges();
 
       t.e(instance)
@@ -73,7 +72,6 @@ t.describe('ng-seed/universal', () => {
     t.it('should log out', () => {
       const fixture = TestBed.createComponent(HeaderComponent);
       const instance = fixture.componentInstance;
-
       fixture.detectChanges();
 
       instance.isAuthenticated = true;
