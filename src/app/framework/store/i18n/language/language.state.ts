@@ -1,3 +1,6 @@
+// app
+import { initialLanguage } from '~/app/framework/i18n';
+
 // module
 import { Language } from './language.model';
 
@@ -10,7 +13,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  selectedItem: undefined,
+  selectedItem: initialLanguage,
   isProcessing: false,
   error: undefined
 };

@@ -19,7 +19,7 @@ import { AirUniversalModule } from './air-universal';
     CommonModule,
     NgrxStoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    !environment.production
+    !environment.production && environment.hasStoreDevTools
       ? StoreDevtoolsModule.instrument()
       : [],
     StoreFrameworkModule.forRoot(),
