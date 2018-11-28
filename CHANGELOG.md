@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/ng-seed/universal/compare/v6.0.0...v7.0.0) (2018-11-28)
+
+
+### Bug Fixes
+
+* fix path mapping ([#384](https://github.com/ng-seed/universal/issues/384)) ([7cda2a9](https://github.com/ng-seed/universal/commit/7cda2a9))
+* fix test config ([#307](https://github.com/ng-seed/universal/issues/307)) ([ec34eca](https://github.com/ng-seed/universal/commit/ec34eca))
+* **build:** fix config to avoid build-time errors ([#304](https://github.com/ng-seed/universal/issues/304)) ([860144c](https://github.com/ng-seed/universal/commit/860144c)), closes [#279](https://github.com/ng-seed/universal/issues/279)
+* update core module ([#405](https://github.com/ng-seed/universal/issues/405)) ([df4fa2c](https://github.com/ng-seed/universal/commit/df4fa2c))
+* **package:** update angulartics2 to version 6.1.0 ([#417](https://github.com/ng-seed/universal/issues/417)) ([10644e0](https://github.com/ng-seed/universal/commit/10644e0))
+* update dependant items (perfect-scrollbar, nguniversal, webpack) ([#381](https://github.com/ng-seed/universal/issues/381)) ([3050c13](https://github.com/ng-seed/universal/commit/3050c13))
+* update server module ([#338](https://github.com/ng-seed/universal/issues/338)) ([4f46147](https://github.com/ng-seed/universal/commit/4f46147))
+* use loadsh/fp extend method ([#390](https://github.com/ng-seed/universal/issues/390)) ([6fe74ec](https://github.com/ng-seed/universal/commit/6fe74ec))
+
+
+### Features
+
+* add base component handling unsubscription from observables ([#380](https://github.com/ng-seed/universal/issues/380)) ([8b2584d](https://github.com/ng-seed/universal/commit/8b2584d))
+* add flex layout server module ([#339](https://github.com/ng-seed/universal/issues/339)) ([6f015c7](https://github.com/ng-seed/universal/commit/6f015c7))
+* add schematics ([#378](https://github.com/ng-seed/universal/issues/378)) ([cd36977](https://github.com/ng-seed/universal/commit/cd36977))
+* update env settings for store-devtools ([#585](https://github.com/ng-seed/universal/issues/585)) ([e44f1ad](https://github.com/ng-seed/universal/commit/e44f1ad))
+* update framework and data tables ([#570](https://github.com/ng-seed/universal/issues/570)) ([5abc1c8](https://github.com/ng-seed/universal/commit/5abc1c8))
+* upgrade to angular 7 ([#507](https://github.com/ng-seed/universal/issues/507)) ([d829173](https://github.com/ng-seed/universal/commit/d829173))
+
+
+### Performance Improvements
+
+* reduce bundle size ([#375](https://github.com/ng-seed/universal/issues/375)) ([3317cfb](https://github.com/ng-seed/universal/commit/3317cfb))
+
+
+
 <a name="6.0.0"></a>
 # [5.0.0](https://github.com/ng-seed/universal/compare/v5.0.0...v6.0.0) (2018-01-24)
 
@@ -25,7 +57,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* add `angular-whitespace` rule to avoid falsy warnings ([#109](https://github.com/ng-seed/universal/issues/109)) ([66cd59f](https://github.com/ng-seed/universal/commit/66cd59f)), closes [#108](https://github.com/ng-seed/universal/issues/108)
 * **package:** update debug to version 3.1.0 ([#164](https://github.com/ng-seed/universal/issues/164)) ([f3c66ba](https://github.com/ng-seed/universal/commit/f3c66ba))
 * **package:** update morgan to version 1.9.0 ([#166](https://github.com/ng-seed/universal/issues/166)) ([026ba6d](https://github.com/ng-seed/universal/commit/026ba6d))
 * **package:** update ngx-perfect-scrollbar to version 4.8.4 ([#187](https://github.com/ng-seed/universal/issues/187)) ([4a65d60](https://github.com/ng-seed/universal/commit/4a65d60)), closes [#163](https://github.com/ng-seed/universal/issues/163)
@@ -34,12 +65,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* add basic JWT-based authentication with ngx-auth ([#121](https://github.com/ng-seed/universal/issues/121)) ([03c773e](https://github.com/ng-seed/universal/commit/03c773e)), closes [#118](https://github.com/ng-seed/universal/issues/118)
-* add Github button to the header ([#116](https://github.com/ng-seed/universal/issues/116)) ([896d26a](https://github.com/ng-seed/universal/commit/896d26a)), closes [#117](https://github.com/ng-seed/universal/issues/117)
 * upgrade to Angular 5.x ([#275](https://github.com/ng-seed/universal/issues/275)) ([799c229](https://github.com/ng-seed/universal/commit/799c229)), closes [#7](https://github.com/ng-seed/universal/issues/7) [#43](https://github.com/ng-seed/universal/issues/43) [#175](https://github.com/ng-seed/universal/issues/175) [#241](https://github.com/ng-seed/universal/issues/241)
-* use Angular Material components ([#103](https://github.com/ng-seed/universal/issues/103)) ([b3f2bfd](https://github.com/ng-seed/universal/commit/b3f2bfd)), closes [#53](https://github.com/ng-seed/universal/issues/53)
-* use ngx-perfect-scrollbar ([#107](https://github.com/ng-seed/universal/issues/107)) ([7e17300](https://github.com/ng-seed/universal/commit/7e17300)), closes [#106](https://github.com/ng-seed/universal/issues/106)
-* use stylelint-config-standard ([#105](https://github.com/ng-seed/universal/issues/105)) ([238e3cb](https://github.com/ng-seed/universal/commit/238e3cb)), closes [#104](https://github.com/ng-seed/universal/issues/104)
 
 
 
