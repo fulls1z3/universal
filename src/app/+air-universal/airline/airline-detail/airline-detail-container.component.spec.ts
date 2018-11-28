@@ -9,6 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of as observableOf } from 'rxjs';
 import { flow } from 'lodash/fp';
 import { Store } from '@ngrx/store';
+import { cold } from 'jasmine-marbles';
 
 // testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
@@ -80,134 +81,133 @@ t.describe('ng-seed/universal', () => {
             .toBeTruthy();
         });
 
-        t.it('should dispatch `airUniversalAddOneAirline` action on init',
-          t.async(() => {
-            const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-            const store$ = TestBed.get(Store);
-            const state = getState<Airline>(AIRLINE);
-            store$.setState(state);
-            const spy = t.spyOn(store$, 'dispatch');
-            fixture.detectChanges();
+        t.it('should `getSelected` from AirlineSelectors on init', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const instance = fixture.componentInstance;
+          const store$ = TestBed.get(Store);
+          const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
+          store$.setState(state);
+          fixture.detectChanges();
 
-            const action = airlineActions.airUniversalAddOneAirline();
+          const expected = cold('a', {a: MOCK_AIRLINE});
 
-            t.e(spy)
-              .toHaveBeenCalledWith(action);
-            t.e(spy)
-              .toHaveBeenCalledTimes(1);
-          }));
+          (t.e(instance.airline$) as any)
+            .toBeObservable(expected);
+        });
 
-        t.it('should dispatch `airUniversalCreateOneAirline` action on save',
-          t.async(() => {
-            const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-            const instance = fixture.componentInstance;
-            const store$ = TestBed.get(Store);
-            const state = getState<Airline>(AIRLINE);
-            store$.setState(state);
-            const spy = t.spyOn(store$, 'dispatch');
-            fixture.detectChanges();
+        t.it('should dispatch `airUniversalAddOneAirline` action on init', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const store$ = TestBed.get(Store);
+          const spy = t.spyOn(store$, 'dispatch');
+          fixture.detectChanges();
 
-            const saveClick = flow(
-              (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
-              cur => cur.componentInstance,
-              cur => cur.saveClick
-            )(fixture);
-            const resource = {_id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE};
-            saveClick.emit(MOCK_AIRLINE);
+          const action = airlineActions.airUniversalAddOneAirline();
 
-            const router = fixture.debugElement.injector.get(Router);
-            const action = airlineActions.airUniversalCreateOneAirline({
-              resource,
-              router,
-              route: instance.baseRoute
-            });
+          t.e(spy)
+            .toHaveBeenCalledWith(action);
+          t.e(spy)
+            .toHaveBeenCalledTimes(1);
+        });
 
-            t.e(spy)
-              .toHaveBeenCalledWith(action);
-            t.e(spy)
-              .toHaveBeenCalledTimes(2);
-          }));
+        t.it('should dispatch `airUniversalCreateOneAirline` action on save', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const instance = fixture.componentInstance;
+          const store$ = TestBed.get(Store);
+          const spy = t.spyOn(store$, 'dispatch');
+          fixture.detectChanges();
+
+          const saveClick = flow(
+            (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
+            cur => cur.componentInstance,
+            cur => cur.saveClick
+          )(fixture);
+          const resource = {_id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE};
+          saveClick.emit(MOCK_AIRLINE);
+
+          const router = fixture.debugElement.injector.get(Router);
+          const action = airlineActions.airUniversalCreateOneAirline({
+            resource,
+            router,
+            route: instance.baseRoute
+          });
+
+          t.e(spy)
+            .toHaveBeenCalledWith(action);
+          t.e(spy)
+            .toHaveBeenCalledTimes(2);
+        });
       });
 
       t.describe('airline-detail: AirlineDetailContainerComponent for renderFlag=`Update`', () => {
         t.be(() => testModuleConfig(RenderFlag.Update));
 
-        t.it('should dispatch `airUniversalGetOneAirline` action on init',
-          t.async(() => {
-            const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-            const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
-            const store$ = TestBed.get(Store);
-            store$.setState(state);
-            const spy = t.spyOn(store$, 'dispatch');
-            fixture.detectChanges();
+        t.it('should dispatch `airUniversalGetOneAirline` action on init', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const store$ = TestBed.get(Store);
+          const spy = t.spyOn(store$, 'dispatch');
+          fixture.detectChanges();
 
-            const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
+          const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
 
-            t.e(spy)
-              .toHaveBeenCalledWith(action);
-            t.e(spy)
-              .toHaveBeenCalledTimes(1);
-          }));
+          t.e(spy)
+            .toHaveBeenCalledWith(action);
+          t.e(spy)
+            .toHaveBeenCalledTimes(1);
+        });
 
-        t.it('should dispatch `airUniversalUpdateOneAirline` action on save',
-          t.async(() => {
-            const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-            const instance = fixture.componentInstance;
-            const store$ = TestBed.get(Store);
-            const state = getState<Airline>(AIRLINE);
-            store$.setState(state);
-            const spy = t.spyOn(store$, 'dispatch');
-            fixture.detectChanges();
+        t.it('should dispatch `airUniversalUpdateOneAirline` action on save', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const instance = fixture.componentInstance;
+          const store$ = TestBed.get(Store);
+          const spy = t.spyOn(store$, 'dispatch');
+          fixture.detectChanges();
 
-            const saveClick = flow(
-              (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
-              cur => cur.componentInstance,
-              cur => cur.saveClick
-            )(fixture);
-            saveClick.emit(MOCK_AIRLINE);
+          const saveClick = flow(
+            (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
+            cur => cur.componentInstance,
+            cur => cur.saveClick
+          )(fixture);
+          saveClick.emit(MOCK_AIRLINE);
 
-            const router = fixture.debugElement.injector.get(Router);
-            const action = airlineActions.airUniversalUpdateOneAirline({
-              resource: MOCK_AIRLINE,
-              router,
-              route: instance.baseRoute
-            });
+          const router = fixture.debugElement.injector.get(Router);
+          const action = airlineActions.airUniversalUpdateOneAirline({
+            resource: MOCK_AIRLINE,
+            router,
+            route: instance.baseRoute
+          });
 
-            t.e(spy)
-              .toHaveBeenCalledWith(action);
-            t.e(spy)
-              .toHaveBeenCalledTimes(2);
-          }));
+          t.e(spy)
+            .toHaveBeenCalledWith(action);
+          t.e(spy)
+            .toHaveBeenCalledTimes(2);
+        });
 
-        t.it('should dispatch `airUniversalDeleteOneAirline` action on delete',
-          t.async(() => {
-            const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-            const instance = fixture.componentInstance;
-            const store$ = TestBed.get(Store);
-            const state = getState<Airline>(AIRLINE);
-            store$.setState(state);
-            const spy = t.spyOn(store$, 'dispatch');
-            fixture.detectChanges();
+        t.it('should dispatch `airUniversalDeleteOneAirline` action on delete', () => {
+          const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
+          const instance = fixture.componentInstance;
+          const store$ = TestBed.get(Store);
+          const spy = t.spyOn(store$, 'dispatch');
+          fixture.detectChanges();
 
-            const deleteClick = flow(
-              (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
-              cur => cur.componentInstance,
-              cur => cur.deleteClick
-            )(fixture);
-            deleteClick.emit(MOCK_AIRLINE._id);
+          const deleteClick = flow(
+            (cur: ComponentFixture<AirlineDetailContainerComponent>) => cur.debugElement.query(By.directive(AirlineDetailComponent)),
+            cur => cur.componentInstance,
+            cur => cur.deleteClick
+          )(fixture);
+          deleteClick.emit(MOCK_AIRLINE._id);
 
-            const router = fixture.debugElement.injector.get(Router);
-            const action = airlineActions.airUniversalDeleteOneAirline({
-              id: MOCK_AIRLINE._id,
-              router,
-              route: instance.baseRoute
-            });
+          const router = fixture.debugElement.injector.get(Router);
+          const action = airlineActions.airUniversalDeleteOneAirline({
+            id: MOCK_AIRLINE._id,
+            router,
+            route: instance.baseRoute
+          });
 
-            t.e(spy)
-              .toHaveBeenCalledWith(action);
-            t.e(spy)
-              .toHaveBeenCalledTimes(2);
-          }));
+          t.e(spy)
+            .toHaveBeenCalledWith(action);
+          t.e(spy)
+            .toHaveBeenCalledTimes(2);
+        });
       });
     });
   });

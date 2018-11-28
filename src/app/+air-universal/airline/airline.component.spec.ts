@@ -54,20 +54,6 @@ t.describe('ng-seed/universal', () => {
           .toBeTruthy();
       });
 
-      t.it('should dispatch `airUniversalGetManyAirlines` action on init', () => {
-        const fixture = TestBed.createComponent(AirlineComponent);
-        const store$ = fixture.debugElement.injector.get(Store);
-        const spy = t.spyOn(store$, 'dispatch');
-        fixture.detectChanges();
-
-        const action = airlineActions.airUniversalGetManyAirlines();
-
-        t.e(spy)
-          .toHaveBeenCalledWith(action);
-        t.e(spy)
-          .toHaveBeenCalledTimes(1);
-      });
-
       t.it('should `getMany` from AirlineSelectors on init', () => {
         const fixture = TestBed.createComponent(AirlineComponent);
         const instance = fixture.componentInstance;
@@ -80,6 +66,20 @@ t.describe('ng-seed/universal', () => {
 
         (t.e(instance.airlines$) as any)
           .toBeObservable(expected);
+      });
+
+      t.it('should dispatch `airUniversalGetManyAirlines` action on init', () => {
+        const fixture = TestBed.createComponent(AirlineComponent);
+        const store$ = fixture.debugElement.injector.get(Store);
+        const spy = t.spyOn(store$, 'dispatch');
+        fixture.detectChanges();
+
+        const action = airlineActions.airUniversalGetManyAirlines();
+
+        t.e(spy)
+          .toHaveBeenCalledWith(action);
+        t.e(spy)
+          .toHaveBeenCalledTimes(1);
       });
 
       t.it('should navigate to `create` on create button click',
