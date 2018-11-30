@@ -1,2 +1,2 @@
-export { Analytics, AnalyticsService } from './analytics.service';
-export { ANALYTICS_PROVIDERS, AnalyticsModule } from './analytics.module';
+export * from './analytics.service';
+export * from './analytics.module';

@@ -15,10 +15,10 @@ import { t } from '~/app/framework/testing';
 
 // app
 import { AnalyticsModule } from '~/app/framework/analytics';
-import { I18NService } from '~/app/framework/i18n';
 import { languageActions } from '~/app/framework/store';
 
 // module
+import { I18NService } from '../../../i18n/i18n.service';
 import { LanguageEffects } from './language.effects';
 
 const testModuleConfig = () => {

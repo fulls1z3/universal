@@ -5,13 +5,13 @@ import { Inject, Injectable } from '@angular/core';
 import { extend } from 'lodash/fp';
 import { Angulartics2 } from 'angulartics2';
 
-export interface AnalyticsProperties {
+interface AnalyticsProperties {
   category?: string;
   label?: string;
   value?: number;
 }
 
-export interface IAnalytics {
+interface IAnalytics {
   track(action: string, properties: AnalyticsProperties): void;
 }
 

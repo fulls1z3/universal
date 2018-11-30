@@ -1,1 +1,1 @@
-export { HttpInterceptorModule } from './http-interceptor.module';
+export * from './http-interceptor.module';
