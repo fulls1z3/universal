@@ -12,7 +12,7 @@ import { environment } from '~/environments/environment';
 import { StoreFrameworkModule } from '~/app/framework/store';
 
 // module
-import { AirUniversalModule } from './air-universal';
+import { AirUniversalStoreModule } from './air-universal';
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { AirUniversalModule } from './air-universal';
       ? StoreDevtoolsModule.instrument()
       : [],
     StoreFrameworkModule.forRoot(),
-    AirUniversalModule
+    AirUniversalStoreModule
   ]
 })
 export class StoreModule {
