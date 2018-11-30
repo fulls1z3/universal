@@ -13,9 +13,8 @@ import { MetaService } from '@ngx-meta/core';
 // app
 import { BaseContainerComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
-import { RenderFlag } from '~/app/shared';
+import { RenderFlag, routeAnimation } from '~/app/shared';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
-import { routeAnimation } from '~/app/app.animations';
 
 @Component({
   templateUrl: './airline-detail-container.component.html',

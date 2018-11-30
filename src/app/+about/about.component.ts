@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
-import { routeAnimation } from '~/app/app.animations';
+import { routeAnimation } from '~/app/shared';
 
 @Component({
   templateUrl: './about.component.html',
