@@ -9,9 +9,8 @@ import { select, Store } from '@ngrx/store';
 // app
 import { BaseContainerComponent } from '~/app/framework/core';
 import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
-import { Scrollable } from '~/app/shared';
+import { routeAnimation, Scrollable } from '~/app/shared';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
-import { routeAnimation } from '~/app/app.animations';
 
 @Component({
   templateUrl: './airline.component.html',

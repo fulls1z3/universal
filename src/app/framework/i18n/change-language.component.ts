@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
-import { languageActions, State } from '~/app/framework/store';
+import { FrameworkState, languageActions } from '~/app/framework/store';
 
 @Component({
   selector: 'i18n-change-language',
@@ -16,7 +16,7 @@ import { languageActions, State } from '~/app/framework/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeLanguageComponent extends BaseComponent implements OnInit {
-  constructor(private readonly store$: Store<State>,
+  constructor(private readonly store$: Store<FrameworkState>,
               private readonly route: ActivatedRoute,
               private readonly router: Router) {
     super();

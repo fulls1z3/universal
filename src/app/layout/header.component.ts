@@ -9,8 +9,7 @@ import { AuthService } from '@ngx-auth/core';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
-import { Language } from '~/app/framework/i18n';
-import { LanguageSelectors, State } from '~/app/store';
+import { Language, LanguageSelectors, State } from '~/app/store';
 
 @Component({
   selector: 'app-header',

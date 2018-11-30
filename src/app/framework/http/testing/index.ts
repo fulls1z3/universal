@@ -1,1 +1,1 @@
-export { MockService } from './mocks/service.mock';
+export * from './mocks/service.mock';

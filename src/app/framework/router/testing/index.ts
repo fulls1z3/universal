@@ -1,1 +1,1 @@
-export { RouterTestingModule } from './router-testing.module';
+export * from './router-testing.module';

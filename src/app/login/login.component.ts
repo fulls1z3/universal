@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
-import { routeAnimation } from '~/app/app.animations';
+import { routeAnimation } from '~/app/shared';
 
 @Component({
   templateUrl: './login.component.html',

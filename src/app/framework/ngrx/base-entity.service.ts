@@ -7,11 +7,9 @@ import { retry } from 'rxjs/operators';
 import { flow } from 'lodash/fp';
 import { ConfigService } from '@ngx-config/core';
 
-// app
-import { HTTP_CLIENT__MAX_RETRIES } from '~/app/shared';
-
 // module
 import { BaseDocument, UniqueId } from './models/base-document';
+import { HTTP_CLIENT__MAX_RETRIES } from './constants';
 
 export abstract class BaseEntityService<T extends BaseDocument> {
   protected constructor(protected readonly config: ConfigService,

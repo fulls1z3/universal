@@ -8,10 +8,10 @@ import { isEmpty } from 'lodash/fp';
 // app
 import { Analytics, AnalyticsService } from '~/app/framework/analytics';
 import { WindowService } from '~/app/framework/core';
+import { Language } from '~/app/framework/store';
 
 // module
 import { CATEGORY } from './models/category';
-import { Language } from './models/language';
 
 @Injectable()
 export class I18NService extends Analytics {
