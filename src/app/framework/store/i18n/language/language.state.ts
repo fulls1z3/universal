@@ -1,8 +1,5 @@
-// app
-import { initialLanguage } from '~/app/framework/i18n';
-
 // module
-import { Language } from './language.model';
+import { initialLanguage, Language } from './language.model';
 
 export const LANGUAGE = 'i18n--language';
 

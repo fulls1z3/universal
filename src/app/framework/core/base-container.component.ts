@@ -5,9 +5,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
+// app
+import { State } from '~/app/store';
+
 // module
 import { BaseComponent } from './base.component';
-import { State } from '~/app/store';
 
 @Component({
   template: '',

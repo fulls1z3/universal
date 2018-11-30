@@ -1,1 +1,11 @@
-export { Language } from '~/app/framework/i18n';
+export interface Language {
+  code: string;
+  name: string;
+  culture: string;
+}
+
+export const initialLanguage: Language = {
+  code: '',
+  name: '',
+  culture: ''
+};

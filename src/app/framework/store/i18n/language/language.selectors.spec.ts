@@ -3,7 +3,7 @@ import { t } from '~/app/framework/testing';
 import { MOCK_LANGUAGE } from './testing';
 
 // app
-import { initialLanguage } from '~/app/framework/i18n';
+import { initialLanguage } from '~/app/framework/store';
 
 // module
 import { getError, getIsProcessing, getWorkingLanguage } from './language.selectors';

@@ -3,12 +3,12 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { CommonModule } from '@angular/common';
 
 // module
-import { I18NModule } from './i18n';
+import { I18NStoreModule } from './i18n';
 
 @NgModule({
   imports: [
     CommonModule,
-    I18NModule
+    I18NStoreModule
   ]
 })
 export class StoreModule {
