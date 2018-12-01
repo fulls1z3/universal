@@ -132,7 +132,7 @@ $ yarn start:prod
 $ yarn start:ssr
 
 # dev server (SSR & AoT compilation)
-$ yarn start:ssr-prod
+$ yarn start:ssr:prod
 ```
 
 #### Build
@@ -147,7 +147,7 @@ $ ng build --prod
 $ yarn build:ssr
 
 # production build (SSR)
-$ yarn build:ssr-prod
+$ yarn build:ssr:prod
 ```
 
 The build artifacts will be stored in the `dist/` directory.
