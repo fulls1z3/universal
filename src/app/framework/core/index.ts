@@ -1,7 +1,7 @@
-export { BaseComponent } from './base.component';
-export { BaseContainerComponent } from './base-container.component';
-export { ConsoleService } from './console.service';
-export { LogService } from './log.service';
-export { WindowService } from './window.service';
-export { CoreModule, configFactory, metaFactory } from './core.module';
-export { APP_LAYOUT_CONFIG, SharedModule } from './shared.module';
+export * from './base.component';
+export * from './base-container.component';
+export * from './console.service';
+export * from './log.service';
+export * from './window.service';
+export * from './core.module';
+export * from './shared.module';

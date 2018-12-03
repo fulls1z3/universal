@@ -81,16 +81,27 @@ t.describe('ng-seed/universal', () => {
         config.init()
           .then(() => {
             log.debug('debug');
-            t.e(console.log).not
+
+            t.e(console.log)
+              .not
               .toHaveBeenCalledWith('debug');
+
             log.error('error');
-            t.e(console.error).not
+
+            t.e(console.error)
+              .not
               .toHaveBeenCalledWith('error');
+
             log.warn('warn');
-            t.e(console.warn).not
+
+            t.e(console.warn)
+              .not
               .toHaveBeenCalledWith('warn');
+
             log.info('info');
-            t.e(console.info).not
+
+            t.e(console.info)
+              .not
               .toHaveBeenCalledWith('info');
           });
       });
@@ -105,17 +116,23 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             // should allow this level
             log.debug('debug');
+
             t.e(console.log)
               .toHaveBeenCalledWith('debug');
 
             // always overrides lower levels and allows them
             log.error('error w/debug log level');
+
             t.e(console.error)
               .toHaveBeenCalledWith('error w/debug log level');
+
             log.warn('warn w/debug log level');
+
             t.e(console.warn)
               .toHaveBeenCalledWith('warn w/debug log level');
+
             log.info('info w/debug log level');
+
             t.e(console.info)
               .toHaveBeenCalledWith('info w/debug log level');
           });
@@ -131,19 +148,25 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             // never allows upper levels
             log.debug('debug');
-            t.e(console.log).not
+
+            t.e(console.log)
+              .not
               .toHaveBeenCalledWith('debug');
 
             // should allow this level
             log.error('error');
+
             t.e(console.error)
               .toHaveBeenCalledWith('error');
 
             // always overrides lower levels and allows them
             log.warn('warn w/error log level');
+
             t.e(console.warn)
               .toHaveBeenCalledWith('warn w/error log level');
+
             log.info('info w/error log level');
+
             t.e(console.info)
               .toHaveBeenCalledWith('info w/error log level');
           });
@@ -159,19 +182,26 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             // never allows upper levels
             log.debug('debug');
-            t.e(console.log).not
+
+            t.e(console.log)
+              .not
               .toHaveBeenCalledWith('debug');
+
             log.error('error');
-            t.e(console.error).not
+
+            t.e(console.error)
+              .not
               .toHaveBeenCalledWith('error');
 
             // should allow this level
             log.warn('warn');
+
             t.e(console.warn)
               .toHaveBeenCalledWith('warn');
 
             // always overrides lower levels and allows them
             log.info('info w/warning log level');
+
             t.e(console.info)
               .toHaveBeenCalledWith('info w/warning log level');
           });
@@ -187,17 +217,26 @@ t.describe('ng-seed/universal', () => {
           .then(() => {
             // never allows upper levels
             log.debug('debug');
-            t.e(console.log).not
+
+            t.e(console.log)
+              .not
               .toHaveBeenCalledWith('debug');
+
             log.error('error');
-            t.e(console.error).not
+
+            t.e(console.error)
+              .not
               .toHaveBeenCalledWith('error');
+
             log.warn('warn');
-            t.e(console.warn).not
+
+            t.e(console.warn)
+              .not
               .toHaveBeenCalledWith('warn');
 
             // should allow this level
             log.info('info');
+
             t.e(console.info)
               .toHaveBeenCalledWith('info');
           });

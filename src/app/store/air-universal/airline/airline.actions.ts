@@ -11,9 +11,9 @@ import { UniqueId } from '~/app/framework/ngrx';
 import { Airline } from './airline.model';
 
 export const airlineActions = unionize({
-  airUniversalGetAllAirlines: {},
-  airUniversalGetAllAirlinesSuccess: ofType<Array<Airline>>(),
-  airUniversalGetAllAirlinesFail: ofType<string>(),
+  airUniversalGetManyAirlines: {},
+  airUniversalGetManyAirlinesSuccess: ofType<Array<Airline>>(),
+  airUniversalGetManyAirlinesFail: ofType<string>(),
   airUniversalGetOneAirline: ofType<UniqueId>(),
   airUniversalGetOneAirlineSuccess: ofType<Airline>(),
   airUniversalGetOneAirlineFail: ofType<string>(),

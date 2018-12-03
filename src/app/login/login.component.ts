@@ -1,5 +1,5 @@
 // angular
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // libs
@@ -10,12 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
-import { routeAnimation } from '~/app/app.animations';
+import { routeAnimation } from '~/app/shared';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [routeAnimation]
+  animations: [routeAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent extends BaseComponent implements OnInit {
   username: string;

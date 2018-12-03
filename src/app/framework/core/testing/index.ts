@@ -1,2 +1,2 @@
 export { MockWindowFrench, MockWindowNoLanguage } from './mocks/window.mock';
-export { CoreTestingModule } from './core-testing.module';
+export * from './core-testing.module';

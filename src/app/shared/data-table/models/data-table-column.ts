@@ -7,7 +7,7 @@ export interface DataTableColumn {
   callback(col: any): void;
 }
 
-export const columnFactory = (property: string, label?: string, callback?: (col: any) => void): DataTableColumn => ({
+export const createColumn = (property: string, label?: string, callback?: (col: any) => void) => ({
   property,
   label: label || property,
   translate: false,
@@ -15,7 +15,7 @@ export const columnFactory = (property: string, label?: string, callback?: (col:
   callback
 });
 
-export const localizedColumnFactory = (property: string, label?: string, callback?: (col: any) => void): DataTableColumn => ({
+export const createLocalizedColumn = (property: string, label?: string, callback?: (col: any) => void) => ({
   property,
   label: label || property,
   translate: true,

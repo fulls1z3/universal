@@ -1,7 +1,7 @@
 <mat-card class="data_table">
     <mat-toolbar *ngIf="options.title" class="data_table__toolbar">
         <mat-toolbar-row class="toolbar__row">
-            <span [ngClass]="filterCol ? 'toolbar__row--has-filter' : ''">
+            <span [ngClass]="{'toolbar__row--has-filter': filterCol}">
                 <mat-icon *ngIf="options.icon" class="toolbar__icon">{{ options.icon }}</mat-icon>
                 <span class="toolbar__title">{{ options.title | translate }}</span>
             </span>
@@ -12,7 +12,8 @@
             </span>
             <span fxFlex></span>
             <span>
-                <button mat-icon-button
+                <button *ngIf="!disableRefresh"
+                        mat-icon-button
                         class="qa-toolbar__refresh"
                         matTooltip="{{ 'PUBLIC.SHARED.WIDGET.REFRESH_TOOLTIP' | translate }}"
                         matTooltipPosition="below"
@@ -25,9 +26,9 @@
                     <button *ngFor="let item of group.items; trackBy: trackByFn"
                             mat-menu-item
                             [ngClass]="item.cssClass"
-                            (click)="onClick(item.menuClick)">
+                            (click)="onMenuClick(item.menuClick)">
                         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
-                        <span>{{ item.label }}</span>
+                        <span>{{ item.text }}</span>
                     </button>
                 </mat-menu>
                 <button mat-icon-button
@@ -73,11 +74,11 @@
                         <ng-container *ngFor="let button of buttons; trackBy: trackByFn" [ngSwitch]="button.type">
                             <button *ngSwitchCase="'button'" mat-menu-item (click)="button.menuClick(getParams(row, button))">
                                 <mat-icon *ngIf="button.icon">{{ button.icon }}</mat-icon>
-                                <span>{{ button.label | translate }}</span>
+                                <span>{{ button.text | translate }}</span>
                             </button>
                             <button *ngSwitchCase="'link-button'" mat-menu-item [routerLink]="getRoute(row, button)">
                                 <mat-icon *ngIf="button.icon">{{ button.icon }}</mat-icon>
-                                <span>{{ button.label | translate }}</span>
+                                <span>{{ button.text | translate }}</span>
                             </button>
                         </ng-container>
                     </mat-menu>
@@ -92,7 +93,7 @@
             <mat-header-row *matHeaderRowDef="columns" class="table__row--header"></mat-header-row>
             <mat-row *matRowDef="let row; columns: columns;"
                      class="table__row"
-                     [ngClass]="options.condensed ? 'table__row--is-condensed' : ''"></mat-row>
+                     [ngClass]="{'table__row--is-condensed': options.condensed}"></mat-row>
         </mat-table>
     </div>
     <mat-divider></mat-divider>

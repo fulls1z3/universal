@@ -1,1 +1,1 @@
-export { AuthTestingModule } from './auth-testing.module';
+export * from './auth-testing.module';

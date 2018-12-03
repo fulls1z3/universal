@@ -1,18 +1,18 @@
 // angular
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 // app
 import { BaseComponent } from '~/app/framework/core';
 
 @Component({
   selector: 'app-menu-item',
-  template: ''
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuItemComponent extends BaseComponent {
   @Input() cssClass: string;
   @Input() icon: string;
-  @Input() label: string;
+  @Input() text: string;
   @Input() isDialog: boolean;
-
   @Output() readonly menuClick: EventEmitter<string> = new EventEmitter();
 }

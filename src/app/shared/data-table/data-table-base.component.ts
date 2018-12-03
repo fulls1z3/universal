@@ -2,7 +2,7 @@
 import { EventEmitter, Input, Output } from '@angular/core';
 
 // libs
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { get } from 'lodash/fp';
 
 // app
@@ -12,7 +12,7 @@ import { toSlug } from '~/app/shared';
 // module
 import { DataTableButton } from './models/data-table-button';
 import { DataTableColumn } from './models/data-table-column';
-import { DataTableLinkButton } from './models/data-table-link-button';
+import { DataTableRouteButton } from './models/data-table-route-button';
 import { DataTableOptions } from './models/data-table-options';
 
 export class DataTableBaseComponent extends BaseComponent {
@@ -28,13 +28,12 @@ export class DataTableBaseComponent extends BaseComponent {
   }
 
   @Input() filterCol: string;
-  @Input() buttons: Array<DataTableButton> | Array<DataTableLinkButton>;
+  @Input() buttons: Array<DataTableButton> | Array<DataTableRouteButton>;
   @Input() options: DataTableOptions | undefined;
-  @Input() refresh: BehaviorSubject<boolean>;
+  @Input() disableRefresh: boolean;
   @Input() disableSort: boolean;
   @Input() disablePaginator: boolean;
   @Input() isProcessing: boolean;
-
   @Output() readonly refreshClick: EventEmitter<void> = new EventEmitter();
 
   private _cols: Array<DataTableColumn>;
@@ -43,7 +42,7 @@ export class DataTableBaseComponent extends BaseComponent {
     super();
   }
 
-  onClick(callback: EventEmitter<string>): void {
+  onMenuClick(callback: EventEmitter<string>): void {
     callback.emit();
   }
 
@@ -68,13 +67,13 @@ export class DataTableBaseComponent extends BaseComponent {
     return res;
   }
 
-  getRoute(row: any, button: DataTableLinkButton): Array<any> {
+  getRoute(row: any, button: DataTableRouteButton): Array<any> {
     return [
       ...button.route
         .reduce((acc, cur) => cur === '{0}'
           ? [...acc, row._id]
           : [...acc, cur], []),
-      ...(!button.replaceWithId
+      ...(!button.passRouteParams
         ? [toSlug(get(button.target)(row))]
         : [])
     ];
