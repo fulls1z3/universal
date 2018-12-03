@@ -8,8 +8,7 @@ import { delay, map, retry } from 'rxjs/operators';
 import { ConfigService } from '@ngx-config/core';
 
 // app
-import { BaseEntityService, UniqueId } from '~/app/framework/ngrx';
-import { HTTP_CLIENT__MAX_RETRIES } from '~/app/shared';
+import { BaseEntityService, HTTP_CLIENT__MAX_RETRIES, UniqueId } from '~/app/framework/ngrx';
 
 // module
 import { Airline } from './airline.model';
