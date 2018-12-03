@@ -124,29 +124,34 @@
     "typescript": "~3.1.6"
   },
   "jest": {
-    "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "./tools/test/jest.setup.ts",
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "./tsconfig.spec.json"
+        "tsConfig": "./tsconfig.spec.json"
       },
       "__TRANSFORM_HTML__": true
     },
     "transform": {
       "^.+\\.(css|less|scss|styl|sss)$": "<rootDir>/tools/test/style-processor.js",
-      "^.+\\.(ts|js|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js"
+      "^.+\\.(ts|js|html)$": "jest-preset-angular/preprocessor.js"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx)"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.ts"
+    ],
+    "testResultsProcessor": "jest-junit-reporter",
     "moduleNameMapper": {
       "~(.*)$": "<rootDir>/src/$1"
     },
-    "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "silent": true,
     "collectCoverageFrom": [
-      "src/**/**.ts",
-      "!src/*.ts",
-      "!src/environments/**.ts",
-      "!src/**/testing/**.ts",
-      "!src/**/*(index|*.module|*.routes|*.spec|*.e2e-spec|*.d).ts"
+      "src/**/*.ts",
+      "!**/+(index|testing|*.module|*.routes|*.mock|*.spec|*.e2e-spec|*.d).ts",
+      "!**/testing/**/*.ts",
+      "!**/environments/*.ts",
+      "!src/*.ts"
     ]
   },
   "greenkeeper": {
