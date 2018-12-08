@@ -32,47 +32,43 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('ng-seed/universal', () => {
-  t.describe('framework', () => {
-    t.describe('i18n: ChangeLanguageComponent', () => {
-      t.it('should build without a problem', () => {
-        const fixture = TestBed.createComponent(ChangeLanguageComponent);
-        const instance = fixture.componentInstance;
-        const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-        route.testParams = mockParams;
-        fixture.detectChanges();
+t.describe('ChangeLanguageComponent', () => {
+  t.it('should build without a problem', () => {
+    const fixture = TestBed.createComponent(ChangeLanguageComponent);
+    const instance = fixture.componentInstance;
+    const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
+    route.testParams = mockParams;
+    fixture.detectChanges();
 
-        t.e(instance)
-          .toBeTruthy();
-      });
+    t.e(instance)
+      .toBeTruthy();
+  });
 
-      t.it('should dispatch `use` action w/`languageCode` param', () => {
-        const fixture = TestBed.createComponent(ChangeLanguageComponent);
-        const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-        route.testParams = mockParams;
-        const store$ = fixture.debugElement.injector.get(Store);
-        const spy = t.spyOn(store$, 'dispatch');
-        fixture.detectChanges();
+  t.it('should dispatch `use` action w/`languageCode` param', () => {
+    const fixture = TestBed.createComponent(ChangeLanguageComponent);
+    const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
+    route.testParams = mockParams;
+    const store$ = fixture.debugElement.injector.get(Store);
+    const spy = t.spyOn(store$, 'dispatch');
+    fixture.detectChanges();
 
-        const action = languageActions.i18nUseLanguage(mockParams.languageCode);
+    const action = languageActions.i18nUseLanguage(mockParams.languageCode);
 
-        t.e(spy)
-          .toHaveBeenCalledWith(action);
-        t.e(spy)
-          .toHaveBeenCalledTimes(1);
-      });
+    t.e(spy)
+      .toHaveBeenCalledWith(action);
+    t.e(spy)
+      .toHaveBeenCalledTimes(1);
+  });
 
-      t.it('should not dispatch `use` action w/o `languageCode` param', () => {
-        const fixture = TestBed.createComponent(ChangeLanguageComponent);
-        const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-        route.testParams = mockEmptyParams;
-        const store$ = fixture.debugElement.injector.get(Store);
-        const spy = t.spyOn(store$, 'dispatch');
-        fixture.detectChanges();
+  t.it('should not dispatch `use` action w/o `languageCode` param', () => {
+    const fixture = TestBed.createComponent(ChangeLanguageComponent);
+    const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
+    route.testParams = mockEmptyParams;
+    const store$ = fixture.debugElement.injector.get(Store);
+    const spy = t.spyOn(store$, 'dispatch');
+    fixture.detectChanges();
 
-        t.e(spy)
-          .toHaveBeenCalledTimes(0);
-      });
-    });
+    t.e(spy)
+      .toHaveBeenCalledTimes(0);
   });
 });

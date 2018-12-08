@@ -22,8 +22,7 @@ export class AirlineEffects {
     switchMap(() => this.airline.getMany$()
       .pipe(
         map(airlineActions.airUniversalGetManyAirlinesSuccess),
-        catchError(error => observableOf(airlineActions.airUniversalGetManyAirlinesFail(error.message)))))
-  );
+        catchError(error => observableOf(airlineActions.airUniversalGetManyAirlinesFail(error.message))))));
 
   @Effect() getOne$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalGetOneAirline),
@@ -34,8 +33,7 @@ export class AirlineEffects {
           map(airlineActions.airUniversalGetOneAirlineSuccess),
           catchError(error => observableOf(airlineActions.airUniversalGetOneAirlineFail(error.message)))
         )
-      : observableOf(airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message)))
-  );
+      : observableOf(airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message))));
 
   @Effect() createOne$ = this.actions$
     .pipe(
@@ -49,13 +47,11 @@ export class AirlineEffects {
             catchError(error => observableOf(airlineActions.airUniversalCreateOneAirlineFail({
               id: EMPTY_UNIQUE_ID,
               error: error.message
-            })))
-          )
+            }))))
         : observableOf(airlineActions.airUniversalCreateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
           error: ERROR__NO_PAYLOAD.message
-        })))
-    );
+        }))));
 
   @Effect() updateOne$ = this.actions$
     .pipe(
@@ -70,13 +66,11 @@ export class AirlineEffects {
               observableOf(airlineActions.airUniversalUpdateOneAirlineFail({
                 id: payload.resource._id,
                 error: error.message
-              })))
-          )
+              }))))
         : observableOf(airlineActions.airUniversalUpdateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
           error: ERROR__NO_PAYLOAD.message
-        })))
-    );
+        }))));
 
   @Effect() deleteOne$ = this.actions$
     .pipe(
@@ -90,13 +84,11 @@ export class AirlineEffects {
             catchError(error => observableOf(airlineActions.airUniversalDeleteOneAirlineFail({
               id: payload.id,
               error: error.message
-            })))
-          )
+            }))))
         : observableOf(airlineActions.airUniversalDeleteOneAirlineFail({
           id: payload.id,
           error: ERROR__NO_PAYLOAD.message
-        })))
-    );
+        }))));
 
   constructor(private readonly actions$: Actions,
               private readonly airline: AirlineService) {

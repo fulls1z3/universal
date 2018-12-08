@@ -26,29 +26,29 @@ export class AirlineService extends BaseEntityService<Airline> {
     this.delay = 2000;
   }
 
-    getMany$(): Observable<Array<Airline>> {
-      const backend = this.config.getSettings(this.settingsKey);
+  getMany$(): Observable<Array<Airline>> {
+    const backend = this.config.getSettings(this.settingsKey);
 
-      return this.http
-        .get<Array<Airline>>(backend.endpoint)
-        .pipe(
-          delay(this.delay), // NOTE: simulate slow network
-          retry(HTTP_CLIENT__MAX_RETRIES)
-        );
-    }
+    return this.http
+      .get<Array<Airline>>(backend.endpoint)
+      .pipe(
+        delay(this.delay), // NOTE: simulate slow network
+        retry(HTTP_CLIENT__MAX_RETRIES)
+      );
+  }
 
-    getOne$(id: UniqueId): Observable<Airline> {
-      const backend = this.config.getSettings(this.settingsKey);
+  getOne$(id: UniqueId): Observable<Airline> {
+    const backend = this.config.getSettings(this.settingsKey);
 
-      return this.http
-        .get<Array<Airline>>(backend.endpoint)
-        .pipe(
-          delay(this.delay), // NOTE: simulate slow network
-          retry(HTTP_CLIENT__MAX_RETRIES),
-          map(cur => cur
-            .find(item => item._id === id))
-        );
-    }
+    return this.http
+      .get<Array<Airline>>(backend.endpoint)
+      .pipe(
+        delay(this.delay), // NOTE: simulate slow network
+        retry(HTTP_CLIENT__MAX_RETRIES),
+        map(cur => cur
+          .find(item => item._id === id))
+      );
+  }
 
   createMany$(resources: Array<Airline>): Observable<Array<Airline>> {
     return EMPTY;
@@ -56,7 +56,10 @@ export class AirlineService extends BaseEntityService<Airline> {
 
   createOne$(resource: Airline): Observable<Airline> {
     // NOTE: fake impl
-    return observableOf({...resource, _id: '100000000000000000000001'})
+    return observableOf({
+      ...resource,
+      _id: '100000000000000000000001'
+    })
       .pipe(delay(this.delay)); // NOTE: simulate slow network
   }
 

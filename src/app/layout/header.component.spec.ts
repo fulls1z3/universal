@@ -58,30 +58,28 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('ng-seed/universal', () => {
-  t.describe('layout: HeaderComponent', () => {
-    t.it('should build without a problem', () => {
-      const fixture = TestBed.createComponent(HeaderComponent);
-      const instance = fixture.componentInstance;
-      fixture.detectChanges();
+t.describe('layout: HeaderComponent', () => {
+  t.it('should build without a problem', () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
 
-      t.e(instance)
-        .toBeTruthy();
-    });
+    t.e(instance)
+      .toBeTruthy();
+  });
 
-    t.it('should log out', () => {
-      const fixture = TestBed.createComponent(HeaderComponent);
-      const instance = fixture.componentInstance;
-      fixture.detectChanges();
+  t.it('should log out', () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
 
-      instance.isAuthenticated = true;
-      fixture.detectChanges();
+    instance.isAuthenticated = true;
+    fixture.detectChanges();
 
-      const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
-      logoutButton.triggerEventHandler('click', {});
+    const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
+    logoutButton.triggerEventHandler('click', {});
 
-      t.e(instance.isAuthenticated)
-        .toBeFalsy();
-    });
+    t.e(instance.isAuthenticated)
+      .toBeFalsy();
   });
 });

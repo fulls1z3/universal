@@ -40,60 +40,56 @@ const testModuleConfig = (options?: any) => {
     });
 };
 
-t.describe('ng-seed/universal', () => {
-  t.describe('framework', () => {
-    t.describe('http: BaseUrlInterceptor', () => {
-      t.be(() => testModuleConfig());
+t.describe('BaseUrlInterceptor', () => {
+  t.be(() => testModuleConfig());
 
-      t.it('should build without a problem',
-        t.inject([BaseUrlInterceptor], (interceptor: BaseUrlInterceptor) => {
-          t.e(interceptor)
-            .toBeTruthy();
-        }));
-    });
+  t.it('should build without a problem',
+    t.inject([BaseUrlInterceptor], (interceptor: BaseUrlInterceptor) => {
+      t.e(interceptor)
+        .toBeTruthy();
+    }));
+});
 
-    t.describe('http: BaseUrlInterceptor for `browser` platform', () => {
-      t.be(() => testModuleConfig());
+t.describe('BaseUrlInterceptor for `browser` platform', () => {
+  t.be(() => testModuleConfig());
 
-      t.it('should replace the `baseBrowserUrl` as `baseUrl`',
-        t.async(
-          t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
-            service.fetch$()
-              .subscribe(res => {
-                t.e(res)
-                  .toBeTruthy();
-              });
+  t.it('should replace the `baseBrowserUrl` as `baseUrl`',
+    t.async(
+      t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
+        service.fetch$()
+          .subscribe(res => {
+            t.e(res)
+              .toBeTruthy();
+          });
 
-            const actual = http.expectOne({method: 'GET'});
-            const expected = 'http://localhost:4200/test';
+        const actual = http.expectOne({method: 'GET'});
+        const expected = 'http://localhost:4200/test';
 
-            t.e(actual.request.url)
-              .toEqual(expected);
+        t.e(actual.request.url)
+          .toEqual(expected);
 
-            http.verify();
-          })));
-    });
+        http.verify();
+      })));
+});
 
-    t.describe('http: BaseUrlInterceptor for `server` platform', () => {
-      t.be(() => testModuleConfig({platformId: 'server'}));
+t.describe('BaseUrlInterceptor for `server` platform', () => {
+  t.be(() => testModuleConfig({platformId: 'server'}));
 
-      t.it('should replace the `baseServerUrl` as `baseUrl`',
-        t.async(
-          t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
-            service.fetch$()
-              .subscribe(res => {
-                t.e(res)
-                  .toBeTruthy();
-              });
+  t.it('should replace the `baseServerUrl` as `baseUrl`',
+    t.async(
+      t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
+        service.fetch$()
+          .subscribe(res => {
+            t.e(res)
+              .toBeTruthy();
+          });
 
-            const actual = http.expectOne({method: 'GET'});
-            const expected = 'http://localhost:4000/test';
+        const actual = http.expectOne({method: 'GET'});
+        const expected = 'http://localhost:4000/test';
 
-            t.e(actual.request.url)
-              .toEqual(expected);
+        t.e(actual.request.url)
+          .toEqual(expected);
 
-            http.verify();
-          })));
-    });
-  });
+        http.verify();
+      })));
 });

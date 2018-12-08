@@ -18,17 +18,13 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('ng-seed/universal', () => {
-  t.describe('framework', () => {
-    t.describe('core: BaseContainerComponent', () => {
-      t.it('should build without a problem', () => {
-        const fixture = TestBed.createComponent(BaseContainerComponent);
-        const instance = fixture.componentInstance;
-        fixture.detectChanges();
+t.describe('BaseContainerComponent', () => {
+  t.it('should build without a problem', () => {
+    const fixture = TestBed.createComponent(BaseContainerComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
 
-        t.e(instance)
-          .toBeTruthy();
-      });
-    });
+    t.e(instance)
+      .toBeTruthy();
   });
 });

@@ -30,15 +30,13 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('ng-seed/universal', () => {
-  t.describe('+home: HomeComponent', () => {
-    t.it('should build without a problem', () => {
-      const fixture = TestBed.createComponent(HomeComponent);
-      const instance = fixture.componentInstance;
-      fixture.detectChanges();
+t.describe('HomeComponent', () => {
+  t.it('should build without a problem', () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
 
-      t.e(instance)
-        .toBeTruthy();
-    });
+    t.e(instance)
+      .toBeTruthy();
   });
 });

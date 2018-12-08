@@ -30,28 +30,26 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('ng-seed/universal', () => {
-  t.describe('layout: MainComponent', () => {
-    t.it('should build without a problem', () => {
-      const fixture = TestBed.createComponent(MainComponent);
-      const instance = fixture.componentInstance;
-      fixture.detectChanges();
+t.describe('layout: MainComponent', () => {
+  t.it('should build without a problem', () => {
+    const fixture = TestBed.createComponent(MainComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
 
-      t.e(instance)
-        .toBeTruthy();
-    });
-
-    t.it('should invoke `onActivate`',
-      t.inject([ElementRef],
-        (scrollContainer: ElementRef) => {
-          const fixture = TestBed.createComponent(MainComponent);
-          const instance = fixture.componentInstance;
-          fixture.detectChanges();
-
-          instance.onActivate(undefined, scrollContainer);
-
-          t.e(instance)
-            .toBeTruthy();
-        }));
+    t.e(instance)
+      .toBeTruthy();
   });
+
+  t.it('should invoke `onActivate`',
+    t.inject([ElementRef],
+      (scrollContainer: ElementRef) => {
+        const fixture = TestBed.createComponent(MainComponent);
+        const instance = fixture.componentInstance;
+        fixture.detectChanges();
+
+        instance.onActivate(undefined, scrollContainer);
+
+        t.e(instance)
+          .toBeTruthy();
+      }));
 });
