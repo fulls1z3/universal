@@ -1,5 +1,7 @@
 // libs
 import { Observable } from 'rxjs';
+
+// module
 import { DataTableButton } from './data-table-button';
 import { DataTableColumn } from './data-table-column';
 import { DataTableRouteButton } from './data-table-route-button';
