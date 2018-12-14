@@ -1,0 +1,51 @@
+# angular gitignore
+# see https://github.com/prettier/prettier/issues/2294
+
+## compiled output
+/.awcache
+/.cache
+/dist
+/docs
+/tmp
+/out-tsc
+
+## dependencies
+/bower_components
+/node_modules
+
+## IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+test-report.xml
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# auto-generated files
+/angular.json
+/.angular-cli.json
+/package-lock.json
+/yarn.lock
