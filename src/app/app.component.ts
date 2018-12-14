@@ -13,8 +13,13 @@ import { languageActions, State } from '~/app/store';
 
 @Component({selector: 'app-root',templateUrl: './app.component.html',changeDetection: ChangeDetectionStrategy.OnPush
 })
+
+
+
+
 export class AppComponent extends BaseComponent implements OnInit {
-  constructor(private readonly store$: Store<State>,
+  constructor(
+private readonly store$: Store<State>,
               private readonly config: ConfigService
               // TODO: ngx-i18n-router
               // private readonly i18nRouter: I18NRouterService
