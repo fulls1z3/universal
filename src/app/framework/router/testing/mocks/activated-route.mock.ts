@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class MockActivatedRoute {
   params: any;
 
-  private subject: BehaviorSubject<Params>;
+  private readonly subject: BehaviorSubject<Params>;
   private _testParams: any;
 
   constructor() {

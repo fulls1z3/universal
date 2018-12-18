@@ -43,7 +43,7 @@ export class AirlineEffects {
         ? this.airline.createOne$(payload.resource)
           .pipe(
             map(airlineActions.airUniversalCreateOneAirlineSuccess),
-            tap(() => payload.router.navigate(payload.route)),
+            tap(async () => payload.router.navigate(payload.route)),
             catchError(error => observableOf(airlineActions.airUniversalCreateOneAirlineFail({
               id: EMPTY_UNIQUE_ID,
               error: error.message
@@ -61,7 +61,7 @@ export class AirlineEffects {
         ? this.airline.updateOne$(payload.resource)
           .pipe(
             map(airlineActions.airUniversalUpdateOneAirlineSuccess),
-            tap(() => payload.router.navigate(payload.route)),
+            tap(async () => payload.router.navigate(payload.route)),
             catchError(error =>
               observableOf(airlineActions.airUniversalUpdateOneAirlineFail({
                 id: payload.resource._id,
@@ -80,7 +80,7 @@ export class AirlineEffects {
         ? this.airline.deleteOne$(payload.id)
           .pipe(
             map(airlineActions.airUniversalDeleteOneAirlineSuccess),
-            tap(() => payload.router.navigate(payload.route)),
+            tap(async () => payload.router.navigate(payload.route)),
             catchError(error => observableOf(airlineActions.airUniversalDeleteOneAirlineFail({
               id: payload.id,
               error: error.message

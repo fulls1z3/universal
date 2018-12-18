@@ -11,12 +11,8 @@ interface AnalyticsProperties {
   value?: number;
 }
 
-interface IAnalytics {
-  track(action: string, properties: AnalyticsProperties): void;
-}
-
 @Injectable()
-export class AnalyticsService implements IAnalytics {
+export class AnalyticsService {
   constructor(private readonly angulartics: Angulartics2) {
     this.devMode(false);
   }
@@ -47,7 +43,7 @@ export class AnalyticsService implements IAnalytics {
   }
 }
 
-export class Analytics implements IAnalytics {
+export class Analytics {
   category: string;
 
   constructor(@Inject(AnalyticsService) public analytics: AnalyticsService) {

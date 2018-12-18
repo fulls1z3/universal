@@ -18,8 +18,8 @@ import { languageActions } from '~/app/framework/store';
 // module
 import { ChangeLanguageComponent } from './change-language.component';
 
-const mockEmptyParams = {languageCode: ''};
-const mockParams = {languageCode: 'en'};
+const MOCK_EMPTY_PARAMS = {languageCode: ''};
+const MOCK_PARAMS = {languageCode: 'en'};
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
@@ -37,7 +37,7 @@ t.describe('ChangeLanguageComponent', () => {
     const fixture = TestBed.createComponent(ChangeLanguageComponent);
     const instance = fixture.componentInstance;
     const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-    route.testParams = mockParams;
+    route.testParams = MOCK_PARAMS;
     fixture.detectChanges();
 
     t.e(instance)
@@ -47,12 +47,12 @@ t.describe('ChangeLanguageComponent', () => {
   t.it('should dispatch `use` action w/`languageCode` param', () => {
     const fixture = TestBed.createComponent(ChangeLanguageComponent);
     const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-    route.testParams = mockParams;
+    route.testParams = MOCK_PARAMS;
     const store$ = fixture.debugElement.injector.get(Store);
     const spy = t.spyOn(store$, 'dispatch');
     fixture.detectChanges();
 
-    const action = languageActions.i18nUseLanguage(mockParams.languageCode);
+    const action = languageActions.i18nUseLanguage(MOCK_PARAMS.languageCode);
 
     t.e(spy)
       .toHaveBeenCalledWith(action);
@@ -63,7 +63,7 @@ t.describe('ChangeLanguageComponent', () => {
   t.it('should not dispatch `use` action w/o `languageCode` param', () => {
     const fixture = TestBed.createComponent(ChangeLanguageComponent);
     const route = fixture.debugElement.injector.get<any>(ActivatedRoute);
-    route.testParams = mockEmptyParams;
+    route.testParams = MOCK_EMPTY_PARAMS;
     const store$ = fixture.debugElement.injector.get(Store);
     const spy = t.spyOn(store$, 'dispatch');
     fixture.detectChanges();

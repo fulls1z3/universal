@@ -20,7 +20,7 @@ import { MaterialModule } from '~/app/framework/material';
 // module
 import { HeaderComponent } from './header.component';
 
-const mockRoutes = [
+const MOCK_ROUTES = [
   {
     path: '',
     children: [
@@ -43,7 +43,7 @@ const mockRoutes = [
 configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
-      RouterTestingModule.withRoutes(mockRoutes),
+      RouterTestingModule.withRoutes(MOCK_ROUTES),
       AuthTestingModule,
       CoreTestingModule,
       I18NTestingModule,

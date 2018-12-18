@@ -9,6 +9,13 @@ import { mergeMap } from 'rxjs/operators';
 import { flow, getOr } from 'lodash/fp';
 import { ConfigService } from '@ngx-config/core';
 
+export const getBaseUrl = (config: ConfigService) => (isServer: Boolean) => flow(
+  (cur: ConfigService) => cur.getSettings(''),
+  getOr('')(!isServer
+    ? 'backend.baseBrowserUrl'
+    : 'backend.baseServerUrl')
+)(config);
+
 @Injectable()
 export class BaseUrlInterceptor implements HttpInterceptor {
   constructor(private readonly injector: Injector,
@@ -23,19 +30,14 @@ export class BaseUrlInterceptor implements HttpInterceptor {
     })
       .pipe(
         mergeMap((res: ConfigService) => {
-          const isServer = isPlatformServer(this.platformId);
-          const baseUrl = flow(
-            (cur: ConfigService) => cur.getSettings(''),
-            getOr('')(!isServer
-              ? 'backend.baseBrowserUrl'
-              : 'backend.baseServerUrl')
-          )(res);
+          const intercepted = flow(
+            isPlatformServer,
+            getBaseUrl(res),
+            cur => request.url.replace('{baseUrl}', cur),
+            url => request.clone({ url })
+          )(this.platformId);
 
-          request = request.clone({
-            url: request.url.replace('{baseUrl}', baseUrl)
-          });
-
-          return next.handle(request);
+          return next.handle(intercepted);
         })
       );
   }

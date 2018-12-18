@@ -36,6 +36,10 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
   dataSource: MatTableDataSource<any>;
   columns: Array<string>;
 
+  getColumnDef = (col: DataTableColumn) => col.suffix
+    ? `${col.property}_${col.suffix}`
+    : col.property;
+
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
     super();
   }
@@ -115,11 +119,5 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
 
   trackByFn(index: any): any {
     return index;
-  }
-
-  getColumnDef(col: DataTableColumn): string {
-    return col.suffix
-      ? `${col.property}_${col.suffix}`
-      : col.property;
   }
 }

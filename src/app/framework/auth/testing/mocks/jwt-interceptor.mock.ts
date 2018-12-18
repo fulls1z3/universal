@@ -4,8 +4,16 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 
 // libs
 import { Observable } from 'rxjs';
-import { get } from 'lodash/fp';
+import { flow, get } from 'lodash/fp';
 import { AuthLoader } from '@ngx-auth/core';
+
+const getHeaders = (request: HttpRequest<any>) => (token: string) => token
+  ? request.clone({
+    setHeaders: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  : request;
 
 @Injectable()
 export class MockJwtInterceptor implements HttpInterceptor {
@@ -13,15 +21,13 @@ export class MockJwtInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = get('token')(JSON.parse(this.loader.storage.getItem(this.loader.storageKey)));
+    const intercepted = flow(
+      (cur: string) => this.loader.storage.getItem(cur),
+      cur => JSON.parse(cur),
+      get('token'),
+      getHeaders(request)
+    )(this.loader.storageKey);
 
-    if (token)
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-    return next.handle(request);
+    return next.handle(intercepted);
   }
 }

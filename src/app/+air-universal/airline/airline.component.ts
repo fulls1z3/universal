@@ -3,7 +3,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // libs
-import { Observable } from 'rxjs';
+import { from as observableFrom, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
 
 // app
@@ -53,7 +54,10 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   }
 
   createAirline(): void {
-    this.router.navigate([...this.baseRoute, 'create']);
+    observableFrom(this.router.navigate([...this.baseRoute, 'create']))
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {/**/
+      });
   }
 
   refresh(): void {

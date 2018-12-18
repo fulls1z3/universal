@@ -4,10 +4,10 @@ export interface DataTableColumn {
   translate: boolean;
   suffix: string;
 
-  callback(col: any): void;
+  callback(col: any): Function;
 }
 
-export const createColumn = (property: string, label?: string, callback?: (col: any) => void) => ({
+export const createColumn = (property: string, label?: string, callback?: (col: any) => any) => ({
   property,
   label: label || property,
   translate: false,
@@ -15,7 +15,7 @@ export const createColumn = (property: string, label?: string, callback?: (col: 
   callback
 });
 
-export const createLocalizedColumn = (property: string, label?: string, callback?: (col: any) => void) => ({
+export const createLocalizedColumn = (property: string, label?: string, callback?: (col: any) => any) => ({
   property,
   label: label || property,
   translate: true,

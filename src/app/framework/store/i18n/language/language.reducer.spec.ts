@@ -20,7 +20,9 @@ const testModuleConfig = () => {
 };
 
 t.describe('reducer', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should return the initial state', () => {
     const action = {} as any;

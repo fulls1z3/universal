@@ -7,8 +7,23 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 // libs
 import { Request } from 'express';
 import { Observable } from 'rxjs';
+import { flow } from 'lodash/fp';
 
-const getBaseUrl = (req: any) => `${req.protocol}://${req.get('Host')}`;
+export const getBaseUrl = (serverRequest: Request) => `${serverRequest.protocol}://${serverRequest.get('Host')}`;
+
+export const getAbsolutePath = (serverRequest: Request) => (request: HttpRequest<any>) => (isServer: boolean) => {
+  const isRelativePath = isServer && !request.url.includes('http') && request.url.includes('./');
+
+  if (!isRelativePath)
+    return request;
+
+  const url = flow(
+    getBaseUrl,
+    cur => `${cur}/${request.url.replace('./', '')}`
+  )(serverRequest);
+
+  return request.clone({ url });
+};
 
 @Injectable()
 export class UniversalInterceptor implements HttpInterceptor {
@@ -17,17 +32,11 @@ export class UniversalInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const isServer = isPlatformServer(this.platformId);
+    const intercepted = flow(
+      isPlatformServer,
+      getAbsolutePath(this.injector.get(REQUEST))(request)
+    )(this.platformId);
 
-    if (isServer && !request.url.includes('http') && request.url.includes('./')) {
-      const serverRequest = this.injector.get(REQUEST) as Request;
-      const baseUrl = getBaseUrl(serverRequest);
-
-      request = request.clone({
-        url: `${baseUrl}/${request.url.replace('./', '')}`
-      });
-    }
-
-    return next.handle(request);
+    return next.handle(intercepted);
   }
 }

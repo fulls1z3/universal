@@ -63,10 +63,10 @@ import 'core-js/es7/reflect';
 // (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
 // (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
 
-/*
-* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
-* with the following flag, it will bypass `zone.js` patch for IE/Edge
-*/
+/**
+ * in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+ * with the following flag, it will bypass `zone.js` patch for IE/Edge
+ */
 // (window as any).__Zone_enable_cross_context_check = true;
 
 /***************************************************************************************************
@@ -75,7 +75,7 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 if (process.env.NODE_ENV !== 'production') {
-  Error['stackTraceLimit'] = Infinity;
+  Error.stackTraceLimit = Infinity;
   // tslint:disable-next-line
   require('zone.js/dist/long-stack-trace-zone');
 }

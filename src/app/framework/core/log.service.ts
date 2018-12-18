@@ -10,8 +10,8 @@ import { ConsoleService } from './console.service';
 
 @Injectable()
 export class LogService {
-  constructor(private config: ConfigService,
-              @Inject(forwardRef(() => ConsoleService)) public logger: ConsoleService) {
+  constructor(private readonly config: ConfigService,
+              @Inject(forwardRef(() => ConsoleService)) readonly logger: ConsoleService) {
   }
 
   // debug (standard output)

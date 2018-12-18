@@ -42,7 +42,9 @@ const testModuleConfig = () => {
 };
 
 t.describe('airline: AirlineEffects', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem',
     t.inject([AirlineEffects], (effects: AirlineEffects) => {

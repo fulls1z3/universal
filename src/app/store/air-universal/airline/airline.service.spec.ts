@@ -24,7 +24,9 @@ const testModuleConfig = () => {
 };
 
 t.describe('airline: AirlineService', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem',
     t.inject([AirlineService], (airline: AirlineService) => {

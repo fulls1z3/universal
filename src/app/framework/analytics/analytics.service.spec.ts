@@ -30,7 +30,9 @@ class TestAnalytics extends Analytics {
 }
 
 t.describe('AnalyticsService', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should track',
     t.inject([AnalyticsService, Angulartics2], (analyticsService: AnalyticsService, angulartics: Angulartics2) => {
@@ -132,11 +134,13 @@ t.describe('AnalyticsService', () => {
 });
 
 t.describe('AnalyticsService (base class)', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should allow descendants to track actions',
     t.inject([AnalyticsService], (analyticsService: AnalyticsService) => {
-      t.spyOn(analyticsService, 'track');
+      const spy = t.spyOn(analyticsService, 'track');
 
       const analytics = new TestAnalytics(analyticsService);
       analytics.category = 'TEST';
@@ -145,7 +149,7 @@ t.describe('AnalyticsService (base class)', () => {
         label: 'Testing'
       });
 
-      t.e(analyticsService.track)
+      t.e(spy)
         .toHaveBeenCalledWith('action', {
           category: analytics.category,
           label: 'Testing'

@@ -35,7 +35,9 @@ const testModuleConfig = () => {
 };
 
 t.describe('LanguageEffects', () => {
-  t.be(testModuleConfig);
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem',
     t.inject([LanguageEffects], (effects: LanguageEffects) => {

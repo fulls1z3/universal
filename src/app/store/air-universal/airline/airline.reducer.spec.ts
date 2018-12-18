@@ -38,7 +38,7 @@ t.describe('airline: airline.reducer', () => {
       const ids = MOCK_AIRLINES
         .map(cur => cur._id);
       const entities = MOCK_AIRLINES
-        .reduce(entityReducer, {});
+        .reduce(entityReducer, undefined);
 
       t.e(res.ids)
         .toEqual(ids);

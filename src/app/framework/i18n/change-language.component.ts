@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // libs
+import { from as observableFrom } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
@@ -29,7 +30,10 @@ export class ChangeLanguageComponent extends BaseComponent implements OnInit {
         if (res.languageCode)
           this.store$.dispatch(languageActions.i18nUseLanguage(res.languageCode));
 
-        this.router.navigate(['']);
+        observableFrom(this.router.navigate(['']))
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(() => {/**/
+          });
       });
   }
 }

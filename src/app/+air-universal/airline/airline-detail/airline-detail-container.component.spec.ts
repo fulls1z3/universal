@@ -67,7 +67,9 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
 };
 
 t.describe('AirlineDetailContainerComponent', () => {
-  t.be(() => testModuleConfig());
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
@@ -136,7 +138,9 @@ t.describe('AirlineDetailContainerComponent', () => {
 });
 
 t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
-  t.be(() => testModuleConfig(RenderFlag.Update));
+  t.be(() => {
+    testModuleConfig(RenderFlag.Update);
+  });
 
   t.it('should dispatch `airUniversalGetOneAirline` action on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);

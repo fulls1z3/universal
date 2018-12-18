@@ -22,7 +22,7 @@ import { MaterialModule } from '~/app/framework/material';
 // module
 import { LoginComponent } from './login.component';
 
-const mockRoutes = [
+const MOCK_ROUTES = [
   {
     path: '',
     children: [
@@ -42,7 +42,7 @@ configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
       FormsModule,
-      RouterTestingModule.withRoutes(mockRoutes),
+      RouterTestingModule.withRoutes(MOCK_ROUTES),
       CoreTestingModule,
       AuthTestingModule,
       I18NTestingModule,

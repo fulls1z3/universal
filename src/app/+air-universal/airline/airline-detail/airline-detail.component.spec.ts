@@ -55,7 +55,9 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
 };
 
 t.describe('AirlineDetailComponent', () => {
-  t.be(() => testModuleConfig());
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
@@ -81,7 +83,9 @@ t.describe('AirlineDetailComponent', () => {
 });
 
 t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
-  t.be(() => testModuleConfig(RenderFlag.Update));
+  t.be(() => {
+    testModuleConfig(RenderFlag.Update);
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
