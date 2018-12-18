@@ -1,4 +1,3 @@
-// angular
 import { animate, style, transition, trigger } from '@angular/animations';
 
 export const routeAnimation = trigger('routeAnimation', [

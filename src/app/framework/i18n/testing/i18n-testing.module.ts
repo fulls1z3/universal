@@ -1,12 +1,9 @@
-// angular
 import { NgModule } from '@angular/core';
-
-// libs
 import { TranslateService } from '@ngx-translate/core';
 
-// module
-import { MockTranslateService } from './mocks/translate-service.mock';
 import { I18NService } from '../i18n.service';
+
+import { MockTranslateService } from './mocks/translate-service.mock';
 
 @NgModule({
   providers: [

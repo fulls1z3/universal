@@ -1,13 +1,7 @@
-// angular
 import { NgModule } from '@angular/core';
-
-// libs
 import { TranslateModule } from '@ngx-translate/core';
-
-// app
 import { SharedModule as SharedFrameworkModule } from '~/app/framework/core';
 
-// module
 import { CommonModule } from './common/common.module';
 
 @NgModule({

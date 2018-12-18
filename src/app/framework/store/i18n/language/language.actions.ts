@@ -1,7 +1,5 @@
-// libs
 import { ofType, unionize, UnionOf } from 'unionize';
 
-// module
 import { Language } from './language.model';
 
 export const languageActions = unionize({

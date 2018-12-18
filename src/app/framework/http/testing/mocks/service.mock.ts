@@ -1,9 +1,6 @@
-// angular
 import { HttpClient } from '@angular/common/http';
-
-// libs
-import { Observable } from 'rxjs';
 import { ConfigService } from '@ngx-config/core';
+import { Observable } from 'rxjs';
 
 export class MockService {
   constructor(private readonly config: ConfigService,

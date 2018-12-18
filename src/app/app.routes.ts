@@ -1,12 +1,8 @@
-// libs
 import { MetaGuard } from '@ngx-meta/core';
-
-// app
 import { ChangeLanguageComponent } from '~/app/framework/i18n';
 
-// module
-import { LoginComponent } from './login/login.component';
 import { MainComponent } from './layout/main.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes = [
   {

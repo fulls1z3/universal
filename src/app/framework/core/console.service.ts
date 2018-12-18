@@ -1,7 +1,5 @@
-// angular
 import { Injectable } from '@angular/core';
 
-// module
 import { Console } from './models/console';
 
 @Injectable()

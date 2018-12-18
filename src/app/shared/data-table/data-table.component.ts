@@ -1,4 +1,3 @@
-// angular
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -11,15 +10,13 @@ import {
   ViewChild
 } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-
-// libs
 import { EMPTY, fromEvent as observableFromEvent, isObservable, merge, Observable, of as observableOf } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, share, startWith, switchMap, takeUntil } from 'rxjs/operators';
 
-// module
 import { MenuGroupComponent } from '../common/components/menu/menu-group.component';
-import { DataTableColumn } from './models/data-table-column';
+
 import { DataTableBaseComponent } from './data-table-base.component';
+import { DataTableColumn } from './models/data-table-column';
 
 @Component({
   selector: 'app-data-table',

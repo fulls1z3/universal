@@ -1,20 +1,14 @@
-// angular
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { FlexLayoutModule, LAYOUT_CONFIG } from '@angular/flex-layout';
-
-// libs
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-
-// app
 import { APP_LAYOUT_CONFIG } from '~/app/framework/core';
 import { MaterialModule } from '~/app/framework/material';
 import { CommonModule } from '~/app/shared';
 
-// module
-import { DataTableComponent } from './data-table.component';
 import { DataTableBaseComponent } from './data-table-base.component';
+import { DataTableComponent } from './data-table.component';
 
 @NgModule({
   imports: [

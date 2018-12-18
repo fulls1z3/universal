@@ -1,20 +1,16 @@
-// angular
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-// app
 import { MaterialModule } from '~/app/framework/material';
+import { SharedModule } from '~/app/shared';
 import { CardModule } from '~/app/shared/card/card.module';
 import { DataTableModule } from '~/app/shared/data-table';
-import { SharedModule } from '~/app/shared';
 
-// module
+import { routes } from './air-universal.routes';
 import { AirlineDetailContainerComponent } from './airline/airline-detail/airline-detail-container.component';
 import { AirlineDetailComponent } from './airline/airline-detail/airline-detail.component';
 import { AirlineComponent } from './airline/airline.component';
-import { routes } from './air-universal.routes';
 
 @NgModule({
   imports: [

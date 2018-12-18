@@ -1,16 +1,11 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-// libs
+import { select, Store } from '@ngrx/store';
 import { from as observableFrom, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { select, Store } from '@ngrx/store';
-
-// app
 import { BaseContainerComponent } from '~/app/framework/core';
-import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
 import { routeAnimation, Scrollable } from '~/app/shared';
+import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
 
 @Component({

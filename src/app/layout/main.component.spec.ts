@@ -1,19 +1,13 @@
-// angular
 import { CUSTOM_ELEMENTS_SCHEMA, ElementRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-// libs
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
 
-// module
 import { MainComponent } from './main.component';
 
 configureTestSuite(() => {

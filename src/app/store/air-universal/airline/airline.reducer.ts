@@ -1,4 +1,3 @@
-// app
 import {
   EMPTY_UNIQUE_ID,
   entityErrorFn,
@@ -8,7 +7,6 @@ import {
   UniqueId
 } from '~/app/framework/ngrx';
 
-// module
 import { AirlineAction, airlineActions } from './airline.actions';
 import { Airline, initialAirline } from './airline.model';
 import { adapter, initialState, State } from './airline.state';

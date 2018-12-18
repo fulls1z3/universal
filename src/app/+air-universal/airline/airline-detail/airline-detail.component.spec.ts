@@ -1,25 +1,17 @@
-// angular
 import { TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-
-// libs
 import { of as observableOf } from 'rxjs';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
-import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE } from '~/app/store/testing';
-
-// app
 import { MaterialModule } from '~/app/framework/material';
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-import { CardModule } from '~/app/shared/card';
+import { t } from '~/app/framework/testing';
 import { RenderFlag, SharedModule } from '~/app/shared';
+import { CardModule } from '~/app/shared/card';
+import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// module
 import { AirlineDetailComponent } from './airline-detail.component';
 
 const testModuleConfig = (renderFlag = RenderFlag.Create) => {

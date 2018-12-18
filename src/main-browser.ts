@@ -1,12 +1,8 @@
-// angular
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-// libs
-import { get } from 'lodash/fp';
 import { bootloader } from '@angularclass/bootloader';
+import { get } from 'lodash/fp';
 
-// app
 import { AppBrowserModule } from './app/app.browser.module';
 import { environment } from './environments/environment';
 import { hmrBootstrap } from './hmr';

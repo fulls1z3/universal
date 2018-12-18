@@ -1,21 +1,13 @@
-// angular
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-// libs
 import { Store } from '@ngrx/store';
 import { ConfigService } from '@ngx-config/core';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { t } from '~/app/framework/testing';
-
-// app
 import { languageActions } from '~/app/store';
 
-// module
 import { AppComponent } from './app.component';
 
 configureTestSuite(() => {

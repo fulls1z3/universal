@@ -1,13 +1,10 @@
-// angular
-import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-
-// libs
 import { Request } from 'express';
-import { Observable } from 'rxjs';
 import { flow } from 'lodash/fp';
+import { Observable } from 'rxjs';
 
 export const getBaseUrl = (serverRequest: Request) => `${serverRequest.protocol}://${serverRequest.get('Host')}`;
 

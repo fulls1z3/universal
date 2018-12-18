@@ -1,8 +1,6 @@
-// angular
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-// module
 import { I18NStoreModule } from './i18n';
 
 @NgModule({

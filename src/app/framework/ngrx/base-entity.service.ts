@@ -1,15 +1,11 @@
-// angular
 import { HttpClient } from '@angular/common/http';
-
-// libs
+import { ConfigService } from '@ngx-config/core';
+import { flow } from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { flow } from 'lodash/fp';
-import { ConfigService } from '@ngx-config/core';
 
-// module
-import { BaseDocument, UniqueId } from './models/base-document';
 import { HTTP_CLIENT__MAX_RETRIES } from './constants';
+import { BaseDocument, UniqueId } from './models/base-document';
 
 export abstract class BaseEntityService<T extends BaseDocument> {
   protected constructor(protected readonly config: ConfigService,

@@ -1,4 +1,3 @@
-// testing
 import { baseUrl, browser } from 'e2e-config';
 import { e2e } from '~/app/framework/testing/e2e';
 

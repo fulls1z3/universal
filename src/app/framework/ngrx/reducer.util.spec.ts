@@ -1,7 +1,5 @@
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
 import { errorFn, startProcessingFn, stopProcessingFn } from './reducer.util';
 
 const ERROR_MESSAGE = 'Something went wrong.';

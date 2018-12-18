@@ -1,13 +1,9 @@
-// testing
-import { t } from '~/app/framework/testing';
-import { MOCK_LANGUAGE } from './testing';
-
-// app
 import { initialLanguage } from '~/app/framework/store';
+import { t } from '~/app/framework/testing';
 
-// module
 import { getError, getIsProcessing, getWorkingLanguage } from './language.selectors';
 import { LANGUAGE } from './language.state';
+import { MOCK_LANGUAGE } from './testing';
 
 const MOCK_STORE = {
   [LANGUAGE]: {

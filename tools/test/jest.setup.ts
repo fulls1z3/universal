@@ -1,6 +1,6 @@
-// libs
-import 'jest-preset-angular';
 import * as hammerjs from 'hammerjs';
+// tslint:disable-next-line
+import 'jest-preset-angular';
 
 const mock = () => {
   let storage = {};

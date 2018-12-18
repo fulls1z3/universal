@@ -1,7 +1,5 @@
-// libs
 import { AuthGuard } from '@ngx-auth/core';
 
-// module
 import { SecureComponent } from './secure.component';
 
 export const routes = [

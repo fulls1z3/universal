@@ -1,22 +1,15 @@
-// angular
-import { forwardRef, Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// libs
-import { StoreModule } from '@ngrx/store';
+import { forwardRef, Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { CacheModule } from '@ngx-cache/core';
 import { ConfigModule, ConfigService } from '@ngx-config/core';
 import { ConfigHttpLoader } from '@ngx-config/http-loader';
-import { CacheModule } from '@ngx-cache/core';
 import { MetaModule, MetaStaticLoader } from '@ngx-meta/core';
-// TODO: ngx-i18n-router
-// import { I18N_ROUTER_PROVIDERS } from '@ngx-language-router/core';
-// import { I18NRouterConfigLoader } from '@ngx-language-router/config-loader';
 import { TranslateService } from '@ngx-translate/core';
 
-// module
-import { BaseComponent } from './base.component';
 import { BaseContainerComponent } from './base-container.component';
+import { BaseComponent } from './base.component';
 import { ConsoleService } from './console.service';
 import { LogService } from './log.service';
 import { WindowService } from './window.service';
@@ -32,9 +25,6 @@ export const configFactory = (injector: Injector) => {
 
   return new ConfigHttpLoader(http, './assets/config.local.json');
 };
-
-// TODO: ngx-i18n-router
-// export const i18nRouterFactory = (config: ConfigService, rawRoutes: Routes) => new I18NRouterConfigLoader(config, rawRoutes, 'routes');
 
 export const metaFactory = (config: ConfigService, translate: TranslateService) => new MetaStaticLoader({
   callback: (cur: string) => translate.get(cur),

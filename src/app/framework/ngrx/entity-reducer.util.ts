@@ -1,4 +1,3 @@
-// module
 import { BaseDocument, UniqueId } from './models/base-document';
 
 export const entityStartProcessingFn = <T>(state: T) => ({

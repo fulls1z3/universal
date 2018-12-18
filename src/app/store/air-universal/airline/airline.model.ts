@@ -1,4 +1,3 @@
-// app
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { Airline } from '~/app/library/flight/models/airline.ts';
 

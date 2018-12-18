@@ -1,16 +1,11 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-// libs
+import { select, Store } from '@ngrx/store';
+import { MetaService } from '@ngx-meta/core';
+import { TranslateService } from '@ngx-translate/core';
+import { getOr } from 'lodash/fp';
 import { Observable, of as observableOf, zip } from 'rxjs';
 import { skipWhile, switchMap, takeUntil } from 'rxjs/operators';
-import { getOr } from 'lodash/fp';
-import { select, Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
-import { MetaService } from '@ngx-meta/core';
-
-// app
 import { BaseContainerComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
 import { RenderFlag, routeAnimation } from '~/app/shared';

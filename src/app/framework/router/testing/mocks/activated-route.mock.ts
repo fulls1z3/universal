@@ -1,8 +1,5 @@
-// angular
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
-
-// libs
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()

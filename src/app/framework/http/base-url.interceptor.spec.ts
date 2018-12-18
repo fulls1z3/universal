@@ -1,19 +1,13 @@
-// angular
-import { TestBed } from '@angular/core/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
-// libs
+import { TestBed } from '@angular/core/testing';
 import { ConfigService } from '@ngx-config/core';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { t } from '~/app/framework/testing';
-import { MockService } from './testing';
 
-// module
 import { BaseUrlInterceptor, getBaseUrl } from './base-url.interceptor';
+import { MockService } from './testing';
 
 const MOCK_BASE_BROWSER_URL = 'http://localhost:4200';
 const MOCK_BASE_SERVER_URL = 'http://localhost:4000';

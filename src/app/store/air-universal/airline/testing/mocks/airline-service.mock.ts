@@ -1,11 +1,7 @@
-// libs
 import { Observable, of as observableOf, throwError } from 'rxjs';
-
-// app
 import { UniqueId } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
-// module
 import { Airline } from '../../airline.model';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from '../common';
 

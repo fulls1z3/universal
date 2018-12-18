@@ -1,4 +1,3 @@
-// angular
 import { NgModule } from '@angular/core';
 import {
   MatButtonModule,

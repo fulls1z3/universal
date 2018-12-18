@@ -1,7 +1,5 @@
-// app
 import { RenderFlag } from '~/app/shared';
 
-// module
 import { AirlineDetailContainerComponent } from './airline/airline-detail/airline-detail-container.component';
 import { AirlineComponent } from './airline/airline.component';
 

@@ -1,14 +1,9 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-// libs
-import { from as observableFrom, Observable } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '@ngx-auth/core';
 import { TranslateService } from '@ngx-translate/core';
-
-// app
+import { from as observableFrom, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { BaseComponent } from '~/app/framework/core';
 import { routeAnimation } from '~/app/shared';
 

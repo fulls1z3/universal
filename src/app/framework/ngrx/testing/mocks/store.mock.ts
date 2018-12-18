@@ -1,9 +1,6 @@
-// angular
 import { Injectable } from '@angular/core';
-
-// libs
-import { BehaviorSubject } from 'rxjs';
 import { ActionsSubject, ReducerManager, StateObservable, Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MockStore<T extends Object> extends Store<T> {

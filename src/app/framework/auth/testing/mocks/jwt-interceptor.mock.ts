@@ -1,11 +1,8 @@
-// angular
-import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-
-// libs
-import { Observable } from 'rxjs';
-import { flow, get } from 'lodash/fp';
+import { Injectable } from '@angular/core';
 import { AuthLoader } from '@ngx-auth/core';
+import { flow, get } from 'lodash/fp';
+import { Observable } from 'rxjs';
 
 const getHeaders = (request: HttpRequest<any>) => (token: string) => token
   ? request.clone({

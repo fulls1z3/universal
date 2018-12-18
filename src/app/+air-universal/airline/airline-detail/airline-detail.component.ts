@@ -1,8 +1,5 @@
-// angular
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
 import { Airline, initialAirline } from '~/app/store';

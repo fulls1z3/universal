@@ -1,19 +1,13 @@
-// angular
-import { TestBed } from '@angular/core/testing';
 import { HTTP_INTERCEPTORS, HttpClient, HttpRequest } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-
-// libs
 import { ConfigService } from '@ngx-config/core';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { t } from '~/app/framework/testing';
-import { MockService } from './testing';
 
-// module
+import { MockService } from './testing';
 import { getAbsolutePath, getBaseUrl, UniversalInterceptor } from './universal.interceptor';
 
 const MOCK_BASE_URL = 'https://yourdomain.com';

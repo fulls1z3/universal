@@ -1,19 +1,13 @@
 // tslint:disable
-// angular
 import { InjectionToken } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-
-// libs
 import { ConfigLoader, ConfigModule, ConfigService, ConfigStaticLoader } from '@ngx-config/core';
-
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
-import { LogLevel } from './models/log-level';
 import { ConsoleService } from './console.service';
 import { LogService } from './log.service';
+import { LogLevel } from './models/log-level';
 
 const LOG_LEVEL = new InjectionToken<LogLevel>('LOG_LEVEL');
 
@@ -25,7 +19,7 @@ const testModuleConfig = (logLevel: LogLevel) => {
       imports: [
         ConfigModule.forRoot({
           provide: ConfigLoader,
-          useFactory: (logLevel: LogLevel) => new ConfigStaticLoader({
+          useFactory: () => new ConfigStaticLoader({
             logging: {level: logLevel}
           }),
           deps: [LOG_LEVEL]

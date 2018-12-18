@@ -1,16 +1,10 @@
-// angular
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// libs
+import { Injectable } from '@angular/core';
+import { ConfigService } from '@ngx-config/core';
 import { EMPTY, Observable, of as observableOf } from 'rxjs';
 import { delay, map, retry } from 'rxjs/operators';
-import { ConfigService } from '@ngx-config/core';
-
-// app
 import { BaseEntityService, HTTP_CLIENT__MAX_RETRIES, UniqueId } from '~/app/framework/ngrx';
 
-// module
 import { Airline } from './airline.model';
 
 @Injectable({

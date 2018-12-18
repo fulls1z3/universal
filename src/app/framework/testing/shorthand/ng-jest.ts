@@ -1,7 +1,5 @@
-// angular
 import { async, fakeAsync, inject, tick } from '@angular/core/testing';
 
-// module
 import { TestApi } from './ng-base';
 
 export interface JestApi extends TestApi {

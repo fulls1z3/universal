@@ -1,10 +1,6 @@
-// angular
 import { Component, ContentChildren, Input, QueryList } from '@angular/core';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 
-// module
 import { MenuItemComponent } from './menu-item.component';
 
 @Component({

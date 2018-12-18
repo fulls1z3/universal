@@ -1,13 +1,7 @@
-// angular
 import { Router } from '@angular/router';
-
-// libs
 import { ofType, unionize, UnionOf } from 'unionize';
-
-// app
 import { UniqueId } from '~/app/framework/ngrx';
 
-// module
 import { Airline } from './airline.model';
 
 export const airlineActions = unionize({

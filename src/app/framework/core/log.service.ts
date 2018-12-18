@@ -1,12 +1,8 @@
-// angular
 import { forwardRef, Inject, Injectable } from '@angular/core';
-
-// lib
 import { ConfigService } from '@ngx-config/core';
 
-// module
-import { LogLevel } from './models/log-level';
 import { ConsoleService } from './console.service';
+import { LogLevel } from './models/log-level';
 
 @Injectable()
 export class LogService {

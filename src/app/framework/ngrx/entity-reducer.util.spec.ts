@@ -1,7 +1,5 @@
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
 import { entityErrorFn, entityResetFn, entityStartProcessingFn, entityStopProcessingFn } from './entity-reducer.util';
 
 const VALID_ID = '100000000000000000000001';

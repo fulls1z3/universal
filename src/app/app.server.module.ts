@@ -1,20 +1,16 @@
-// angular
 import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core';
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-
-// libs
+import { AuthModule } from '@ngx-auth/core';
+import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
+import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
+import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
 import * as express from 'express';
 import { filter, first } from 'rxjs/operators';
-import { CACHE, CacheService, STORAGE } from '@ngx-cache/core';
-import { FsCacheService, ServerCacheModule } from '@ngx-cache/platform-server';
-import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
-import { AuthModule } from '@ngx-auth/core';
 
-// module
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
 

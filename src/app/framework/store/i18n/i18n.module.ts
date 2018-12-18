@@ -1,12 +1,8 @@
-// angular
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// libs
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
-// module
 import { LanguageEffects } from './language/language.effects';
 import * as fromLanguage from './language/language.reducer';
 import { LANGUAGE } from './language/language.state';

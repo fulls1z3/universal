@@ -1,17 +1,11 @@
-// angular
 import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
-// libs
-import { ConfigService } from '@ngx-config/core';
 import { CacheService } from '@ngx-cache/core';
+import { ConfigService } from '@ngx-config/core';
 import { MetaService } from '@ngx-meta/core';
-
-// app
 import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics';
 import { ConsoleService, LogService, WindowService } from '~/app/framework/core';
 
-// module
 import { MockCacheService } from './mocks/cache-service.mock';
 import { MockConfigService } from './mocks/config-service.mock';
 import { MockElementRef } from './mocks/element-ref.mock';

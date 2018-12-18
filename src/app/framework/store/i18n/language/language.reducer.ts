@@ -1,7 +1,5 @@
-// app
 import { errorFn, startProcessingFn, stopProcessingFn } from '~/app/framework/ngrx';
 
-// module
 import { LanguageAction, languageActions } from './language.actions';
 import { Language } from './language.model';
 import { initialState, State } from './language.state';

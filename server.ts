@@ -1,16 +1,13 @@
-// polyfills
-import 'zone.js/dist/zone-node';
+// tslint:disable-next-line
 import 'reflect-metadata';
-
-// angular
+import 'zone.js/dist/zone-node';
+// tslint:disable-next-line
 import { enableProdMode } from '@angular/core';
-
-// libs
-import { join } from 'path';
-import * as express from 'express';
-import * as compression from 'compression';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import * as compression from 'compression';
+import * as express from 'express';
+import { join } from 'path';
 
 enableProdMode();
 

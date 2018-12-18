@@ -1,10 +1,5 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-
-// libs
 import { Subject } from 'rxjs';
-
-// app
 import { BaseDocument } from '~/app/framework/ngrx';
 
 @Component({

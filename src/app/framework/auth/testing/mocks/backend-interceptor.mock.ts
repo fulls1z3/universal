@@ -1,11 +1,7 @@
-// angular
-import { Inject, Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-
-// libs
+import { Inject, Injectable } from '@angular/core';
 import { Observable, of as observableOf } from 'rxjs';
 
-// module
 import { MOCK_AUTH_PATH } from '../tokens';
 
 @Injectable()

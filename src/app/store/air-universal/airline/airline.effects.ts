@@ -1,17 +1,11 @@
-// angular
 import { Injectable } from '@angular/core';
-
-// libs
+import { Actions, Effect } from '@ngrx/effects';
+import { flow, get, isEmpty, isNil, negate } from 'lodash/fp';
 import { of as observableOf } from 'rxjs';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
-import { flow, get, isEmpty, isNil, negate } from 'lodash/fp';
-import { Actions, Effect } from '@ngrx/effects';
-
-// app
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
-// module
 import { airlineActions } from './airline.actions';
 import { AirlineService } from './airline.service';
 

@@ -1,15 +1,11 @@
-// testing
-import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
-
-// app
 import { EMPTY_UNIQUE_ID, entityReducer } from '~/app/framework/ngrx';
+import { t } from '~/app/framework/testing';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
-// module
 import { airlineActions } from './airline.actions';
 import { reducer } from './airline.reducer';
 import { initialState } from './airline.state';
+import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
 
 t.describe('airline: airline.reducer', () => {
   it('should return the initial state', () => {

@@ -1,17 +1,11 @@
-// angular
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// libs
-import { StoreModule as NgrxStoreModule } from '@ngrx/store';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
-// app
-import { environment } from '~/environments/environment';
 import { StoreFrameworkModule } from '~/app/framework/store';
+import { environment } from '~/environments/environment';
 
-// module
 import { AirUniversalStoreModule } from './air-universal';
 
 @NgModule({

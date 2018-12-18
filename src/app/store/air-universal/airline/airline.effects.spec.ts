@@ -1,27 +1,19 @@
-// angular
-import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-
-// libs
 import { Actions } from '@ngrx/effects';
 import { cold, hot } from 'jasmine-marbles';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
+import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { RouterTestingModule } from '~/app/framework/router/testing';
 import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE, MOCK_AIRLINES, MockAirlineService } from './testing';
-
-// app
-import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
 import { ERROR__NO_PAYLOAD } from '~/app/shared';
 
-// module
 import { airlineActions } from './airline.actions';
 import { AirlineEffects } from './airline.effects';
 import { AirlineService } from './airline.service';
+import { MOCK_AIRLINE, MOCK_AIRLINES, MockAirlineService } from './testing';
 
 const testModuleConfig = () => {
   TestBed.configureTestingModule({

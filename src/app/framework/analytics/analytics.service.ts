@@ -1,9 +1,6 @@
-// angular
 import { Inject, Injectable } from '@angular/core';
-
-// libs
-import { extend } from 'lodash/fp';
 import { Angulartics2 } from 'angulartics2';
+import { extend } from 'lodash/fp';
 
 interface AnalyticsProperties {
   category?: string;

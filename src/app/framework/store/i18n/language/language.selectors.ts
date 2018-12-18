@@ -1,8 +1,6 @@
-// libs
-import { get } from 'lodash/fp';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { get } from 'lodash/fp';
 
-// module
 import { LANGUAGE, State } from './language.state';
 
 const getState = createFeatureSelector<State>(LANGUAGE);

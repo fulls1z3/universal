@@ -1,14 +1,10 @@
-// angular
-import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
-// libs
+import { TestBed } from '@angular/core/testing';
 import { ConfigService } from '@ngx-config/core';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { t } from '~/app/framework/testing';
+
 import { MockEntityService } from './testing';
 
 export const MOCK_ITEMS = [

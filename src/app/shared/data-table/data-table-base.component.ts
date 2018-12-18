@@ -1,19 +1,13 @@
-// angular
 import { EventEmitter, Input, Output } from '@angular/core';
-
-// libs
-import { Observable } from 'rxjs';
 import { get } from 'lodash/fp';
-
-// app
+import { Observable } from 'rxjs';
 import { BaseComponent } from '~/app/framework/core';
 import { toSlug } from '~/app/shared';
 
-// module
 import { DataTableButton } from './models/data-table-button';
 import { DataTableColumn } from './models/data-table-column';
-import { DataTableRouteButton } from './models/data-table-route-button';
 import { DataTableOptions } from './models/data-table-options';
+import { DataTableRouteButton } from './models/data-table-route-button';
 
 export class DataTableBaseComponent extends BaseComponent {
   @Input() data: Observable<Array<any>> | Array<any>;

@@ -1,4 +1,3 @@
-// module
 import { Window } from './models/window';
 
 export class WindowService implements Window {

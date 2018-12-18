@@ -1,8 +1,6 @@
-// libs
-import { get, isNil } from 'lodash/fp';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { get, isNil } from 'lodash/fp';
 
-// module
 import { adapter, AIRLINE, State } from './airline.state';
 
 const getState = createFeatureSelector<State>(AIRLINE);

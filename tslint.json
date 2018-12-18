@@ -1,7 +1,6 @@
 ﻿{
   "rulesDirectory": [
-    "node_modules/codelyzer",
-    "node_modules/rxjs-tslint"
+    "node_modules/codelyzer"
   ],
   "extends": [
     "angular-tslint-rules"
@@ -10,8 +9,6 @@
     "await-promise": [true, "Nightmare"],
     "no-implicit-dependencies": false,
     "no-bitwise": false,
-    "rxjs-collapse-imports": true,
-    "rxjs-proper-imports": true,
     "templates-no-negated-async": false,
     "i18n": false,
     "no-forward-ref": false,

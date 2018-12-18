@@ -1,9 +1,6 @@
-// angular
 import { ApplicationRef, ComponentRef, NgModuleRef } from '@angular/core';
-
-// libs
-import { flow } from 'lodash/fp';
 import { createNewHosts } from '@angularclass/hmr';
+import { flow } from 'lodash/fp';
 
 export const hmrBootstrap = (module: any, bootstrap: () => Promise<NgModuleRef<any>>) => {
   module.hot.accept();

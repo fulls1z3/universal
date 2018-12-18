@@ -1,13 +1,8 @@
-// angular
 import { Component, OnInit } from '@angular/core';
-
-// libs
-import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { ConfigService } from '@ngx-config/core';
 import { AuthService } from '@ngx-auth/core';
-
-// app
+import { ConfigService } from '@ngx-config/core';
+import { Observable } from 'rxjs';
 import { BaseComponent } from '~/app/framework/core';
 import { Language, LanguageSelectors, State } from '~/app/store';
 

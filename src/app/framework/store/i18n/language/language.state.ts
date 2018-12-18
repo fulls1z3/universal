@@ -1,4 +1,3 @@
-// module
 import { initialLanguage, Language } from './language.model';
 
 export const LANGUAGE = 'i18n--language';

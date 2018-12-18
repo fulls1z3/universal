@@ -1,21 +1,13 @@
-// angular
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-
-// libs
 import { Store } from '@ngrx/store';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { RouterTestingModule } from '~/app/framework/router/testing';
+import { languageActions } from '~/app/framework/store';
 import { t } from '~/app/framework/testing';
 
-// app
-import { languageActions } from '~/app/framework/store';
-
-// module
 import { ChangeLanguageComponent } from './change-language.component';
 
 const MOCK_EMPTY_PARAMS = {languageCode: ''};

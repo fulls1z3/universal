@@ -1,19 +1,11 @@
-// angular
 import { Injectable, Injector } from '@angular/core';
-
-// libs
-import { filter, map } from 'rxjs/operators';
-import { get } from 'lodash/fp';
 import { Actions, Effect } from '@ngrx/effects';
-import { TranslateService } from '@ngx-translate/core';
 import { MetaService } from '@ngx-meta/core';
-// TODO: ngx-i18n-router
-// import { I18NRouterService } from '@ngx-language-router/core';
-
-// app
+import { TranslateService } from '@ngx-translate/core';
+import { get } from 'lodash/fp';
+import { filter, map } from 'rxjs/operators';
 import { I18NService } from '~/app/framework/i18n/i18n.service';
 
-// module
 import { languageActions } from './language.actions';
 
 @Injectable()

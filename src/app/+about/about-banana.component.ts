@@ -1,7 +1,4 @@
-// angular
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 import { routeAnimation } from '~/app/shared';
 

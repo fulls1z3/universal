@@ -1,8 +1,6 @@
-// angular
-import { Injector, NgModule, PLATFORM_ID } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Injector, NgModule, PLATFORM_ID } from '@angular/core';
 
-// module
 import { BaseUrlInterceptor } from './base-url.interceptor';
 import { UniversalInterceptor } from './universal.interceptor';
 

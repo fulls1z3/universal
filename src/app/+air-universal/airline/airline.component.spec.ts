@@ -1,29 +1,21 @@
-// angular
 import { TestBed } from '@angular/core/testing';
+import { FlexModule } from '@angular/flex-layout';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { FlexModule } from '@angular/flex-layout';
-
-// libs
 import { Store } from '@ngrx/store';
-import { configureTestSuite } from 'ng-bullet';
 import { cold } from 'jasmine-marbles';
-
-// testing
+import { configureTestSuite } from 'ng-bullet';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
+import { MaterialModule } from '~/app/framework/material';
 import { getState, NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { RouterTestingModule } from '~/app/framework/router/testing';
 import { t } from '~/app/framework/testing';
+import { SharedModule } from '~/app/shared';
+import { DataTableModule } from '~/app/shared/data-table';
+import { AIRLINE, Airline, airlineActions } from '~/app/store';
 import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// app
-import { MaterialModule } from '~/app/framework/material';
-import { DataTableModule } from '~/app/shared/data-table';
-import { SharedModule } from '~/app/shared';
-import { AIRLINE, Airline, airlineActions } from '~/app/store';
-
-// module
 import { AirlineComponent } from './airline.component';
 
 configureTestSuite(() => {

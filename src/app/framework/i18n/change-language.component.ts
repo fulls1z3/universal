@@ -1,13 +1,8 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-// libs
+import { Store } from '@ngrx/store';
 import { from as observableFrom } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 import { FrameworkState, languageActions } from '~/app/framework/store';
 

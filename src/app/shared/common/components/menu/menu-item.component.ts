@@ -1,7 +1,4 @@
-// angular
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 
 @Component({

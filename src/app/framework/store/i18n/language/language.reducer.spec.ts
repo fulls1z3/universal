@@ -1,14 +1,8 @@
-// angular
 import { TestBed } from '@angular/core/testing';
-
-// libs
 import { ConfigService } from '@ngx-config/core';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { t } from '~/app/framework/testing';
 
-// module
 import { languageActions } from './language.actions';
 import { reducer } from './language.reducer';
 import { initialState } from './language.state';

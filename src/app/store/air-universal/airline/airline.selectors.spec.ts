@@ -1,10 +1,8 @@
-// testing
 import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE } from './testing';
 
-// module
 import { getError, getIsProcessing, getSelected, getSelectedId } from './airline.selectors';
 import { AIRLINE } from './airline.state';
+import { MOCK_AIRLINE } from './testing';
 
 const MOCK_STORE = {
   [AIRLINE]: {

@@ -1,13 +1,10 @@
-// angular
-import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-
-// libs
+import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
+import { ConfigService } from '@ngx-config/core';
+import { flow, getOr } from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
-import { flow, getOr } from 'lodash/fp';
-import { ConfigService } from '@ngx-config/core';
 
 export const getBaseUrl = (config: ConfigService) => (isServer: Boolean) => flow(
   (cur: ConfigService) => cur.getSettings(''),

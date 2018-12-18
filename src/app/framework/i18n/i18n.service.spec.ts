@@ -1,18 +1,12 @@
-// angular
 import { TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-// testing
+import { AnalyticsModule } from '~/app/framework/analytics';
+import { WindowService } from '~/app/framework/core';
 import { CoreTestingModule, MockWindowFrench, MockWindowNoLanguage } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
 import { t } from '~/app/framework/testing';
 
-// app
-import { AnalyticsModule } from '~/app/framework/analytics';
-import { WindowService } from '~/app/framework/core';
-
-// module
 import { I18NService } from './i18n.service';
 
 const MOCK_DEFAULT_LANGUAGE = {

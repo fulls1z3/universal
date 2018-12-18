@@ -1,13 +1,7 @@
-// angular
 import { ChangeDetectionStrategy, Component, ContentChildren, EventEmitter, Input, QueryList } from '@angular/core';
-
-// libs
 import { Observable } from 'rxjs';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 
-// module
 import { MenuGroupComponent } from '../common/components/menu/menu-group.component';
 
 @Component({
