@@ -12,23 +12,21 @@ import { FrameworkState, languageActions } from '~/app/framework/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeLanguageComponent extends BaseComponent implements OnInit {
-  constructor(private readonly store$: Store<FrameworkState>,
-              private readonly route: ActivatedRoute,
-              private readonly router: Router) {
+  constructor(private readonly store$: Store<FrameworkState>, private readonly route: ActivatedRoute, private readonly router: Router) {
     super();
   }
 
   ngOnInit(): void {
-    this.route.params
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(res => {
-        if (res.languageCode)
-          this.store$.dispatch(languageActions.i18nUseLanguage(res.languageCode));
+    this.route.params.pipe(takeUntil(this.ngUnsubscribe)).subscribe(res => {
+      if (res.languageCode) {
+        this.store$.dispatch(languageActions.i18nUseLanguage(res.languageCode));
+      }
 
-        observableFrom(this.router.navigate(['']))
-          .pipe(takeUntil(this.ngUnsubscribe))
-          .subscribe(() => {/**/
-          });
-      });
+      observableFrom(this.router.navigate(['']))
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe(() => {
+          /**/
+        });
+    });
   }
 }

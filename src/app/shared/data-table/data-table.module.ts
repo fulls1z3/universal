@@ -11,19 +11,9 @@ import { DataTableBaseComponent } from './data-table-base.component';
 import { DataTableComponent } from './data-table.component';
 
 @NgModule({
-  imports: [
-    RouterModule,
-    FlexLayoutModule,
-    TranslateModule,
-    PerfectScrollbarModule,
-    MaterialModule,
-    CommonModule
-  ],
+  imports: [RouterModule, FlexLayoutModule, TranslateModule, PerfectScrollbarModule, MaterialModule, CommonModule],
   exports: [DataTableComponent],
-  declarations: [
-    DataTableComponent,
-    DataTableBaseComponent
-  ],
+  declarations: [DataTableComponent, DataTableBaseComponent],
   providers: [
     {
       provide: LAYOUT_CONFIG,
@@ -31,5 +21,4 @@ import { DataTableComponent } from './data-table.component';
     }
   ]
 })
-export class DataTableModule {
-}
+export class DataTableModule {}

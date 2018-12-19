@@ -40,8 +40,7 @@ t.describe('AirlineComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should `getMany` from AirlineSelectors on init', () => {
@@ -52,10 +51,9 @@ t.describe('AirlineComponent', () => {
     store$.setState(state);
     fixture.detectChanges();
 
-    const expected = cold('a', {a: [MOCK_AIRLINE]});
+    const expected = cold('a', { a: [MOCK_AIRLINE] });
 
-    t.e(instance.airlines$)
-      .toBeObservable(expected);
+    t.e(instance.airlines$).toBeObservable(expected);
   });
 
   t.it('should dispatch `airUniversalGetManyAirlines` action on init', () => {
@@ -66,13 +64,12 @@ t.describe('AirlineComponent', () => {
 
     const action = airlineActions.airUniversalGetManyAirlines();
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(1);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(1);
   });
 
-  t.it('should navigate to `create` on create button click',
+  t.it(
+    'should navigate to `create` on create button click',
     t.inject([Router], (router: Router) => {
       const fixture = TestBed.createComponent(AirlineComponent);
       const instance = fixture.componentInstance;
@@ -84,11 +81,10 @@ t.describe('AirlineComponent', () => {
       const createButton = fixture.debugElement.query(By.css('.qa-menu_item__create'));
       createButton.triggerEventHandler('click', {});
 
-      t.e(spy)
-        .toHaveBeenCalledWith([...instance.baseRoute, 'create']);
-      t.e(spy)
-        .toHaveBeenCalledTimes(1);
-    }));
+      t.e(spy).toHaveBeenCalledWith([...instance.baseRoute, 'create']);
+      t.e(spy).toHaveBeenCalledTimes(1);
+    })
+  );
 
   t.it('should dispatch `airUniversalGetManyAirlines` action on refresh button click', () => {
     const fixture = TestBed.createComponent(AirlineComponent);
@@ -101,9 +97,7 @@ t.describe('AirlineComponent', () => {
 
     const action = airlineActions.airUniversalGetManyAirlines();
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 });

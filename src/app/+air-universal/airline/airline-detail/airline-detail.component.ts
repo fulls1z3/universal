@@ -11,7 +11,7 @@ import { Airline, initialAirline } from '~/app/store';
   styleUrls: ['./airline-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AirlineDetailComponent extends BaseComponent implements OnInit  {
+export class AirlineDetailComponent extends BaseComponent implements OnInit {
   @ViewChild('delete') deleteRef: ElementRef;
   @ViewChild('submit') submitRef: ElementRef;
   @Input() airline: Airline;
@@ -26,19 +26,26 @@ export class AirlineDetailComponent extends BaseComponent implements OnInit  {
   ngOnInit(): void {
     const resource = getOrNil(initialAirline)(this.airline);
 
-    if (!resource._id)
+    if (!resource._id) {
       (this.deleteRef as any).disabled = true;
+    }
 
     this.airlineForm = this.formBuilder.group({
       _id: resource._id,
-      iataCode: [resource.iataCode, {
-        validators: [Validators.required, Validators.maxLength(8)],
-        updateOn: 'blur'
-      }],
-      name: [resource.name, {
-        validators: [Validators.required, Validators.maxLength(255)],
-        updateOn: 'blur'
-      }]
+      iataCode: [
+        resource.iataCode,
+        {
+          validators: [Validators.required, Validators.maxLength(8)],
+          updateOn: 'blur'
+        }
+      ],
+      name: [
+        resource.name,
+        {
+          validators: [Validators.required, Validators.maxLength(255)],
+          updateOn: 'blur'
+        }
+      ]
     });
   }
 

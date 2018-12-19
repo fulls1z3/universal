@@ -14,5 +14,4 @@ import { MockTranslateService } from './mocks/translate-service.mock';
     I18NService
   ]
 })
-export class I18NTestingModule {
-}
+export class I18NTestingModule {}

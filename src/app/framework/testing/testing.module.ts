@@ -6,5 +6,4 @@ import { MockComponent } from './mocks/component.mock';
   declarations: [MockComponent],
   exports: [MockComponent]
 })
-export class TestingModule {
-}
+export class TestingModule {}

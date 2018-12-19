@@ -7,25 +7,11 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
 import { MenuGroupComponent } from './components/menu/menu-group.component';
 import { MenuItemComponent } from './components/menu/menu-item.component';
 
-const COMPONENTS = [
-  LoadingOverlayComponent,
-  MenuGroupComponent,
-  MenuItemComponent
-];
+const COMPONENTS = [LoadingOverlayComponent, MenuGroupComponent, MenuItemComponent];
 
 @NgModule({
-  imports: [
-    CommonAngularModule,
-    FormsModule,
-    MaterialModule
-  ],
-  declarations: [
-    COMPONENTS
-  ],
-  exports: [
-    CommonAngularModule,
-    COMPONENTS
-  ]
+  imports: [CommonAngularModule, FormsModule, MaterialModule],
+  declarations: [COMPONENTS],
+  exports: [CommonAngularModule, COMPONENTS]
 })
-export class CommonModule {
-}
+export class CommonModule {}

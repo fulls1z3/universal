@@ -20,31 +20,33 @@ export class LoginComponent extends BaseComponent implements OnInit {
   note$: Observable<string>;
   error$: Observable<string>;
 
-  constructor(private readonly auth: AuthService,
-              private readonly translate: TranslateService,
-              private readonly router: Router) {
+  constructor(private readonly auth: AuthService, private readonly translate: TranslateService, private readonly router: Router) {
     super();
   }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated)
+    if (this.auth.isAuthenticated) {
       observableFrom(this.router.navigateByUrl(this.auth.defaultUrl))
         .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe(() => {/**/
+        .subscribe(() => {
+          /**/
         });
+    }
   }
 
   login(): void {
     this.isProcessing = true;
     this.note$ = this.translate.get('PUBLIC.LOGIN.NOTE');
 
-    this.auth.authenticate(this.username, this.password)
+    this.auth
+      .authenticate(this.username, this.password)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(() => {
         this.isProcessing = false;
 
-        if (!this.auth.isAuthenticated)
+        if (!this.auth.isAuthenticated) {
           this.error$ = this.translate.get('PUBLIC.LOGIN.ERROR');
+        }
       });
   }
 }

@@ -22,31 +22,32 @@ t.describe('reducer', () => {
     const action = {} as any;
     const res = reducer(undefined, action);
 
-    t.e(res)
-      .toEqual(initialState);
+    t.e(res).toEqual(initialState);
   });
 
   t.describe('i18nUseLanguage', () => {
-    t.it('should return the `isProcessing` on the state',
+    t.it(
+      'should return the `isProcessing` on the state',
       t.inject([ConfigService], (config: ConfigService) => {
         const defaultLanguage = config.getSettings('i18n.defaultLanguage');
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const res = reducer(initialState, action);
 
-        t.e(res.isProcessing)
-          .toBeTruthy();
-      }));
+        t.e(res.isProcessing).toBeTruthy();
+      })
+    );
   });
 
   t.describe('i18nUseLanguageSuccess', () => {
-    t.it('should return the `selectedItem` on the state',
+    t.it(
+      'should return the `selectedItem` on the state',
       t.inject([ConfigService], (config: ConfigService) => {
         const defaultLanguage = config.getSettings('i18n.defaultLanguage');
         const action = languageActions.i18nUseLanguageSuccess(defaultLanguage);
         const res = reducer(initialState, action);
 
-        t.e(res.selectedItem)
-          .toEqual(defaultLanguage);
-      }));
+        t.e(res.selectedItem).toEqual(defaultLanguage);
+      })
+    );
   });
 });

@@ -21,23 +21,22 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
   airline$: Observable<Airline>;
   baseRoute: Array<string>;
 
-  constructor(private readonly router: Router,
-              private readonly route: ActivatedRoute,
-              private readonly translate: TranslateService,
-              private readonly meta: MetaService,
-              protected readonly store$: Store<State>) {
+  constructor(
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
+    private readonly translate: TranslateService,
+    private readonly meta: MetaService,
+    protected readonly store$: Store<State>
+  ) {
     super(store$);
   }
 
   ngOnInit(): void {
     this.baseRoute = ['/', 'air-universal', 'airlines'];
 
-    this.isProcessing$ = this.store$
-      .pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$
-      .pipe(select(AirlineSelectors.getError));
-    this.airline$ = this.store$
-      .pipe(select(AirlineSelectors.getSelected));
+    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
+    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
+    this.airline$ = this.store$.pipe(select(AirlineSelectors.getSelected));
 
     this.airline$
       .pipe(
@@ -49,45 +48,49 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       .subscribe(([title, airline]: Array<any>) => {
         const subtitle = getOr('')('name')(airline);
 
-        this.meta.setTitle(subtitle
-          ? `${title} - ${subtitle}`
-          : title);
+        this.meta.setTitle(subtitle ? `${title} - ${subtitle}` : title);
       });
 
     zip(this.route.data, this.route.params)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(([data, params]) => {
-        if (data.renderFlag === RenderFlag.Create)
+        if (data.renderFlag === RenderFlag.Create) {
           this.store$.dispatch(airlineActions.airUniversalAddOneAirline());
-        else
+        } else {
           this.store$.dispatch(airlineActions.airUniversalGetOneAirline(params.id));
+        }
       });
   }
 
   delete(id: UniqueId): void {
-    this.store$.dispatch(airlineActions.airUniversalDeleteOneAirline({
-      id,
-      router: this.router,
-      route: this.baseRoute
-    }));
+    this.store$.dispatch(
+      airlineActions.airUniversalDeleteOneAirline({
+        id,
+        router: this.router,
+        route: this.baseRoute
+      })
+    );
   }
 
   save(resource: any): void {
-    this.route.data
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(res => {
-        if (res.renderFlag === RenderFlag.Create)
-          this.store$.dispatch(airlineActions.airUniversalCreateOneAirline({
+    this.route.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe(res => {
+      if (res.renderFlag === RenderFlag.Create) {
+        this.store$.dispatch(
+          airlineActions.airUniversalCreateOneAirline({
             resource,
             router: this.router,
             route: this.baseRoute
-          }));
-        else
-          this.store$.dispatch(airlineActions.airUniversalUpdateOneAirline({
+          })
+        );
+      } else {
+        this.store$.dispatch(
+          airlineActions.airUniversalUpdateOneAirline({
             resource,
             router: this.router,
             route: this.baseRoute
-          }));
-      });
+          })
+        );
+      }
+    });
   }
 }

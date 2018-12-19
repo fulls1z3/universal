@@ -13,35 +13,27 @@ export class MockAirlineService {
   }
 
   getMany$(): Observable<Array<Airline>> {
-    return !this.isFailing
-      ? observableOf(MOCK_AIRLINES)
-      : throwError(ERROR__NO_PAYLOAD);
+    return !this.isFailing ? observableOf(MOCK_AIRLINES) : throwError(ERROR__NO_PAYLOAD);
   }
 
   getOne$(id: UniqueId): Observable<Airline> {
     return !this.isFailing
       ? observableOf({
-        ...MOCK_AIRLINE,
-        _id: id
-      })
+          ...MOCK_AIRLINE,
+          _id: id
+        })
       : throwError(ERROR__NO_PAYLOAD);
   }
 
   createOne$(resource: Airline): Observable<Airline> {
-    return !this.isFailing
-      ? observableOf(resource)
-      : throwError(ERROR__NO_PAYLOAD);
+    return !this.isFailing ? observableOf(resource) : throwError(ERROR__NO_PAYLOAD);
   }
 
   updateOne$(resource: Airline): Observable<Airline> {
-    return !this.isFailing
-      ? observableOf(resource)
-      : throwError(ERROR__NO_PAYLOAD);
+    return !this.isFailing ? observableOf(resource) : throwError(ERROR__NO_PAYLOAD);
   }
 
   deleteOne$(id: UniqueId): Observable<UniqueId> {
-    return !this.isFailing
-      ? observableOf(id)
-      : throwError(ERROR__NO_PAYLOAD);
+    return !this.isFailing ? observableOf(id) : throwError(ERROR__NO_PAYLOAD);
   }
 }

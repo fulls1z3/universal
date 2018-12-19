@@ -42,10 +42,7 @@ configureTestSuite(() => {
       TestingModule,
       MaterialModule
     ],
-    declarations: [
-      TranslatePipe,
-      LoginComponent
-    ]
+    declarations: [TranslatePipe, LoginComponent]
   });
 });
 
@@ -55,22 +52,22 @@ t.describe('login: LoginComponent', () => {
     const instance = fixture.debugElement.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
-  t.it('should redirect to `defaultUrl` while authenticated',
+  t.it(
+    'should redirect to `defaultUrl` while authenticated',
     t.async(
       t.inject([AuthService, Router], (auth: AuthService, router: Router) => {
         const fixture = TestBed.createComponent(LoginComponent);
         fixture.detectChanges();
 
-        auth.authenticate('valid', 'valid')
-          .subscribe(() => {
-            t.e(router.url)
-              .toEqual(`${auth.defaultUrl}/`);
-          });
-      })));
+        auth.authenticate('valid', 'valid').subscribe(() => {
+          t.e(router.url).toEqual(`${auth.defaultUrl}/`);
+        });
+      })
+    )
+  );
 
   t.it('should authenticate w/valid combination', () => {
     const fixture = TestBed.createComponent(LoginComponent);
@@ -81,13 +78,12 @@ t.describe('login: LoginComponent', () => {
     instance.password = 'valid';
     instance.login();
 
-    t.e(instance.note$)
-      .toBeDefined();
-    t.e(instance.error$)
-      .toBeUndefined();
+    t.e(instance.note$).toBeDefined();
+    t.e(instance.error$).toBeUndefined();
   });
 
-  t.it('should not authenticate w/o valid combination',
+  t.it(
+    'should not authenticate w/o valid combination',
     t.inject([AuthService], (auth: AuthService) => {
       auth.invalidate();
 
@@ -99,9 +95,8 @@ t.describe('login: LoginComponent', () => {
       instance.password = 'invalid';
       instance.login();
 
-      t.e(instance.note$)
-        .toBeDefined();
-      t.e(instance.error$)
-        .toBeDefined();
-    }));
+      t.e(instance.note$).toBeDefined();
+      t.e(instance.error$).toBeDefined();
+    })
+  );
 });

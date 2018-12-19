@@ -11,13 +11,7 @@ import { HomeComponent } from './home.component';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [
-      RouterTestingModule,
-      CoreTestingModule,
-      I18NTestingModule,
-      SharedModule,
-      MaterialModule
-    ],
+    imports: [RouterTestingModule, CoreTestingModule, I18NTestingModule, SharedModule, MaterialModule],
     declarations: [HomeComponent]
   });
 });
@@ -28,7 +22,6 @@ t.describe('HomeComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 });

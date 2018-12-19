@@ -6,32 +6,34 @@ import { LogLevel } from './models/log-level';
 
 @Injectable()
 export class LogService {
-  constructor(private readonly config: ConfigService,
-              @Inject(forwardRef(() => ConsoleService)) readonly logger: ConsoleService) {
-  }
+  constructor(private readonly config: ConfigService, @Inject(forwardRef(() => ConsoleService)) readonly logger: ConsoleService) {}
 
   // debug (standard output)
   debug(msg: any): void {
-    if (this.config.getSettings('logging.level') >= LogLevel.Debug)
-    // console.debug does not work on {N} apps... use `log`
+    if (this.config.getSettings('logging.level') >= LogLevel.Debug) {
+      // console.debug does not work on {N} apps... use `log`
       this.logger.log(msg);
+    }
   }
 
   // error
   error(err: any): void {
-    if (this.config.getSettings('logging.level') >= LogLevel.Error)
+    if (this.config.getSettings('logging.level') >= LogLevel.Error) {
       this.logger.error(err);
+    }
   }
 
   // warn
   warn(err: any): void {
-    if (this.config.getSettings('logging.level') >= LogLevel.Warn)
+    if (this.config.getSettings('logging.level') >= LogLevel.Warn) {
       this.logger.warn(err);
+    }
   }
 
   // info
   info(err: any): void {
-    if (this.config.getSettings('logging.level') >= LogLevel.Info)
+    if (this.config.getSettings('logging.level') >= LogLevel.Info) {
       this.logger.info(err);
+    }
   }
 }

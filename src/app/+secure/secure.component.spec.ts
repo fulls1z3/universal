@@ -11,13 +11,7 @@ import { SecureComponent } from './secure.component';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [
-      RouterTestingModule,
-      CoreTestingModule,
-      I18NTestingModule,
-      SharedModule,
-      MaterialModule
-    ],
+    imports: [RouterTestingModule, CoreTestingModule, I18NTestingModule, SharedModule, MaterialModule],
     declarations: [SecureComponent]
   });
 });
@@ -28,7 +22,6 @@ t.describe('SecureComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 });

@@ -14,12 +14,7 @@ export const APP_LAYOUT_CONFIG = {
 };
 
 @NgModule({
-  exports: [
-    CommonModule,
-    FormsModule,
-    FlexLayoutModule,
-    TranslateModule
-  ],
+  exports: [CommonModule, FormsModule, FlexLayoutModule, TranslateModule],
   providers: [
     {
       provide: LAYOUT_CONFIG,
@@ -27,5 +22,4 @@ export const APP_LAYOUT_CONFIG = {
     }
   ]
 })
-export class SharedModule {
-}
+export class SharedModule {}

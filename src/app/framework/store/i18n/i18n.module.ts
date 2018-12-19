@@ -8,11 +8,6 @@ import * as fromLanguage from './language/language.reducer';
 import { LANGUAGE } from './language/language.state';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StoreModule.forFeature(LANGUAGE, fromLanguage.reducer),
-    EffectsModule.forFeature([LanguageEffects])
-  ]
+  imports: [CommonModule, StoreModule.forFeature(LANGUAGE, fromLanguage.reducer), EffectsModule.forFeature([LanguageEffects])]
 })
-export class I18NModule {
-}
+export class I18NModule {}

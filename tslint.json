@@ -3,6 +3,7 @@
   "extends": ["angular-tslint-rules", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
     "prettier": true,
+    "curly": true,
     "await-promise": [true, "Nightmare"],
     "no-implicit-dependencies": false,
     "no-inferred-empty-object-type": false,

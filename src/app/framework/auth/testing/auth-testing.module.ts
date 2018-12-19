@@ -33,11 +33,13 @@ import { MOCK_AUTH_PATH } from './tokens';
   ]
 })
 export class AuthTestingModule {
-  static withParams(configuredProvider = {
-                      provide: AuthLoader,
-                      useFactory: authFactory
-                    },
-                    path: string): ModuleWithProviders {
+  static withParams(
+    configuredProvider = {
+      provide: AuthLoader,
+      useFactory: authFactory
+    },
+    path: string
+  ): ModuleWithProviders {
     return {
       ngModule: AuthTestingModule,
       providers: [

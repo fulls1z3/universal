@@ -8,12 +8,7 @@ import { CommonModule } from '~/app/shared';
 import { CardComponent } from './card.component';
 
 @NgModule({
-  imports: [
-    FlexLayoutModule,
-    TranslateModule,
-    MaterialModule,
-    CommonModule
-  ],
+  imports: [FlexLayoutModule, TranslateModule, MaterialModule, CommonModule],
   exports: [CardComponent],
   declarations: [CardComponent],
   providers: [
@@ -23,5 +18,4 @@ import { CardComponent } from './card.component';
     }
   ]
 })
-export class CardModule {
-}
+export class CardModule {}

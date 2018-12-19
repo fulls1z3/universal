@@ -6,11 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class MockStore<T extends Object> extends Store<T> {
   private readonly subject: BehaviorSubject<T>;
 
-  constructor(
-    readonly state$: StateObservable,
-    actionsObserver: ActionsSubject,
-    reducerManager: ReducerManager
-  ) {
+  constructor(readonly state$: StateObservable, actionsObserver: ActionsSubject, reducerManager: ReducerManager) {
     super(state$, actionsObserver, reducerManager);
 
     const val: any = {};

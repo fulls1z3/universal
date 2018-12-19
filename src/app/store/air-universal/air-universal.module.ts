@@ -8,11 +8,6 @@ import * as fromAirline from './airline/airline.reducer';
 import { AIRLINE } from './airline/airline.state';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StoreModule.forFeature(AIRLINE, fromAirline.reducer),
-    EffectsModule.forFeature([AirlineEffects])
-  ]
+  imports: [CommonModule, StoreModule.forFeature(AIRLINE, fromAirline.reducer), EffectsModule.forFeature([AirlineEffects])]
 })
-export class AirUniversalModule {
-}
+export class AirUniversalModule {}

@@ -47,14 +47,15 @@ import { MockWindow } from './mocks/window.mock';
 })
 export class CoreTestingModule {
   static withOptions(options?: any): ModuleWithProviders {
-    const platformProvider = options && options.platformId
-      ? [
-        {
-          provide: PLATFORM_ID,
-          useValue: options.platformId
-        }
-      ]
-      : [];
+    const platformProvider =
+      options && options.platformId
+        ? [
+            {
+              provide: PLATFORM_ID,
+              useValue: options.platformId
+            }
+          ]
+        : [];
 
     return {
       ngModule: CoreTestingModule,

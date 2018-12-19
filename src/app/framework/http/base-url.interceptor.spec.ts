@@ -14,10 +14,7 @@ const MOCK_BASE_SERVER_URL = 'http://localhost:4000';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [
-      HttpClientTestingModule,
-      CoreTestingModule.withOptions()
-    ],
+    imports: [HttpClientTestingModule, CoreTestingModule.withOptions()],
     providers: [
       {
         provide: MockService,
@@ -35,49 +32,52 @@ configureTestSuite(() => {
 });
 
 t.describe('getBaseUrl for `browser` platform', () => {
-  t.it('should return `baseBrowserUrl`',
+  t.it(
+    'should return `baseBrowserUrl`',
     t.inject([ConfigService], (config: ConfigService) => {
       const actual = getBaseUrl(config)(false);
       const expected = `${MOCK_BASE_BROWSER_URL}`;
 
-      t.e(actual)
-        .toEqual(expected);
-    }));
+      t.e(actual).toEqual(expected);
+    })
+  );
 });
 
 t.describe('getBaseUrl for `server` platform', () => {
-  t.it('should return `baseBrowserUrl`',
+  t.it(
+    'should return `baseBrowserUrl`',
     t.inject([ConfigService], (config: ConfigService) => {
       const actual = getBaseUrl(config)(true);
       const expected = `${MOCK_BASE_SERVER_URL}`;
 
-      t.e(actual)
-        .toEqual(expected);
-    }));
+      t.e(actual).toEqual(expected);
+    })
+  );
 });
 
 t.describe('BaseUrlInterceptor', () => {
-  t.it('should build without a problem',
+  t.it(
+    'should build without a problem',
     t.inject([BaseUrlInterceptor], (interceptor: BaseUrlInterceptor) => {
-      t.e(interceptor)
-        .toBeTruthy();
-    }));
+      t.e(interceptor).toBeTruthy();
+    })
+  );
 
-  t.it('should return an intercepted request with `baseUrl` replacement',
+  t.it(
+    'should return an intercepted request with `baseUrl` replacement',
     t.async(
       t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
-        service.fetch$()
-          .subscribe(res => {
-            t.e(res)
-              .toBeTruthy();
-          });
+        service.fetch$().subscribe(res => {
+          t.e(res).toBeTruthy();
+        });
 
-        const actual = http.expectOne({method: 'GET'});
+        const actual = http.expectOne({ method: 'GET' });
         const expected = 'http://localhost:4200/test';
 
-        t.e(actual.request.url)
-          .toEqual(expected);
+        t.e(actual.request.url).toEqual(expected);
 
         http.verify();
-      })));
+      })
+    )
+  );
 });

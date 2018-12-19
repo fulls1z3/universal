@@ -34,9 +34,7 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
   dataSource: MatTableDataSource<any>;
   columns: Array<string>;
 
-  getColumnDef = (col: DataTableColumn) => col.suffix
-    ? `${col.property}_${col.suffix}`
-    : col.property;
+  getColumnDef = (col: DataTableColumn) => (col.suffix ? `${col.property}_${col.suffix}` : col.property);
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
     super();
@@ -44,50 +42,36 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource();
-    this.columns = [
-      ...this.cols
-        .map(this.getColumnDef),
-      ...(
-        !isEmpty(this.buttons)
-        ? ['actions']
-        : []
-      )
-    ];
+    this.columns = [...this.cols.map(this.getColumnDef), ...(!isEmpty(this.buttons) ? ['actions'] : [])];
   }
 
   ngAfterViewInit(): void {
-    const data = isObservable(this.data)
-      ? this.data
-      : observableOf(this.data);
+    const data = isObservable(this.data) ? this.data : observableOf(this.data);
 
-    data
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {
-        if (!this.disablePaginator)
-          this.paginator.pageIndex = 0;
-      });
+    data.pipe(takeUntil(this.ngUnsubscribe)).subscribe(() => {
+      if (!this.disablePaginator) {
+        this.paginator.pageIndex = 0;
+      }
+    });
 
     const filterChange$: Observable<any> = this.filterCol
-      ? observableFromEvent(this.filter.nativeElement, 'keyup')
-        .pipe(
+      ? observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(750),
           distinctUntilChanged()
         )
       : EMPTY;
 
-    filterChange$
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {
-        if (!this.disablePaginator)
-          this.paginator.pageIndex = 0;
-      });
+    filterChange$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(() => {
+      if (!this.disablePaginator) {
+        this.paginator.pageIndex = 0;
+      }
+    });
 
-    this.sort.sortChange
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {
-        if (!this.disablePaginator)
-          this.paginator.pageIndex = 0;
-      });
+    this.sort.sortChange.pipe(takeUntil(this.ngUnsubscribe)).subscribe(() => {
+      if (!this.disablePaginator) {
+        this.paginator.pageIndex = 0;
+      }
+    });
 
     merge(filterChange$, this.sort.sortChange, this.paginator)
       .pipe(
@@ -100,14 +84,17 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
       .subscribe(res => {
         this.dataSource = new MatTableDataSource(res);
 
-        if (!this.disableSort)
+        if (!this.disableSort) {
           this.dataSource.sort = this.sort;
+        }
 
-        if (!this.disablePaginator)
+        if (!this.disablePaginator) {
           this.dataSource.paginator = this.paginator;
+        }
 
-        if (this.filterCol && this.filter.nativeElement.value.trim())
+        if (this.filterCol && this.filter.nativeElement.value.trim()) {
           this.dataSource.filter = this.filter.nativeElement.value.trim();
+        }
       });
 
     this.changeDetectorRef.detectChanges();

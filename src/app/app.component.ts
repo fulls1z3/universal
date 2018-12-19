@@ -10,8 +10,7 @@ import { languageActions, State } from '~/app/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent extends BaseComponent implements OnInit {
-  constructor(private readonly store$: Store<State>,
-              private readonly config: ConfigService) {
+  constructor(private readonly store$: Store<State>, private readonly config: ConfigService) {
     super();
   }
 

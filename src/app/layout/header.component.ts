@@ -19,16 +19,13 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   availableLanguages: Array<Language>;
   isAuthenticated: boolean; // TODO: access only through getter
 
-  constructor(private readonly store$: Store<State>,
-              private readonly config: ConfigService,
-              private readonly auth: AuthService) {
+  constructor(private readonly store$: Store<State>, private readonly config: ConfigService, private readonly auth: AuthService) {
     super();
   }
 
   ngOnInit(): void {
     this.title = 'APP_NAME';
-    this.currentLanguage$ = this.store$
-      .pipe(select(LanguageSelectors.getWorkingLanguage));
+    this.currentLanguage$ = this.store$.pipe(select(LanguageSelectors.getWorkingLanguage));
     this.availableLanguages = this.config.getSettings('i18n.availableLanguages');
     this.isAuthenticated = this.auth.isAuthenticated;
   }

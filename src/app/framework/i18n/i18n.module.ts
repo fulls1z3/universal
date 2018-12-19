@@ -23,7 +23,8 @@ export class I18NModule {
   }
 
   constructor(@Optional() @SkipSelf() parentModule?: I18NModule) {
-    if (parentModule)
+    if (parentModule) {
       throw new Error('I18NModule already loaded. Import in root module only.');
+    }
   }
 }

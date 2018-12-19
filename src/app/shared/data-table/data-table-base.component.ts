@@ -45,8 +45,9 @@ export class DataTableBaseComponent extends BaseComponent {
   }
 
   getValue(row: any, col: DataTableColumn): any {
-    if (col.callback)
+    if (col.callback) {
       return col.callback(get(col.property)(row));
+    }
 
     return get(col.property)(row);
   }
@@ -63,13 +64,8 @@ export class DataTableBaseComponent extends BaseComponent {
 
   getRoute(row: any, button: DataTableRouteButton): Array<any> {
     return [
-      ...button.route
-        .reduce((acc, cur) => cur === '{0}'
-          ? [...acc, row._id]
-          : [...acc, cur], []),
-      ...(!button.passRouteParams
-        ? [toSlug(get(button.target)(row))]
-        : [])
+      ...button.route.reduce((acc, cur) => (cur === '{0}' ? [...acc, row._id] : [...acc, cur]), []),
+      ...(!button.passRouteParams ? [toSlug(get(button.target)(row))] : [])
     ];
   }
 }

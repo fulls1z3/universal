@@ -5,11 +5,8 @@ e2e.describe('HomeComponent', () => {
   e2e.it('should have title', async () => {
     const page = browser.goto(`${baseUrl}/`);
 
-    const text = await page
-      .evaluate(() => document.title)
-      .end();
+    const text = await page.evaluate(() => document.title).end();
 
-    e2e.e(text)
-      .toContain('showcasing the ng-seed app');
+    e2e.e(text).toContain('showcasing the ng-seed app');
   });
 });

@@ -13,9 +13,7 @@ import { AirUniversalStoreModule } from './air-universal';
     CommonModule,
     NgrxStoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    !environment.production && environment.hasStoreDevTools
-      ? StoreDevtoolsModule.instrument()
-      : [],
+    !environment.production && environment.hasStoreDevTools ? StoreDevtoolsModule.instrument() : [],
     StoreFrameworkModule.forRoot(),
     AirUniversalStoreModule
   ]
@@ -28,7 +26,8 @@ export class StoreModule {
   }
 
   constructor(@Optional() @SkipSelf() parentModule?: StoreModule) {
-    if (parentModule)
+    if (parentModule) {
       throw new Error('StoreModule already loaded. Import in root module only.');
+    }
   }
 }

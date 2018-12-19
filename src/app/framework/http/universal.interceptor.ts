@@ -11,8 +11,9 @@ export const getBaseUrl = (serverRequest: Request) => `${serverRequest.protocol}
 export const getAbsolutePath = (serverRequest: Request) => (request: HttpRequest<any>) => (isServer: boolean) => {
   const isRelativePath = isServer && !request.url.includes('http') && request.url.includes('./');
 
-  if (!isRelativePath)
+  if (!isRelativePath) {
     return request;
+  }
 
   const url = flow(
     getBaseUrl,
@@ -24,9 +25,7 @@ export const getAbsolutePath = (serverRequest: Request) => (request: HttpRequest
 
 @Injectable()
 export class UniversalInterceptor implements HttpInterceptor {
-  constructor(private readonly injector: Injector,
-              @Inject(PLATFORM_ID) private readonly platformId: any) {
-  }
+  constructor(private readonly injector: Injector, @Inject(PLATFORM_ID) private readonly platformId: any) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const intercepted = flow(

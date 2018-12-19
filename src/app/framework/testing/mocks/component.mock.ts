@@ -4,5 +4,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MockComponent {
-}
+export class MockComponent {}

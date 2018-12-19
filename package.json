@@ -35,12 +35,12 @@
     "e2e": "yarn build:ssr && concurrently -k --kill-others-on-fail -s first \"yarn serve:ssr\" \"jest -c ./tools/test/e2e-preset.json --runInBand --colors\"",
     "e2e:ci": "concurrently -k --kill-others-on-fail -s first \"yarn serve:ssr\" \"jest --ci -c ./tools/test/e2e-preset.json --colors\"",
     "lint": "ng lint",
-    "lint-check": "tslint-config-prettier-check ./tslint.json",
+    "lint:check": "tslint-config-prettier-check ./tslint.json",
+    "lint:fix": "prettier-tslint fix src/**/*.ts",
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
     "docs": "node_modules/.bin/compodoc -p tsconfig.json -d docs -n \"ng-seed/universal\" -t --theme stripe",
-    "release": "standard-version && yarn docs",
-    "pre-commit": "lint-staged"
+    "release": "standard-version && yarn docs"
   },
   "dependencies": {
     "@angular/animations": "~7.1.4",

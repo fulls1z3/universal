@@ -7,17 +7,19 @@ import { AppBrowserModule } from './app/app.browser.module';
 import { environment } from './environments/environment';
 import { hmrBootstrap } from './hmr';
 
-if (environment.production)
+if (environment.production) {
   enableProdMode();
+}
 
-const main = async () => platformBrowserDynamic()
-  .bootstrapModule(AppBrowserModule);
+const main = async () => platformBrowserDynamic().bootstrapModule(AppBrowserModule);
 
 // hmr support
-if (environment.hmr)
-  if (get('hot')(module))
+if (environment.hmr) {
+  if (get('hot')(module)) {
     hmrBootstrap(module, main);
-  else
+  } else {
     console.error('HMR is not enabled for webpack-dev-server!');
-else
+  }
+} else {
   bootloader(main);
+}

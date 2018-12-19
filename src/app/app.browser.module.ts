@@ -45,5 +45,4 @@ import { AppModule, REQ_KEY } from './app.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppBrowserModule {
-}
+export class AppBrowserModule {}

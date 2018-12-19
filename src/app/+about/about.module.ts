@@ -11,18 +11,7 @@ import { AboutComponent } from './about.component';
 import { routes } from './about.routes';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule,
-    MaterialModule
-  ],
-  declarations: [
-    AboutComponent,
-    AboutUsComponent,
-    AboutBananaComponent,
-    AboutApplePearComponent
-  ]
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, MaterialModule],
+  declarations: [AboutComponent, AboutUsComponent, AboutBananaComponent, AboutApplePearComponent]
 })
-export class AboutModule {
-}
+export class AboutModule {}

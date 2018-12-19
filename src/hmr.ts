@@ -11,8 +11,7 @@ export const hmrBootstrap = (module: any, bootstrap: () => Promise<NgModuleRef<a
     const ngModule = await bootstrap$;
     const elements = flow(
       (cur: NgModuleRef<any>) => cur.injector.get(ApplicationRef),
-      cur => cur.components
-        .map((component: ComponentRef<any>) => component.location.nativeElement)
+      cur => cur.components.map((component: ComponentRef<any>) => component.location.nativeElement)
     )(ngModule);
 
     const makeVisible = createNewHosts(elements);

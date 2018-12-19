@@ -6,12 +6,10 @@ import { MOCK_AUTH_PATH } from '../tokens';
 
 @Injectable()
 export class MockBackendInterceptor implements HttpInterceptor {
-  constructor(@Inject(MOCK_AUTH_PATH) private readonly path: string) {
-  }
+  constructor(@Inject(MOCK_AUTH_PATH) private readonly path: string) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (request.url.split('?')[0]
-      .endsWith(this.path) && request.method === 'POST') {
+    if (request.url.split('?')[0].endsWith(this.path) && request.method === 'POST') {
       const testUser = {
         username: 'valid',
         password: 'valid'
@@ -19,13 +17,16 @@ export class MockBackendInterceptor implements HttpInterceptor {
 
       const body = JSON.parse(request.body);
 
-      if (body.username === testUser.username && body.password === testUser.password)
-        return observableOf(new HttpResponse({
-          status: 200,
-          body: {token: 'fake-jwt-token'}
-        }));
-      else
-        return observableOf(new HttpResponse({status: 401}));
+      if (body.username === testUser.username && body.password === testUser.password) {
+        return observableOf(
+          new HttpResponse({
+            status: 200,
+            body: { token: 'fake-jwt-token' }
+          })
+        );
+      } else {
+        return observableOf(new HttpResponse({ status: 401 }));
+      }
     }
 
     return next.handle(request);

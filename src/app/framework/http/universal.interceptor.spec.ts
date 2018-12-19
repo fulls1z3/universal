@@ -18,10 +18,7 @@ const MOCK_REQUEST: any = {
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [
-      HttpClientTestingModule,
-      CoreTestingModule.withOptions()
-    ],
+    imports: [HttpClientTestingModule, CoreTestingModule.withOptions()],
     providers: [
       {
         provide: MockService,
@@ -49,8 +46,7 @@ t.describe('getBaseUrl', () => {
   t.it('should return the URL from the server platform', () => {
     const actual = getBaseUrl(MOCK_REQUEST);
 
-    t.e(actual)
-      .toEqual(MOCK_BASE_URL);
+    t.e(actual).toEqual(MOCK_BASE_URL);
   });
 });
 
@@ -60,8 +56,7 @@ t.describe('getAbsolutePath for `browser` platform', () => {
     const res = getAbsolutePath(MOCK_REQUEST)(request)(false);
     const expected = './test';
 
-    t.e(res.url)
-      .toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 });
 
@@ -71,8 +66,7 @@ t.describe('getAbsolutePath for `server` platform', () => {
     const res = getAbsolutePath(MOCK_REQUEST)(request)(true);
     const expected = `${MOCK_BASE_URL}/test`;
 
-    t.e(res.url)
-      .toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 
   t.it('should bypass the request when the request has absolute url', () => {
@@ -80,33 +74,33 @@ t.describe('getAbsolutePath for `server` platform', () => {
     const res = getAbsolutePath(MOCK_REQUEST)(request)(true);
     const expected = `${MOCK_BASE_URL}/test`;
 
-    t.e(res.url)
-      .toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 });
 
 t.describe('UniversalInterceptor', () => {
-  t.it('should build without a problem',
+  t.it(
+    'should build without a problem',
     t.inject([UniversalInterceptor], (interceptor: UniversalInterceptor) => {
-      t.e(interceptor)
-        .toBeTruthy();
-    }));
+      t.e(interceptor).toBeTruthy();
+    })
+  );
 
-  t.it('should return an intercepted request',
+  t.it(
+    'should return an intercepted request',
     t.async(
       t.inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
-        service.fetch$()
-          .subscribe(res => {
-            t.e(res)
-              .toBeTruthy();
-          });
+        service.fetch$().subscribe(res => {
+          t.e(res).toBeTruthy();
+        });
 
         const actual = http.expectOne({ method: 'GET' });
         const expected = './test';
 
-        t.e(actual.request.url)
-          .toEqual(expected);
+        t.e(actual.request.url).toEqual(expected);
 
         http.verify();
-      })));
+      })
+    )
+  );
 });

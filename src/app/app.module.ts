@@ -24,11 +24,11 @@ import { LoginComponent } from './login/login.component';
 
 export const REQ_KEY = makeStateKey<string>('req');
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { suppressScrollX: true };
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({appId: 'my-app-id'}),
+    BrowserModule.withServerTransition({ appId: 'my-app-id' }),
     TransferHttpCacheModule,
     RouterModule.forRoot(routes),
     PerfectScrollbarModule,
@@ -50,10 +50,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
       {
         provide: MetaLoader,
         useFactory: metaFactory,
-        deps: [
-          ConfigService,
-          TranslateService
-        ]
+        deps: [ConfigService, TranslateService]
       }
     ]),
     SharedModule,
@@ -68,12 +65,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     MaterialModule,
     StoreModule.forRoot()
   ],
-  declarations: [
-    HeaderComponent,
-    MainComponent,
-    LoginComponent,
-    AppComponent
-  ],
+  declarations: [HeaderComponent, MainComponent, LoginComponent, AppComponent],
   providers: [
     // I18N_ROUTER_PROVIDERS
     {
@@ -85,5 +77,4 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
   entryComponents: [ChangeLanguageComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

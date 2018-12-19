@@ -8,13 +8,7 @@ import { SecureComponent } from './secure.component';
 import { routes } from './secure.routes';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule,
-    MaterialModule
-  ],
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, MaterialModule],
   declarations: [SecureComponent]
 })
-export class SecureModule {
-}
+export class SecureModule {}

@@ -17,5 +17,4 @@ import { MockRouter } from './mocks/router.mock';
     }
   ]
 })
-export class RouterTestingModule extends ROUTER_TESTING_MODULE {
-}
+export class RouterTestingModule extends ROUTER_TESTING_MODULE {}

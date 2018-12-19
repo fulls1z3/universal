@@ -44,17 +44,12 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update
-              ? MOCK_AIRLINE._id
-              : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
           })
         }
       }
     ],
-    declarations: [
-      AirlineDetailContainerComponent,
-      AirlineDetailComponent
-    ]
+    declarations: [AirlineDetailContainerComponent, AirlineDetailComponent]
   });
 };
 
@@ -68,8 +63,7 @@ t.describe('AirlineDetailContainerComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should `getSelected` from AirlineSelectors on init', () => {
@@ -80,10 +74,9 @@ t.describe('AirlineDetailContainerComponent', () => {
     store$.setState(state);
     fixture.detectChanges();
 
-    const expected = cold('a', {a: MOCK_AIRLINE});
+    const expected = cold('a', { a: MOCK_AIRLINE });
 
-    t.e(instance.airline$)
-      .toBeObservable(expected);
+    t.e(instance.airline$).toBeObservable(expected);
   });
 
   t.it('should dispatch `airUniversalAddOneAirline` action on init', () => {
@@ -94,10 +87,8 @@ t.describe('AirlineDetailContainerComponent', () => {
 
     const action = airlineActions.airUniversalAddOneAirline();
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(1);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(1);
   });
 
   t.it('should dispatch `airUniversalCreateOneAirline` action on save', () => {
@@ -112,7 +103,7 @@ t.describe('AirlineDetailContainerComponent', () => {
       cur => cur.componentInstance,
       cur => cur.saveClick
     )(fixture);
-    const resource = {_id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE};
+    const resource = { _id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE };
     saveClick.emit(MOCK_AIRLINE);
 
     const router = fixture.debugElement.injector.get(Router);
@@ -122,10 +113,8 @@ t.describe('AirlineDetailContainerComponent', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 });
 
@@ -142,10 +131,8 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
 
     const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(1);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(1);
   });
 
   t.it('should dispatch `airUniversalUpdateOneAirline` action on save', () => {
@@ -169,10 +156,8 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 
   t.it('should dispatch `airUniversalDeleteOneAirline` action on delete', () => {
@@ -196,9 +181,7 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 });

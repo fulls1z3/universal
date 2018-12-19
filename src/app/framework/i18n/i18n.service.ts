@@ -14,9 +14,11 @@ export class I18NService extends Analytics {
   availableLanguages: Array<Language>;
   useLocalizedRoutes: boolean;
 
-  constructor(readonly analytics: AnalyticsService,
-              private readonly win: WindowService,
-              @Inject(PLATFORM_ID) private readonly platformId: any) {
+  constructor(
+    readonly analytics: AnalyticsService,
+    private readonly win: WindowService,
+    @Inject(PLATFORM_ID) private readonly platformId: any
+  ) {
     super(analytics);
 
     this.category = CATEGORY;
@@ -25,16 +27,15 @@ export class I18NService extends Analytics {
   getLanguageByCode(languageCode: string): Language {
     return !isEmpty(this.availableLanguages)
       ? flow(
-        (cur: Array<Language>) => cur
-          .find(language => language.code === languageCode),
-        getOrNil(this.defaultLanguage)
-      )(this.availableLanguages)
+          (cur: Array<Language>) => cur.find(language => language.code === languageCode),
+          getOrNil(this.defaultLanguage)
+        )(this.availableLanguages)
       : this.defaultLanguage;
   }
 
   getLanguageCodeFromBrowser(): string {
     return isPlatformBrowser(this.platformId)
-      ? this.win.navigator.language && this.win.navigator.language.split('-')[0] || this.defaultLanguage.code
+      ? (this.win.navigator.language && this.win.navigator.language.split('-')[0]) || this.defaultLanguage.code
       : this.defaultLanguage.code;
   }
 }

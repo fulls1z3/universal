@@ -18,8 +18,9 @@ export class CardComponent extends BaseComponent {
   @ContentChildren(MenuGroupComponent) readonly menuGroups: QueryList<MenuGroupComponent>;
 
   onMenuClick(callback: EventEmitter<string>, isDialog = false): void {
-    if (!isDialog)
+    if (!isDialog) {
       this.data = undefined;
+    }
 
     callback.emit();
   }

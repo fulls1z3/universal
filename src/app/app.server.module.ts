@@ -40,33 +40,25 @@ import { AppModule, REQ_KEY } from './app.module';
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: (appRef: ApplicationRef,
-                   transferState: TransferState,
-                   request: express.Request,
-                   cache: CacheService) => () => appRef.isStable
-        .pipe(
-          filter(stable => stable),
-          first()
-        )
-        .subscribe(() => {
-          transferState.set<any>(REQ_KEY, {
-            hostname: request.hostname,
-            originalUrl: request.originalUrl,
-            referer: request.get('referer')
-          });
+      useFactory: (appRef: ApplicationRef, transferState: TransferState, request: express.Request, cache: CacheService) => () =>
+        appRef.isStable
+          .pipe(
+            filter(stable => stable),
+            first()
+          )
+          .subscribe(() => {
+            transferState.set<any>(REQ_KEY, {
+              hostname: request.hostname,
+              originalUrl: request.originalUrl,
+              referer: request.get('referer')
+            });
 
-          transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
-        }),
+            transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
+          }),
       multi: true,
-      deps: [
-        ApplicationRef,
-        TransferState,
-        REQUEST,
-        CacheService
-      ]
+      deps: [ApplicationRef, TransferState, REQUEST, CacheService]
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppServerModule {
-}
+export class AppServerModule {}

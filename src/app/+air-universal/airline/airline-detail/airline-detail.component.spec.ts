@@ -16,14 +16,7 @@ import { AirlineDetailComponent } from './airline-detail.component';
 
 const testModuleConfig = (renderFlag = RenderFlag.Create) => {
   TestBed.configureTestingModule({
-    imports: [
-      ReactiveFormsModule,
-      CoreTestingModule,
-      I18NTestingModule,
-      MaterialModule,
-      CardModule,
-      SharedModule
-    ],
+    imports: [ReactiveFormsModule, CoreTestingModule, I18NTestingModule, MaterialModule, CardModule, SharedModule],
     providers: [
       {
         provide: ActivatedRoute,
@@ -35,9 +28,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update
-              ? MOCK_AIRLINE._id
-              : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
           })
         }
       }
@@ -56,8 +47,7 @@ t.describe('AirlineDetailComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should emit `saveClick` on save button click', () => {
@@ -69,8 +59,7 @@ t.describe('AirlineDetailComponent', () => {
     const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
     saveButton.triggerEventHandler('click', {});
 
-    t.e(spy)
-      .toHaveBeenCalled();
+    t.e(spy).toHaveBeenCalled();
   });
 });
 
@@ -85,8 +74,7 @@ t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () 
     instance.airline = MOCK_AIRLINE;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should emit `deleteClick` on delete button click', () => {
@@ -98,7 +86,6 @@ t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () 
     const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));
     deleteButton.triggerEventHandler('click', {});
 
-    t.e(spy)
-      .toHaveBeenCalled();
+    t.e(spy).toHaveBeenCalled();
   });
 });

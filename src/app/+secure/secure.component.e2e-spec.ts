@@ -5,13 +5,10 @@ e2e.describe('SecureComponent', () => {
   e2e.it('should redirect to login page', async () => {
     const page = browser.goto(`${baseUrl}/secure-page`);
 
-    const text = await page
-      .evaluate(() => document.title)
-      .end();
+    const text = await page.evaluate(() => document.title).end();
 
     // NOTE: title may change from login page to secure page
     // depending on auth status
-    e2e.e(text)
-      .toContain('ng-seed/universal');
+    e2e.e(text).toContain('ng-seed/universal');
   });
 });

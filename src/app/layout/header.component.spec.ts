@@ -43,10 +43,7 @@ configureTestSuite(() => {
       TestingModule,
       MaterialModule
     ],
-    declarations: [
-      TranslatePipe,
-      HeaderComponent
-    ]
+    declarations: [TranslatePipe, HeaderComponent]
   });
 });
 
@@ -56,8 +53,7 @@ t.describe('layout: HeaderComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should log out', () => {
@@ -71,7 +67,6 @@ t.describe('layout: HeaderComponent', () => {
     const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
     logoutButton.triggerEventHandler('click', {});
 
-    t.e(instance.isAuthenticated)
-      .toBeFalsy();
+    t.e(instance.isAuthenticated).toBeFalsy();
   });
 });

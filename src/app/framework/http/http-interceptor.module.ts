@@ -9,22 +9,15 @@ import { UniversalInterceptor } from './universal.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: UniversalInterceptor,
-      deps: [
-        Injector,
-        PLATFORM_ID
-      ],
+      deps: [Injector, PLATFORM_ID],
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
-      deps: [
-        Injector,
-        PLATFORM_ID
-      ],
+      deps: [Injector, PLATFORM_ID],
       multi: true
     }
   ]
 })
-export class HttpInterceptorModule {
-}
+export class HttpInterceptorModule {}

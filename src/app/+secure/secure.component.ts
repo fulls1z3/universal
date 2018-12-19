@@ -8,5 +8,4 @@ import { routeAnimation } from '~/app/shared';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [routeAnimation]
 })
-export class SecureComponent extends BaseComponent {
-}
+export class SecureComponent extends BaseComponent {}

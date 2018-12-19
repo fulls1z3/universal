@@ -19,8 +19,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   baseRoute: Array<any>;
   airlineTable: DataTable;
 
-  constructor(private readonly router: Router,
-              protected readonly store$: Store<State>) {
+  constructor(private readonly router: Router, protected readonly store$: Store<State>) {
     super(store$);
   }
 
@@ -38,12 +37,9 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
       options: createOptions('', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE', Scrollable.Full)
     };
 
-    this.isProcessing$ = this.store$
-      .pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$
-      .pipe(select(AirlineSelectors.getError));
-    this.airlines$ = this.store$
-      .pipe(select(AirlineSelectors.getMany));
+    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
+    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
+    this.airlines$ = this.store$.pipe(select(AirlineSelectors.getMany));
 
     this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
@@ -51,7 +47,8 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   createAirline(): void {
     observableFrom(this.router.navigate([...this.baseRoute, 'create']))
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {/**/
+      .subscribe(() => {
+        /**/
       });
   }
 
