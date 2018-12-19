@@ -70,7 +70,7 @@ export class CoreModule {
     };
   }
 
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+  constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
     if (parentModule)
       throw new Error('CoreModule already loaded; import in root module only.');
   }

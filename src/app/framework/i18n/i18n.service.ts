@@ -1,9 +1,10 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { isEmpty } from 'lodash/fp';
+import { flow, isEmpty } from 'lodash/fp';
 import { Analytics, AnalyticsService } from '~/app/framework/analytics';
 import { WindowService } from '~/app/framework/core';
 import { Language } from '~/app/framework/store';
+import { getOrNil } from '~/app/shared';
 
 import { CATEGORY } from './models/category';
 
@@ -23,8 +24,11 @@ export class I18NService extends Analytics {
 
   getLanguageByCode(languageCode: string): Language {
     return !isEmpty(this.availableLanguages)
-      ? this.availableLanguages
-      .find(cur => cur.code === languageCode) || this.defaultLanguage
+      ? flow(
+        (cur: Array<Language>) => cur
+          .find(language => language.code === languageCode),
+        getOrNil(this.defaultLanguage)
+      )(this.availableLanguages)
       : this.defaultLanguage;
   }
 

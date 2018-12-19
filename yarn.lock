@@ -5373,10 +5373,10 @@ istanbul@0.4.5:
     which "^1.1.1"
     wordwrap "^1.0.0"
 
-jasmine-marbles@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.3.1.tgz#ef65edecb41b8dd62fc6bda40448222042e32043"
-  integrity sha512-9bzzc9w+BMCyi/xIu+rpqcSlRBwZp5pGtSd3GG5FT1OdP1OOIbvNnZd8Ka7TYQ9WmXgV+42C27tzDfhqIrbUZQ==
+jasmine-marbles@~0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.4.1.tgz#5e0b492c124b3a34f958c40c0587f3abccea6485"
+  integrity sha512-i5jjbwSX2dxMCt6uhNZCHh8QhjD4rJtUZDhCqz6NwelQezV6ScM22cuvWNlDQrGSvdM71elKUfGQrSMJYIoS2g==
   dependencies:
     lodash "^4.5.0"
 

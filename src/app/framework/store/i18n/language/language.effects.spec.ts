@@ -51,7 +51,7 @@ t.describe('LanguageEffects', () => {
         actions$.stream = hot('-a', {a: action});
         const expected = cold('-c', {c: completion});
 
-        (t.e(effects.init$) as any)
+        t.e(effects.init$)
           .toBeObservable(expected);
       }));
   });
@@ -68,7 +68,7 @@ t.describe('LanguageEffects', () => {
         actions$.stream = hot('-a', {a: action});
         const expected = cold('-c', {c: completion});
 
-        (t.e(effects.use$) as any)
+        t.e(effects.use$)
           .toBeObservable(expected);
       }));
   });
@@ -90,7 +90,7 @@ t.describe('LanguageEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.use$) as any)
+          t.e(effects.use$)
             .toBeObservable(expected);
         }));
 
@@ -111,7 +111,7 @@ t.describe('LanguageEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.use$) as any)
+          t.e(effects.use$)
             .toBeObservable(expected);
         }));
   });

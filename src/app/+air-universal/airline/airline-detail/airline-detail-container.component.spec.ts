@@ -82,7 +82,7 @@ t.describe('AirlineDetailContainerComponent', () => {
 
     const expected = cold('a', {a: MOCK_AIRLINE});
 
-    (t.e(instance.airline$) as any)
+    t.e(instance.airline$)
       .toBeObservable(expected);
   });
 

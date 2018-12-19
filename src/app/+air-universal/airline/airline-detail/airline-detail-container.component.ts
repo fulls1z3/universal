@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { getOr } from 'lodash/fp';
+import { getOr, isNil } from 'lodash/fp';
 import { Observable, of as observableOf, zip } from 'rxjs';
 import { skipWhile, switchMap, takeUntil } from 'rxjs/operators';
 import { BaseContainerComponent } from '~/app/framework/core';
@@ -41,7 +41,7 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
 
     this.airline$
       .pipe(
-        skipWhile(cur => !cur),
+        skipWhile(isNil),
         switchMap(res => zip(this.route.data, observableOf(res))),
         switchMap(([data, airline]) => zip(this.translate.get(data.meta.title), observableOf(airline))),
         takeUntil(this.ngUnsubscribe)

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, On
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseComponent } from '~/app/framework/core';
 import { UniqueId } from '~/app/framework/ngrx';
+import { getOrNil } from '~/app/shared';
 import { Airline, initialAirline } from '~/app/store';
 
 @Component({
@@ -23,7 +24,7 @@ export class AirlineDetailComponent extends BaseComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    const resource = this.airline || initialAirline;
+    const resource = getOrNil(initialAirline)(this.airline);
 
     if (!resource._id)
       (this.deleteRef as any).disabled = true;

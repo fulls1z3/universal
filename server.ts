@@ -1,7 +1,7 @@
-// tslint:disable-next-line
+// tslint:disable
 import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
-// tslint:disable-next-line
+
 import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
@@ -11,7 +11,6 @@ import { join } from 'path';
 
 enableProdMode();
 
-// tslint:disable-next-line
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 
 const server = express();

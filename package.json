@@ -110,7 +110,7 @@
     "codelyzer": "~4.5.0",
     "concurrently": "~4.1.0",
     "husky": "~1.2.1",
-    "jasmine-marbles": "0.3.1",
+    "jasmine-marbles": "~0.4.1",
     "jest": "~23.6.0",
     "jest-junit-reporter": "~1.1.0",
     "jest-preset-angular": "~6.0.2",
@@ -153,11 +153,6 @@
       "!**/testing/**/*.ts",
       "!**/environments/*.ts",
       "!src/*.ts"
-    ]
-  },
-  "greenkeeper": {
-    "ignore": [
-      "jasmine-marbles"
     ]
   }
 }

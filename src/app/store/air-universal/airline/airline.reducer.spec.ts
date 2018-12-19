@@ -106,7 +106,7 @@ t.describe('airline: airline.reducer', () => {
       const action = airlineActions.airUniversalCreateOneAirline({
         resource: MOCK_AIRLINE,
         router: undefined,
-        route: undefined
+        route: []
       });
       const res = reducer(initialState, action);
 
@@ -154,7 +154,7 @@ t.describe('airline: airline.reducer', () => {
       const action = airlineActions.airUniversalUpdateOneAirline({
         resource: MOCK_AIRLINE,
         router: undefined,
-        route: undefined
+        route: []
       });
       const res = reducer(initialState, action);
 
@@ -204,7 +204,7 @@ t.describe('airline: airline.reducer', () => {
       const action = airlineActions.airUniversalDeleteOneAirline({
         id: MOCK_AIRLINE._id,
         router: undefined,
-        route: undefined
+        route: []
       });
       const res = reducer(initialState, action);
 

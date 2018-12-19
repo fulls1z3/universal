@@ -23,8 +23,4 @@ export class CardComponent extends BaseComponent {
 
     callback.emit();
   }
-
-  trackByFn(index: any): any {
-    return index;
-  }
 }

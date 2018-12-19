@@ -33,10 +33,6 @@ export class HeaderComponent extends BaseComponent implements OnInit {
     this.isAuthenticated = this.auth.isAuthenticated;
   }
 
-  trackByFn(index: any): any {
-    return index;
-  }
-
   logout(): void {
     this.isAuthenticated = false;
     this.auth.invalidate();

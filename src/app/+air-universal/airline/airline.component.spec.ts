@@ -54,7 +54,7 @@ t.describe('AirlineComponent', () => {
 
     const expected = cold('a', {a: [MOCK_AIRLINE]});
 
-    (t.e(instance.airlines$) as any)
+    t.e(instance.airlines$)
       .toBeObservable(expected);
   });
 

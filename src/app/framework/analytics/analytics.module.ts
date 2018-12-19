@@ -31,7 +31,7 @@ export class AnalyticsModule {
     };
   }
 
-  constructor(@Optional() @SkipSelf() parentModule: AnalyticsModule) {
+  constructor(@Optional() @SkipSelf() parentModule?: AnalyticsModule) {
     if (parentModule)
       throw new Error('AnalyticsModule already loaded. Import in root module only.');
   }

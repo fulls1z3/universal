@@ -46,7 +46,7 @@ t.describe('AnalyticsService', () => {
         }
       });
 
-      (t.e(angulartics.eventTrack) as any)
+      t.e(angulartics.eventTrack)
         .toBeObservable(expected);
     }));
 
@@ -75,7 +75,7 @@ t.describe('AnalyticsService', () => {
         }
       });
 
-      (t.e(angulartics.pageTrack) as any)
+      t.e(angulartics.pageTrack)
         .toBeObservable(expected);
     }));
 
@@ -107,7 +107,7 @@ t.describe('AnalyticsService', () => {
         }
       });
 
-      (t.e(angulartics.setUserProperties) as any)
+      t.e(angulartics.setUserProperties)
         .toBeObservable(expected);
     }));
 

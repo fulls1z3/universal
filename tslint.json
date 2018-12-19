@@ -8,6 +8,7 @@
   "rules": {
     "await-promise": [true, "Nightmare"],
     "no-implicit-dependencies": false,
+    "no-inferred-empty-object-type": false,
     "no-bitwise": false,
     "templates-no-negated-async": false,
     "i18n": false,

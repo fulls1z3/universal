@@ -6,7 +6,7 @@ import { flow, getOr } from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-export const getBaseUrl = (config: ConfigService) => (isServer: Boolean) => flow(
+export const getBaseUrl = (config: ConfigService) => (isServer: boolean) => flow(
   (cur: ConfigService) => cur.getSettings(''),
   getOr('')(!isServer
     ? 'backend.baseBrowserUrl'

@@ -10,6 +10,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { isEmpty } from 'lodash/fp';
 import { EMPTY, fromEvent as observableFromEvent, isObservable, merge, Observable, of as observableOf } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, share, startWith, switchMap, takeUntil } from 'rxjs/operators';
 
@@ -47,7 +48,7 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
       ...this.cols
         .map(this.getColumnDef),
       ...(
-        this.buttons
+        !isEmpty(this.buttons)
         ? ['actions']
         : []
       )
@@ -88,9 +89,7 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
           this.paginator.pageIndex = 0;
       });
 
-    merge(filterChange$, this.sort.sortChange, this.paginator
-      ? this.paginator.page
-      : EMPTY)
+    merge(filterChange$, this.sort.sortChange, this.paginator)
       .pipe(
         startWith({}),
         switchMap(() => data),
@@ -112,9 +111,5 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
       });
 
     this.changeDetectorRef.detectChanges();
-  }
-
-  trackByFn(index: any): any {
-    return index;
   }
 }

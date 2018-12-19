@@ -13,7 +13,7 @@ import { getAbsolutePath, getBaseUrl, UniversalInterceptor } from './universal.i
 const MOCK_BASE_URL = 'https://yourdomain.com';
 const MOCK_REQUEST: any = {
   protocol: 'https',
-  get: (): any => 'yourdomain.com'
+  get: () => 'yourdomain.com'
 };
 
 configureTestSuite(() => {

@@ -3,8 +3,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CacheService } from '@ngx-cache/core';
 import { ConfigService } from '@ngx-config/core';
 import { MetaService } from '@ngx-meta/core';
+import { get } from 'lodash/fp';
 import { ANALYTICS_PROVIDERS } from '~/app/framework/analytics';
 import { ConsoleService, LogService, WindowService } from '~/app/framework/core';
+import { getOrNil } from '~/app/shared';
 
 import { MockCacheService } from './mocks/cache-service.mock';
 import { MockConfigService } from './mocks/config-service.mock';
@@ -60,15 +62,15 @@ export class CoreTestingModule {
         platformProvider,
         {
           provide: WindowService,
-          useClass: (options && options.window) || MockWindow
+          useClass: getOrNil(MockWindow)(get('window')(options))
         },
         {
           provide: ConfigService,
-          useClass: (options && options.config) || MockConfigService
+          useClass: getOrNil(MockConfigService)(get('config')(options))
         },
         {
           provide: MetaService,
-          useClass: (options && options.meta) || MockMetaService
+          useClass: getOrNil(MockMetaService)(get('meta')(options))
         }
       ]
     };

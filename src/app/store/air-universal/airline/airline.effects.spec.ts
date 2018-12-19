@@ -55,7 +55,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.getMany$) as any)
+          t.e(effects.getMany$)
             .toBeObservable(expected);
         }));
 
@@ -71,7 +71,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.getMany$) as any)
+          t.e(effects.getMany$)
             .toBeObservable(expected);
         }));
   });
@@ -87,7 +87,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.getOne$) as any)
+          t.e(effects.getOne$)
             .toBeObservable(expected);
         }));
 
@@ -101,7 +101,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.getOne$) as any)
+          t.e(effects.getOne$)
             .toBeObservable(expected);
         }));
 
@@ -117,7 +117,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.getOne$) as any)
+          t.e(effects.getOne$)
             .toBeObservable(expected);
         }));
   });
@@ -129,7 +129,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalCreateOneAirline({
             resource: MOCK_AIRLINE,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
 
@@ -137,7 +137,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.createOne$) as any)
+          t.e(effects.createOne$)
             .toBeObservable(expected);
         }));
 
@@ -147,7 +147,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalCreateOneAirline({
             resource: undefined,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalCreateOneAirlineFail({
             id: EMPTY_UNIQUE_ID,
@@ -158,7 +158,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.createOne$) as any)
+          t.e(effects.createOne$)
             .toBeObservable(expected);
         }));
 
@@ -170,7 +170,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalCreateOneAirline({
             resource: MOCK_AIRLINE,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalCreateOneAirlineFail({
             id: EMPTY_UNIQUE_ID,
@@ -181,7 +181,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.createOne$) as any)
+          t.e(effects.createOne$)
             .toBeObservable(expected);
         }));
   });
@@ -193,7 +193,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalUpdateOneAirline({
             resource: MOCK_AIRLINE,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
 
@@ -201,7 +201,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.updateOne$) as any)
+          t.e(effects.updateOne$)
             .toBeObservable(expected);
         }));
 
@@ -211,7 +211,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalUpdateOneAirline({
             resource: undefined,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalUpdateOneAirlineFail({
             id: EMPTY_UNIQUE_ID,
@@ -222,7 +222,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.updateOne$) as any)
+          t.e(effects.updateOne$)
             .toBeObservable(expected);
         }));
 
@@ -234,7 +234,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalUpdateOneAirline({
             resource: MOCK_AIRLINE,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalUpdateOneAirlineFail({
             id: MOCK_AIRLINE._id,
@@ -245,7 +245,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.updateOne$) as any)
+          t.e(effects.updateOne$)
             .toBeObservable(expected);
         }));
   });
@@ -257,7 +257,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalDeleteOneAirline({
             id: MOCK_AIRLINE._id,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE._id);
 
@@ -265,7 +265,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.deleteOne$) as any)
+          t.e(effects.deleteOne$)
             .toBeObservable(expected);
         }));
 
@@ -275,7 +275,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalDeleteOneAirline({
             id: undefined,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalDeleteOneAirlineFail({
             id: undefined,
@@ -286,7 +286,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.deleteOne$) as any)
+          t.e(effects.deleteOne$)
             .toBeObservable(expected);
         }));
 
@@ -298,7 +298,7 @@ t.describe('airline: AirlineEffects', () => {
           const action = airlineActions.airUniversalDeleteOneAirline({
             id: MOCK_AIRLINE._id,
             router,
-            route: undefined
+            route: []
           });
           const completion = airlineActions.airUniversalDeleteOneAirlineFail({
             id: MOCK_AIRLINE._id,
@@ -309,7 +309,7 @@ t.describe('airline: AirlineEffects', () => {
           actions$.stream = hot('-a', {a: action});
           const expected = cold('-c', {c: completion});
 
-          (t.e(effects.deleteOne$) as any)
+          t.e(effects.deleteOne$)
             .toBeObservable(expected);
         }));
   });

@@ -119,6 +119,7 @@
           "options": {
             "tsConfig": [
               "tsconfig.json",
+              "tsconfig.lint.json",
               "tsconfig.spec.json"
             ],
             "exclude": [
