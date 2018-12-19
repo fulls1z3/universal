@@ -1,11 +1,8 @@
 ﻿{
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
-  "extends": [
-    "angular-tslint-rules"
-  ],
+  "rulesDirectory": ["node_modules/codelyzer"],
+  "extends": ["angular-tslint-rules", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
+    "prettier": true,
     "await-promise": [true, "Nightmare"],
     "no-implicit-dependencies": false,
     "no-inferred-empty-object-type": false,
@@ -18,29 +15,8 @@
     "template-conditional-complexity": false,
     "template-cyclomatic-complexity": false,
     "use-view-encapsulation": false,
-    "angular-whitespace": [
-      true,
-      "check-interpolation",
-      "check-semicolon"
-    ],
-    "directive-selector": [
-      true,
-      "attribute",
-      [
-        "app",
-        "routerLink"
-      ],
-      "kebab-case"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      [
-        "app",
-        "i18n",
-        "router"
-      ],
-      "kebab-case"
-    ]
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+    "directive-selector": [true, "attribute", ["app", "routerLink"], "kebab-case"],
+    "component-selector": [true, "element", ["app", "i18n", "router"], "kebab-case"]
   }
 }
