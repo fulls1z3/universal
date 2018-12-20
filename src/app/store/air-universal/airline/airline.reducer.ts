@@ -11,8 +11,10 @@ import { AirlineAction, airlineActions } from './airline.actions';
 import { Airline, initialAirline } from './airline.model';
 import { adapter, initialState, State } from './airline.state';
 
-export const reducer = (state: State = initialState, action: AirlineAction) =>
-  airlineActions.match({
+// NOTE: for AoT compilation
+// tslint:disable-next-line
+export function reducer(state: State = initialState, action: AirlineAction): State {
+  return airlineActions.match({
     airUniversalGetManyAirlines: () => entityStartProcessingFn<State>(state),
     airUniversalGetManyAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
     airUniversalGetManyAirlinesFail: entityErrorFn<State>(state),
@@ -63,3 +65,4 @@ export const reducer = (state: State = initialState, action: AirlineAction) =>
     airUniversalDeleteOneAirlineFail: entityResetFn<State>(state),
     default: () => state
   })(action);
+}
