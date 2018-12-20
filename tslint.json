@@ -1,6 +1,6 @@
 ﻿{
   "rulesDirectory": ["node_modules/codelyzer"],
-  "extends": ["angular-tslint-rules", "tslint-plugin-prettier", "tslint-config-prettier"],
+  "extends": ["angular-tslint-rules", "tslint-config-prettier"],
   "rules": {
     "await-promise": [true, "Nightmare"],
     "no-implicit-dependencies": [true, "dev", ["~", "e2e-config"]],

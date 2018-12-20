@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint-immutable"],
+  "rules": {
+    "readonly-keyword": true,
+    "readonly-array": true,
+    "no-let": true,
+    "no-object-mutation": true,
+    "no-delete": true,
+    "no-method-signature": true,
+    "no-mixed-interface": true,
+    "no-expression-statement": true,
+    "no-if-statement": true
+  }
+}
