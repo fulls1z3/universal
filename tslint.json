@@ -2,11 +2,16 @@
   "rulesDirectory": ["node_modules/codelyzer"],
   "extends": ["angular-tslint-rules", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
-    "prettier": true,
-    "curly": true,
     "await-promise": [true, "Nightmare"],
-    "no-implicit-dependencies": false,
-    "no-inferred-empty-object-type": false,
+    "no-implicit-dependencies": [true, "dev", ["~", "e2e-config"]],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true
+      }
+    ],
     "no-bitwise": false,
     "templates-no-negated-async": false,
     "i18n": false,
