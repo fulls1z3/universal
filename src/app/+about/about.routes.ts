@@ -1,8 +1,7 @@
-// module
-import { AboutComponent } from './about.component';
-import { AboutUsComponent } from './about-us.component';
-import { AboutBananaComponent } from './about-banana.component';
 import { AboutApplePearComponent } from './about-apple-pear.component';
+import { AboutBananaComponent } from './about-banana.component';
+import { AboutUsComponent } from './about-us.component';
+import { AboutComponent } from './about.component';
 
 export const routes = [
   {

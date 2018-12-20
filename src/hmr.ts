@@ -1,21 +1,19 @@
-// angular
-import { ApplicationRef, NgModuleRef } from '@angular/core';
-
-// libs
+import { ApplicationRef, ComponentRef, NgModuleRef } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
+import { flow } from 'lodash/fp';
 
 export const hmrBootstrap = (module: any, bootstrap: () => Promise<NgModuleRef<any>>) => {
-  let ngModule: NgModuleRef<any>;
-
   module.hot.accept();
 
-  bootstrap()
-    .then(res => ngModule = res);
+  const bootstrap$ = bootstrap();
 
-  module.hot.dispose(() => {
-    const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
-    const elements = appRef.components
-      .map(cur => cur.location.nativeElement);
+  module.hot.dispose(async () => {
+    const ngModule = await bootstrap$;
+    const elements = flow(
+      (cur: NgModuleRef<any>) => cur.injector.get(ApplicationRef),
+      cur => cur.components.map((component: ComponentRef<any>) => component.location.nativeElement)
+    )(ngModule);
+
     const makeVisible = createNewHosts(elements);
 
     ngModule.destroy();

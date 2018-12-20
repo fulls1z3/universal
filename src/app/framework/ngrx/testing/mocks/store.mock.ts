@@ -1,22 +1,16 @@
-// angular
 import { Injectable } from '@angular/core';
-
-// libs
-import { BehaviorSubject } from 'rxjs';
 import { ActionsSubject, ReducerManager, StateObservable, Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
-export class MockStore<T> extends Store<T> {
-  private subject: BehaviorSubject<T>;
+export class MockStore<T extends Object> extends Store<T> {
+  private readonly subject: BehaviorSubject<T>;
 
-  constructor(
-    state$: StateObservable,
-    actionsObserver: ActionsSubject,
-    reducerManager: ReducerManager
-  ) {
+  constructor(readonly state$: StateObservable, actionsObserver: ActionsSubject, reducerManager: ReducerManager) {
     super(state$, actionsObserver, reducerManager);
 
-    this.subject = new BehaviorSubject<T>({} as T);
+    const val: any = {};
+    this.subject = new BehaviorSubject<T>(val);
     this.source = this.subject.asObservable();
   }
 

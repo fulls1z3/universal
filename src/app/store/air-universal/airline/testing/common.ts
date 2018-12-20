@@ -1,7 +1,4 @@
-// libs
 import { head } from 'lodash/fp';
-
-// app
 import { initialAirline } from '~/app/store';
 
 export const MOCK_AIRLINES = [

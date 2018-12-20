@@ -1,4 +1,3 @@
-// module
 import { BaseDocument, UniqueId } from './models/base-document';
 
 export const entityStartProcessingFn = <T>(state: T) => ({
@@ -23,13 +22,12 @@ export const entityErrorFn = <T>(state: T) => (error: string) => ({
   error
 });
 
-export const entityResetFn = <T>(state: T) =>
-  (value: { id: UniqueId, error: string }) => ({
-    ...(state as any),
-    isProcessing: false,
-    selectedId: value.id,
-    error: value.error
-  });
+export const entityResetFn = <T>(state: T) => (value: { id: UniqueId; error: string }) => ({
+  ...(state as any),
+  isProcessing: false,
+  selectedId: value.id,
+  error: value.error
+});
 
 export const entityReducer = <T extends BaseDocument>(acc: any, cur: T) => ({
   ...acc,

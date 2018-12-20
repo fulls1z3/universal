@@ -1,13 +1,7 @@
-// angular
 import { TestBed } from '@angular/core/testing';
-
-// libs
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
 import { BaseComponent } from './base.component';
 
 configureTestSuite(() => {
@@ -22,7 +16,6 @@ t.describe('BaseComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 });

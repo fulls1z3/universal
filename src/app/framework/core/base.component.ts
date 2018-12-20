@@ -1,11 +1,6 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-
-// libs
 import { Subject } from 'rxjs';
-
-// app
-import { BaseDocument } from '~/app/framework/ngrx';
+import { BaseDocument, UniqueId } from '~/app/framework/ngrx';
 
 @Component({
   template: '',
@@ -23,11 +18,11 @@ export class BaseComponent implements OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  trackByFn(index: any): any {
+  trackByFn(index: number): number {
     return index;
   }
 
-  trackByIdFn(index: any, item: BaseDocument): any {
+  trackByIdFn(index: number, item: BaseDocument): UniqueId {
     return item._id;
   }
 }

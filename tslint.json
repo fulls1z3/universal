@@ -1,46 +1,28 @@
 ﻿{
-  "rulesDirectory": [
-    "node_modules/codelyzer",
-    "node_modules/rxjs-tslint"
-  ],
-  "extends": [
-    "angular-tslint-rules"
-  ],
+  "rulesDirectory": ["node_modules/codelyzer"],
+  "extends": ["angular-tslint-rules", "tslint-config-prettier"],
   "rules": {
-    "no-unnecessary-class": false,
-    "no-implicit-dependencies": false,
+    "await-promise": [true, "Nightmare"],
+    "no-implicit-dependencies": [true, "dev", ["~", "e2e-config"]],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true
+      }
+    ],
     "no-bitwise": false,
-    "comment-format": false,
     "templates-no-negated-async": false,
-    "no-forward-ref": false,
-    "use-view-encapsulation": false,
-    "directive-selector": [
-      true,
-      "attribute",
-      [
-        "app",
-        "routerLink"
-      ],
-      "kebab-case"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      [
-        "app",
-        "i18n",
-        "router"
-      ],
-      "kebab-case"
-    ],
-    "angular-whitespace": [
-      true,
-      "check-interpolation"
-    ],
-    "no-template-call-expression": false,
     "i18n": false,
+    "no-forward-ref": false,
+    "no-template-call-expression": false,
     "no-unused-css": false,
-    "rxjs-collapse-imports": true,
-    "rxjs-proper-imports": true
+    "template-conditional-complexity": false,
+    "template-cyclomatic-complexity": false,
+    "use-view-encapsulation": false,
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+    "directive-selector": [true, "attribute", ["app", "routerLink"], "kebab-case"],
+    "component-selector": [true, "element", ["app", "i18n", "router"], "kebab-case"]
   }
 }

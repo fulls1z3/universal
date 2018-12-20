@@ -1,7 +1,4 @@
-// angular
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
-// app
 import { BaseComponent } from '~/app/framework/core';
 import { routeAnimation } from '~/app/shared';
 
@@ -11,5 +8,4 @@ import { routeAnimation } from '~/app/shared';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [routeAnimation]
 })
-export class SecureComponent extends BaseComponent {
-}
+export class SecureComponent extends BaseComponent {}

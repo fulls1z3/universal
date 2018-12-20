@@ -1,7 +1,5 @@
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
 import { entityErrorFn, entityResetFn, entityStartProcessingFn, entityStopProcessingFn } from './entity-reducer.util';
 
 const VALID_ID = '100000000000000000000001';
@@ -12,16 +10,13 @@ t.describe('entityStartProcessingFn', () => {
     const preState = {};
     const postState = entityStartProcessingFn(preState);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          ids: [],
-          entities: {},
-          isProcessing: true,
-          selectedId: undefined
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      ids: [],
+      entities: {},
+      isProcessing: true,
+      selectedId: undefined
+    });
   });
 });
 
@@ -30,13 +25,10 @@ t.describe('entityStopProcessingFn', () => {
     const preState = {};
     const postState = entityStopProcessingFn(preState);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          isProcessing: false
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      isProcessing: false
+    });
   });
 });
 
@@ -45,17 +37,14 @@ t.describe('entityErrorFn', () => {
     const preState = {};
     const postState = entityErrorFn(preState)(ERROR_MESSAGE);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          ids: [],
-          entities: {},
-          isProcessing: false,
-          selectedId: undefined,
-          error: ERROR_MESSAGE
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      ids: [],
+      entities: {},
+      isProcessing: false,
+      selectedId: undefined,
+      error: ERROR_MESSAGE
+    });
   });
 });
 
@@ -67,14 +56,11 @@ t.describe('entityResetFn', () => {
       error: ERROR_MESSAGE
     });
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          isProcessing: false,
-          selectedId: VALID_ID,
-          error: ERROR_MESSAGE
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      isProcessing: false,
+      selectedId: VALID_ID,
+      error: ERROR_MESSAGE
+    });
   });
 });

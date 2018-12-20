@@ -1,4 +1,3 @@
-// libs
 import { ConfigService } from '@ngx-config/core';
 
 export class MockConfigService extends ConfigService {

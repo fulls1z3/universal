@@ -1,4 +1,3 @@
-// module
 import { I18NState } from './i18n';
 
 export interface State {

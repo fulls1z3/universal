@@ -1,12 +1,8 @@
-// angular
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// libs
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// module
 import { ChangeLanguageComponent } from './change-language.component';
 import { I18NService } from './i18n.service';
 
@@ -26,8 +22,9 @@ export class I18NModule {
     };
   }
 
-  constructor(@Optional() @SkipSelf() parentModule: I18NModule) {
-    if (parentModule)
+  constructor(@Optional() @SkipSelf() parentModule?: I18NModule) {
+    if (parentModule) {
       throw new Error('I18NModule already loaded. Import in root module only.');
+    }
   }
 }

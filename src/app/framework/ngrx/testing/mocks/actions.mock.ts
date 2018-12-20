@@ -1,9 +1,6 @@
-// angular
 import { Injectable } from '@angular/core';
-
-// libs
-import { EMPTY, Observable } from 'rxjs';
 import { Actions } from '@ngrx/effects';
+import { EMPTY, Observable } from 'rxjs';
 
 @Injectable()
 export class MockActions extends Actions {

@@ -1,31 +1,23 @@
-// angular
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
-// libs
-import { of as observableOf } from 'rxjs';
-import { flow } from 'lodash/fp';
 import { Store } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
-
-// testing
+import { flow } from 'lodash/fp';
+import { of as observableOf } from 'rxjs';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
-import { getState, NgrxTestingModule } from '~/app/framework/ngrx/testing';
-import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE } from '~/app/store/testing';
-
-// app
 import { MaterialModule } from '~/app/framework/material';
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-import { CardModule } from '~/app/shared/card';
+import { getState, NgrxTestingModule } from '~/app/framework/ngrx/testing';
+import { t } from '~/app/framework/testing';
 import { RenderFlag, SharedModule } from '~/app/shared';
+import { CardModule } from '~/app/shared/card';
 import { AIRLINE, Airline, airlineActions } from '~/app/store';
+import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// module
 import { AirlineDetailContainerComponent } from './airline-detail-container.component';
 import { AirlineDetailComponent } from './airline-detail.component';
 
@@ -52,30 +44,26 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update
-              ? MOCK_AIRLINE._id
-              : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
           })
         }
       }
     ],
-    declarations: [
-      AirlineDetailContainerComponent,
-      AirlineDetailComponent
-    ]
+    declarations: [AirlineDetailContainerComponent, AirlineDetailComponent]
   });
 };
 
 t.describe('AirlineDetailContainerComponent', () => {
-  t.be(() => testModuleConfig());
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should `getSelected` from AirlineSelectors on init', () => {
@@ -86,10 +74,9 @@ t.describe('AirlineDetailContainerComponent', () => {
     store$.setState(state);
     fixture.detectChanges();
 
-    const expected = cold('a', {a: MOCK_AIRLINE});
+    const expected = cold('a', { a: MOCK_AIRLINE });
 
-    (t.e(instance.airline$) as any)
-      .toBeObservable(expected);
+    t.e(instance.airline$).toBeObservable(expected);
   });
 
   t.it('should dispatch `airUniversalAddOneAirline` action on init', () => {
@@ -100,10 +87,8 @@ t.describe('AirlineDetailContainerComponent', () => {
 
     const action = airlineActions.airUniversalAddOneAirline();
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(1);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(1);
   });
 
   t.it('should dispatch `airUniversalCreateOneAirline` action on save', () => {
@@ -118,7 +103,7 @@ t.describe('AirlineDetailContainerComponent', () => {
       cur => cur.componentInstance,
       cur => cur.saveClick
     )(fixture);
-    const resource = {_id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE};
+    const resource = { _id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE };
     saveClick.emit(MOCK_AIRLINE);
 
     const router = fixture.debugElement.injector.get(Router);
@@ -128,15 +113,15 @@ t.describe('AirlineDetailContainerComponent', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 });
 
 t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
-  t.be(() => testModuleConfig(RenderFlag.Update));
+  t.be(() => {
+    testModuleConfig(RenderFlag.Update);
+  });
 
   t.it('should dispatch `airUniversalGetOneAirline` action on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
@@ -146,10 +131,8 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
 
     const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(1);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(1);
   });
 
   t.it('should dispatch `airUniversalUpdateOneAirline` action on save', () => {
@@ -173,10 +156,8 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 
   t.it('should dispatch `airUniversalDeleteOneAirline` action on delete', () => {
@@ -200,9 +181,7 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
       route: instance.baseRoute
     });
 
-    t.e(spy)
-      .toHaveBeenCalledWith(action);
-    t.e(spy)
-      .toHaveBeenCalledTimes(2);
+    t.e(spy).toHaveBeenCalledWith(action);
+    t.e(spy).toHaveBeenCalledTimes(2);
   });
 });

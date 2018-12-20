@@ -1,26 +1,18 @@
-// angular
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-
-// libs
 import { TranslatePipe } from '@ngx-translate/core';
 import { configureTestSuite } from 'ng-bullet';
-
-// testing
 import { AuthTestingModule } from '~/app/framework/auth/testing';
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
+import { MaterialModule } from '~/app/framework/material';
 import { NgrxTestingModule } from '~/app/framework/ngrx/testing';
 import { MockComponent, t, TestingModule } from '~/app/framework/testing';
 
-// app
-import { MaterialModule } from '~/app/framework/material';
-
-// module
 import { HeaderComponent } from './header.component';
 
-const mockRoutes = [
+const MOCK_ROUTES = [
   {
     path: '',
     children: [
@@ -43,7 +35,7 @@ const mockRoutes = [
 configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
-      RouterTestingModule.withRoutes(mockRoutes),
+      RouterTestingModule.withRoutes(MOCK_ROUTES),
       AuthTestingModule,
       CoreTestingModule,
       I18NTestingModule,
@@ -51,10 +43,7 @@ configureTestSuite(() => {
       TestingModule,
       MaterialModule
     ],
-    declarations: [
-      TranslatePipe,
-      HeaderComponent
-    ]
+    declarations: [TranslatePipe, HeaderComponent]
   });
 });
 
@@ -64,8 +53,7 @@ t.describe('layout: HeaderComponent', () => {
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should log out', () => {
@@ -79,7 +67,6 @@ t.describe('layout: HeaderComponent', () => {
     const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
     logoutButton.triggerEventHandler('click', {});
 
-    t.e(instance.isAuthenticated)
-      .toBeFalsy();
+    t.e(instance.isAuthenticated).toBeFalsy();
   });
 });

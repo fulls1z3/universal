@@ -1,10 +1,7 @@
-// angular
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule, LAYOUT_CONFIG } from '@angular/flex-layout';
-
-// libs
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 export const APP_LAYOUT_CONFIG = {
@@ -17,12 +14,7 @@ export const APP_LAYOUT_CONFIG = {
 };
 
 @NgModule({
-  exports: [
-    CommonModule,
-    FormsModule,
-    FlexLayoutModule,
-    TranslateModule
-  ],
+  exports: [CommonModule, FormsModule, FlexLayoutModule, TranslateModule],
   providers: [
     {
       provide: LAYOUT_CONFIG,
@@ -30,5 +22,4 @@ export const APP_LAYOUT_CONFIG = {
     }
   ]
 })
-export class SharedModule {
-}
+export class SharedModule {}

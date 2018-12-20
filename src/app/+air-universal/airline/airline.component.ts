@@ -1,15 +1,11 @@
-// angular
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-// libs
-import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-
-// app
+import { from as observableFrom, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { BaseContainerComponent } from '~/app/framework/core';
-import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
 import { routeAnimation, Scrollable } from '~/app/shared';
+import { createColumn, createOptions, createRouteButton, DataTable } from '~/app/shared/data-table';
 import { Airline, airlineActions, AirlineSelectors, State } from '~/app/store';
 
 @Component({
@@ -23,8 +19,7 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
   baseRoute: Array<any>;
   airlineTable: DataTable;
 
-  constructor(private readonly router: Router,
-              protected readonly store$: Store<State>) {
+  constructor(private readonly router: Router, protected readonly store$: Store<State>) {
     super(store$);
   }
 
@@ -42,18 +37,19 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
       options: createOptions('', 'PUBLIC.AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE', Scrollable.Full)
     };
 
-    this.isProcessing$ = this.store$
-      .pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$
-      .pipe(select(AirlineSelectors.getError));
-    this.airlines$ = this.store$
-      .pipe(select(AirlineSelectors.getMany));
+    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
+    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
+    this.airlines$ = this.store$.pipe(select(AirlineSelectors.getMany));
 
     this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
 
   createAirline(): void {
-    this.router.navigate([...this.baseRoute, 'create']);
+    observableFrom(this.router.navigate([...this.baseRoute, 'create']))
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {
+        /**/
+      });
   }
 
   refresh(): void {

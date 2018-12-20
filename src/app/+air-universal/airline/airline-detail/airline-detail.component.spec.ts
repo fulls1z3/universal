@@ -1,37 +1,22 @@
-// angular
 import { TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-
-// libs
 import { of as observableOf } from 'rxjs';
-
-// testing
 import { CoreTestingModule } from '~/app/framework/core/testing';
 import { I18NTestingModule } from '~/app/framework/i18n/testing';
-import { t } from '~/app/framework/testing';
-import { MOCK_AIRLINE } from '~/app/store/testing';
-
-// app
 import { MaterialModule } from '~/app/framework/material';
 import { EMPTY_UNIQUE_ID } from '~/app/framework/ngrx';
-import { CardModule } from '~/app/shared/card';
+import { t } from '~/app/framework/testing';
 import { RenderFlag, SharedModule } from '~/app/shared';
+import { CardModule } from '~/app/shared/card';
+import { MOCK_AIRLINE } from '~/app/store/testing';
 
-// module
 import { AirlineDetailComponent } from './airline-detail.component';
 
 const testModuleConfig = (renderFlag = RenderFlag.Create) => {
   TestBed.configureTestingModule({
-    imports: [
-      ReactiveFormsModule,
-      CoreTestingModule,
-      I18NTestingModule,
-      MaterialModule,
-      CardModule,
-      SharedModule
-    ],
+    imports: [ReactiveFormsModule, CoreTestingModule, I18NTestingModule, MaterialModule, CardModule, SharedModule],
     providers: [
       {
         provide: ActivatedRoute,
@@ -43,9 +28,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update
-              ? MOCK_AIRLINE._id
-              : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
           })
         }
       }
@@ -55,15 +38,16 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
 };
 
 t.describe('AirlineDetailComponent', () => {
-  t.be(() => testModuleConfig());
+  t.be(() => {
+    testModuleConfig();
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
     const instance = fixture.componentInstance;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should emit `saveClick` on save button click', () => {
@@ -75,13 +59,14 @@ t.describe('AirlineDetailComponent', () => {
     const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
     saveButton.triggerEventHandler('click', {});
 
-    t.e(spy)
-      .toHaveBeenCalled();
+    t.e(spy).toHaveBeenCalled();
   });
 });
 
 t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
-  t.be(() => testModuleConfig(RenderFlag.Update));
+  t.be(() => {
+    testModuleConfig(RenderFlag.Update);
+  });
 
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
@@ -89,8 +74,7 @@ t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () 
     instance.airline = MOCK_AIRLINE;
     fixture.detectChanges();
 
-    t.e(instance)
-      .toBeTruthy();
+    t.e(instance).toBeTruthy();
   });
 
   t.it('should emit `deleteClick` on delete button click', () => {
@@ -102,7 +86,6 @@ t.describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () 
     const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));
     deleteButton.triggerEventHandler('click', {});
 
-    t.e(spy)
-      .toHaveBeenCalled();
+    t.e(spy).toHaveBeenCalled();
   });
 });

@@ -1,15 +1,12 @@
-// angular
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
-
-// libs
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MockActivatedRoute {
   params: any;
 
-  private subject: BehaviorSubject<Params>;
+  private readonly subject: BehaviorSubject<Params>;
   private _testParams: any;
 
   constructor() {

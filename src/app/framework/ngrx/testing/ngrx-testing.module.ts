@@ -1,18 +1,12 @@
-// angular
 import { NgModule } from '@angular/core';
-
-// libs
-import { Store, StoreModule } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
 
-// module
 import { MockActions } from './mocks/actions.mock';
 import { MockStore } from './mocks/store.mock';
 
 @NgModule({
-  imports: [
-    StoreModule.forRoot({})
-  ],
+  imports: [StoreModule.forRoot({})],
   providers: [
     {
       provide: Store,
@@ -24,5 +18,4 @@ import { MockStore } from './mocks/store.mock';
     }
   ]
 })
-export class NgrxTestingModule {
-}
+export class NgrxTestingModule {}

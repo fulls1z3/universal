@@ -1,4 +1,3 @@
-// module
 import * as AirlineSelectors from './airline/airline.selectors';
 
 export { airlineActions } from './airline/airline.actions';

@@ -1,7 +1,5 @@
-// testing
 import { t } from '~/app/framework/testing';
 
-// module
 import { errorFn, startProcessingFn, stopProcessingFn } from './reducer.util';
 
 const ERROR_MESSAGE = 'Something went wrong.';
@@ -11,14 +9,11 @@ t.describe('startProcessingFn', () => {
     const preState = {};
     const postState = startProcessingFn(preState);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          isProcessing: true,
-          selectedItem: undefined
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      isProcessing: true,
+      selectedItem: undefined
+    });
   });
 });
 
@@ -27,13 +22,10 @@ t.describe('stopProcessingFn', () => {
     const preState = {};
     const postState = stopProcessingFn(preState);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          isProcessing: false
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      isProcessing: false
+    });
   });
 });
 
@@ -42,14 +34,11 @@ t.describe('errorFn', () => {
     const preState = {};
     const postState = errorFn(preState)(ERROR_MESSAGE);
 
-    t.e(postState)
-      .toEqual(
-        {
-          ...preState,
-          isProcessing: false,
-          selectedItem: undefined,
-          error: ERROR_MESSAGE
-        }
-      );
+    t.e(postState).toEqual({
+      ...preState,
+      isProcessing: false,
+      selectedItem: undefined,
+      error: ERROR_MESSAGE
+    });
   });
 });

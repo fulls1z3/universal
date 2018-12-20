@@ -1,19 +1,13 @@
-// angular
 import { EventEmitter, Input, Output } from '@angular/core';
-
-// libs
-import { Observable } from 'rxjs';
 import { get } from 'lodash/fp';
-
-// app
+import { Observable } from 'rxjs';
 import { BaseComponent } from '~/app/framework/core';
 import { toSlug } from '~/app/shared';
 
-// module
 import { DataTableButton } from './models/data-table-button';
 import { DataTableColumn } from './models/data-table-column';
-import { DataTableRouteButton } from './models/data-table-route-button';
 import { DataTableOptions } from './models/data-table-options';
+import { DataTableRouteButton } from './models/data-table-route-button';
 
 export class DataTableBaseComponent extends BaseComponent {
   @Input() data: Observable<Array<any>> | Array<any>;
@@ -51,8 +45,9 @@ export class DataTableBaseComponent extends BaseComponent {
   }
 
   getValue(row: any, col: DataTableColumn): any {
-    if (col.callback)
+    if (col.callback) {
       return col.callback(get(col.property)(row));
+    }
 
     return get(col.property)(row);
   }
@@ -69,13 +64,8 @@ export class DataTableBaseComponent extends BaseComponent {
 
   getRoute(row: any, button: DataTableRouteButton): Array<any> {
     return [
-      ...button.route
-        .reduce((acc, cur) => cur === '{0}'
-          ? [...acc, row._id]
-          : [...acc, cur], []),
-      ...(!button.passRouteParams
-        ? [toSlug(get(button.target)(row))]
-        : [])
+      ...button.route.reduce((acc, cur) => (cur === '{0}' ? [...acc, row._id] : [...acc, cur]), []),
+      ...(!button.passRouteParams ? [toSlug(get(button.target)(row))] : [])
     ];
   }
 }

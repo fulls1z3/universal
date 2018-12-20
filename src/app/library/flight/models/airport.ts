@@ -1,4 +1,3 @@
-// app
 import { BaseDocument } from '~/app/framework/ngrx';
 
 export interface Airport extends BaseDocument {

@@ -1,4 +1,3 @@
-// module
 import { TestApi } from './ng-base';
 
 export const ngE2e: TestApi = {
