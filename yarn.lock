@@ -701,10 +701,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-meta/core@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-meta/core/-/core-6.0.0.tgz#3cdc176e810fbe7b9b2d0d09abc5c8606ec61023"
-  integrity sha512-44BZrKeJsvAsnJHIgp2PG5RyM/GrkvPbE2HxFhMBgOpHBtNcsosbr3FmdhYMwKDim3fsd6HnNEE21nqEMI9+Nw==
+"@ngx-meta/core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-meta/core/-/core-7.0.0.tgz#fe136fc7f0b507499972f5ea0675c58721f6f6e1"
+  integrity sha512-gsbt84hnQPGGGSwxG8av6y7HdZCw9y4pCjUDybEfJEPogrRJIVNUnemh2PnpdzpxRlk9qjbQ+sxO1Nohs+2pSQ==
   dependencies:
     tslib "~1.9.0"
 
