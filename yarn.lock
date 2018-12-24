@@ -694,10 +694,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-config/http-loader@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-config/http-loader/-/http-loader-6.0.0.tgz#3af4156af114565c4fb218b09e4263ad1d62cab8"
-  integrity sha512-ZjX6xEDWIlyIWfMu0Z2ksLiene7FZ29xfqzoPyOpq/O3jmxHRnebHFcUO63rj3SXJgpf+ezV+GUvIU71FNIB4w==
+"@ngx-config/http-loader@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-config/http-loader/-/http-loader-7.0.0.tgz#317308465f3613a33166bafacc33508656b765b2"
+  integrity sha512-uRmPIFWJd61VSEQDnLP/Y5A8vIuIQPe6gVM1XqYDVU2FxD2e5jw6G4B01niaabH2oNwvC3I7B4Je+rUUmq7uCQ==
   dependencies:
     tslib "~1.9.0"
 
