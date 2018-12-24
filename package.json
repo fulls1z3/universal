@@ -69,7 +69,7 @@
     "@ngx-cache/platform-server": "~6.0.0",
     "@ngx-config/core": "~6.0.0",
     "@ngx-config/http-loader": "~6.0.0",
-    "@ngx-meta/core": "~6.0.0",
+    "@ngx-meta/core": "~7.0.0",
     "@ngx-translate/core": "~11.0.1",
     "@ngx-translate/http-loader": "~4.0.0",
     "angulartics2": "~7.2.3",
