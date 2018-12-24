@@ -652,10 +652,10 @@
   resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-7.0.2.tgz#2df0532f84d4f4e042adb294e3685fad28ed0622"
   integrity sha512-zZst1DfmWZdozNmYRu6vUacFLKreLVhGfpp/LmBrW/jDESHWU4AtRBQYtH8KfhKFSE+B6ehyGYHPfDdSa5sk7g==
 
-"@ngx-auth/core@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-6.0.0.tgz#5dab90519870597a31d21d3584d62811731fc47c"
-  integrity sha512-Rl5wB35g2bHld8r8aRebQfpXZ35YZg/+fFvL7XLXYEHN59cAdhB0sjJVc/IKfyqpkeAyHbxlcftntvZuh0IknQ==
+"@ngx-auth/core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-7.0.0.tgz#cec14874fda16d56f381982297aad6b2f40d9904"
+  integrity sha512-0mQfsbCasd0csIwn1m0iD+GthcOlsxbeGBzKPEq3TcxNA2AlMOmwP3jc90EzweIx/V6+oNg+ICmXsg8rpUAJgg==
   dependencies:
     tslib "~1.9.0"
 
