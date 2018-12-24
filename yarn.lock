@@ -673,10 +673,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/platform-browser@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-6.0.0.tgz#4e25ebed614a290c038f6f9754dd12e6920f43a1"
-  integrity sha512-vMtIy551B54WRjamfP/f+OZcMM6AgPNJGDKiMNR6klWJjJaqrXWZQNBt21MyN3D0mETpYmwRbphZJExykDG0aA==
+"@ngx-cache/platform-browser@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-7.0.0.tgz#7644a6b61c9d1fe076281e209a7b918ada543e31"
+  integrity sha512-WCORI5Pz1GYCq63odycLiO3c1hKuXBUP94GnddcsJVuQULvhAO6+9KJs//ddWshS61+ssiK18sXaoF7erlhZvA==
   dependencies:
     tslib "~1.9.0"
 
