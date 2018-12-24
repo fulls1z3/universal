@@ -69,34 +69,39 @@ t.describe('login: LoginComponent', () => {
     )
   );
 
-  t.it('should authenticate w/valid combination', () => {
-    const fixture = TestBed.createComponent(LoginComponent);
-    const instance = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-
-    instance.username = 'valid';
-    instance.password = 'valid';
-    instance.login();
-
-    t.e(instance.note$).toBeDefined();
-    t.e(instance.error$).toBeUndefined();
-  });
-
   t.it(
-    'should not authenticate w/o valid combination',
-    t.inject([AuthService], (auth: AuthService) => {
-      auth.invalidate();
-
+    'should authenticate w/valid combination',
+    t.async(() => {
       const fixture = TestBed.createComponent(LoginComponent);
       const instance = fixture.debugElement.componentInstance;
       fixture.detectChanges();
 
-      instance.username = 'invalid';
-      instance.password = 'invalid';
-      instance.login();
+      instance.username = 'valid';
+      instance.password = 'valid';
 
-      t.e(instance.note$).toBeDefined();
-      t.e(instance.error$).toBeDefined();
+      instance.login().subscribe(() => {
+        t.e(instance.note$).toBeDefined();
+        t.e(instance.error$).toBeUndefined();
+      });
     })
+  );
+
+  t.it(
+    'should not authenticate w/o valid combination',
+    t.inject([AuthService], async (auth: AuthService) =>
+      auth.invalidate().then(() => {
+        const fixture = TestBed.createComponent(LoginComponent);
+        const instance = fixture.debugElement.componentInstance;
+        fixture.detectChanges();
+
+        instance.username = 'invalid';
+        instance.password = 'invalid';
+
+        instance.login().subscribe(() => {
+          t.e(instance.note$).toBeDefined();
+          t.e(instance.error$).toBeDefined();
+        });
+      })
+    )
   );
 });

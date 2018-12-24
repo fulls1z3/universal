@@ -34,19 +34,20 @@ export class LoginComponent extends BaseComponent implements OnInit {
     }
   }
 
-  login(): void {
+  login(): Observable<any> {
     this.isProcessing = true;
     this.note$ = this.translate.get('PUBLIC.LOGIN.NOTE');
 
-    this.auth
-      .authenticate(this.username, this.password)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {
-        this.isProcessing = false;
+    const auth$ = this.auth.authenticate(this.username, this.password).pipe(takeUntil(this.ngUnsubscribe));
 
-        if (!this.auth.isAuthenticated) {
-          this.error$ = this.translate.get('PUBLIC.LOGIN.ERROR');
-        }
-      });
+    auth$.subscribe(() => {
+      this.isProcessing = false;
+
+      if (!this.auth.isAuthenticated) {
+        this.error$ = this.translate.get('PUBLIC.LOGIN.ERROR');
+      }
+    });
+
+    return auth$;
   }
 }

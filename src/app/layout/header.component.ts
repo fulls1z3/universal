@@ -30,8 +30,9 @@ export class HeaderComponent extends BaseComponent implements OnInit {
     this.isAuthenticated = this.auth.isAuthenticated;
   }
 
-  logout(): void {
+  async logout(): Promise<boolean> {
     this.isAuthenticated = false;
-    this.auth.invalidate();
+
+    return this.auth.invalidate();
   }
 }
