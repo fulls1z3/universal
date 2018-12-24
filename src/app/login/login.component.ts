@@ -34,7 +34,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     }
   }
 
-  login(): Observable<any> {
+  login(): Observable<boolean> {
     this.isProcessing = true;
     this.note$ = this.translate.get('PUBLIC.LOGIN.NOTE');
 
