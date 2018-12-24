@@ -666,10 +666,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/fs-storage@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/fs-storage/-/fs-storage-6.0.0.tgz#0e4bc6ded6917cf4d64817402d30c52399f18122"
-  integrity sha512-hh423cGZ0cx2LcxXBbq1AHTGuv8Gbx4ajHrHDwraXAlL6Ysnp1NYJI0n+iZCd3qZMYwOiMFyOpPaQ+pZ4a8yRQ==
+"@ngx-cache/fs-storage@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/fs-storage/-/fs-storage-7.0.0.tgz#d012e5a1c5974c33b1461a4f1da52a30c666957d"
+  integrity sha512-xKpNM90sLOLychFXR1TgyZ9cD1dxGs/ds6FbggGstOaZtVxULVXB43Ia5mwmZVaAAs9ESG+yHKs4oS1SxjRojQ==
   dependencies:
     tslib "~1.9.0"
 
