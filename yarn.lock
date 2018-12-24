@@ -687,10 +687,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-config/core@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-config/core/-/core-6.0.0.tgz#580a9eb6dddec27201a45c6de4fe29abc90438fd"
-  integrity sha512-7Qh3aqnXzK+zOUfVoEUmiD9Dwe+0A0R6r7zK8DJbCyYIbpSaCf5F43NfG/lhpDqOXMBkOmyCbkLy6BkQtXf/mQ==
+"@ngx-config/core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-config/core/-/core-7.0.0.tgz#c4bf8d15f7ab5ccb70dfebb71d10d4ff19f351e3"
+  integrity sha512-QaDuUCo2OI9OUwDy9W9Rwfv4PJwBToXT2Dgv+UnFhV0q+TcIIYww8K9AzL1NRRFuKoh420grj7Y+cps9rG1maA==
   dependencies:
     tslib "~1.9.0"
 
