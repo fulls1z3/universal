@@ -659,10 +659,10 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/core@~6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/core/-/core-6.0.0.tgz#835496ca1c38e7cb4b8c866465305f825fb52105"
-  integrity sha512-ioCzzk5Msh7Alj/Ms/DY5oBO6TC97QeMNTwi4rJrtT8Ja6Y4v1Z3ZNbOh9UYaiIdCGeNE56jQL/6bsw/PMTCdw==
+"@ngx-cache/core@~7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/core/-/core-7.0.0.tgz#adb475316bd45d7549e53212553f2f4d5ba0411f"
+  integrity sha512-+NoEI5/I91ACSoQEzO60gaHRlct/FWWo2LWBzobHORZRXqSXi42zK5BQSpCsU6RnLRu4kG6rWaaFiD/eV/88gQ==
   dependencies:
     tslib "~1.9.0"
 
