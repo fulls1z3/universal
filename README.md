@@ -1,13 +1,15 @@
 # ng-seed/universal
 
+<!-- prettier-ignore-start -->
 [![CircleCI](https://circleci.com/gh/ng-seed/universal.svg?style=shield)](https://circleci.com/gh/ng-seed/universal)
 [![coverage](https://codecov.io/github/ng-seed/universal/coverage.svg?branch=master)](https://codecov.io/gh/ng-seed/universal)
-[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/context:javascript)
+[![Code Quality: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/context:javascript)
 [![Total Alerts](https://img.shields.io/lgtm/alerts/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/alerts)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ng-seed/universal.svg)](https://greenkeeper.io/)
 [![Join the chat at https://gitter.im/ng-seed-universal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-seed-universal/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+<!-- prettier-ignore-end -->
 
-> Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
+> Please support this project by simply putting a GitHub star. Share this library with friends on twitter and everywhere else you can.
 
 **`ng-seed/universal`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide)
 in file and application organization, providing the following features:
@@ -216,8 +218,7 @@ $ ng g r store/todo/todo --spec false
 # CREATE src/app/store/todo/todo.reducer.ts (247 bytes)
 
 # add entity `store/todo/item/Item`
-$ ng g en store/todo/item/Item -m ../../todo/todo.module.ts
---reducers ../../store/todo.reducer.ts
+$ ng g en store/todo/item/Item -m ../../todo/todo.module.ts --reducers ../../store/todo.reducer.ts
 # CREATE src/app/store/todo/item/item.actions.ts (2078 bytes)
 # CREATE src/app/store/todo/item/item.model.ts (40 bytes)
 # CREATE src/app/store/todo/item/item.reducer.ts (1746 bytes)
@@ -282,7 +283,7 @@ way to ensure maintainable code by encapsulation of our behavior logic.
 A component is basically a self contained app usually in a single file or a directory with each concern as a file: *style*,
 *template*, *specs*, and *component class*.
 
-> As an old convention, we use the **`+` prefix** for *lazy-loaded* modules. Please keep in mind that it does nor change
+> As an old convention, we use the **`+` prefix** for *lazy-loaded* modules. Please keep in mind that it does not change
 the *router behavior*, neither makes the directory *unworkable*. It's just a handy *method* to **identify lazy-loaded modules**
 by having a straight look at the directory structure.
 
@@ -371,9 +372,9 @@ Copyright (c) 2018 [Burak Tasci]
 [stylelint]: https://stylelint.io/ 
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html
 [TransferState]: https://angular.io/api/platform-browser/TransferState
-[ngrx/store]: https://github.com/ngrx/store
-[ngrx/entity]: https://github.com/ngrx/platform/tree/master/docs/entity
-[ngrx/effects]: https://github.com/ngrx/platform/blob/master/docs/effects/README.md
+[ngrx/store]: https://ngrx.io/guide/store
+[ngrx/entity]: https://ngrx.io/guide/entity
+[ngrx/effects]: https://ngrx.io/guide/effects
 [unionize]: https://github.com/pelotom/unionize
 [ngx-config]: https://github.com/fulls1z3/ngx-config
 [ngx-auth]:  https://github.com/fulls1z3/ngx-auth
