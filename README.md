@@ -282,7 +282,7 @@ way to ensure maintainable code by encapsulation of our behavior logic.
 A component is basically a self contained app usually in a single file or a directory with each concern as a file: *style*,
 *template*, *specs*, and *component class*.
 
-> As an old convention, we use the **`+` prefix** for *lazy-loaded* modules. Please keep in mind that it does nor change
+> As an old convention, we use the **`+` prefix** for *lazy-loaded* modules. Please keep in mind that it does not change
 the *router behavior*, neither makes the directory *unworkable*. It's just a handy *method* to **identify lazy-loaded modules**
 by having a straight look at the directory structure.
 
@@ -371,9 +371,9 @@ Copyright (c) 2018 [Burak Tasci]
 [stylelint]: https://stylelint.io/ 
 [Lazy loading]: https://angular-2-training-book.rangle.io/handout/modules/lazy-loading-module.html
 [TransferState]: https://angular.io/api/platform-browser/TransferState
-[ngrx/store]: https://github.com/ngrx/store
-[ngrx/entity]: https://github.com/ngrx/platform/tree/master/docs/entity
-[ngrx/effects]: https://github.com/ngrx/platform/blob/master/docs/effects/README.md
+[ngrx/store]: https://ngrx.io/guide/store
+[ngrx/entity]: https://ngrx.io/guide/entity
+[ngrx/effects]: https://ngrx.io/guide/effects
 [unionize]: https://github.com/pelotom/unionize
 [ngx-config]: https://github.com/fulls1z3/ngx-config
 [ngx-auth]:  https://github.com/fulls1z3/ngx-auth
