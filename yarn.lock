@@ -7074,13 +7074,13 @@ ng-bullet@~1.0.3:
   dependencies:
     tslib "^1.9.0"
 
-ngx-perfect-scrollbar@~7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-7.1.0.tgz#9233960512e6c20f39fc22e1f78d85d6884675bc"
-  integrity sha512-88dpMDb9dfRWZb+U1VlLeapy/XA2wzWn44xNrNwiuoYCetwthHorH6C6vDcYFC7mF5V9Xvc50jk2GLQ4lthjTA==
+ngx-perfect-scrollbar@~7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-7.2.0.tgz#396ed8c1dc5c7828994649f802cab9289ad66302"
+  integrity sha512-vPw4SeAIE7laPOXHzgpyCIMCsdafHHGPRGb2tADvCAU9s5h6Ogmg3eZmN0KV6uQoepnX2cYrZjM42WAlcwiL9Q==
   dependencies:
     perfect-scrollbar "^1.4.0"
-    resize-observer-polyfill "^1.4.0"
+    resize-observer-polyfill "^1.5.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -8738,7 +8738,7 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.4.0:
+resize-observer-polyfill@^1.5.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
