@@ -123,7 +123,7 @@
     "prettier-tslint": "~0.4.1",
     "rimraf": "~2.6.2",
     "standard-version": "~4.4.0",
-    "stylelint": "~9.9.0",
+    "stylelint": "~9.10.0",
     "stylelint-config-standard": "~18.2.0",
     "tslib": "~1.9.3",
     "tslint": "~5.12.0",
