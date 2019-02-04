@@ -49,7 +49,7 @@ configureTestSuite(() => {
 t.describe('login: LoginComponent', () => {
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(LoginComponent);
-    const instance = fixture.debugElement.componentInstance;
+    const instance = fixture.componentInstance;
     fixture.detectChanges();
 
     t.e(instance).toBeTruthy();
@@ -62,8 +62,11 @@ t.describe('login: LoginComponent', () => {
         const fixture = TestBed.createComponent(LoginComponent);
         fixture.detectChanges();
 
+        const actual = router.url;
+        const expected = `${auth.defaultUrl}/`;
+
         auth.authenticate('valid', 'valid').subscribe(() => {
-          t.e(router.url).toEqual(`${auth.defaultUrl}/`);
+          t.e(actual).toEqual(expected);
         });
       })
     )
@@ -73,15 +76,17 @@ t.describe('login: LoginComponent', () => {
     'should authenticate w/valid combination',
     t.async(() => {
       const fixture = TestBed.createComponent(LoginComponent);
-      const instance = fixture.debugElement.componentInstance;
+      const instance = fixture.componentInstance;
       fixture.detectChanges();
 
       instance.username = 'valid';
       instance.password = 'valid';
 
       instance.login().subscribe(() => {
-        t.e(instance.note$).toBeDefined();
+        const actual = instance.note$;
+
         t.e(instance.error$).toBeUndefined();
+        t.e(actual).toBeDefined();
       });
     })
   );
@@ -91,15 +96,16 @@ t.describe('login: LoginComponent', () => {
     t.inject([AuthService], async (auth: AuthService) =>
       auth.invalidate().then(() => {
         const fixture = TestBed.createComponent(LoginComponent);
-        const instance = fixture.debugElement.componentInstance;
+        const instance = fixture.componentInstance;
         fixture.detectChanges();
 
         instance.username = 'invalid';
         instance.password = 'invalid';
 
         instance.login().subscribe(() => {
-          t.e(instance.note$).toBeDefined();
-          t.e(instance.error$).toBeDefined();
+          const actual = instance.error$;
+
+          t.e(actual).toBeDefined();
         });
       })
     )

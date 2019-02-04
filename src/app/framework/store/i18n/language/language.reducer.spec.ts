@@ -20,9 +20,9 @@ t.describe('reducer', () => {
 
   t.it('should return the initial state', () => {
     const action = {} as any;
-    const res = reducer(undefined, action);
+    const actual = reducer(undefined, action);
 
-    t.e(res).toEqual(initialState);
+    t.e(actual).toEqual(initialState);
   });
 
   t.describe('i18nUseLanguage', () => {
@@ -33,7 +33,9 @@ t.describe('reducer', () => {
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const res = reducer(initialState, action);
 
-        t.e(res.isProcessing).toBeTruthy();
+        const actual = res.isProcessing;
+
+        t.e(actual).toBeTruthy();
       })
     );
   });
@@ -46,7 +48,9 @@ t.describe('reducer', () => {
         const action = languageActions.i18nUseLanguageSuccess(defaultLanguage);
         const res = reducer(initialState, action);
 
-        t.e(res.selectedItem).toEqual(defaultLanguage);
+        const actual = res.selectedItem;
+
+        t.e(actual).toEqual(defaultLanguage);
       })
     );
   });

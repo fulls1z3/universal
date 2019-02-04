@@ -2,65 +2,74 @@ import { t } from '~/app/framework/testing';
 
 import { entityErrorFn, entityResetFn, entityStartProcessingFn, entityStopProcessingFn } from './entity-reducer.util';
 
-const VALID_ID = '100000000000000000000001';
-const ERROR_MESSAGE = 'Something went wrong.';
+type MOCK_TYPE = any;
+const MOCK_VALID_ID = '100000000000000000000001';
+const MOCK_ERROR_MESSAGE = 'Something went wrong.';
 
 t.describe('entityStartProcessingFn', () => {
   t.it('should set `isProcessing` to true', () => {
     const preState = {};
-    const postState = entityStartProcessingFn(preState);
 
-    t.e(postState).toEqual({
+    const actual = entityStartProcessingFn(preState);
+    const expected: MOCK_TYPE = {
       ...preState,
       ids: [],
       entities: {},
       isProcessing: true,
       selectedId: undefined
-    });
+    };
+
+    t.e(actual).toEqual(expected);
   });
 });
 
 t.describe('entityStopProcessingFn', () => {
   t.it('should set `isProcessing` to false', () => {
     const preState = {};
-    const postState = entityStopProcessingFn(preState);
 
-    t.e(postState).toEqual({
+    const actual = entityStopProcessingFn(preState);
+    const expected: MOCK_TYPE = {
       ...preState,
       isProcessing: false
-    });
+    };
+
+    t.e(actual).toEqual(expected);
   });
 });
 
 t.describe('entityErrorFn', () => {
   t.it('should set the `error`', () => {
     const preState = {};
-    const postState = entityErrorFn(preState)(ERROR_MESSAGE);
 
-    t.e(postState).toEqual({
+    const actual = entityErrorFn(preState)(MOCK_ERROR_MESSAGE);
+    const expected: MOCK_TYPE = {
       ...preState,
       ids: [],
       entities: {},
       isProcessing: false,
       selectedId: undefined,
-      error: ERROR_MESSAGE
-    });
+      error: MOCK_ERROR_MESSAGE
+    };
+
+    t.e(actual).toEqual(expected);
   });
 });
 
 t.describe('entityResetFn', () => {
   t.it('should set revert the `selectedId` and set the `error`', () => {
     const preState = {};
-    const postState = entityResetFn(preState)({
-      id: VALID_ID,
-      error: ERROR_MESSAGE
-    });
 
-    t.e(postState).toEqual({
+    const actual = entityResetFn(preState)({
+      id: MOCK_VALID_ID,
+      error: MOCK_ERROR_MESSAGE
+    });
+    const expected: MOCK_TYPE = {
       ...preState,
       isProcessing: false,
-      selectedId: VALID_ID,
-      error: ERROR_MESSAGE
-    });
+      selectedId: MOCK_VALID_ID,
+      error: MOCK_ERROR_MESSAGE
+    };
+
+    t.e(actual).toEqual(expected);
   });
 });

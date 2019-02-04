@@ -43,8 +43,8 @@ t.describe('BaseEntityService', () => {
 
   t.it(
     'should build without a problem',
-    t.inject([MockEntityService], (entity: MockEntityService) => {
-      t.e(entity).toBeTruthy();
+    t.inject([MockEntityService], (instance: MockEntityService) => {
+      t.e(instance).toBeTruthy();
     })
   );
 
@@ -52,16 +52,14 @@ t.describe('BaseEntityService', () => {
     'should `getMany`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.getMany$().subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEMS);
+        entity.getMany$().subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEMS);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'GET',
             url: '{baseUrl}/test'
-          })
-          .flush(MOCK_ITEMS);
+          }).flush(MOCK_ITEMS);
         http.verify();
       })
     )
@@ -71,16 +69,14 @@ t.describe('BaseEntityService', () => {
     'should `getOne$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.getOne$(MOCK_ITEM._id).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEM);
+        entity.getOne$(MOCK_ITEM._id).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEM);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'GET',
             url: `{baseUrl}/test/${MOCK_ITEM._id}`
-          })
-          .flush(MOCK_ITEM);
+          }).flush(MOCK_ITEM);
         http.verify();
       })
     )
@@ -90,16 +86,14 @@ t.describe('BaseEntityService', () => {
     'should `createMany$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.createMany$(MOCK_ITEMS).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEMS);
+        entity.createMany$(MOCK_ITEMS).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEMS);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'POST',
             url: '{baseUrl}/test'
-          })
-          .flush(MOCK_ITEMS);
+          }).flush(MOCK_ITEMS);
         http.verify();
       })
     )
@@ -109,16 +103,14 @@ t.describe('BaseEntityService', () => {
     'should `createOne$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.createOne$(MOCK_ITEM).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEM);
+        entity.createOne$(MOCK_ITEM).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEM);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'POST',
             url: '{baseUrl}/test'
-          })
-          .flush(MOCK_ITEM);
+          }).flush(MOCK_ITEM);
         http.verify();
       })
     )
@@ -128,18 +120,16 @@ t.describe('BaseEntityService', () => {
     'should `updateMany$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.updateMany$(MOCK_ITEMS).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEMS);
+        entity.updateMany$(MOCK_ITEMS).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEMS);
         });
 
         const ids = MOCK_ITEMS.map(resource => resource._id);
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'PATCH',
             url: `{baseUrl}/test/${ids.join(',')}`
-          })
-          .flush(MOCK_ITEMS);
+          }).flush(MOCK_ITEMS);
         http.verify();
       })
     )
@@ -149,16 +139,14 @@ t.describe('BaseEntityService', () => {
     'should `updateOne$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.updateOne$(MOCK_ITEM).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEM);
+        entity.updateOne$(MOCK_ITEM).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEM);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'PATCH',
             url: `{baseUrl}/test/${MOCK_ITEM._id}`
-          })
-          .flush(MOCK_ITEM);
+          }).flush(MOCK_ITEM);
         http.verify();
       })
     )
@@ -170,16 +158,14 @@ t.describe('BaseEntityService', () => {
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
         const ids = MOCK_ITEMS.map(resource => resource._id);
 
-        entity.deleteMany$(ids).subscribe(res => {
-          t.e(res).toEqual(ids);
+        entity.deleteMany$(ids).subscribe(actual => {
+          t.e(actual).toEqual(ids);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'DELETE',
             url: `{baseUrl}/test/${ids.join(',')}`
-          })
-          .flush(ids);
+          }).flush(ids);
         http.verify();
       })
     )
@@ -189,16 +175,14 @@ t.describe('BaseEntityService', () => {
     'should `deleteOne$`',
     t.async(
       t.inject([MockEntityService, HttpTestingController], (entity: MockEntityService, http: HttpTestingController) => {
-        entity.deleteOne$(MOCK_ITEM._id).subscribe(res => {
-          t.e(res).toEqual(MOCK_ITEM._id);
+        entity.deleteOne$(MOCK_ITEM._id).subscribe(actual => {
+          t.e(actual).toEqual(MOCK_ITEM._id);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'DELETE',
             url: `{baseUrl}/test/${MOCK_ITEM._id}`
-          })
-          .flush(MOCK_ITEM._id);
+          }).flush(MOCK_ITEM._id);
         http.verify();
       })
     )

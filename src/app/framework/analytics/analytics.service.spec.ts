@@ -30,6 +30,7 @@ t.describe('AnalyticsService', () => {
         label: 'Testing'
       });
 
+      const actual = angulartics.eventTrack;
       const expected = cold('c', {
         c: {
           action: 'click',
@@ -40,7 +41,7 @@ t.describe('AnalyticsService', () => {
         }
       });
 
-      t.e(angulartics.eventTrack).toBeObservable(expected);
+      t.e(actual).toBeObservable(expected);
     })
   );
 
@@ -54,7 +55,9 @@ t.describe('AnalyticsService', () => {
         label: 'Testing'
       });
 
-      t.e((angulartics.eventTrack as any)._events).not.toHaveProperty('value');
+      const actual = (angulartics.eventTrack as any)._events;
+
+      t.e(actual).not.toHaveProperty('value');
     })
   );
 
@@ -64,13 +67,14 @@ t.describe('AnalyticsService', () => {
       analyticsService.devMode(false);
       analyticsService.pageTrack('/testing');
 
+      const actual = angulartics.pageTrack;
       const expected = cold('c', {
         c: {
           path: '/testing'
         }
       });
 
-      t.e(angulartics.pageTrack).toBeObservable(expected);
+      t.e(actual).toBeObservable(expected);
     })
   );
 
@@ -81,7 +85,9 @@ t.describe('AnalyticsService', () => {
       analyticsService.devMode(true);
       analyticsService.pageTrack('/testing');
 
-      t.e((angulartics.pageTrack as any)._events).not.toHaveProperty('value');
+      const actual = (angulartics.pageTrack as any)._events;
+
+      t.e(actual).not.toHaveProperty('value');
     })
   );
 
@@ -95,6 +101,7 @@ t.describe('AnalyticsService', () => {
         email: 'name@domain.com'
       });
 
+      const actual = angulartics.setUserProperties;
       const expected = cold('c', {
         c: {
           userId: 1,
@@ -103,7 +110,7 @@ t.describe('AnalyticsService', () => {
         }
       });
 
-      t.e(angulartics.setUserProperties).toBeObservable(expected);
+      t.e(actual).toBeObservable(expected);
     })
   );
 
@@ -118,7 +125,9 @@ t.describe('AnalyticsService', () => {
         email: 'name@domain.com'
       });
 
-      t.e((angulartics.setUserProperties as any)._events).not.toHaveProperty('value');
+      const actual = (angulartics.setUserProperties as any)._events;
+
+      t.e(actual).not.toHaveProperty('value');
     })
   );
 });

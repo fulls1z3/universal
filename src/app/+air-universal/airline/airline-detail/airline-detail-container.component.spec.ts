@@ -68,15 +68,15 @@ t.describe('AirlineDetailContainerComponent', () => {
 
   t.it('should `getSelected` from AirlineSelectors on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-    const instance = fixture.componentInstance;
     const store$ = TestBed.get(Store);
     const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
     store$.setState(state);
     fixture.detectChanges();
 
+    const actual = fixture.componentInstance.airline$;
     const expected = cold('a', { a: MOCK_AIRLINE });
 
-    t.e(instance.airline$).toBeObservable(expected);
+    t.e(actual).toBeObservable(expected);
   });
 
   t.it('should dispatch `airUniversalAddOneAirline` action on init', () => {
@@ -93,7 +93,6 @@ t.describe('AirlineDetailContainerComponent', () => {
 
   t.it('should dispatch `airUniversalCreateOneAirline` action on save', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-    const instance = fixture.componentInstance;
     const store$ = TestBed.get(Store);
     const spy = t.spyOn(store$, 'dispatch');
     fixture.detectChanges();
@@ -107,6 +106,7 @@ t.describe('AirlineDetailContainerComponent', () => {
     saveClick.emit(MOCK_AIRLINE);
 
     const router = fixture.debugElement.injector.get(Router);
+    const instance = fixture.componentInstance;
     const action = airlineActions.airUniversalCreateOneAirline({
       resource,
       router,
@@ -137,7 +137,6 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
 
   t.it('should dispatch `airUniversalUpdateOneAirline` action on save', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-    const instance = fixture.componentInstance;
     const store$ = TestBed.get(Store);
     const spy = t.spyOn(store$, 'dispatch');
     fixture.detectChanges();
@@ -150,6 +149,7 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
     saveClick.emit(MOCK_AIRLINE);
 
     const router = fixture.debugElement.injector.get(Router);
+    const instance = fixture.componentInstance;
     const action = airlineActions.airUniversalUpdateOneAirline({
       resource: MOCK_AIRLINE,
       router,
@@ -162,7 +162,6 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
 
   t.it('should dispatch `airUniversalDeleteOneAirline` action on delete', () => {
     const fixture = TestBed.createComponent(AirlineDetailContainerComponent);
-    const instance = fixture.componentInstance;
     const store$ = TestBed.get(Store);
     const spy = t.spyOn(store$, 'dispatch');
     fixture.detectChanges();
@@ -175,6 +174,7 @@ t.describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
     deleteClick.emit(MOCK_AIRLINE._id);
 
     const router = fixture.debugElement.injector.get(Router);
+    const instance = fixture.componentInstance;
     const action = airlineActions.airUniversalDeleteOneAirline({
       id: MOCK_AIRLINE._id,
       router,

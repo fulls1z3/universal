@@ -58,8 +58,8 @@ t.describe('getBaseUrl for `server` platform', () => {
 t.describe('BaseUrlInterceptor', () => {
   t.it(
     'should build without a problem',
-    t.inject([BaseUrlInterceptor], (interceptor: BaseUrlInterceptor) => {
-      t.e(interceptor).toBeTruthy();
+    t.inject([BaseUrlInterceptor], (instance: BaseUrlInterceptor) => {
+      t.e(instance).toBeTruthy();
     })
   );
 
@@ -71,10 +71,12 @@ t.describe('BaseUrlInterceptor', () => {
           t.e(res).toBeTruthy();
         });
 
-        const actual = http.expectOne({ method: 'GET' });
+        const { request } = http.expectOne({ method: 'GET' });
+
+        const actual = request.url;
         const expected = 'http://localhost:4200/test';
 
-        t.e(actual.request.url).toEqual(expected);
+        t.e(actual).toEqual(expected);
 
         http.verify();
       })

@@ -45,15 +45,15 @@ t.describe('AirlineComponent', () => {
 
   t.it('should `getMany` from AirlineSelectors on init', () => {
     const fixture = TestBed.createComponent(AirlineComponent);
-    const instance = fixture.componentInstance;
     const store$ = TestBed.get(Store);
     const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
     store$.setState(state);
     fixture.detectChanges();
 
+    const actual = fixture.componentInstance.airlines$;
     const expected = cold('a', { a: [MOCK_AIRLINE] });
 
-    t.e(instance.airlines$).toBeObservable(expected);
+    t.e(actual).toBeObservable(expected);
   });
 
   t.it('should dispatch `airUniversalGetManyAirlines` action on init', () => {

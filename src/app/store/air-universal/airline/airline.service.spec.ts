@@ -35,12 +35,10 @@ t.describe('airline: AirlineService', () => {
           t.e(res).toEqual(MOCK_AIRLINES);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'GET',
             url: '{baseUrl}/assets/data/airlines.json'
-          })
-          .flush(MOCK_AIRLINES);
+          }).flush(MOCK_AIRLINES);
         http.verify();
       })
     )
@@ -55,12 +53,10 @@ t.describe('airline: AirlineService', () => {
           t.e(res).toEqual(MOCK_AIRLINE);
         });
 
-        http
-          .expectOne({
+        http.expectOne({
             method: 'GET',
             url: '{baseUrl}/assets/data/airlines.json'
-          })
-          .flush(MOCK_AIRLINES);
+          }).flush(MOCK_AIRLINES);
         http.verify();
       })
     )
