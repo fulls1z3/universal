@@ -28,7 +28,7 @@ const testModuleConfig = () => {
   });
 };
 
-t.describe('airline: AirlineEffects', () => {
+t.describe('AirlineEffects', () => {
   t.be(() => {
     testModuleConfig();
   });

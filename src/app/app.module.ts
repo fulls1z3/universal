@@ -67,7 +67,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { supp
   ],
   declarations: [HeaderComponent, MainComponent, LoginComponent, AppComponent],
   providers: [
-    // I18N_ROUTER_PROVIDERS
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

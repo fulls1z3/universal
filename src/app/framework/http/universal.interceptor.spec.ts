@@ -55,10 +55,9 @@ t.describe('getAbsolutePath for `browser` platform', () => {
     const request = new HttpRequest<any>('GET', './test');
     const res = getAbsolutePath(MOCK_REQUEST)(request)(false);
 
-    const actual = res.url;
     const expected = './test';
 
-    t.e(actual).toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 });
 
@@ -67,20 +66,18 @@ t.describe('getAbsolutePath for `server` platform', () => {
     const request = new HttpRequest<any>('GET', './test');
     const res = getAbsolutePath(MOCK_REQUEST)(request)(true);
 
-    const actual = res.url;
     const expected = `${MOCK_BASE_URL}/test`;
 
-    t.e(actual).toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 
   t.it('should bypass the request when the request has absolute url', () => {
     const request = new HttpRequest<any>('GET', `${MOCK_BASE_URL}/test`);
     const res = getAbsolutePath(MOCK_REQUEST)(request)(true);
 
-    const actual = res.url;
     const expected = `${MOCK_BASE_URL}/test`;
 
-    t.e(actual).toEqual(expected);
+    t.e(res.url).toEqual(expected);
   });
 });
 
@@ -101,11 +98,9 @@ t.describe('UniversalInterceptor', () => {
         });
 
         const { request } = http.expectOne({ method: 'GET' });
-
-        const actual = request.url;
         const expected = './test';
 
-        t.e(actual).toEqual(expected);
+        t.e(request.url).toEqual(expected);
 
         http.verify();
       })

@@ -62,11 +62,10 @@ t.describe('login: LoginComponent', () => {
         const fixture = TestBed.createComponent(LoginComponent);
         fixture.detectChanges();
 
-        const actual = router.url;
         const expected = `${auth.defaultUrl}/`;
 
         auth.authenticate('valid', 'valid').subscribe(() => {
-          t.e(actual).toEqual(expected);
+          t.e(router.url).toEqual(expected);
         });
       })
     )
@@ -83,10 +82,8 @@ t.describe('login: LoginComponent', () => {
       instance.password = 'valid';
 
       instance.login().subscribe(() => {
-        const actual = instance.note$;
-
         t.e(instance.error$).toBeUndefined();
-        t.e(actual).toBeDefined();
+        t.e(instance.note$).toBeDefined();
       });
     })
   );
@@ -103,9 +100,7 @@ t.describe('login: LoginComponent', () => {
         instance.password = 'invalid';
 
         instance.login().subscribe(() => {
-          const actual = instance.error$;
-
-          t.e(actual).toBeDefined();
+          t.e(instance.error$).toBeDefined();
         });
       })
     )

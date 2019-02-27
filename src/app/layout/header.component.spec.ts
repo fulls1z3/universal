@@ -47,7 +47,7 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('layout: HeaderComponent', () => {
+t.describe('HeaderComponent', () => {
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     const instance = fixture.componentInstance;

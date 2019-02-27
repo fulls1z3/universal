@@ -33,9 +33,7 @@ t.describe('reducer', () => {
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const res = reducer(initialState, action);
 
-        const actual = res.isProcessing;
-
-        t.e(actual).toBeTruthy();
+        t.e(res.isProcessing).toBeTruthy();
       })
     );
   });
@@ -48,9 +46,7 @@ t.describe('reducer', () => {
         const action = languageActions.i18nUseLanguageSuccess(defaultLanguage);
         const res = reducer(initialState, action);
 
-        const actual = res.selectedItem;
-
-        t.e(actual).toEqual(defaultLanguage);
+        t.e(res.selectedItem).toEqual(defaultLanguage);
       })
     );
   });

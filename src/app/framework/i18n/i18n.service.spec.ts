@@ -48,9 +48,8 @@ t.describe('I18NService', () => {
       i18n.availableLanguages = MOCK_AVAILABLE_LANGUAGES;
 
       const language = i18n.getLanguageByCode('en');
-      const actual = language.code;
 
-      t.e(actual).toEqual('en');
+      t.e(language.code).toEqual('en');
     })
   );
 
@@ -61,9 +60,8 @@ t.describe('I18NService', () => {
       i18n.availableLanguages = MOCK_AVAILABLE_LANGUAGES;
 
       const language = i18n.getLanguageByCode('fr');
-      const actual = language.code;
 
-      t.e(actual).toEqual('en');
+      t.e(language.code).toEqual('en');
     })
   );
 });
@@ -108,9 +106,7 @@ t.describe('I18NService for `fr` browser', () => {
   t.it(
     'should support `french` by default (window)',
     t.inject([WindowService], (win: WindowService) => {
-      const actual = win.navigator.language;
-
-      t.e(actual).toEqual('fr-FR');
+      t.e(win.navigator.language).toEqual('fr-FR');
     })
   );
 
@@ -132,9 +128,7 @@ t.describe('I18NService for browser w/o language', () => {
   t.it(
     'should support `english` by default (window)',
     t.inject([WindowService], (win: WindowService) => {
-      const actual = win.navigator.language;
-
-      t.e(actual).toBeUndefined();
+      t.e(win.navigator.language).toBeUndefined();
     })
   );
 

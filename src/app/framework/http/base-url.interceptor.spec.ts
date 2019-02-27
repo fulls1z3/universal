@@ -72,11 +72,9 @@ t.describe('BaseUrlInterceptor', () => {
         });
 
         const { request } = http.expectOne({ method: 'GET' });
-
-        const actual = request.url;
         const expected = 'http://localhost:4200/test';
 
-        t.e(actual).toEqual(expected);
+        t.e(request.url).toEqual(expected);
 
         http.verify();
       })
