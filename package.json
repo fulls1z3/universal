@@ -58,7 +58,7 @@
     "@angularclass/bootloader": "~1.0.1",
     "@ngrx/effects": "~7.0.0",
     "@ngrx/entity": "~7.0.0",
-    "@ngrx/store": "~7.0.0",
+    "@ngrx/store": "~7.3.0",
     "@nguniversal/common": "~7.0.2",
     "@nguniversal/express-engine": "~7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "~7.0.2",
