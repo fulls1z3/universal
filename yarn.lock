@@ -616,10 +616,10 @@
   resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-7.0.0.tgz#065fa7383bd20e388111901d507aa7eeeb10e4a9"
   integrity sha512-DljjU77CkCR5YpgjtHEsZrxnnKIOY3AChcmQsDbQh1OZFzCT5lMq9mjtoHxRUKsEOp2/CwKb0sFCTsQBXJIZqg==
 
-"@ngrx/store-devtools@~7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-7.0.0.tgz#8be35ad8b455019c9ac583c92ad8f0ec0d538c37"
-  integrity sha512-VLYDIiK5uy6SfIh3PUWT8oXNSHtVefRm44h9MMDBBUQphu5fBmGB9wtkFHfVTmw5V9TdZ9KnUTvm5Dlln8VP0A==
+"@ngrx/store-devtools@~7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-7.3.0.tgz#a178e66083343d81e554cfc092101f5bf8311908"
+  integrity sha512-//zuFcXUEJO3H/KfT3ontsosdF+dBphvoT4NHHZQAewaGUmn/z6OqgJv41n0d8NmAjVmKYYA73jtWwRmfSHTcA==
 
 "@ngrx/store@~7.0.0":
   version "7.0.0"
