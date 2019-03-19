@@ -20,9 +20,9 @@ t.describe('reducer', () => {
 
   t.it('should return the initial state', () => {
     const action = {} as any;
-    const res = reducer(undefined, action);
+    const actual = reducer(undefined, action);
 
-    t.e(res).toEqual(initialState);
+    t.e(actual).toEqual(initialState);
   });
 
   t.describe('i18nUseLanguage', () => {

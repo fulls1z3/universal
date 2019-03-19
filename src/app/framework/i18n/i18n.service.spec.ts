@@ -37,8 +37,8 @@ t.describe('I18NService', () => {
 
   t.it(
     'should build without a problem',
-    t.inject([I18NService], (i18n: I18NService) => {
-      t.e(i18n).toBeTruthy();
+    t.inject([I18NService], (instance: I18NService) => {
+      t.e(instance).toBeTruthy();
     })
   );
 
@@ -74,9 +74,9 @@ t.describe('I18NService w/o init', () => {
   t.it(
     'should get `undefined` (by code)',
     t.inject([I18NService], (i18n: I18NService) => {
-      const language = i18n.getLanguageByCode('en');
+      const actual = i18n.getLanguageByCode('en');
 
-      t.e(language).toBeUndefined();
+      t.e(actual).toBeUndefined();
     })
   );
 });
@@ -91,9 +91,9 @@ t.describe('I18NService for `server` platform', () => {
     t.inject([I18NService], (i18n: I18NService) => {
       i18n.defaultLanguage = MOCK_DEFAULT_LANGUAGE;
 
-      const languageCode = i18n.getLanguageCodeFromBrowser();
+      const actual = i18n.getLanguageCodeFromBrowser();
 
-      t.e(languageCode).toEqual('en');
+      t.e(actual).toEqual('en');
     })
   );
 });
@@ -104,12 +104,18 @@ t.describe('I18NService for `fr` browser', () => {
   });
 
   t.it(
-    'should support `french` by default',
-    t.inject([I18NService, WindowService], (i18n: I18NService, win: WindowService) => {
-      const languageCode = i18n.getLanguageCodeFromBrowser();
-
+    'should support `french` by default (window)',
+    t.inject([WindowService], (win: WindowService) => {
       t.e(win.navigator.language).toEqual('fr-FR');
-      t.e(languageCode).toEqual('fr');
+    })
+  );
+
+  t.it(
+    'should support `french` by default',
+    t.inject([I18NService, WindowService], (i18n: I18NService) => {
+      const actual = i18n.getLanguageCodeFromBrowser();
+
+      t.e(actual).toEqual('fr');
     })
   );
 });
@@ -120,14 +126,20 @@ t.describe('I18NService for browser w/o language', () => {
   });
 
   t.it(
+    'should support `english` by default (window)',
+    t.inject([WindowService], (win: WindowService) => {
+      t.e(win.navigator.language).toBeUndefined();
+    })
+  );
+
+  t.it(
     'should support `english` by default',
-    t.inject([I18NService, WindowService], (i18n: I18NService, win: WindowService) => {
+    t.inject([I18NService], (i18n: I18NService) => {
       i18n.defaultLanguage = MOCK_DEFAULT_LANGUAGE;
 
-      const languageCode = i18n.getLanguageCodeFromBrowser();
+      const actual = i18n.getLanguageCodeFromBrowser();
 
-      t.e(win.navigator.language).toBeUndefined();
-      t.e(languageCode).toEqual('en');
+      t.e(actual).toEqual('en');
     })
   );
 });

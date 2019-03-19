@@ -28,8 +28,8 @@ t.describe('LanguageEffects', () => {
 
   t.it(
     'should build without a problem',
-    t.inject([LanguageEffects], (effects: LanguageEffects) => {
-      t.e(effects).toBeTruthy();
+    t.inject([LanguageEffects], (instance: LanguageEffects) => {
+      t.e(instance).toBeTruthy();
     })
   );
 
@@ -45,9 +45,11 @@ t.describe('LanguageEffects', () => {
 
         const actions$ = TestBed.get(Actions);
         actions$.stream = hot('-a', { a: action });
+
+        const actual = effects.init$;
         const expected = cold('-c', { c: completion });
 
-        t.e(effects.init$).toBeObservable(expected);
+        t.e(actual).toBeObservable(expected);
       })
     );
   });
@@ -63,9 +65,11 @@ t.describe('LanguageEffects', () => {
 
         const actions$ = TestBed.get(Actions);
         actions$.stream = hot('-a', { a: action });
+
+        const actual = effects.use$;
         const expected = cold('-c', { c: completion });
 
-        t.e(effects.use$).toBeObservable(expected);
+        t.e(actual).toBeObservable(expected);
       })
     );
   });
@@ -85,9 +89,11 @@ t.describe('LanguageEffects', () => {
 
         const actions$ = TestBed.get(Actions);
         actions$.stream = hot('-a', { a: action });
+
+        const actual = effects.use$;
         const expected = cold('-c', { c: completion });
 
-        t.e(effects.use$).toBeObservable(expected);
+        t.e(actual).toBeObservable(expected);
       })
     );
 
@@ -106,9 +112,11 @@ t.describe('LanguageEffects', () => {
 
         const actions$ = TestBed.get(Actions);
         actions$.stream = hot('-a', { a: action });
+
+        const actual = effects.use$;
         const expected = cold('-c', { c: completion });
 
-        t.e(effects.use$).toBeObservable(expected);
+        t.e(actual).toBeObservable(expected);
       })
     );
   });

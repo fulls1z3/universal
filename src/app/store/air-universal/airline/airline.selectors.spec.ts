@@ -12,7 +12,7 @@ const MOCK_STORE = {
   }
 };
 
-t.describe('airline: getIsProcessing', () => {
+t.describe('getIsProcessing', () => {
   t.it('should return `isProcessing` on the state', () => {
     const actual = getIsProcessing(MOCK_STORE);
 
@@ -20,7 +20,7 @@ t.describe('airline: getIsProcessing', () => {
   });
 });
 
-t.describe('airline: getError', () => {
+t.describe('getError', () => {
   t.it('should return `error` on the state', () => {
     const actual = getError(MOCK_STORE);
 
@@ -28,7 +28,7 @@ t.describe('airline: getError', () => {
   });
 });
 
-t.describe('airline: getSelectedId', () => {
+t.describe('getSelectedId', () => {
   t.it('should return `selectedId` on the state', () => {
     const actual = getSelectedId(MOCK_STORE);
 
@@ -36,7 +36,7 @@ t.describe('airline: getSelectedId', () => {
   });
 });
 
-t.describe('airline: getSelected', () => {
+t.describe('getSelected', () => {
   t.it('should return `selected` on the state', () => {
     const actual = getSelected(MOCK_STORE);
 

@@ -18,7 +18,7 @@ configureTestSuite(() => {
   });
 });
 
-t.describe('layout: MainComponent', () => {
+t.describe('MainComponent', () => {
   t.it('should build without a problem', () => {
     const fixture = TestBed.createComponent(MainComponent);
     const instance = fixture.componentInstance;

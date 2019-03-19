@@ -43,8 +43,8 @@ t.describe('BaseEntityService', () => {
 
   t.it(
     'should build without a problem',
-    t.inject([MockEntityService], (entity: MockEntityService) => {
-      t.e(entity).toBeTruthy();
+    t.inject([MockEntityService], (instance: MockEntityService) => {
+      t.e(instance).toBeTruthy();
     })
   );
 

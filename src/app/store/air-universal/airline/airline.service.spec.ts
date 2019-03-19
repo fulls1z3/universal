@@ -14,7 +14,7 @@ const testModuleConfig = () => {
   });
 };
 
-t.describe('airline: AirlineService', () => {
+t.describe('AirlineService', () => {
   t.be(() => {
     testModuleConfig();
   });

@@ -7,12 +7,12 @@ import { reducer } from './airline.reducer';
 import { initialState } from './airline.state';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
 
-t.describe('airline: airline.reducer', () => {
+t.describe('reducer', () => {
   it('should return the initial state', () => {
     const action = {} as any;
-    const res = reducer(undefined, action);
+    const actual = reducer(undefined, action);
 
-    t.e(res).toEqual(initialState);
+    t.e(actual).toEqual(initialState);
   });
 
   t.describe('airUniversalGetManyAirlines', () => {
@@ -34,7 +34,6 @@ t.describe('airline: airline.reducer', () => {
 
       t.e(res.ids).toEqual(ids);
       t.e(res.entities).toEqual(entities);
-      t.e(res.isProcessing).toBeFalsy();
     });
   });
 
@@ -43,7 +42,6 @@ t.describe('airline: airline.reducer', () => {
       const action = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
       const res = reducer(initialState, action);
 
-      t.e(res.isProcessing).toBeFalsy();
       t.e(res.error).toEqual(ERROR__NO_PAYLOAD.message);
     });
   });
@@ -63,7 +61,6 @@ t.describe('airline: airline.reducer', () => {
       const res = reducer(initialState, action);
 
       t.e(res.selectedId).toEqual(MOCK_AIRLINE._id);
-      t.e(res.isProcessing).toBeFalsy();
     });
   });
 
@@ -72,7 +69,6 @@ t.describe('airline: airline.reducer', () => {
       const action = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
       const res = reducer(initialState, action);
 
-      t.e(res.isProcessing).toBeFalsy();
       t.e(res.error).toEqual(ERROR__NO_PAYLOAD.message);
     });
   });
@@ -111,7 +107,6 @@ t.describe('airline: airline.reducer', () => {
 
       t.e(res.ids).toEqual(ids);
       t.e(res.entities).toEqual(entities);
-      t.e(res.isProcessing).toBeFalsy();
     });
   });
 
@@ -123,7 +118,6 @@ t.describe('airline: airline.reducer', () => {
       });
       const res = reducer(initialState, action);
 
-      t.e(res.isProcessing).toBeFalsy();
       t.e(res.error).toEqual(ERROR__NO_PAYLOAD.message);
     });
   });
@@ -155,7 +149,6 @@ t.describe('airline: airline.reducer', () => {
 
       t.e(res.ids).toEqual(ids);
       t.e(res.entities).toEqual(entities);
-      t.e(res.isProcessing).toBeFalsy();
     });
   });
 
@@ -167,7 +160,6 @@ t.describe('airline: airline.reducer', () => {
       });
       const res = reducer(initialState, action);
 
-      t.e(res.isProcessing).toBeFalsy();
       t.e(res.error).toEqual(ERROR__NO_PAYLOAD.message);
     });
   });
@@ -196,7 +188,6 @@ t.describe('airline: airline.reducer', () => {
 
       t.e(res.ids).toEqual([]);
       t.e(res.entities).toEqual({});
-      t.e(res.isProcessing).toBeFalsy();
     });
   });
 
@@ -208,7 +199,6 @@ t.describe('airline: airline.reducer', () => {
       });
       const res = reducer(initialState, action);
 
-      t.e(res.isProcessing).toBeFalsy();
       t.e(res.error).toEqual(ERROR__NO_PAYLOAD.message);
     });
   });
