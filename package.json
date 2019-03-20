@@ -128,7 +128,7 @@
     "tslib": "~1.9.3",
     "tslint": "~5.12.0",
     "tslint-config-prettier": "~1.17.0",
-    "tslint-immutable": "~5.0.1",
+    "tslint-immutable": "~5.5.0",
     "tslint-loader": "~3.5.4",
     "typescript": "~3.2.2"
   },
