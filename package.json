@@ -56,7 +56,7 @@
     "@angular/platform-server": "~7.2.0-rc.0",
     "@angular/router": "~7.2.0-rc.0",
     "@angularclass/bootloader": "~1.0.1",
-    "@ngrx/effects": "~7.0.0",
+    "@ngrx/effects": "~7.4.0",
     "@ngrx/entity": "~7.0.0",
     "@ngrx/store": "~7.0.0",
     "@nguniversal/common": "~7.0.2",
