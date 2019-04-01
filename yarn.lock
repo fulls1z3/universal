@@ -1143,10 +1143,10 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-angular-tslint-rules@~1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.12.1.tgz#a21eb1848525fc8c5b4e4fe110f0b198504b2f23"
-  integrity sha512-bcNwWoRd0/ePyfT02Id2E9nsU9Z/ONhlGYLCLmRgF1Pl5aQDYfnbioeDgvl8faRXAL1Xk+9a1PsgQ+22r5TrMw==
+angular-tslint-rules@~1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/angular-tslint-rules/-/angular-tslint-rules-1.14.0.tgz#1b2ccf387637c16b29a5b2a1b587cfebeead8053"
+  integrity sha512-l/NUi351/aUPnAyLOnyiSGDIMgg5asNXWh3fy17KFdqIMn7p1mV79Hy6P774GggT5E7vwnkRL+viPA1Qzp+2aA==
 
 angulartics2@~7.2.4:
   version "7.2.4"
