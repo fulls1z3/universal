@@ -83,7 +83,7 @@
     "reflect-metadata": "~0.1.12",
     "request": "~2.88.0",
     "rxjs": "~6.3.3",
-    "unionize": "~2.1.2",
+    "unionize": "~2.2.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
