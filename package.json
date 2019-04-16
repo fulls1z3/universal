@@ -72,7 +72,7 @@
     "@ngx-meta/core": "~7.0.0",
     "@ngx-translate/core": "~11.0.1",
     "@ngx-translate/http-loader": "~4.0.0",
-    "angulartics2": "~7.2.4",
+    "angulartics2": "~7.5.0",
     "compression": "~1.7.3",
     "core-js": "~2.6.1",
     "debug": "~4.1.1",
