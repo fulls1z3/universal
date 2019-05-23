@@ -637,10 +637,10 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
-"@nguniversal/common@~7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.0.2.tgz#86ccd25da0f02f7bd3285bcdce16fd26a1213326"
-  integrity sha512-0iNP1Tb4cPM8jwXmcn9SEI7Hq4r1bteyesiLuDllp79vuBhBO0TJoOqN1yI0BXCrx95TAzyMhEVTgLgVqT7qBg==
+"@nguniversal/common@~7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.1.1.tgz#6738e9debbe0ad75a3fb397b34702f6e48d321c3"
+  integrity sha512-riqmrHGacd8xbaDiFmP77cpu/hfwNTo3MHIXOB0fiqxUWJXpdOm5dvJd/B+scsetv6/uMTF9MRd3tW68cN/xBg==
 
 "@nguniversal/express-engine@~7.0.2":
   version "7.0.2"
