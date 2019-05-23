@@ -59,7 +59,7 @@
     "@ngrx/effects": "~7.0.0",
     "@ngrx/entity": "~7.0.0",
     "@ngrx/store": "~7.0.0",
-    "@nguniversal/common": "~7.0.2",
+    "@nguniversal/common": "~7.1.1",
     "@nguniversal/express-engine": "~7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "~7.0.2",
     "@ngx-auth/core": "~7.0.0",
