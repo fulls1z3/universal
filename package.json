@@ -116,7 +116,7 @@
     "jest": "~23.6.0",
     "jest-junit-reporter": "~1.1.0",
     "jest-preset-angular": "~6.0.2",
-    "lint-staged": "~8.1.0",
+    "lint-staged": "~8.2.0",
     "ng-bullet": "~1.0.3",
     "nightmare": "~3.0.1",
     "prettier": "~1.15.3",
