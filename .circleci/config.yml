@@ -18,7 +18,7 @@ jobs:
           key: deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths: 'node_modules'
       - run: yarn ci:before
-      - run: ng test
+      - run: ng test --maxWorkers=2
       # - run: ng build --aot --no-progress
       - run: yarn build:ssr
       # - run: yarn e2e:ci
