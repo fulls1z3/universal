@@ -1,0 +1,119 @@
+{
+  "APP_NAME": "ng-seed/universal",
+  "DEFAULT_TITLE": "ng-seed uygulama sunumu",
+  "DEFAULT_META_DESCRIPTION": "ng-seed açık kaynaklı Angular Univesal temel uygulamasıdır",
+  "COMMON": {
+    "PAGE": {
+      "ERROR": "Error:"
+    }
+  },
+  "SHARED": {
+    "ACTION": {
+      "TOOLTIP": "Hareketler",
+      "EDIT": "Düzenle",
+      "DELETE": "Sil",
+      "SAVE": "Kaydet"
+    },
+    "WIDGET": {
+      "REFRESH_TOOLTIP": "Yenile"
+    },
+    "DATA_TABLE": {
+      "FILTER": "Sonuçları filtele"
+    },
+    "TAB": {
+      "TAB_GENERAL": "Genel"
+    }
+  },
+  "LOGIN": {
+    "PAGE_TITLE": "Giriş yap",
+    "META_DESCRIPTION": "",
+    "USERNAME": "Kullanıcı adı",
+    "PASSWORD": "Parola",
+    "LOG_IN": "Giriş",
+    "NOTE": "Giriş yapılıyor...",
+    "ERROR": "Giriş başarısız!"
+  },
+  "HOME": {
+    "MENU_TITLE": "Ana sayfa",
+    "PAGE_TITLE": "",
+    "META_DESCRIPTION": "ng-seed uygulamasına hoşgeldiniz",
+    "CARD_TITLE": "Ana sayfa",
+    "CARD_SUBTITLE": "ng-seed uygulamasına hoşgeldiniz"
+  },
+  "AIR_UNIVERSAL": {
+    "AIRLINE": {
+      "MENU_TITLE": "Havayolları",
+      "PAGE_TITLE": "Havayolları",
+      "META_DESCRIPTION": "Air Universal havalimanında mahsur kalmanızı temin eder",
+      "AIRLINE_TABLE": {
+        "TITLE": "Havayolları",
+        "ID_COL_TITLE": "ID",
+        "IATA_CODE_COL_TITLE": "IATA kodu",
+        "NAME_COL_TITLE": "Havayolu adı",
+        "CREATE": "Yeni bir havayolu oluştur"
+      },
+      "AIRLINE_DETAIL": {
+        "MENU_TITLE": "Havayolları",
+        "PAGE_TITLE": "Havayolları",
+        "IATA_CODE": "IATA kodu",
+        "NAME": "Havayolu adı"
+      }
+    }
+  },
+  "ABOUT": {
+    "ABOUT": {
+      "MENU_TITLE": "Hakkında",
+      "PAGE_TITLE": "Hakkında",
+      "META_DESCRIPTION": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir",
+      "CARD_TITLE": "Hakkında",
+      "CARD_SUBTITLE": "Bu sayfa hemen hiçbirşey hakkında bilgi içerir"
+    },
+    "ABOUT_US": {
+      "MENU_TITLE": "Biz",
+      "PAGE_TITLE": "Biz",
+      "META_DESCRIPTION": "Evet, sanırım bu sayfa bizim hakkımızda birşeyler içeriyor",
+      "CARD_TITLE": "Biz",
+      "CARD_SUBTITLE": "Evet, sanırım bu sayfa bizim hakkımızda birşeyler içeriyor"
+    },
+    "ABOUT_BANANA": {
+      "MENU_TITLE": "Muz cumhuriyeti",
+      "PAGE_TITLE": "Muz cumhuriyeti",
+      "META_DESCRIPTION": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin",
+      "CARD_TITLE": "Muz cumhuriyeti",
+      "CARD_SUBTITLE": "Hayattan bunaldıysan, Muz Cumhuriyeti ile yeni bir hayata başlayabilirsin"
+    },
+    "ABOUT_APPLE_PEAR": {
+      "MENU_TITLE": "Elma veya armut",
+      "PAGE_TITLE": "Elma veya armut",
+      "META_DESCRIPTION": "Ben elma istedim ama sen bana armut verdin, olmadı",
+      "CARD_TITLE": "Elma veya armut",
+      "CARD_SUBTITLE": "Ben elma istedim ama sen bana armut verdin, olmadı"
+    }
+  },
+  "SECURE": {
+    "MENU_TITLE": "Güvenli sayfa",
+    "PAGE_TITLE": "Güvenli sayfa",
+    "META_DESCRIPTION": "Burada olmamalısın",
+    "CARD_TITLE": "Güvenli sayfa",
+    "CARD_SUBTITLE": "Burada olmamalısın"
+  },
+  "LIPSUM": {
+    "WHAT": {
+      "TITLE": "What is Lorem Ipsum?",
+      "CONTENT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    "WHERE_FROM": {
+      "TITLE": "Where does it come from?",
+      "CONTENT_1": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 'de Finibus Bonorum et Malorum', (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, 'Lorem ipsum dolor sit amet..', comes from a line in section 1.10.32.",
+      "CONTENT_2": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+    },
+    "WHY": {
+      "TITLE": "Why do we use it?",
+      "CONTENT": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+    },
+    "WHERE_GET": {
+      "TITLE": "Where can I get some?",
+      "CONTENT": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    }
+  }
+}

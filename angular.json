@@ -1,28 +1,24 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "newProjectRoot": "",
   "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
     "defaultCollection": "@ngrx/schematics",
     "packageManager": "yarn"
   },
   "projects": {
     "universal": {
-      "root": "",
-      "sourceRoot": "src",
+      "root": "apps/universal",
+      "sourceRoot": "apps/universal/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:component": {
-          "styleext": "scss"
-        },
-        "@ngrx/schematics:component": {
-          "styleext": "scss"
-        },
-        "@ngrx/schematics:container": {
-          "styleext": "scss"
+        "@nrwl/schematics:component": {
+          "style": "scss"
         }
       },
       "architect": {
@@ -30,46 +26,43 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "tools/build/webpack.config.js",
+              "path": "tools/webpack.config.js",
               "mergeStrategies": {
                 "module": "append"
               }
             },
-            "outputPath": "dist/browser",
-            "index": "src/index.html",
-            "main": "src/main-browser.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.json",
+            "outputPath": "dist/apps/universal/browser",
+            "index": "apps/universal/src/index.html",
+            "main": "apps/universal/src/main-browser.ts",
+            "polyfills": "apps/universal/src/polyfills.ts",
+            "tsConfig": "apps/universal/tsconfig.app.json",
             "assets": [
-              {
-                "glob": "favicon.ico",
-                "input": "src",
-                "output": "/"
-              },
-              "src/assets/data",
-              "src/assets/i18n",
-              "src/assets/config.local.json"
+              "apps/universal/src/assets/data",
+              "apps/universal/src/assets/i18n",
+              "apps/universal/src/assets/config.local.json",
+              "apps/universal/src/favicon.ico"
             ],
             "styles": [
-              "src/assets/sass/lib.scss",
-              "src/assets/sass/style.scss"
+              "apps/universal/src/assets/sass/lib.scss",
+              "apps/universal/src/assets/sass/styles.scss",
+              "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
             ],
-            "progress": true
+            "es5BrowserSupport": true
           },
           "configurations": {
             "hmr": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.hmr.ts"
+                  "replace": "apps/universal/src/environments/environment.ts",
+                  "with": "apps/universal/src/environments/environment.hmr.ts"
                 }
               ]
             },
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/universal/src/environments/environment.ts",
+                  "with": "apps/universal/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -80,27 +73,40 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "server": {
-          "builder": "@angular-devkit/build-angular:server",
+          "builder": "@angular-builders/custom-webpack:server",
           "options": {
-            "outputPath": "dist/server",
-            "main": "src/main-server.ts",
-            "tsConfig": "tsconfig.server.json",
+            "outputPath": "dist/apps/universal/server",
+            "main": "apps/universal/src/main-server.ts",
+            "tsConfig": "apps/universal/tsconfig.server.json",
             "progress": true
           },
           "configurations": {
             "production": {
               "optimization": true,
-              "sourceMap": false
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
-          "builder": "@angular-builders/dev-server:generic",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "universal:build"
           },
@@ -117,16 +123,21 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.lint.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!apps/universal/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/universal/jest.config.js",
+            "tsConfig": "apps/universal/tsconfig.spec.json",
+            "setupFile": "apps/universal/src/test-setup.ts"
           }
         }
       }
     }
   },
+  "schematics": {},
   "defaultProject": "universal"
 }
