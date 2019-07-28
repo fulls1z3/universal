@@ -43,7 +43,7 @@
     "start:ssr:prod": "yarn build:ssr:prod && yarn serve:ssr",
     "build:prod": "ng build --prod",
     "compile:server": "tsc -p apps/universal/tsconfig.server-compile.json",
-    "build:ssr": "yarn clean && ng build && ng run universal:server && yarn compile:server",
+    "build:ssr": "ng build && ng run universal:server && yarn compile:server",
     "build:ssr:prod": "ng build --prod && ng run univer4sal:server:production && yarn compile:server",
     "serve:ssr": "node dist/apps/universal/server",
     "lint:check": "tslint-config-prettier-check ./tslint.angular.json",
