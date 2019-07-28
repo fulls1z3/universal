@@ -1,0 +1,18 @@
+<mat-tab-group [@routeAnimation]>
+    <mat-tab label="{{ 'SHARED.TAB.TAB_GENERAL' | translate }}">
+        <div class="card--narrow" fxLayout="column" fxFlex="100%">
+            <div *ngIf="error$ | async">
+                {{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}
+            </div>
+            <app-card [title]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.PAGE_TITLE'"
+                      [data]="airline$ | async"
+                      [isProcessing]="isProcessing$ | async">
+                <app-airline-detail *ngIf="(isProcessing$ | async) === false"
+                                    [airline]="airline$ | async"
+                                    (deleteClick)="delete($event)"
+                                    (saveClick)="save($event)">
+                </app-airline-detail>
+            </app-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,9 +1,7 @@
 ﻿{
-  "rulesDirectory": ["node_modules/codelyzer"],
-  "extends": ["angular-tslint-rules", "tslint-config-prettier"],
+  "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint"],
   "rules": {
-    "await-promise": [true, "Nightmare"],
-    "no-implicit-dependencies": [true, "dev", ["~", "e2e-config"]],
+    "no-implicit-dependencies": [true, "dev"],
     "ordered-imports": [
       true,
       {
@@ -13,16 +11,20 @@
       }
     ],
     "no-bitwise": false,
-    "templates-no-negated-async": false,
-    "i18n": false,
-    "no-forward-ref": false,
-    "no-template-call-expression": false,
-    "no-unused-css": false,
-    "template-conditional-complexity": false,
-    "template-cyclomatic-complexity": false,
-    "use-view-encapsulation": false,
-    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
-    "directive-selector": [true, "attribute", ["app", "routerLink"], "kebab-case"],
-    "component-selector": [true, "element", ["app", "i18n", "router"], "kebab-case"]
+    "ban-ts-ignore": false,
+    "no-empty": false,
+    "deprecation": false,
+    "nx-enforce-module-boundaries": [
+      true,
+      {
+        "allow": [],
+        "depConstraints": [
+          {
+            "sourceTag": "*",
+            "onlyDependOnLibsWithTags": ["*"]
+          }
+        ]
+      }
+    ]
   }
 }

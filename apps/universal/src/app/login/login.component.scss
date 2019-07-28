@@ -1,0 +1,59 @@
+@import '../../assets/sass/func/color';
+@import '../../assets/sass/func/rem';
+@import '../../assets/sass/mixin/bem';
+@import '../../assets/sass/mixin/positioning';
+@import '../../assets/sass/mixin/spacing';
+@import '../../assets/sass/mixin/sizing';
+@import '../../assets/sass/mixin/typography';
+@import '../../assets/sass/variables/theme';
+@import '../../assets/sass/variables/typography';
+
+:host {
+  @include size(100%);
+
+  display: block;
+  background: c(grey);
+}
+
+.login {
+  @include absolute(50%  null null 50%);
+  @include size(rem(38));
+  @include push(0 auto);
+
+  background: c(white);
+  transform: translateX(-50%) translateY(-50%);
+
+  @include el('header') {
+    @include soft($space--xl);
+    @include font(#{$h2}/#{$space--xxl} $font--preferred, c(white));
+
+    width: rem(38);
+    background: mat-color($primary--dark);
+  }
+
+  @include el('body') {
+    @include soft($space--xl rem(4.2) rem(4.2));
+  }
+}
+
+.form {
+  @include el('control') {
+    @include push(rem(0.6) 0);
+
+    width: 100%;
+  }
+
+  @include el('message') {
+    @include push($space--xl 0 0);
+
+    color: c(grey);
+    text-align: center;
+
+    @include mod('error') {
+      @include push($space--xl 0 0);
+
+      color: mat-color($warn);
+      text-align: center;
+    }
+  }
+}

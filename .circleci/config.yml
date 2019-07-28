@@ -2,12 +2,12 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
         environment:
           JOBS: 1
     steps:
       - checkout
-      - run: sudo npm install -g yarn@0
+      - run: sudo yarn global add @angular/cli@8
       - run: sudo yarn global add greenkeeper-lockfile@1
       - restore_cache:
           keys:
@@ -18,7 +18,8 @@ jobs:
           key: deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths: 'node_modules'
       - run: yarn ci:before
-      - run: yarn test:ci
+      - run: ng test --maxWorkers=2
+      # - run: ng build --aot --no-progress
       - run: yarn build:ssr
       # - run: yarn e2e:ci
       - run: yarn ci:after
@@ -27,10 +28,7 @@ jobs:
           path: coverage
           prefix: coverage
       - store_artifacts:
-          path: public
-          prefix: public
-      - store_artifacts:
-          path: .server
-          prefix: .server
+          path: dist
+          prefix: dist
       - store_test_results:
           path: test-report.xml

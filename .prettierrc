@@ -1,5 +1,4 @@
 {
   "printWidth": 140,
-  "singleQuote": true,
-  "endOfLine": "crlf"
+  "singleQuote": true
 }

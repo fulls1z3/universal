@@ -1,9 +1,9 @@
 ﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/.cache
 /dist
-/docs
+/tmp
+/out-tsc
 
 # dependencies
 node_modules/
@@ -30,15 +30,15 @@ node_modules/
 /coverage
 /libpeerconnection.log
 npm-debug.log
-testem.log
-test-report.xml
-/typings
 yarn-error.log
-
-# e2e
-/e2e/*.js
-/e2e/*.map
+testem.log
+/typings
 
 # System Files
 .DS_Store
 Thumbs.db
+
+# others
+/.cache
+/docs
+test-report.xml

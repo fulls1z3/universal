@@ -1,0 +1,23 @@
+@import '../../../assets/sass/component/mat-card';
+@import '../../../assets/sass/component/mat-toolbar';
+@import '../../../assets/sass/mixin/spacing';
+@import '../../../assets/sass/mixin/typography';
+@import '../../../assets/sass/variables/typography';
+
+.toolbar {
+  @include mat_toolbar;
+
+  @include el('title') {
+    @include truncate;
+
+    font-size: $font-size;
+
+    @include mod('icon') {
+      @include push--left(rem(0.5));
+    }
+  }
+}
+
+.card {
+  @include mat_card;
+}

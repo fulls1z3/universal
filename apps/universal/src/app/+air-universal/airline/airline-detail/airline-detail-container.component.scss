@@ -1,0 +1,7 @@
+@import '../../../../assets/sass/layout/card';
+@import '../../../../assets/sass/layout/page';
+@import '../../../../assets/sass/layout/tab';
+
+@include page_layout--no-spacing;
+@include tab_layout;
+@include card_layout;

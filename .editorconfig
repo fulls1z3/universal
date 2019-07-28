@@ -2,17 +2,13 @@
 root = true
 
 [*]
+charset = utf-8
+end_of_line = lf
 indent_style = space
 indent_size = 2
-end_of_line = crlf
-charset = utf-8
-trim_trailing_whitespace = true
 insert_final_newline = true
-max_line_length = 140
+trim_trailing_whitespace = true
 
 [*.md]
+max_line_length = 140
 trim_trailing_whitespace = false
-max_line_length = off
-
-[*.html]
-indent_size = 4

@@ -1,0 +1,15 @@
+{
+  "npmScope": "fulls1z3",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "universal": {
+      "tags": []
+    }
+  }
+}

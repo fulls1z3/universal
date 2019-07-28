@@ -1,0 +1,7 @@
+@import '../../assets/sass/mixin/bem';
+
+.header {
+  @include el('logo') {
+    vertical-align: middle;
+  }
+}

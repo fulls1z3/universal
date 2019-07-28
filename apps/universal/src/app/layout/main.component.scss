@@ -1,0 +1,11 @@
+@import '../../assets/sass/func/rem';
+
+html,
+body {
+  overflow: hidden;
+}
+
+.main {
+  position: relative;
+  max-height: calc(100vh - #{rem(6.4)});
+}

@@ -1,28 +1,20 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
     "module": "es2015",
     "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "importHelpers": true,
-    "outDir": "../out-tsc/app",
     "baseUrl": ".",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "~/*": ["./src/*"],
-      "e2e-config": ["./tools/test/nightmare.config.ts"]
-    },
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ]
-  },
-  "include": [
-    "src/**/*.ts"
-  ]
+      "~/*": ["./apps/universal/src/*"]
+    }
+  }
 }
