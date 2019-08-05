@@ -84,7 +84,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@nrwl/angular": "^8.4.0",
-    "angulartics2": "^7.5.2",
+    "angulartics2": "^8.0.0",
     "compression": "^1.7.4",
     "core-js": "^2.6.9",
     "debug": "^4.1.1",
