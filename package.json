@@ -134,7 +134,7 @@
     "prettier-tslint": "^0.4.2",
     "standard-version": "^7.0.0",
     "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-standard": "^19.0.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
