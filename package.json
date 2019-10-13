@@ -86,7 +86,7 @@
     "@nrwl/angular": "^8.4.0",
     "angulartics2": "^8.0.0",
     "compression": "^1.7.4",
-    "core-js": "^2.6.9",
+    "core-js": "^3.3.0",
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
