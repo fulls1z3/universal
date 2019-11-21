@@ -1351,12 +1351,12 @@
   dependencies:
     tslib "~1.9.0"
 
-"@ngx-cache/core@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/core/-/core-7.0.0.tgz#adb475316bd45d7549e53212553f2f4d5ba0411f"
-  integrity sha512-+NoEI5/I91ACSoQEzO60gaHRlct/FWWo2LWBzobHORZRXqSXi42zK5BQSpCsU6RnLRu4kG6rWaaFiD/eV/88gQ==
+"@ngx-cache/core@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/core/-/core-8.0.0.tgz#b68430d0beb3295e8bb4b09cccf850746b2e1069"
+  integrity sha512-GZBm00M7onOz5eUb8qgOlsNSLNDMgSNRMuckrBYD1AVSpbDk9BFwqOqcHNqEoT+kQosXEgr4iKKZFaFFsjleaA==
   dependencies:
-    tslib "~1.9.0"
+    tslib "~1.10.0"
 
 "@ngx-cache/fs-storage@^7.0.0":
   version "7.0.0"
@@ -11373,7 +11373,7 @@ tsconfig-paths@^3.4.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@~1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
