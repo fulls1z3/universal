@@ -77,7 +77,7 @@
     "@ngx-cache/core": "^7.0.0",
     "@ngx-cache/fs-storage": "^7.0.0",
     "@ngx-cache/platform-browser": "^7.0.0",
-    "@ngx-cache/platform-server": "^7.0.0",
+    "@ngx-cache/platform-server": "^8.0.0",
     "@ngx-config/core": "^7.0.0",
     "@ngx-config/http-loader": "^7.0.0",
     "@ngx-meta/core": "^7.0.0",
