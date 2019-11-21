@@ -74,7 +74,7 @@
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
     "@ngx-auth/core": "^7.0.0",
-    "@ngx-cache/core": "^7.0.0",
+    "@ngx-cache/core": "^8.0.0",
     "@ngx-cache/fs-storage": "^7.0.0",
     "@ngx-cache/platform-browser": "^7.0.0",
     "@ngx-cache/platform-server": "^7.0.0",
