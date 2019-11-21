@@ -80,7 +80,7 @@
     "@ngx-cache/platform-server": "^7.0.0",
     "@ngx-config/core": "^7.0.0",
     "@ngx-config/http-loader": "^7.0.0",
-    "@ngx-meta/core": "^7.0.0",
+    "@ngx-meta/core": "^8.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@nrwl/angular": "^8.4.0",
