@@ -1344,12 +1344,12 @@
   resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-8.1.1.tgz#653522a616daaeae21d134752879beebb7da31ca"
   integrity sha512-vXFydMTPFRfGjmtdwtbNhl4Pmfg580Yit0vzlTeb3ZC1v+TJKR2GzaWYUileWxS60FrgNF4/tkOEL5ouDDx6Bw==
 
-"@ngx-auth/core@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-7.0.0.tgz#cec14874fda16d56f381982297aad6b2f40d9904"
-  integrity sha512-0mQfsbCasd0csIwn1m0iD+GthcOlsxbeGBzKPEq3TcxNA2AlMOmwP3jc90EzweIx/V6+oNg+ICmXsg8rpUAJgg==
+"@ngx-auth/core@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-auth/core/-/core-8.0.0.tgz#c44a7d0143e1d601e42b6e8ccfcaf74501b0df16"
+  integrity sha512-7th/SxCIuL7HseLFGxwFomS4ImJkh0rIwH/tzu/CPDYTbE6LzdKa7rhOLGxTLqjyZ9O8mD+7eUpHmm1KyMh40w==
   dependencies:
-    tslib "~1.9.0"
+    tslib "~1.10.0"
 
 "@ngx-cache/core@^7.0.0":
   version "7.0.0"
@@ -11373,7 +11373,7 @@ tsconfig-paths@^3.4.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@~1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
