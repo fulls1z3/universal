@@ -1366,11 +1366,11 @@
     tslib "~1.9.0"
 
 "@ngx-cache/platform-browser@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-8.0.0.tgz#feb595a0865247c072f29441ef239761bf076fbd"
-  integrity sha512-GEJ8B1ciJ/hoeeuGkD6OkVKQZUJWt8Qc2+FcTxM7JBq0cSD9jUwmbMuMVLMbHT57rFJLheHAxmrzI3rICp3TwA==
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-8.0.1.tgz#98f71f8d958b64378b645132b1bf63b275edf876"
+  integrity sha512-hwAzddjE2RNbT7wPWBZjzU411QFttKeFSlwoMCx1j1Y6lNzy08sRxX1sjefG1szC4Lm6XmyPntaOk/HdIW3KUw==
   dependencies:
-    tslib "~1.10.0"
+    tslib "^1.10.0"
 
 "@ngx-cache/platform-server@^7.0.0":
   version "7.0.0"
@@ -11373,7 +11373,7 @@ tsconfig-paths@^3.4.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@~1.10.0:
+tslib@^1.10.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
