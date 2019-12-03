@@ -1,17 +1,17 @@
-# ng-seed/universal
+# universal
 
 <!-- prettier-ignore-start -->
-[![CircleCI](https://circleci.com/gh/ng-seed/universal.svg?style=shield)](https://circleci.com/gh/ng-seed/universal)
-[![coverage](https://codecov.io/github/ng-seed/universal/coverage.svg?branch=master)](https://codecov.io/gh/ng-seed/universal)
-[![Code Quality: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/context:javascript)
-[![Total Alerts](https://img.shields.io/lgtm/alerts/g/ng-seed/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ng-seed/universal/alerts)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ng-seed/universal.svg)](https://greenkeeper.io/)
-[![Join the chat at https://gitter.im/ng-seed-universal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-seed-universal/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![CircleCI](https://circleci.com/gh/fulls1z3/universal.svg?style=shield)](https://circleci.com/gh/fulls1z3/universal)
+[![coverage](https://codecov.io/github/fulls1z3/universal/coverage.svg?branch=master)](https://codecov.io/gh/fulls1z3/universal)
+[![Code Quality: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fulls1z3/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fulls1z3/universal/context:javascript)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/fulls1z3/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fulls1z3/universal/alerts)
+[![Greenkeeper badge](https://badges.greenkeeper.io/fulls1z3/universal.svg)](https://greenkeeper.io/)
+[![Join the chat at https://gitter.im/fulls1z3-universal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fulls1z3-universal/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!-- prettier-ignore-end -->
 
 > Please support this project by simply putting a GitHub star. Share this library with friends on twitter and everywhere else you can.
 
-**`ng-seed/universal`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide)
+**`universal`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide)
 in file and application organization, providing the following features:
 
 - [x] Providing a seed project using the [Angular] framework.
@@ -43,19 +43,13 @@ in file and application organization, providing the following features:
 - [x] Uses [ngx-perfect-scrollbar] for scrollbars.
 - [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
-- [ ] ~~End-to-end (integration) tests with **[Nightmare]**.~~
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
 - [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
-> Built with `Angular v8.x.x`, bundled with `Angular CLI`.
-
-You can find the **project documentation** [here](https://ng-seed.github.io/universal-docs).
-
-You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fulls1z3.com).
+You can view the **live app** at [http://universal.buraktasci.com](http://universal.buraktasci.com).
 
 ## Table of contents:
 
-- [Prerequisites](#prerequisites)
 - [Getting started](#getting-started)
   - [Installation](#installation)
   - [Setting up upstream repository](#setting-up-upstream-repository)
@@ -63,21 +57,15 @@ You can view the **live app** at [http://ng-seed.fulls1z3.com](http://ng-seed.fu
 - [Contributing](#contributing)
 - [License](#license)
 
-## <a name="prerequisites"></a> Prerequisites
-
-Packages in this seed project depend on `@angular v8.x.x`. Older versions contain outdated dependencies, might produce errors.
-
-Also, please ensure that you are using **`Typescript v3.4.x`** or higher.
-
 ## <a name="getting-started"> Getting started
 
 ### <a name="installation"> Installation
 
-You can install **`ng-seed/universal`** by simply forking the repo:
+You can install **`universal`** by simply forking the repo:
 
 ```
 # clone the repo
-$ git clone https://github.com/ng-seed/universal.git [your-project-name]
+$ git clone https://github.com/fulls1z3/universal.git [your-project-name]
 $ cd [your-project-name]
 ```
 
@@ -90,20 +78,20 @@ Once you have cloned the repo, you can follow these steps to allow sync changes 
 $ git remote set-url origin [your-fork-repo]
 
 # set up `upstream` to sync future changes
-$ git remote add upstream https://github.com/ng-seed/universal.git
+$ git remote add upstream https://github.com/fulls1z3/universal.git
 
 # verify the upstream repo specified for your fork
 $ git remote -v
 origin    https://github.com/YOUR_USERNAME/[your-fork-repo].git (fetch)
 origin    https://github.com/YOUR_USERNAME/[your-fork-repo].git (push)
-upstream  https://github.com/ng-seed/universal.git (fetch)
-upstream  https://github.com/ng-seed/universal.git (push)
+upstream  https://github.com/fulls1z3/universal.git (fetch)
+upstream  https://github.com/fulls1z3/universal.git (push)
 
 # initial push for the fork
 $ git push
 ```
 
-Now, you can create a new directory (_ex: `src/app/shared`_) to build your codebase out, while benefiting from the
+Now, you can create a new directory (ex: `src/app/shared`) to build your codebase out, while benefiting from the
 client framework located at the `src/app/framework` directory.
 
 In order to merge the latest upstream changes, simply follow:
@@ -229,9 +217,8 @@ Copyright (c) 2018 [Burak Tasci]
 [ngx-perfect-scrollbar]: https://github.com/zefoy/ngx-perfect-scrollbar
 [angulartics2]: https://github.com/angulartics/angulartics2
 [jest]: https://facebook.github.io/jest
-[nightmare]: https://github.com/segmentio/nightmare
 [circleci]: https://circleci.com
-[angular-tslint-rules]: https://github.com/ng-seed/angular-tslint-rules
+[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
 [tslint]: https://github.com/palantir/tslint
 [codelyzer]: https://github.com/mgechev/codelyzer
 [jetbrains]: https://www.jetbrains.com/community/opensource

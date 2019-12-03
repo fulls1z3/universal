@@ -1,4 +1,4 @@
-import { async, inject, TestBed } from '@angular/core/testing';
+import { async, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -56,42 +56,38 @@ describe('login: LoginComponent', () => {
     expect(instance).toBeTruthy();
   });
 
-  test(
-    'should redirect to `defaultUrl` while authenticated',
-    async(
-      inject([AuthService, Router], (auth: AuthService, router: Router) => {
-        const fixture = TestBed.createComponent(LoginComponent);
-        fixture.detectChanges();
-
-        const expected = `${auth.defaultUrl}/`;
-
-        auth.authenticate('valid', 'valid').subscribe(() => {
-          expect(router.url).toEqual(expected);
-        });
-      })
-    )
-  );
-
-  test(
-    'should authenticate w/valid combination',
-    async(() => {
+  test('should redirect to `defaultUrl` while authenticated', async(
+    inject([AuthService, Router], (auth: AuthService, router: Router) => {
       const fixture = TestBed.createComponent(LoginComponent);
-      const instance = fixture.componentInstance;
       fixture.detectChanges();
 
-      instance.username = 'valid';
-      instance.password = 'valid';
+      const expected = `${auth.defaultUrl}/`;
 
-      instance.login().subscribe(() => {
-        expect(instance.error$).toBeUndefined();
-        expect(instance.note$).toBeDefined();
+      auth.authenticate('valid', 'valid').subscribe(() => {
+        expect(router.url).toEqual(expected);
       });
     })
-  );
+  ));
 
-  test(
-    'should not authenticate w/o valid combination',
-    inject([AuthService], async (auth: AuthService) =>
+  test('should authenticate w/valid combination', fakeAsync(() => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const instance = fixture.componentInstance;
+    fixture.detectChanges();
+
+    instance.username = 'valid';
+    instance.password = 'valid';
+
+    instance.onLoginClick();
+
+    instance.note$.subscribe(res => {
+      expect(res).toBeDefined();
+    });
+
+    expect(instance.error$).toBeUndefined();
+  }));
+
+  test('should not authenticate w/o valid combination', fakeAsync(
+    inject([AuthService], (auth: AuthService) =>
       auth.invalidate().then(() => {
         const fixture = TestBed.createComponent(LoginComponent);
         const instance = fixture.componentInstance;
@@ -100,10 +96,14 @@ describe('login: LoginComponent', () => {
         instance.username = 'invalid';
         instance.password = 'invalid';
 
-        instance.login().subscribe(() => {
-          expect(instance.error$).toBeDefined();
+        instance.onLoginClick();
+
+        tick(1);
+
+        instance.error$.subscribe(res => {
+          expect(res).toBeDefined();
         });
       })
     )
-  );
+  ));
 });

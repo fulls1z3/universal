@@ -12,7 +12,7 @@ import { AirlineService } from './airline.service';
 
 @Injectable()
 export class AirlineEffects {
-  @Effect() getMany$ = this.actions$.pipe(
+  @Effect() readonly getMany$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalGetManyAirlines),
     switchMap(() =>
       this.airline.getMany$().pipe(
@@ -22,7 +22,7 @@ export class AirlineEffects {
     )
   );
 
-  @Effect() getOne$ = this.actions$.pipe(
+  @Effect() readonly getOne$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalGetOneAirline),
     map(get('payload')),
     switchMap(payload =>
@@ -35,14 +35,11 @@ export class AirlineEffects {
     )
   );
 
-  @Effect() createOne$ = this.actions$.pipe(
+  @Effect() readonly createOne$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalCreateOneAirline),
     map(get('payload')),
     switchMap(payload =>
-      flow(
-        get('resource'),
-        negate(isNil)
-      )(payload)
+      flow(get('resource'), negate(isNil))(payload)
         ? this.airline.createOne$(payload.resource).pipe(
             map(airlineActions.airUniversalCreateOneAirlineSuccess),
             tap(async () => payload.router.navigate(payload.route)),
@@ -64,14 +61,11 @@ export class AirlineEffects {
     )
   );
 
-  @Effect() updateOne$ = this.actions$.pipe(
+  @Effect() readonly updateOne$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalUpdateOneAirline),
     map(get('payload')),
     switchMap(payload =>
-      flow(
-        get('_id'),
-        negate(isNil)
-      )(payload.resource)
+      flow(get('_id'), negate(isNil))(payload.resource)
         ? this.airline.updateOne$(payload.resource).pipe(
             map(airlineActions.airUniversalUpdateOneAirlineSuccess),
             tap(async () => payload.router.navigate(payload.route)),
@@ -93,7 +87,7 @@ export class AirlineEffects {
     )
   );
 
-  @Effect() deleteOne$ = this.actions$.pipe(
+  @Effect() readonly deleteOne$ = this.actions$.pipe(
     filter(airlineActions.is.airUniversalDeleteOneAirline),
     map(get('payload')),
     switchMap(payload =>

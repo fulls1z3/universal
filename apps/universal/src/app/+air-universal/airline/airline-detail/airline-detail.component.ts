@@ -13,11 +13,11 @@ import { Airline, initialAirline } from '../../../store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AirlineDetailComponent extends BaseComponent implements OnInit {
-  @ViewChild('delete', { static: true }) deleteRef: ElementRef;
-  @ViewChild('submit', { static: true }) submitRef: ElementRef;
-  @Input() airline: Airline;
-  @Output() readonly deleteClick: EventEmitter<UniqueId> = new EventEmitter();
-  @Output() readonly saveClick: EventEmitter<Airline> = new EventEmitter();
+  @ViewChild('delete', { static: true }) readonly deleteRef: ElementRef;
+  @ViewChild('submit', { static: true }) readonly submitRef: ElementRef;
+  @Input() readonly airline: Airline;
+  @Output() readonly deleteClick = new EventEmitter();
+  @Output() readonly saveClick = new EventEmitter();
   airlineForm: FormGroup;
 
   constructor(private readonly formBuilder: FormBuilder) {
@@ -50,11 +50,11 @@ export class AirlineDetailComponent extends BaseComponent implements OnInit {
     });
   }
 
-  onDelete(callback: EventEmitter<UniqueId>): void {
+  onDeleteClick(callback: EventEmitter<UniqueId>): void {
     callback.emit(this.airlineForm.get('_id').value);
   }
 
-  onSave(callback: EventEmitter<Airline>): void {
+  onSaveClick(callback: EventEmitter<Airline>): void {
     const resource = {
       _id: this.airlineForm.get('_id').value,
       iataCode: this.airlineForm.get('iataCode').value,

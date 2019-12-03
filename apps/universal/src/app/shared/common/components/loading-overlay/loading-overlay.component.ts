@@ -8,5 +8,5 @@ import { BaseComponent } from '../../../../framework/core';
   styleUrls: ['./loading-overlay.component.scss']
 })
 export class LoadingOverlayComponent extends BaseComponent {
-  @Input() isProcessing: boolean;
+  @Input() readonly isProcessing: boolean;
 }

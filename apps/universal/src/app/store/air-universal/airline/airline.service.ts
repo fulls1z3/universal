@@ -12,19 +12,21 @@ import { Airline } from './airline.model';
   providedIn: 'root'
 })
 export class AirlineService extends BaseEntityService<Airline> {
-  delay: number;
+  private _delay = 2000;
+
+  set delay(value: number) {
+    this._delay = value;
+  }
 
   constructor(protected readonly config: ConfigService, protected readonly http: HttpClient) {
     super(config, http, ['backend', 'flight', 'airline']);
-
-    this.delay = 2000;
   }
 
   getMany$(): Observable<Array<Airline>> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<Array<Airline>>(backend.endpoint).pipe(
-      delay(this.delay), // NOTE: simulate slow network
+      delay(this._delay), // NOTE: simulate slow network
       retry(HTTP_CLIENT__MAX_RETRIES)
     );
   }
@@ -33,7 +35,7 @@ export class AirlineService extends BaseEntityService<Airline> {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<Array<Airline>>(backend.endpoint).pipe(
-      delay(this.delay), // NOTE: simulate slow network
+      delay(this._delay), // NOTE: simulate slow network
       retry(HTTP_CLIENT__MAX_RETRIES),
       map(cur => cur.find(item => item._id === id))
     );
@@ -48,7 +50,7 @@ export class AirlineService extends BaseEntityService<Airline> {
     return observableOf({
       ...resource,
       _id: '100000000000000000000001'
-    }).pipe(delay(this.delay)); // NOTE: simulate slow network
+    }).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 
   updateMany$(resources: Array<Airline>): Observable<Array<Airline>> {
@@ -57,7 +59,7 @@ export class AirlineService extends BaseEntityService<Airline> {
 
   updateOne$(resource: Airline): Observable<Airline> {
     // NOTE: fake impl
-    return observableOf(resource).pipe(delay(this.delay)); // NOTE: simulate slow network
+    return observableOf(resource).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 
   deleteMany$(ids: Array<UniqueId>): Observable<Array<UniqueId>> {
@@ -66,6 +68,6 @@ export class AirlineService extends BaseEntityService<Airline> {
 
   deleteOne$(id: UniqueId): Observable<UniqueId> {
     // NOTE: fake impl
-    return observableOf(id).pipe(delay(this.delay)); // NOTE: simulate slow network
+    return observableOf(id).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 }

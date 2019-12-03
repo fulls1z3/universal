@@ -7,11 +7,7 @@ import { BaseDocument, UniqueId } from '../ngrx';
   template: ''
 })
 export class BaseComponent implements OnDestroy {
-  protected ngUnsubscribe: Subject<void>;
-
-  constructor() {
-    this.ngUnsubscribe = new Subject<void>();
-  }
+  protected readonly ngUnsubscribe = new Subject();
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();

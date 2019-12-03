@@ -12,25 +12,31 @@ import { CATEGORY } from './models/category';
 @Injectable()
 export class I18NService extends Analytics {
   defaultLanguage: Language;
-  availableLanguages: Array<Language>;
-  useLocalizedRoutes: boolean;
+  private _availableLanguages: Array<Language>;
+  private _useLocalizedRoutes: boolean;
+
+  set availableLanguages(value: Array<Language>) {
+    this._availableLanguages = value;
+  }
+
+  set useLocalizedRoutes(value: boolean) {
+    this._useLocalizedRoutes = value;
+  }
 
   constructor(
     readonly analytics: AnalyticsService,
     private readonly win: WindowService,
     @Inject(PLATFORM_ID) private readonly platformId: any
   ) {
-    super(analytics);
-
-    this.category = CATEGORY;
+    super(analytics, CATEGORY);
   }
 
   getLanguageByCode(languageCode: string): Language {
-    return !isEmpty(this.availableLanguages)
+    return !isEmpty(this._availableLanguages)
       ? flow(
-        (cur: Array<Language>) => cur.find(language => language.code === languageCode),
-        getOrNil(this.defaultLanguage)
-      )(this.availableLanguages)
+          (cur: Array<Language>) => cur.find(language => language.code === languageCode),
+          getOrNil(this.defaultLanguage)
+        )(this._availableLanguages)
       : this.defaultLanguage;
   }
 

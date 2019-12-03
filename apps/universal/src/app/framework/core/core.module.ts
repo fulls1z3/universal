@@ -32,7 +32,7 @@ export const metaFactory = (config: ConfigService, translate: TranslateService) 
     defaults: {
       title: config.getSettings('seo.defaultPageTitle'),
       description: config.getSettings('seo.defaultMetaDescription'),
-      generator: 'ng-seed',
+      generator: 'universal',
       'og:site_name': config.getSettings('system.applicationName'),
       'og:type': 'website',
       'og:locale': config.getSettings('i18n.defaultLanguage.culture'),

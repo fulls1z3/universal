@@ -1,9 +1,9 @@
 export class MockWindow {
-  navigator = {
+  readonly navigator = {
     language: 'en-US',
     userAgent: 'testing'
   };
-  location = {};
+  readonly location = {};
 }
 
 export class MockWindowFrench extends MockWindow {

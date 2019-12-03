@@ -26,14 +26,14 @@
         {{ 'SECURE.MENU_TITLE' | translate }}
     </button>
     <span fxFlex></span>
-    <a mat-button href="https://www.github.com/ng-seed/universal">
+    <a mat-button href="https://www.github.com/fulls1z3/universal">
         Github
     </a>
     <ng-container>
         <button *ngIf="!isAuthenticated" mat-icon-button [routerLink]="['/', 'login']">
             <mat-icon>account_circle</mat-icon>
         </button>
-        <button *ngIf="isAuthenticated" class="qa-header__logout" mat-icon-button (click)="logout()">
+        <button *ngIf="isAuthenticated" class="qa-header__logout" mat-icon-button (click)="onLogoutClick()">
             <mat-icon>lock_outline</mat-icon>
         </button>
     </ng-container>

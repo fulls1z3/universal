@@ -2,7 +2,7 @@ import { Component, ContentChildren, EventEmitter, Input, QueryList } from '@ang
 import { Observable } from 'rxjs';
 
 import { BaseComponent } from '../../framework/core';
-import { MenuGroupComponent } from'../common/components/menu/menu-group.component';
+import { MenuGroupComponent } from '../common/components/menu/menu-group.component';
 
 @Component({
   selector: 'app-card',
@@ -10,11 +10,11 @@ import { MenuGroupComponent } from'../common/components/menu/menu-group.componen
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent extends BaseComponent {
-  @Input() icon: string;
-  @Input() title: string;
-  @Input() data: Observable<any> | any;
-  @Input() isProcessing: boolean;
   @ContentChildren(MenuGroupComponent) readonly menuGroups: QueryList<MenuGroupComponent>;
+  @Input() readonly isProcessing: boolean;
+  @Input() readonly icon: string;
+  @Input() readonly title: string;
+  @Input() data: Observable<any> | any;
 
   onMenuClick(callback: EventEmitter<string>, isDialog = false): void {
     if (!isDialog) {

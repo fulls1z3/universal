@@ -15,6 +15,7 @@ import { EMPTY_UNIQUE_ID } from '../../../framework/ngrx';
 import { getState, NgrxTestingModule } from '../../../framework/ngrx/testing';
 import { RenderFlag, SharedModule } from '../../../shared';
 import { CardModule } from '../../../shared/card';
+import { FalsyModule } from '../../../shared/falsy';
 import { AIRLINE, Airline, airlineActions } from '../../../store';
 import { MOCK_AIRLINE } from '../../../store/testing';
 
@@ -30,8 +31,9 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
       I18NTestingModule,
       NgrxTestingModule,
       MaterialModule,
+      SharedModule,
       CardModule,
-      SharedModule
+      FalsyModule
     ],
     providers: [
       {

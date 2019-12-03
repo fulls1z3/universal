@@ -15,18 +15,24 @@ import { Airline, airlineActions, AirlineSelectors, State } from '../../store';
   animations: [routeAnimation]
 })
 export class AirlineComponent extends BaseContainerComponent implements OnInit {
-  airlines$: Observable<Array<Airline>>;
-  baseRoute: Array<any>;
-  airlineTable: DataTable;
+  get error$(): Observable<string> {
+    return this.store$.pipe(select(AirlineSelectors.getError));
+  };
 
-  constructor(private readonly router: Router, protected readonly store$: Store<State>) {
-    super(store$);
-  }
+  get isProcessing$(): Observable<boolean> {
+    return this.store$.pipe(select(AirlineSelectors.getIsProcessing));
+  };
 
-  ngOnInit(): void {
-    this.baseRoute = ['/', 'air-universal', 'airlines'];
+  get baseRoute(): Array<string> {
+    return ['/', 'air-universal', 'airlines'];
+  };
 
-    this.airlineTable = {
+  get airlines$(): Observable<Array<Airline>> {
+    return this.store$.pipe(select(AirlineSelectors.getMany))
+  };
+
+  get airlineTable(): DataTable {
+    return {
       cols: [
         createColumn('_id', 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID_COL_TITLE'),
         createColumn('iataCode', 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE_COL_TITLE'),
@@ -36,23 +42,24 @@ export class AirlineComponent extends BaseContainerComponent implements OnInit {
       buttons: [createRouteButton('', 'edit', 'SHARED.ACTION.EDIT', this.baseRoute, '_id')],
       options: createOptions('', 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.TITLE', Scrollable.Full)
     };
+  };
 
-    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
-    this.airlines$ = this.store$.pipe(select(AirlineSelectors.getMany));
+  constructor(private readonly router: Router, protected readonly store$: Store<State>) {
+    super(store$);
+  }
 
+  ngOnInit(): void {
     this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
 
-  createAirline(): void {
+  onCreateClick(): void {
     observableFrom(this.router.navigate([...this.baseRoute, 'create']))
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(() => {
-        /**/
       });
   }
 
-  refresh(): void {
+  onRefreshClick(): void {
     this.store$.dispatch(airlineActions.airUniversalGetManyAirlines());
   }
 }

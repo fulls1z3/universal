@@ -24,9 +24,7 @@ export class ChangeLanguageComponent extends BaseComponent implements OnInit {
 
       observableFrom(this.router.navigate(['']))
         .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe(() => {
-          /**/
-        });
+        .subscribe(() => {});
     });
   }
 }

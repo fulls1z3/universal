@@ -1,6 +1,6 @@
 ﻿<div class="login mat-elevation-z12">
     <div class="login__header">{{ 'LOGIN.LOG_IN' | translate }}</div>
-    <form #form="ngForm" fxLayout="column" fxLayoutAlign="start stretch" class="login__body" (ngSubmit)="form.valid && login()">
+    <form #form="ngForm" fxLayout="column" fxLayoutAlign="start stretch" class="login__body" (ngSubmit)="onLoginClick()">
         <mat-form-field class="form__control">
             <input matInput required type="text" name="username" [(ngModel)]="username"
                    placeholder="{{ 'LOGIN.USERNAME' | translate }}">

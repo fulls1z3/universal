@@ -10,8 +10,15 @@ import { BaseComponent } from './base.component';
   template: ''
 })
 export class BaseContainerComponent extends BaseComponent {
-  error$: Observable<string>;
-  isProcessing$: Observable<boolean>;
+  get error$(): Observable<string> {
+    // NOTE: override by inheriting class
+    return undefined;
+  }
+
+  get isProcessing$(): Observable<boolean> {
+    // NOTE: override by inheriting class
+    return undefined;
+  }
 
   constructor(protected readonly store$: Store<FrameworkState>) {
     super();

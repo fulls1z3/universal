@@ -5,7 +5,6 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  OnInit,
   QueryList,
   ViewChild
 } from '@angular/core';
@@ -25,24 +24,21 @@ import { DataTableColumn } from './models/data-table-column';
   styleUrls: ['./data-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataTableComponent extends DataTableBaseComponent implements AfterViewInit, OnInit {
-  @ViewChild('filter', { static: false }) filter: ElementRef;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ContentChildren(MenuGroupComponent) menuGroups: QueryList<MenuGroupComponent>;
+export class DataTableComponent extends DataTableBaseComponent implements AfterViewInit {
+  @ViewChild('filter', { static: false }) readonly filter: ElementRef;
+  @ViewChild(MatSort, { static: false }) readonly sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) readonly paginator: MatPaginator;
+  @ContentChildren(MenuGroupComponent) readonly menuGroups: QueryList<MenuGroupComponent>;
+  dataSource = new MatTableDataSource();
 
-  dataSource: MatTableDataSource<any>;
-  columns: Array<string>;
+  get columns(): Array<string> {
+    return [...this.cols.map(this.getColumnDef), ...(!isEmpty(this.buttons) ? ['actions'] : [])];
+  }
 
   getColumnDef = (col: DataTableColumn) => (col.suffix ? `${col.property}_${col.suffix}` : col.property);
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
     super();
-  }
-
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource();
-    this.columns = [...this.cols.map(this.getColumnDef), ...(!isEmpty(this.buttons) ? ['actions'] : [])];
   }
 
   ngAfterViewInit(): void {
@@ -55,10 +51,7 @@ export class DataTableComponent extends DataTableBaseComponent implements AfterV
     });
 
     const filterChange$: Observable<any> = this.filterCol
-      ? observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
-          debounceTime(750),
-          distinctUntilChanged()
-        )
+      ? observableFromEvent(this.filter.nativeElement, 'keyup').pipe(debounceTime(750), distinctUntilChanged())
       : EMPTY;
 
     filterChange$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(() => {

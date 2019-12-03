@@ -14,36 +14,22 @@ import { DataTableRouteButton } from './models/data-table-route-button';
   template: ''
 })
 export class DataTableBaseComponent extends BaseComponent {
-  @Input() data: Observable<Array<any>> | Array<any>;
-
-  @Input() set cols(cols: Array<DataTableColumn>) {
-    this._cols = cols;
-  }
-
-  get cols(): Array<DataTableColumn> {
-    return this._cols;
-  }
-
-  @Input() filterCol: string;
-  @Input() buttons: Array<DataTableButton> | Array<DataTableRouteButton>;
-  @Input() options: DataTableOptions | undefined;
-  @Input() disableRefresh: boolean;
-  @Input() disableSort: boolean;
-  @Input() disablePaginator: boolean;
-  @Input() isProcessing: boolean;
-  @Output() readonly refreshClick: EventEmitter<void> = new EventEmitter();
-
-  private _cols: Array<DataTableColumn>;
-
-  constructor() {
-    super();
-  }
+  @Input() readonly isProcessing: boolean;
+  @Input() readonly data: Observable<Array<any>> | Array<any>;
+  @Input() readonly cols: Array<DataTableColumn>;
+  @Input() readonly filterCol: string;
+  @Input() readonly buttons: Array<DataTableButton | DataTableRouteButton>;
+  @Input() readonly options: DataTableOptions | undefined;
+  @Input() readonly disableRefresh: boolean;
+  @Input() readonly disableSort: boolean;
+  @Input() readonly disablePaginator: boolean;
+  @Output() readonly refreshClick = new EventEmitter();
 
   onMenuClick(callback: EventEmitter<string>): void {
     callback.emit();
   }
 
-  onRefresh(callback: EventEmitter<void>): void {
+  onRefreshClick(callback: EventEmitter<void>): void {
     callback.emit();
   }
 

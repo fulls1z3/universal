@@ -7,9 +7,9 @@ import { BaseComponent } from '../../../../framework/core';
   template: ''
 })
 export class MenuItemComponent extends BaseComponent {
-  @Input() cssClass: string;
-  @Input() icon: string;
-  @Input() text: string;
-  @Input() isDialog: boolean;
-  @Output() readonly menuClick: EventEmitter<string> = new EventEmitter();
+  @Input() readonly cssClass: string;
+  @Input() readonly icon: string;
+  @Input() readonly text: string;
+  @Input() readonly isDialog: boolean;
+  @Output() readonly menuClick = new EventEmitter();
 }

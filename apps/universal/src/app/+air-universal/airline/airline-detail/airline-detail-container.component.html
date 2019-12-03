@@ -4,13 +4,13 @@
             <div *ngIf="error$ | async">
                 {{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}
             </div>
-            <app-card [title]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.PAGE_TITLE'"
-                      [data]="airline$ | async"
-                      [isProcessing]="isProcessing$ | async">
-                <app-airline-detail *ngIf="(isProcessing$ | async) === false"
+            <app-card [isProcessing]="isProcessing$ | async"
+                      [title]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.PAGE_TITLE'"
+                      [data]="airline$ | async">
+                <app-airline-detail *ngIf="isProcessing$ | async | falsy"
                                     [airline]="airline$ | async"
-                                    (deleteClick)="delete($event)"
-                                    (saveClick)="save($event)">
+                                    (deleteClick)="onDeleteClick($event)"
+                                    (saveClick)="onSaveClick($event)">
                 </app-airline-detail>
             </app-card>
         </div>
