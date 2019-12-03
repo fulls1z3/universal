@@ -116,7 +116,7 @@
     "@nrwl/workspace": "^8.8.2",
     "@types/compression": "^1.0.1",
     "@types/express": "4.17.0",
-    "@types/jest": "^24.0.23",
+    "@types/jest": "24.0.19",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.14",
     "angular-tslint-rules": "^1.20.3",
