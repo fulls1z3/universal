@@ -44,7 +44,7 @@
     "build:prod": "ng build --prod",
     "compile:server": "tsc -p apps/universal/tsconfig.server-compile.json",
     "build:ssr": "ng build && ng run universal:server && yarn compile:server",
-    "build:ssr:prod": "ng build --prod && ng run univer4sal:server:production && yarn compile:server",
+    "build:ssr:prod": "ng build --prod && ng run universal:server:production && yarn compile:server",
     "serve:ssr": "node dist/apps/universal/server",
     "lint:check": "tslint-config-prettier-check ./tslint.angular.json",
     "lint:fix": "prettier-tslint fix apps/**/*.ts && prettier-tslint fix libs/**/*.ts",
@@ -146,6 +146,11 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
