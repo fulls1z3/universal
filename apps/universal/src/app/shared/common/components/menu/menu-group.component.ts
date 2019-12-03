@@ -9,8 +9,8 @@ import { MenuItemComponent } from './menu-item.component';
   template: ''
 })
 export class MenuGroupComponent extends BaseComponent {
-  @ContentChildren(MenuItemComponent) items: QueryList<MenuItemComponent>;
-  @Input() cssClass: string;
-  @Input() icon: string;
-  @Input() text: string;
+  @ContentChildren(MenuItemComponent) readonly items: QueryList<MenuItemComponent>;
+  @Input() readonly cssClass: string;
+  @Input() readonly icon: string;
+  @Input() readonly text: string;
 }

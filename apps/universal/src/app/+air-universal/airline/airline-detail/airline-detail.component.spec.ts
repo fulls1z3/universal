@@ -71,7 +71,6 @@ describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () =>
   test('should build without a problem', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
     const instance = fixture.componentInstance;
-    instance.airline = MOCK_AIRLINE;
     fixture.detectChanges();
 
     expect(instance).toBeTruthy();

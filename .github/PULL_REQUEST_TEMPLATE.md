@@ -1,14 +1,15 @@
-** PR Checklist
+\*\* PR Checklist
 Please check if your PR fulfills the following requirements:
 
-- [ ] The commit message follows our guidelines: https://github.com/ng-seed/universal/blob/master/CONTRIBUTING.md#commit
+- [ ] The commit message follows our guidelines: https://github.com/fulls1z3/universal/blob/master/CONTRIBUTING.md#commit
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
 
-** PR Type
+\*\* PR Type
 What kind of change does this PR introduce?
 
 <!-- Please check the one that applies to this PR using "x". -->
+
 ```
 [ ] Bugfix
 [ ] Feature
@@ -20,14 +21,16 @@ What kind of change does this PR introduce?
 [ ] Other... Please describe:
 ```
 
-** What is the current behavior?
+\*\* What is the current behavior?
+
 <!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
 
 Issue Number: N/A
 
-** What is the new behavior?
+\*\* What is the new behavior?
 
-** Does this PR introduce a breaking change?
+\*\* Does this PR introduce a breaking change?
+
 ```
 [ ] Yes
 [ ] No
@@ -35,4 +38,4 @@ Issue Number: N/A
 
 <!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
 
-** Other information
+\*\* Other information

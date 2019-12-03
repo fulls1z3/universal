@@ -1,26 +1,16 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "",
-  "cli": {
-    "warnings": {
-      "typescriptMismatch": false,
-      "versionMismatch": false
-    },
-    "defaultCollection": "@ngrx/schematics",
-    "packageManager": "yarn"
-  },
   "projects": {
     "universal": {
-      "root": "apps/universal",
-      "sourceRoot": "apps/universal/src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"
         }
       },
+      "root": "apps/universal",
+      "sourceRoot": "apps/universal/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -36,18 +26,21 @@
             "main": "apps/universal/src/main-browser.ts",
             "polyfills": "apps/universal/src/polyfills.ts",
             "tsConfig": "apps/universal/tsconfig.app.json",
+            "aot": false,
+            "es5BrowserSupport": true,
             "assets": [
-              "apps/universal/src/assets/data",
-              "apps/universal/src/assets/i18n",
-              "apps/universal/src/assets/config.local.json",
+              {
+                "glob": "**/*",
+                "input": "apps/universal/src/assets",
+                "output": "assets/"
+              },
               "apps/universal/src/favicon.ico"
             ],
             "styles": [
               "apps/universal/src/assets/sass/lib.scss",
               "apps/universal/src/assets/sass/styles.scss",
               "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
-            ],
-            "es5BrowserSupport": true
+            ]
           },
           "configurations": {
             "hmr": {
@@ -79,6 +72,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -138,6 +136,22 @@
       }
     }
   },
-  "schematics": {},
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@ngrx/schematics",
+    "packageManager": "yarn"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
   "defaultProject": "universal"
 }

@@ -18,8 +18,21 @@ import { Airline, airlineActions, AirlineSelectors, State } from '../../../store
   animations: [routeAnimation]
 })
 export class AirlineDetailContainerComponent extends BaseContainerComponent implements OnInit {
-  airline$: Observable<Airline>;
-  baseRoute: Array<string>;
+  get error$(): Observable<string> {
+    return this.store$.pipe(select(AirlineSelectors.getError));
+  };
+
+  get isProcessing$(): Observable<boolean> {
+    return this.store$.pipe(select(AirlineSelectors.getIsProcessing));
+  };
+
+  get baseRoute(): Array<string> {
+    return ['/', 'air-universal', 'airlines'];
+  };
+
+  get airline$(): Observable<Airline> {
+    return this.store$.pipe(select(AirlineSelectors.getSelected));
+  }
 
   constructor(
     private readonly router: Router,
@@ -32,12 +45,6 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
   }
 
   ngOnInit(): void {
-    this.baseRoute = ['/', 'air-universal', 'airlines'];
-
-    this.isProcessing$ = this.store$.pipe(select(AirlineSelectors.getIsProcessing));
-    this.error$ = this.store$.pipe(select(AirlineSelectors.getError));
-    this.airline$ = this.store$.pipe(select(AirlineSelectors.getSelected));
-
     this.airline$
       .pipe(
         skipWhile(isNil),
@@ -62,7 +69,7 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
       });
   }
 
-  delete(id: UniqueId): void {
+  onDeleteClick(id: UniqueId): void {
     this.store$.dispatch(
       airlineActions.airUniversalDeleteOneAirline({
         id,
@@ -72,7 +79,7 @@ export class AirlineDetailContainerComponent extends BaseContainerComponent impl
     );
   }
 
-  save(resource: any): void {
+  onSaveClick(resource: any): void {
     this.route.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe(res => {
       if (res.renderFlag === RenderFlag.Create) {
         this.store$.dispatch(

@@ -4,26 +4,20 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MockActivatedRoute {
-  params: any;
-
-  private readonly subject: BehaviorSubject<Params>;
+  readonly params: any;
+  private readonly _subject = new BehaviorSubject<Params>(this.testParams);
   private _testParams: any;
-
-  constructor() {
-    this.subject = new BehaviorSubject(this.testParams);
-    this.params = this.subject.asObservable();
-  }
 
   get testParams(): any {
     return this._testParams;
   }
 
   set testParams(params: any) {
+    this._subject.next(params);
     this._testParams = params;
-    this.subject.next(params);
   }
 
-  // get snapshot(): any {
-  //   return {params: this.testParams};
-  // }
+  constructor() {
+    this.params = this._subject.asObservable();
+  }
 }

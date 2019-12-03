@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AuthService } from '@ngx-auth/core';
 import { ConfigService } from '@ngx-config/core';
-import { Observable } from 'rxjs';
+import { from as observableFrom, Observable } from 'rxjs';
 
 import { BaseComponent } from '../framework/core';
 import { Language, LanguageSelectors, State } from '../store';
@@ -12,26 +12,28 @@ import { Language, LanguageSelectors, State } from '../store';
   templateUrl: './header.component.html',
   styleUrls: ['header.component.scss']
 })
-export class HeaderComponent extends BaseComponent implements OnInit {
-  title: string;
-  currentLanguage$: Observable<Language>;
-  availableLanguages: Array<Language>;
-  isAuthenticated: boolean; // TODO: access only through getter
+export class HeaderComponent extends BaseComponent {
+  isAuthenticated = this.auth.isAuthenticated;
+
+  get title(): string {
+    return 'APP_NAME';
+  }
+
+  get currentLanguage$(): Observable<Language> {
+    return this.store$.pipe(select(LanguageSelectors.getWorkingLanguage));
+  }
+
+  get availableLanguages(): Array<Language> {
+    return this.config.getSettings('i18n.availableLanguages');
+  }
 
   constructor(private readonly store$: Store<State>, private readonly config: ConfigService, private readonly auth: AuthService) {
     super();
   }
 
-  ngOnInit(): void {
-    this.title = 'APP_NAME';
-    this.currentLanguage$ = this.store$.pipe(select(LanguageSelectors.getWorkingLanguage));
-    this.availableLanguages = this.config.getSettings('i18n.availableLanguages');
-    this.isAuthenticated = this.auth.isAuthenticated;
-  }
-
-  async logout(): Promise<boolean> {
+  onLogoutClick(): void {
     this.isAuthenticated = false;
 
-    return this.auth.invalidate();
+    observableFrom(this.auth.invalidate()).subscribe(() => {});
   }
 }

@@ -7,7 +7,7 @@ import { initialState } from './airline.state';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing';
 
 describe('reducer', () => {
-  it('should return the initial state', () => {
+  test('should return the initial state', () => {
     const action = {} as any;
     const actual = reducer(undefined, action);
 

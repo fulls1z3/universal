@@ -1,8 +1,8 @@
 import { Window } from './models/window';
 
 export class WindowService implements Window {
-  navigator: any = {};
-  location: any = {};
+  readonly navigator: any = {};
+  readonly location: any = {};
 
   alert(msg: string): void {
     return;

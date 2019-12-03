@@ -14,9 +14,9 @@ import { routeAnimation } from '../shared';
   animations: [routeAnimation]
 })
 export class LoginComponent extends BaseComponent implements OnInit {
+  isProcessing: boolean;
   username: string;
   password: string;
-  isProcessing: boolean;
   note$: Observable<string>;
   error$: Observable<string>;
 
@@ -28,26 +28,23 @@ export class LoginComponent extends BaseComponent implements OnInit {
     if (this.auth.isAuthenticated) {
       observableFrom(this.router.navigateByUrl(this.auth.defaultUrl))
         .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe(() => {
-          /**/
-        });
+        .subscribe(() => {});
     }
   }
 
-  login(): Observable<boolean> {
+  onLoginClick(): void {
     this.isProcessing = true;
     this.note$ = this.translate.get('LOGIN.NOTE');
 
-    const auth$ = this.auth.authenticate(this.username, this.password).pipe(takeUntil(this.ngUnsubscribe));
+    this.auth
+      .authenticate(this.username, this.password)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {
+        this.isProcessing = false;
 
-    auth$.subscribe(() => {
-      this.isProcessing = false;
-
-      if (!this.auth.isAuthenticated) {
-        this.error$ = this.translate.get('LOGIN.ERROR');
-      }
-    });
-
-    return auth$;
+        if (!this.auth.isAuthenticated) {
+          this.error$ = this.translate.get('LOGIN.ERROR');
+        }
+      });
   }
 }

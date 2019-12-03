@@ -1,6 +1,12 @@
 ﻿{
   "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint"],
   "rules": {
+    "invalid-void": [
+      true,
+      {
+        "allow-generics": ["BehaviorSubject", "EventEmitter", "Observable", "Promise", "Subject"]
+      }
+    ],
     "no-implicit-dependencies": [true, "dev"],
     "ordered-imports": [
       true,

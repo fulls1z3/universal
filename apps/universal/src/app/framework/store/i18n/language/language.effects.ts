@@ -11,7 +11,7 @@ import { languageActions } from './language.actions';
 
 @Injectable()
 export class LanguageEffects {
-  @Effect() init$ = this.actions.pipe(
+  @Effect() readonly init$ = this.actions.pipe(
     filter(languageActions.is.i18nInitLanguage),
     map(get('payload')),
     map(payload => {
@@ -31,7 +31,7 @@ export class LanguageEffects {
     })
   );
 
-  @Effect() use$ = this.actions.pipe(
+  @Effect() readonly use$ = this.actions.pipe(
     filter(languageActions.is.i18nUseLanguage),
     map(get('payload')),
     map(payload => {

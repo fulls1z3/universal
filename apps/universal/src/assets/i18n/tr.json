@@ -1,7 +1,7 @@
 {
-  "APP_NAME": "ng-seed/universal",
-  "DEFAULT_TITLE": "ng-seed uygulama sunumu",
-  "DEFAULT_META_DESCRIPTION": "ng-seed açık kaynaklı Angular Univesal temel uygulamasıdır",
+  "APP_NAME": "universal",
+  "DEFAULT_TITLE": "universal uygulama sunumu",
+  "DEFAULT_META_DESCRIPTION": "universal açık kaynaklı Angular Universal temel uygulamasıdır",
   "COMMON": {
     "PAGE": {
       "ERROR": "Error:"
@@ -36,9 +36,9 @@
   "HOME": {
     "MENU_TITLE": "Ana sayfa",
     "PAGE_TITLE": "",
-    "META_DESCRIPTION": "ng-seed uygulamasına hoşgeldiniz",
+    "META_DESCRIPTION": "universal uygulamasına hoşgeldiniz",
     "CARD_TITLE": "Ana sayfa",
-    "CARD_SUBTITLE": "ng-seed uygulamasına hoşgeldiniz"
+    "CARD_SUBTITLE": "universal uygulamasına hoşgeldiniz"
   },
   "AIR_UNIVERSAL": {
     "AIRLINE": {

@@ -45,9 +45,11 @@ export class AnalyticsService {
 }
 
 export class Analytics {
-  category: string;
+  readonly category: string;
 
-  constructor(@Inject(AnalyticsService) public analytics: AnalyticsService) {}
+  constructor(@Inject(AnalyticsService) public analytics: AnalyticsService, category: string) {
+    this.category = category;
+  }
 
   track(action: string, properties: AnalyticsProperties): void {
     this.analytics.track(action, extend({ category: this.category })(properties));

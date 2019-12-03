@@ -3,8 +3,8 @@ export interface DataTableButton {
   cssClass: string;
   icon: string;
   text: string;
-  menuClick: any;
   params?: Array<any>;
+  onMenuClick(...args: any): void;
 }
 
 export const createButton = (cssClass: string, icon: string, text: string, menuClick: any, params?: Array<any>) => ({

@@ -17,7 +17,7 @@
                         class="qa-toolbar__refresh"
                         matTooltip="{{ 'SHARED.WIDGET.REFRESH_TOOLTIP' | translate }}"
                         matTooltipPosition="below"
-                        (click)="onRefresh(refreshClick)">
+                        (click)="onRefreshClick(refreshClick)">
                     <mat-icon>refresh</mat-icon>
                 </button>
             </span>
@@ -72,7 +72,7 @@
                 <mat-cell *matCellDef="let row" class="table__cell data_table__button--row" fxLayoutAlign="end center" fxFlex>
                     <mat-menu #rowMenu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
                         <ng-container *ngFor="let button of buttons; trackBy: trackByFn" [ngSwitch]="button.type">
-                            <button *ngSwitchCase="'button'" mat-menu-item (click)="button.menuClick(getParams(row, button))">
+                            <button *ngSwitchCase="'button'" mat-menu-item (click)="button.onMenuClick(getParams(row, button))">
                                 <mat-icon *ngIf="button.icon">{{ button.icon }}</mat-icon>
                                 <span>{{ button.text | translate }}</span>
                             </button>

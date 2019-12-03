@@ -11,7 +11,7 @@ export class MockConfigService extends ConfigService {
     this.settings = {
       system: {
         applicationName: 'APP_NAME',
-        applicationUrl: 'http://ng-seed.fulls1z3.com'
+        applicationUrl: 'http://universal.buraktasci.com'
       },
       seo: {
         defaultPageTitle: 'DEFAULT_TITLE',
