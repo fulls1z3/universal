@@ -39,7 +39,6 @@ in file and application organization, providing the following features:
 - [x] Uses **[ngx-cache]** for application-wide caching.
 - [x] Uses [ngx-translate] for i18n support.
 - [x] Uses **[ngx-meta]** for SEO (_title, meta tags, and Open Graph tags for social sharing_).
-- [ ] ~~Uses **[ngx-i18n-router]** for localized routes.~~
 - [x] Uses [ngx-perfect-scrollbar] for scrollbars.
 - [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
