@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule, LAYOUT_CONFIG } from '@angular/flex-layout';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { APP_LAYOUT_CONFIG } from '@fulls1z3/shared/util-core';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { APP_LAYOUT_CONFIG } from '../../framework/core';
-import { MaterialModule } from '../../framework/material';
-import { CommonModule } from '../index';
+import { CommonModule } from '../common/common.module';
 
 import { CardComponent } from './card.component';
 

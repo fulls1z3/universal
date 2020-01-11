@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BaseComponent } from '@fulls1z3/shared/ui-base';
 import { get } from 'lodash/fp';
 import { Observable } from 'rxjs';
 
-import { BaseComponent } from '../../framework/core';
 import { toSlug } from '../index';
 
 import { DataTableButton } from './models/data-table-button';
@@ -53,7 +53,7 @@ export class DataTableBaseComponent extends BaseComponent {
 
   getRoute(row: any, button: DataTableRouteButton): Array<any> {
     return [
-      ...button.route.reduce((acc, cur) => (cur === '{0}' ? [...acc, row._id] : [...acc, cur]), []),
+      ...button.route.reduce((acc, cur) => (cur === '{0}' ? [...acc, row.id] : [...acc, cur]), []),
       ...(!button.passRouteParams ? [toSlug(get(button.target)(row))] : [])
     ];
   }

@@ -1,5 +1,5 @@
-// tslint:disable
 import 'hammerjs/hammer';
+// tslint:disable-next-line:no-import-side-effect
 import 'jest-preset-angular';
 
 Object.defineProperty(window, 'getComputedStyle', {

@@ -1,6 +1,6 @@
+import { ChangeLanguageComponent } from '@fulls1z3/shared/ui-i18n';
 import { MetaGuard } from '@ngx-meta/core';
 
-import { ChangeLanguageComponent } from './framework/i18n';
 import { MainComponent } from './layout/main.component';
 import { LoginComponent } from './login/login.component';
 

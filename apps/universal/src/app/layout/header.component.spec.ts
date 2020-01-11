@@ -1,15 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { AuthTestingModule } from '@fulls1z3/shared/util-auth/testing';
+import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
+import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
+import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { MockComponent, TestingModule } from '@fulls1z3/shared/util-testing';
 import { TranslatePipe } from '@ngx-translate/core';
 import { configureTestSuite } from 'ng-bullet';
-
-import { AuthTestingModule } from '../framework/auth/testing';
-import { CoreTestingModule } from '../framework/core/testing';
-import { I18NTestingModule } from '../framework/i18n/testing';
-import { MaterialModule } from '../framework/material';
-import { NgrxTestingModule } from '../framework/ngrx/testing';
-import { MockComponent, TestingModule } from '../framework/testing';
 
 import { HeaderComponent } from './header.component';
 
@@ -40,7 +39,7 @@ configureTestSuite(() => {
       AuthTestingModule,
       CoreTestingModule,
       I18NTestingModule,
-      NgrxTestingModule,
+      StoreTestingModule,
       TestingModule,
       MaterialModule
     ],

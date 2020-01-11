@@ -14,7 +14,25 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "paths": {
-      "~/*": ["./apps/universal/src/*"]
+      "@fulls1z3/shared/store": ["libs/shared/store/src/index.ts"],
+      "@fulls1z3/shared/store-account": ["libs/shared/store-account/src/index.ts"],
+      "@fulls1z3/shared/store-air-universal": ["libs/shared/store-air-universal/src/index.ts"],
+      "@fulls1z3/shared/store-air-universal/testing": ["libs/shared/store-air-universal/src/testing.ts"],
+      "@fulls1z3/shared/store-i18n": ["libs/shared/store-i18n/src/index.ts"],
+      "@fulls1z3/shared/ui-base": ["libs/shared/ui-base/src/index.ts"],
+      "@fulls1z3/shared/ui-i18n": ["libs/shared/ui-i18n/src/index.ts"],
+      "@fulls1z3/shared/ui-material": ["libs/shared/ui-material/src/index.ts"],
+      "@fulls1z3/shared/ui-store": ["libs/shared/ui-store/src/index.ts"],
+      "@fulls1z3/shared/util-analytics": ["libs/shared/util-analytics/src/index.ts"],
+      "@fulls1z3/shared/util-auth/testing": ["libs/shared/util-auth/src/testing.ts"],
+      "@fulls1z3/shared/util-core": ["libs/shared/util-core/src/index.ts"],
+      "@fulls1z3/shared/util-core/testing": ["libs/shared/util-core/src/testing.ts"],
+      "@fulls1z3/shared/util-http-interceptor": ["libs/shared/util-http-interceptor/src/index.ts"],
+      "@fulls1z3/shared/util-i18n": ["libs/shared/util-i18n/src/index.ts"],
+      "@fulls1z3/shared/util-i18n/testing": ["libs/shared/util-i18n/src/testing.ts"],
+      "@fulls1z3/shared/util-store": ["libs/shared/util-store/src/index.ts"],
+      "@fulls1z3/shared/util-store/testing": ["libs/shared/util-store/src/testing.ts"],
+      "@fulls1z3/shared/util-testing": ["libs/shared/util-testing/src/index.ts"]
     }
   }
 }

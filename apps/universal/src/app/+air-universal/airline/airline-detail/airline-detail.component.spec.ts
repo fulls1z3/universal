@@ -2,15 +2,15 @@ import { TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
+import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
+import { EMPTY_UNIQUE_ID } from '@fulls1z3/shared/util-store';
 import { of as observableOf } from 'rxjs';
 
-import { CoreTestingModule } from '../../../framework/core/testing';
-import { I18NTestingModule } from '../../../framework/i18n/testing';
-import { MaterialModule } from '../../../framework/material';
-import { EMPTY_UNIQUE_ID } from '../../../framework/ngrx';
 import { RenderFlag, SharedModule } from '../../../shared';
 import { CardModule } from '../../../shared/card';
-import { MOCK_AIRLINE } from '../../../store/testing';
 
 import { AirlineDetailComponent } from './airline-detail.component';
 
@@ -28,7 +28,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE.id : EMPTY_UNIQUE_ID
           })
         }
       }

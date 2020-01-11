@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { State } from '@fulls1z3/shared/store';
+import { authActions } from '@fulls1z3/shared/store-account';
+import { LanguageSelectors } from '@fulls1z3/shared/store-i18n';
+import { BaseContainerComponent } from '@fulls1z3/shared/ui-store';
+import { Language } from '@fulls1z3/shared/util-i18n';
 import { select, Store } from '@ngrx/store';
 import { AuthService } from '@ngx-auth/core';
 import { ConfigService } from '@ngx-config/core';
-import { from as observableFrom, Observable } from 'rxjs';
-
-import { BaseComponent } from '../framework/core';
-import { Language, LanguageSelectors, State } from '../store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['header.component.scss']
 })
-export class HeaderComponent extends BaseComponent {
+export class HeaderComponent extends BaseContainerComponent {
   isAuthenticated = this.auth.isAuthenticated;
 
   get title(): string {
@@ -27,13 +30,18 @@ export class HeaderComponent extends BaseComponent {
     return this.config.getSettings('i18n.availableLanguages');
   }
 
-  constructor(private readonly store$: Store<State>, private readonly config: ConfigService, private readonly auth: AuthService) {
-    super();
+  constructor(
+    private readonly router: Router,
+    protected readonly store$: Store<State>,
+    private readonly config: ConfigService,
+    private readonly auth: AuthService
+  ) {
+    super(store$);
   }
 
   onLogoutClick(): void {
     this.isAuthenticated = false;
 
-    observableFrom(this.auth.invalidate()).subscribe(() => {});
+    this.store$.dispatch(authActions.accountLogout({ router: this.router }));
   }
 }

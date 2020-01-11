@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthTestingModule } from '@fulls1z3/shared/util-auth/testing';
+import { ConsoleService, CoreModule, WindowService } from '@fulls1z3/shared/util-core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { AuthModule } from '@ngx-auth/core';
 import { CACHE } from '@ngx-cache/core';
@@ -9,8 +11,6 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
-import { AuthTestingModule } from './framework/auth/testing';
-import { ConsoleService, CoreModule, WindowService } from './framework/core';
 
 @NgModule({
   imports: [

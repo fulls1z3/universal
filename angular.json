@@ -17,8 +17,9 @@
           "options": {
             "customWebpackConfig": {
               "path": "tools/webpack.config.js",
+              "replaceDuplicatePlugins": true,
               "mergeStrategies": {
-                "module": "append"
+                "externals": "prepend"
               }
             },
             "outputPath": "dist/apps/universal/browser",
@@ -131,6 +132,366 @@
             "jestConfig": "apps/universal/jest.config.js",
             "tsConfig": "apps/universal/tsconfig.spec.json",
             "setupFile": "apps/universal/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-store": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/store",
+      "sourceRoot": "libs/shared/store/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/store/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/store/jest.config.js",
+            "tsConfig": "libs/shared/store/tsconfig.spec.json",
+            "setupFile": "libs/shared/store/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-store-account": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/store-account",
+      "sourceRoot": "libs/shared/store-account/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/store-account/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/store-account/jest.config.js",
+            "tsConfig": "libs/shared/store-account/tsconfig.spec.json",
+            "setupFile": "libs/shared/store-account/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-store-air-universal": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/store-air-universal",
+      "sourceRoot": "libs/shared/store-air-universal/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/store-air-universal/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/store-air-universal/jest.config.js",
+            "tsConfig": "libs/shared/store-air-universal/tsconfig.spec.json",
+            "setupFile": "libs/shared/store-air-universal/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-store-i18n": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/store-i18n",
+      "sourceRoot": "libs/shared/store-i18n/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/store-i18n/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/store-i18n/jest.config.js",
+            "tsConfig": "libs/shared/store-i18n/tsconfig.spec.json",
+            "setupFile": "libs/shared/store-i18n/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-ui-base": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/ui-base",
+      "sourceRoot": "libs/shared/ui-base/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/ui-base/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-base/jest.config.js",
+            "tsConfig": "libs/shared/ui-base/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui-base/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-ui-i18n": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/ui-i18n",
+      "sourceRoot": "libs/shared/ui-i18n/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/ui-i18n/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-i18n/jest.config.js",
+            "tsConfig": "libs/shared/ui-i18n/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui-i18n/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-ui-material": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/ui-material",
+      "sourceRoot": "libs/shared/ui-material/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/ui-material/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-material/jest.config.js",
+            "tsConfig": "libs/shared/ui-material/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui-material/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-ui-store": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/ui-store",
+      "sourceRoot": "libs/shared/ui-store/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/ui-store/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-store/jest.config.js",
+            "tsConfig": "libs/shared/ui-store/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui-store/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-analytics": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-analytics",
+      "sourceRoot": "libs/shared/util-analytics/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-analytics/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-analytics/jest.config.js",
+            "tsConfig": "libs/shared/util-analytics/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-analytics/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-auth": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-auth",
+      "sourceRoot": "libs/shared/util-auth/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-auth/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-auth/jest.config.js",
+            "tsConfig": "libs/shared/util-auth/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-auth/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-core": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-core",
+      "sourceRoot": "libs/shared/util-core/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-core/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-core/jest.config.js",
+            "tsConfig": "libs/shared/util-core/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-core/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-http-interceptor": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-http-interceptor",
+      "sourceRoot": "libs/shared/util-http-interceptor/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-http-interceptor/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-http-interceptor/jest.config.js",
+            "tsConfig": "libs/shared/util-http-interceptor/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-http-interceptor/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-i18n": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-i18n",
+      "sourceRoot": "libs/shared/util-i18n/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-i18n/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-i18n/jest.config.js",
+            "tsConfig": "libs/shared/util-i18n/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-i18n/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-store": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-store",
+      "sourceRoot": "libs/shared/util-store/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-store/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-store/jest.config.js",
+            "tsConfig": "libs/shared/util-store/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-store/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "shared-util-testing": {
+      "projectType": "library",
+      "schematics": {},
+      "root": "libs/shared/util-testing",
+      "sourceRoot": "libs/shared/util-testing/src",
+      "prefix": "fulls1z3",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.lint.json"],
+            "exclude": ["!libs/shared/util-testing/**", "**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-testing/jest.config.js",
+            "tsConfig": "libs/shared/util-testing/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-testing/src/test-setup.ts"
           }
         }
       }

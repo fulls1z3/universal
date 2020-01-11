@@ -10,6 +10,51 @@
   "projects": {
     "universal": {
       "tags": []
+    },
+    "shared-store": {
+      "tags": []
+    },
+    "shared-store-account": {
+      "tags": []
+    },
+    "shared-store-air-universal": {
+      "tags": []
+    },
+    "shared-store-i18n": {
+      "tags": []
+    },
+    "shared-ui-base": {
+      "tags": []
+    },
+    "shared-ui-i18n": {
+      "tags": []
+    },
+    "shared-ui-material": {
+      "tags": []
+    },
+    "shared-ui-store": {
+      "tags": []
+    },
+    "shared-util-analytics": {
+      "tags": []
+    },
+    "shared-util-auth": {
+      "tags": []
+    },
+    "shared-util-core": {
+      "tags": []
+    },
+    "shared-util-http-interceptor": {
+      "tags": []
+    },
+    "shared-util-i18n": {
+      "tags": []
+    },
+    "shared-util-store": {
+      "tags": []
+    },
+    "shared-util-testing": {
+      "tags": []
     }
   }
 }

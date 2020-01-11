@@ -3,21 +3,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AIRLINE, Airline, airlineActions } from '@fulls1z3/shared/store-air-universal';
+import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
+import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
+import { EMPTY_UNIQUE_ID } from '@fulls1z3/shared/util-store';
+import { getState, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Store } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
 import { flow } from 'lodash/fp';
 import { of as observableOf } from 'rxjs';
 
-import { CoreTestingModule } from '../../../framework/core/testing';
-import { I18NTestingModule } from '../../../framework/i18n/testing';
-import { MaterialModule } from '../../../framework/material';
-import { EMPTY_UNIQUE_ID } from '../../../framework/ngrx';
-import { getState, NgrxTestingModule } from '../../../framework/ngrx/testing';
 import { RenderFlag, SharedModule } from '../../../shared';
 import { CardModule } from '../../../shared/card';
 import { FalsyModule } from '../../../shared/falsy';
-import { AIRLINE, Airline, airlineActions } from '../../../store';
-import { MOCK_AIRLINE } from '../../../store/testing';
 
 import { AirlineDetailContainerComponent } from './airline-detail-container.component';
 import { AirlineDetailComponent } from './airline-detail.component';
@@ -29,7 +29,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
       RouterTestingModule,
       CoreTestingModule,
       I18NTestingModule,
-      NgrxTestingModule,
+      StoreTestingModule,
       MaterialModule,
       SharedModule,
       CardModule,
@@ -46,7 +46,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
             }
           }),
           params: observableOf({
-            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE._id : EMPTY_UNIQUE_ID
+            id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE.id : EMPTY_UNIQUE_ID
           })
         }
       }
@@ -104,7 +104,7 @@ describe('AirlineDetailContainerComponent', () => {
       cur => cur.componentInstance,
       cur => cur.saveClick
     )(fixture);
-    const resource = { _id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE };
+    const resource = { id: EMPTY_UNIQUE_ID, ...MOCK_AIRLINE };
     saveClick.emit(MOCK_AIRLINE);
 
     const router = fixture.debugElement.injector.get(Router);
@@ -131,7 +131,7 @@ describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
     const spy = spyOn(store$, 'dispatch');
     fixture.detectChanges();
 
-    const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE._id);
+    const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
 
     expect(spy).toHaveBeenCalledWith(action);
     expect(spy).toHaveBeenCalledTimes(1);
@@ -173,12 +173,12 @@ describe('AirlineDetailContainerComponent for renderFlag=`Update`', () => {
       cur => cur.componentInstance,
       cur => cur.deleteClick
     )(fixture);
-    deleteClick.emit(MOCK_AIRLINE._id);
+    deleteClick.emit(MOCK_AIRLINE.id);
 
     const router = fixture.debugElement.injector.get(Router);
     const instance = fixture.componentInstance;
     const action = airlineActions.airUniversalDeleteOneAirline({
-      id: MOCK_AIRLINE._id,
+      id: MOCK_AIRLINE.id,
       router,
       route: instance.baseRoute
     });

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
-import { BaseComponent } from '../framework/core';
-import { routeAnimation } from '../shared';
+import { BaseComponent, routeAnimation } from '@fulls1z3/shared/ui-base';
 
 @Component({
   templateUrl: './about.component.html',
