@@ -1,8 +1,7 @@
 import { CommonModule as CommonAngularModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { MaterialModule } from '../../framework/material';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
 
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { MenuGroupComponent } from './components/menu/menu-group.component';

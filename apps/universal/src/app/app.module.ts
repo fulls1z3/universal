@@ -1,7 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Injector, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@fulls1z3/shared/store';
+import { ChangeLanguageComponent, I18NModule as I18NUiModule } from '@fulls1z3/shared/ui-i18n';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { StoreModule as StoreUiModule } from '@fulls1z3/shared/ui-store';
+import { AnalyticsModule } from '@fulls1z3/shared/util-analytics';
+import { configFactory, CoreModule, metaFactory } from '@fulls1z3/shared/util-core';
+import { HttpInterceptorModule } from '@fulls1z3/shared/util-http-interceptor';
+import { I18NModule, translateFactory } from '@fulls1z3/shared/util-i18n';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { ConfigLoader, ConfigService } from '@ngx-config/core';
 import { MetaLoader } from '@ngx-meta/core';
@@ -10,17 +20,14 @@ import { ANGULARTICS2_TOKEN } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
-import { AnalyticsModule } from './framework/analytics';
-import { configFactory, CoreModule, metaFactory, SharedModule } from './framework/core';
-import { HttpInterceptorModule } from './framework/http';
-import { ChangeLanguageComponent, I18NModule, translateFactory } from './framework/i18n';
-import { MaterialModule } from './framework/material';
 import { HeaderComponent } from './layout/header.component';
 import { MainComponent } from './layout/main.component';
 import { LoginComponent } from './login/login.component';
-import { StoreModule } from './store';
+import { SharedModule } from './shared';
 
 export const REQ_KEY = makeStateKey<string>('req');
 
@@ -29,6 +36,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { supp
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app-id' }),
+    ReactiveFormsModule,
     TransferHttpCacheModule,
     RouterModule.forRoot(routes),
     PerfectScrollbarModule,
@@ -45,7 +53,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { supp
       {
         provide: ConfigLoader,
         useFactory: configFactory,
-        deps: [Injector]
+        deps: [HttpClient]
       },
       {
         provide: MetaLoader,
@@ -62,8 +70,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { supp
         deps: [HttpClient]
       }
     ]),
+    I18NUiModule,
     MaterialModule,
-    StoreModule.forRoot()
+    StoreModule.forRoot(),
+    StoreUiModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   declarations: [HeaderComponent, MainComponent, LoginComponent, AppComponent],
   providers: [

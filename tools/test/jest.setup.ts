@@ -1,14 +1,14 @@
-// tslint:disable
 import * as hammerjs from 'hammerjs';
+// tslint:disable-next-line:no-import-side-effect
 import 'jest-preset-angular';
 
 const mock = () => {
   let storage = {};
 
   return {
-    getItem: key => key in storage ? (storage as any)[key] : undefined,
-    setItem: (key, value) => (storage as any)[key] = value || '',
-    removeItem: key => delete (storage as any)[key],
+    getItem: (key: any) => key in storage ? (storage as any)[key] : undefined,
+    setItem: (key: any, value: any) => (storage as any)[key] = value || '',
+    removeItem: (key: any) => delete (storage as any)[key],
     clear: () => storage = {}
   };
 };

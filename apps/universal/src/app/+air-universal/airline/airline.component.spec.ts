@@ -2,19 +2,20 @@ import { inject, TestBed } from '@angular/core/testing';
 import { FlexModule } from '@angular/flex-layout';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AIRLINE, Airline, airlineActions } from '@fulls1z3/shared/store-air-universal';
+import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
+import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
+import { getState, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Store } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
 import { configureTestSuite } from 'ng-bullet';
 
-import { CoreTestingModule } from '../../framework/core/testing';
-import { I18NTestingModule } from '../../framework/i18n/testing';
-import { MaterialModule } from '../../framework/material';
-import { getState, NgrxTestingModule } from '../../framework/ngrx/testing';
-import { RouterTestingModule } from '../../framework/router/testing';
 import { SharedModule } from '../../shared';
+import { CommonModule } from '../../shared/common/common.module';
 import { DataTableModule } from '../../shared/data-table';
-import { AIRLINE, Airline, airlineActions } from '../../store';
-import { MOCK_AIRLINE } from '../../store/testing';
 
 import { AirlineComponent } from './airline.component';
 
@@ -25,9 +26,10 @@ configureTestSuite(() => {
       FlexModule,
       CoreTestingModule,
       I18NTestingModule,
-      NgrxTestingModule,
+      StoreTestingModule,
       MaterialModule,
       DataTableModule,
+      CommonModule,
       SharedModule
     ],
     declarations: [AirlineComponent]

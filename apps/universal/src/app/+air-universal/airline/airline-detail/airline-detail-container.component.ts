@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { State } from '@fulls1z3/shared/store';
+import { Airline, airlineActions, AirlineSelectors } from '@fulls1z3/shared/store-air-universal';
+import { routeAnimation } from '@fulls1z3/shared/ui-base';
+import { BaseContainerComponent } from '@fulls1z3/shared/ui-store';
+import { UniqueId } from '@fulls1z3/shared/util-store';
 import { select, Store } from '@ngrx/store';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,10 +12,7 @@ import { getOr, isNil } from 'lodash/fp';
 import { Observable, of as observableOf, zip } from 'rxjs';
 import { skipWhile, switchMap, takeUntil } from 'rxjs/operators';
 
-import { BaseContainerComponent } from '../../../framework/core';
-import { UniqueId } from '../../../framework/ngrx';
-import { RenderFlag, routeAnimation } from '../../../shared';
-import { Airline, airlineActions, AirlineSelectors, State } from '../../../store';
+import { RenderFlag } from '../../../shared';
 
 @Component({
   templateUrl: './airline-detail-container.component.html',

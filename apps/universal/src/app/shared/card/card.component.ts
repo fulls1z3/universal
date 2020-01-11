@@ -1,7 +1,7 @@
 import { Component, ContentChildren, EventEmitter, Input, QueryList } from '@angular/core';
+import { BaseComponent } from '@fulls1z3/shared/ui-base';
 import { Observable } from 'rxjs';
 
-import { BaseComponent } from '../../framework/core';
 import { MenuGroupComponent } from '../common/components/menu/menu-group.component';
 
 @Component({

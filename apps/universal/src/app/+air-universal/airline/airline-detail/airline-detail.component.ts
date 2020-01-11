@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { BaseComponent } from '../../../framework/core';
-import { UniqueId } from '../../../framework/ngrx';
-import { getOrNil } from '../../../shared';
-import { Airline, initialAirline } from '../../../store';
+import { Airline, initialAirline } from '@fulls1z3/shared/store-air-universal';
+import { BaseComponent } from '@fulls1z3/shared/ui-base';
+import { getOrNil } from '@fulls1z3/shared/util-core';
+import { UniqueId } from '@fulls1z3/shared/util-store';
 
 @Component({
   selector: 'app-airline-detail',
@@ -27,12 +26,12 @@ export class AirlineDetailComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     const resource = getOrNil(initialAirline)(this.airline);
 
-    if (!resource._id) {
+    if (!resource.id) {
       (this.deleteRef as any).disabled = true;
     }
 
     this.airlineForm = this.formBuilder.group({
-      _id: resource._id,
+      id: resource.id,
       iataCode: [
         resource.iataCode,
         {
@@ -51,12 +50,12 @@ export class AirlineDetailComponent extends BaseComponent implements OnInit {
   }
 
   onDeleteClick(callback: EventEmitter<UniqueId>): void {
-    callback.emit(this.airlineForm.get('_id').value);
+    callback.emit(this.airlineForm.get('id').value);
   }
 
   onSaveClick(callback: EventEmitter<Airline>): void {
     const resource = {
-      _id: this.airlineForm.get('_id').value,
+      id: this.airlineForm.get('id').value,
       iataCode: this.airlineForm.get('iataCode').value,
       name: this.airlineForm.get('name').value
     };

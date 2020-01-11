@@ -44,7 +44,7 @@
     <div class="data_table__content ps"
          [ngClass]="options.scrollable ? 'scrollable--' + options.scrollable : ''"
          [perfectScrollbar]>
-        <mat-table #table *ngIf="dataSource" matSort matSortActive="_id" matSortDisableClear matSortDirection="asc" [dataSource]="dataSource">
+        <mat-table #table *ngIf="dataSource" matSort matSortActive="id" matSortDisableClear matSortDirection="asc" [dataSource]="dataSource">
             <ng-container *ngFor="let col of cols; trackBy: trackByFn" [matColumnDef]="getColumnDef(col)">
                 <ng-container *ngIf="!disableSort">
                     <mat-header-cell *matHeaderCellDef mat-sort-header class="table__cell table__cell--header" disableClear="true" fxFlex>

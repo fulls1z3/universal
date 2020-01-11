@@ -1,50 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '@ngx-auth/core';
-import { TranslateService } from '@ngx-translate/core';
-import { from as observableFrom, Observable } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-
-import { BaseComponent } from '../framework/core';
-import { routeAnimation } from '../shared';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { State } from '@fulls1z3/shared/store';
+import { authActions, AuthSelectors } from '@fulls1z3/shared/store-account';
+import { routeAnimation } from '@fulls1z3/shared/ui-base';
+import { BaseContainerComponent } from '@fulls1z3/shared/ui-store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   animations: [routeAnimation]
 })
-export class LoginComponent extends BaseComponent implements OnInit {
-  isProcessing: boolean;
-  username: string;
-  password: string;
-  note$: Observable<string>;
-  error$: Observable<string>;
+export class LoginComponent extends BaseContainerComponent implements OnInit {
+  loginForm: FormGroup;
 
-  constructor(private readonly auth: AuthService, private readonly translate: TranslateService, private readonly router: Router) {
-    super();
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    protected readonly store$: Store<State>
+  ) {
+    super(store$);
+  }
+
+  get isProcessing$(): Observable<boolean> {
+    return this.store$.pipe(select(AuthSelectors.getIsProcessing));
   }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated) {
-      observableFrom(this.router.navigateByUrl(this.auth.defaultUrl))
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe(() => {});
-    }
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   onLoginClick(): void {
-    this.isProcessing = true;
-    this.note$ = this.translate.get('LOGIN.NOTE');
-
-    this.auth
-      .authenticate(this.username, this.password)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(() => {
-        this.isProcessing = false;
-
-        if (!this.auth.isAuthenticated) {
-          this.error$ = this.translate.get('LOGIN.ERROR');
-        }
-      });
+    this.store$.dispatch(
+      authActions.accountLogin({
+        resource: {
+          email: this.loginForm.get('email').value,
+          password: this.loginForm.get('password').value
+        },
+        router: this.router
+      })
+    );
   }
 }

@@ -1,11 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        enforce: 'pre',
-        use: 'tslint-loader'
-      }
-    ]
-  }
+  plugins: [new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-us/)]
 };

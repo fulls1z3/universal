@@ -1,18 +1,17 @@
 ﻿<div class="login mat-elevation-z12">
     <div class="login__header">{{ 'LOGIN.LOG_IN' | translate }}</div>
-    <form #form="ngForm" fxLayout="column" fxLayoutAlign="start stretch" class="login__body" (ngSubmit)="onLoginClick()">
+    <form fxLayout="column" fxLayoutAlign="start stretch" class="login__body" [formGroup]="loginForm">
         <mat-form-field class="form__control">
-            <input matInput required type="text" name="username" [(ngModel)]="username"
+            <input matInput required type="text" formControlName="email" name="email"
                    placeholder="{{ 'LOGIN.USERNAME' | translate }}">
         </mat-form-field>
         <mat-form-field class="form__control">
-            <input matInput required type="password" name="password" [(ngModel)]="password"
+            <input matInput required type="password" formControlName="password" name="password"
                    placeholder="{{ 'LOGIN.PASSWORD' | translate }}">
         </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!form.valid || isProcessing">
+        <button mat-raised-button color="primary" [disabled]="loginForm.invalid || (isProcessing$ | async)" (click)="onLoginClick()">
             {{ 'LOGIN.LOG_IN' | translate }}
         </button>
-        <p *ngIf="note$ && !error$" class="form__message">{{ note$ | async }}</p>
         <p *ngIf="error$" class="form__message--error">{{ error$ | async }}</p>
     </form>
 </div>

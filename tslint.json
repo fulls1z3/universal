@@ -1,13 +1,21 @@
 ﻿{
   "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint"],
   "rules": {
+    "no-unbound-method": [
+      true,
+      {
+        "ignore-static": true,
+        "whitelist": ["expect"],
+        "allow-typeof": true
+      }
+    ],
     "invalid-void": [
       true,
       {
         "allow-generics": ["BehaviorSubject", "EventEmitter", "Observable", "Promise", "Subject"]
       }
     ],
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [true, "dev", ["@fulls1z3"]],
     "ordered-imports": [
       true,
       {
@@ -23,7 +31,13 @@
     "nx-enforce-module-boundaries": [
       true,
       {
-        "allow": [],
+        "allow": [
+          "@fulls1z3/shared/store-air-universal/testing",
+          "@fulls1z3/shared/util-auth/testing",
+          "@fulls1z3/shared/util-core/testing",
+          "@fulls1z3/shared/util-i18n/testing",
+          "@fulls1z3/shared/util-store/testing"
+        ],
         "depConstraints": [
           {
             "sourceTag": "*",

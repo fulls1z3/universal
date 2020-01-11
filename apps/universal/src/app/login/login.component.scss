@@ -16,7 +16,7 @@
 }
 
 .login {
-  @include absolute(50%  null null 50%);
+  @include absolute(50% null null 50%);
   @include size(rem(38));
   @include push(0 auto);
 
@@ -45,9 +45,6 @@
 
   @include el('message') {
     @include push($space--xl 0 0);
-
-    color: c(grey);
-    text-align: center;
 
     @include mod('error') {
       @include push($space--xl 0 0);

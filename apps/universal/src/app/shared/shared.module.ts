@@ -1,11 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from '@fulls1z3/shared/ui-material';
+import { SharedModule as _SharedModule } from '@fulls1z3/shared/util-core';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SharedModule as SharedFrameworkModule } from '../framework/core';
-
-import { CommonModule } from './common/common.module';
-
 @NgModule({
-  exports: [TranslateModule, SharedFrameworkModule, CommonModule]
+  exports: [CommonModule, MaterialModule, _SharedModule, TranslateModule]
 })
 export class SharedModule {}

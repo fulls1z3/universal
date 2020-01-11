@@ -1,4 +1,3 @@
-// tslint:disable
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -73,10 +72,12 @@ import 'core-js/es7/reflect';
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+// tslint:disable-next-line:ordered-imports
 import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 if (process.env.NODE_ENV !== 'production') {
   Error.stackTraceLimit = Infinity;
+  // tslint:disable-next-line:no-require-imports
   require('zone.js/dist/long-stack-trace-zone');
 }
 
