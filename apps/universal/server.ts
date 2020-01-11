@@ -4,7 +4,6 @@ import 'zone.js/dist/zone-node';
 
 // tslint:disable-next-line:ordered-imports
 import { enableProdMode } from '@angular/core';
-import { getOrNil } from '@fulls1z3/shared/util-core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as compression from 'compression';
@@ -19,7 +18,7 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 const server = express();
 server.use(compression());
 
-const PORT = getOrNil(4000)(process.env.PORT);
+const PORT = process.env.PORT ? undefined : 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/apps/universal');
 
 server.engine(
