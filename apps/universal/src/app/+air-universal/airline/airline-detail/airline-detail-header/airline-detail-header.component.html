@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <mat-toolbar-row class="fs-toolbar" fxLayout="row" fxLayoutGap="16px">
+    <div fxLayout="column">
+      <button mat-icon-button [routerLink]="baseRoute" [disabled]="isProcessing">
+        <mat-icon>{{ backIcon }}</mat-icon>
+      </button>
+    </div>
+    <div class="fs-toolbar__title" fxLayout="column">
+      <ng-container [ngSwitch]="isProcessing">
+        <ng-container *ngSwitchCase="true">
+          {{ loading }}
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          {{ title | translate }}
+        </ng-container>
+      </ng-container>
+    </div>
+    <span fxFlex></span>
+    <div fxLayout="column">
+      <button mat-button color="warn" (click)="onDeleteClicked()" [disabled]="isProcessing || isDeleteDisabled">
+        {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.HEADER.DELETE' | translate }}
+      </button>
+    </div>
+    <div fxLayout="column">
+      <button mat-button color="primary" (click)="onSaveClicked()" [disabled]="isProcessing">
+        {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.HEADER.SAVE' | translate }}
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

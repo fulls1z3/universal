@@ -1,9 +1,4 @@
-@import '../../assets/sass/mixin/bem';
-@import '../../assets/sass/layout/card';
-@import '../../assets/sass/layout/page';
-
-@include page_layout;
-@include card_layout;
+@import '~@fulls1z3/shared/ui-material/scss/util/bem';
 
 .card_header {
   @include el('image') {

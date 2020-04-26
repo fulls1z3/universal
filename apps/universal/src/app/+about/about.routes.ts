@@ -1,7 +1,7 @@
-import { AboutApplePearComponent } from './about-apple-pear.component';
-import { AboutBananaComponent } from './about-banana.component';
-import { AboutUsComponent } from './about-us.component';
 import { AboutComponent } from './about.component';
+import { ApplePearComponent } from './apple-pear/apple-pear.component';
+import { BananaComponent } from './banana/banana.component';
+import { UsComponent } from './us/us.component';
 
 export const routes = [
   {
@@ -16,7 +16,7 @@ export const routes = [
   },
   {
     path: 'us/:topicId',
-    component: AboutUsComponent,
+    component: UsComponent,
     data: {
       meta: {
         title: 'ABOUT.ABOUT_US.PAGE_TITLE',
@@ -26,7 +26,7 @@ export const routes = [
   },
   {
     path: 'banana',
-    component: AboutBananaComponent,
+    component: BananaComponent,
     data: {
       meta: {
         title: 'ABOUT.ABOUT_BANANA.PAGE_TITLE',
@@ -36,7 +36,7 @@ export const routes = [
   },
   {
     path: 'apple/:fruitId/pear',
-    component: AboutApplePearComponent,
+    component: ApplePearComponent,
     data: {
       meta: {
         title: 'ABOUT.ABOUT_APPLE_PEAR.PAGE_TITLE',

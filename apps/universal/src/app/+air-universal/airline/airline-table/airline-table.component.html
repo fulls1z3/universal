@@ -1,0 +1,39 @@
+<div>
+  <mat-table class="table" [dataSource]="dataSource" matSortActive="id" matSortDirection="desc" matSort matSortDisableClear fxFlex="100%">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex class="table__cell table__cell--header">
+        {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.ID' | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex class="table__cell">
+        {{ row.id }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="iataCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex class="table__cell table__cell--header">
+        {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.IATA_CODE' | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex class="table__cell">
+        {{ row.iataCode }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex class="table__cell table__cell--header">
+        {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.NAME' | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex class="table__cell">
+        {{ row.name }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef fxFlex class="table__cell table__cell--header"></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex fxLayoutAlign="end center" class="table__cell">
+        <a mat-button color="primary" [routerLink]="[row.id]">
+          {{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.EDIT' | translate }}
+        </a>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns" class="table__row--header"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="table__row"></mat-row>
+  </mat-table>
+</div>
+<mat-paginator [pageSizeOptions]="[15, 30, 50 , 100]"></mat-paginator>

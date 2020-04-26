@@ -19,7 +19,7 @@
               "path": "tools/webpack.config.js",
               "replaceDuplicatePlugins": true,
               "mergeStrategies": {
-                "externals": "prepend"
+                "externals": "append"
               }
             },
             "outputPath": "dist/apps/universal/browser",
@@ -38,8 +38,7 @@
               "apps/universal/src/favicon.ico"
             ],
             "styles": [
-              "apps/universal/src/assets/sass/lib.scss",
-              "apps/universal/src/assets/sass/styles.scss",
+              "apps/universal/src/styles.scss",
               "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
             ]
           },

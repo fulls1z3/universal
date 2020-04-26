@@ -1,6 +1,6 @@
 import { RenderFlag } from '../shared';
 
-import { AirlineDetailContainerComponent } from './airline/airline-detail/airline-detail-container.component';
+import { AirlineDetailComponent } from './airline/airline-detail/airline-detail.component';
 import { AirlineComponent } from './airline/airline.component';
 
 export const routes = [
@@ -22,7 +22,7 @@ export const routes = [
           },
           {
             path: 'create',
-            component: AirlineDetailContainerComponent,
+            component: AirlineDetailComponent,
             data: {
               renderFlag: RenderFlag.Create,
               meta: {
@@ -33,7 +33,7 @@ export const routes = [
           },
           {
             path: ':id',
-            component: AirlineDetailContainerComponent,
+            component: AirlineDetailComponent,
             data: {
               renderFlag: RenderFlag.Update,
               meta: {

@@ -1,7 +1,6 @@
-import { inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { FlexModule } from '@angular/flex-layout';
-import { By } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AIRLINE, Airline, airlineActions } from '@fulls1z3/shared/store-air-universal';
 import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
@@ -14,25 +13,25 @@ import { cold } from 'jasmine-marbles';
 import { configureTestSuite } from 'ng-bullet';
 
 import { SharedModule } from '../../shared';
-import { CommonModule } from '../../shared/common/common.module';
-import { DataTableModule } from '../../shared/data-table';
 
+import { AirlineHeaderComponent } from './airline-header/airline-header.component';
+import { AirlineTableComponent } from './airline-table/airline-table.component';
 import { AirlineComponent } from './airline.component';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
     imports: [
-      RouterTestingModule,
       FlexModule,
+      ReactiveFormsModule,
+      RouterTestingModule,
+      MaterialModule,
       CoreTestingModule,
       I18NTestingModule,
       StoreTestingModule,
       MaterialModule,
-      DataTableModule,
-      CommonModule,
       SharedModule
     ],
-    declarations: [AirlineComponent]
+    declarations: [AirlineHeaderComponent, AirlineTableComponent, AirlineComponent]
   });
 });
 
@@ -68,38 +67,5 @@ describe('AirlineComponent', () => {
 
     expect(spy).toHaveBeenCalledWith(action);
     expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  test(
-    'should navigate to `create` on create button click',
-    inject([Router], (router: Router) => {
-      const fixture = TestBed.createComponent(AirlineComponent);
-      const instance = fixture.componentInstance;
-      const spy = spyOn(router, 'navigate');
-      fixture.detectChanges();
-
-      const menu = fixture.debugElement.query(By.css('.qa-menu'));
-      menu.triggerEventHandler('click', {});
-      const createButton = fixture.debugElement.query(By.css('.qa-menu_item__create'));
-      createButton.triggerEventHandler('click', {});
-
-      expect(spy).toHaveBeenCalledWith([...instance.baseRoute, 'create']);
-      expect(spy).toHaveBeenCalledTimes(1);
-    })
-  );
-
-  test('should dispatch `airUniversalGetManyAirlines` action on refresh button click', () => {
-    const fixture = TestBed.createComponent(AirlineComponent);
-    const store$ = fixture.debugElement.injector.get(Store);
-    const spy = spyOn(store$, 'dispatch');
-    fixture.detectChanges();
-
-    const refreshButton = fixture.debugElement.query(By.css('button.qa-toolbar__refresh'));
-    refreshButton.triggerEventHandler('click', {});
-
-    const action = airlineActions.airUniversalGetManyAirlines();
-
-    expect(spy).toHaveBeenCalledWith(action);
-    expect(spy).toHaveBeenCalledTimes(2);
   });
 });

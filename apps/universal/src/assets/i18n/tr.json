@@ -7,23 +7,6 @@
       "ERROR": "Error:"
     }
   },
-  "SHARED": {
-    "ACTION": {
-      "TOOLTIP": "Hareketler",
-      "EDIT": "Düzenle",
-      "DELETE": "Sil",
-      "SAVE": "Kaydet"
-    },
-    "WIDGET": {
-      "REFRESH_TOOLTIP": "Yenile"
-    },
-    "DATA_TABLE": {
-      "FILTER": "Sonuçları filtele"
-    },
-    "TAB": {
-      "TAB_GENERAL": "Genel"
-    }
-  },
   "LOGIN": {
     "PAGE_TITLE": "Giriş yap",
     "META_DESCRIPTION": "",
@@ -45,14 +28,23 @@
       "MENU_TITLE": "Havayolları",
       "PAGE_TITLE": "Havayolları",
       "META_DESCRIPTION": "Air Universal havalimanında mahsur kalmanızı temin eder",
+      "HEADER": {
+        "FILTER": "Havayollarını filtrele",
+        "CREATE": "Yeni"
+      },
       "AIRLINE_TABLE": {
         "TITLE": "Havayolları",
-        "ID_COL_TITLE": "ID",
-        "IATA_CODE_COL_TITLE": "IATA kodu",
-        "NAME_COL_TITLE": "Havayolu adı",
-        "CREATE": "Yeni bir havayolu oluştur"
+        "ID": "ID",
+        "IATA_CODE": "IATA kodu",
+        "NAME": "Havayolu adı",
+        "EDIT": "Düzenle"
       },
       "AIRLINE_DETAIL": {
+        "HEADER": {
+          "NEW": "Yeni havayolu",
+          "DELETE": "Sil",
+          "SAVE": "Kaydet"
+        },
         "MENU_TITLE": "Havayolları",
         "PAGE_TITLE": "Havayolları",
         "IATA_CODE": "IATA kodu",
