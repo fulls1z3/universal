@@ -28,6 +28,10 @@ export class AirlineDetailComponent extends BaseContainerComponent implements On
     return this.store$.pipe(select(AirlineSelectors.getIsProcessing));
   };
 
+  get renderFlag$(): Observable<RenderFlag> {
+    return this.route.data.pipe(map(data => data.renderFlag));
+  }
+
   get airline$(): Observable<Airline> {
     return this.store$.pipe(select(AirlineSelectors.getSelected));
   }
@@ -42,10 +46,6 @@ export class AirlineDetailComponent extends BaseContainerComponent implements On
   get baseRoute(): Array<string> {
     return ['/', 'air-universal', 'airlines'];
   };
-
-  private get renderFlag$(): Observable<RenderFlag> {
-    return this.route.data.pipe(map(data => data.renderFlag));
-  }
 
   constructor(
     private readonly cdr: ChangeDetectorRef,

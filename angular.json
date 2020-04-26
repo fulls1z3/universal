@@ -85,6 +85,13 @@
         "server": {
           "builder": "@angular-builders/custom-webpack:server",
           "options": {
+            "customWebpackConfig": {
+              "path": "tools/webpack.config.js",
+              "replaceDuplicatePlugins": true,
+              "mergeStrategies": {
+                "externals": "append"
+              }
+            },
             "outputPath": "dist/apps/universal/server",
             "main": "apps/universal/src/main-server.ts",
             "tsConfig": "apps/universal/tsconfig.server.json",
