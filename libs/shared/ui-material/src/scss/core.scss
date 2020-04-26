@@ -1,0 +1,24 @@
+// Angular Material and Custom Material theming
+@import '~@angular/material/theming';
+@import 'theming';
+
+// Angular Material styles
+@include mat-core();
+
+// util & base styles
+@import 'util/bem';
+@import 'util/theme';
+@import 'util/smoothing';
+@import 'util/spacing';
+@import 'base/reset';
+@import 'base/root';
+@import 'base/material.hack';
+
+// Custom Material layout
+@import 'layout/content';
+@import 'layout/primary-header';
+@import 'layout/secondary-header';
+
+// Custom Material UI elements
+@import 'ui-element/progress-bar';
+@import 'ui-element/table';

@@ -1,0 +1,5 @@
+@import '../util/spacing';
+
+.fs-content {
+  @include push($space--xl);
+}

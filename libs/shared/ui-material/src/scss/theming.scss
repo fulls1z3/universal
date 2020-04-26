@@ -1,0 +1,67 @@
+// default theme
+$fs-grey: (
+  100: rgba(244, 244, 244, 1),
+  200: rgba(234, 234, 234, 1),
+  300: rgba(216, 216, 216, 1),
+  500: rgba(137, 141, 144, 1),
+  800: rgba(14, 25, 26, 1),
+  contrast: (
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $dark-primary-text,
+    800: $light-primary-text
+  )
+);
+
+$fs-text: (
+  500: rgba(12, 33, 38, 1),
+  contrast: (
+    500: $light-primary-text
+  )
+);
+
+$fs-warn: (
+  400: rgba(250, 199, 122, 1),
+  500: rgba(254, 127, 91, 1),
+  contrast: (
+    400: $light-primary-text,
+    500: $light-primary-text
+  )
+);
+
+// applying theme and typography
+$primary: mat-palette($mat-blue-grey, 800);
+$accent: mat-palette($mat-yellow, 400);
+$warn: mat-palette($fs-warn);
+
+//noinspection Stylelint
+$theme: map-merge(
+  mat-light-theme($primary, $accent, $warn),
+  (
+    background:
+      map-merge(
+        $mat-light-theme-background,
+        (
+          background: rgba(whitesmoke, 1)
+        )
+      ),
+    foreground:
+      map-merge(
+        $mat-light-theme-foreground,
+        (
+          text: map-get($fs-text, 500)
+        )
+      ),
+    grey: $fs-grey
+  )
+);
+
+@mixin custom-material-theme($_theme) {
+  @include base-theme($_theme);
+
+  @include navbar-theme($_theme);
+  @include toolbar-theme($_theme);
+
+  @include table-theme($_theme);
+}

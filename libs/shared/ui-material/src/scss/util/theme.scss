@@ -1,0 +1,13 @@
+@mixin base-theme($_theme) {
+  $foreground: map-get($_theme, foreground);
+  $background: map-get($_theme, background);
+
+  body {
+    background-color: map-get($background, background);
+    color: map-get($foreground, text);
+  }
+
+  app-root {
+    background-color: map-get($background, background);
+  }
+}

@@ -1,0 +1,4 @@
+// hack: set `minimum height` of toolbars to zero
+.mat-toolbar-multiple-rows {
+  min-height: 0 !important;
+}

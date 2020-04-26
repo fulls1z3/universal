@@ -1,0 +1,53 @@
+@mixin navbar-theme($_theme) {
+  $foreground: map-get($_theme, foreground);
+
+  .fs-navbar {
+    background-color: mat-color($accent, 700);
+    color: mat-contrast($accent, 700);
+
+    @include el('link') {
+      color: mat-contrast($accent, 700);
+
+      &.active {
+        border-bottom-color: mat-contrast($accent, 700);
+      }
+    }
+  }
+}
+
+.fs-navbar {
+  @include soft($space--lg $space--xl !important);
+
+  height: #{7 * $space} !important;
+
+  @include el('brand') {
+    @include soft(0 $space--lg 0 $space--3xl);
+
+    background-repeat: no-repeat;
+    line-height: $space--xl;
+  }
+
+  @include el('logo') {
+    vertical-align: middle;
+  }
+
+  @include el('link') {
+    @include soft(0 $space--xl);
+
+    display: flex;
+    align-items: center;
+    height: $space--3xl;
+    text-decoration: none !important;
+
+    &:last-child {
+      @include soft(0 0 0 $space--xl);
+    }
+
+    &.is-active {
+      $border-width: 2px;
+
+      border-top: $border-width solid transparent;
+      border-bottom: $border-width solid;
+    }
+  }
+}

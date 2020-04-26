@@ -1,18 +1,20 @@
-<div fxLayoutAlign="center" [@routeAnimation]>
-    <div *ngIf="error$ | async">
-      {{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}
-    </div>
-    <app-data-table [isProcessing]="isProcessing$ | async"
-                    [data]="airlines$"
-                    [cols]="airlineTable.cols"
-                    [filterCol]="airlineTable.filterCol"
-                    [buttons]="airlineTable.buttons"
-                    [options]="airlineTable.options"
-                    (refreshClick)="onRefreshClick()">
-        <app-menu-group cssClass="qa-menu" icon="more_vert" tooltip="SHARED.ACTION.TOOLTIP">
-            <app-menu-item cssClass="qa-menu_item__create" icon="add" text="{{ 'AIR_UNIVERSAL.AIRLINE.AIRLINE_TABLE.CREATE' | translate }}"
-                           (menuClick)="onCreateClick()">
-            </app-menu-item>
-        </app-menu-group>
-    </app-data-table>
+<div [@routeAnimation]>
+  <mat-progress-bar *ngIf="isProcessing$ | async"
+                    class="progress-bar"
+                    mode="indeterminate"
+                    color="accent">
+  </mat-progress-bar>
+  <fs-airline-header (filterChange)="filterChange($event)"
+                     (createClick)="createClick()">
+  </fs-airline-header>
+  <div *ngIf="error$ | async">
+    {{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}
+  </div>
+  <div fxLayout="column" fxLayoutAlign="stretch">
+    <fs-airline-table *ngIf="(isProcessing$ | async) === false"
+                      class="fs-content"
+                      [data]="airlines$ | async"
+                      [filter]="filter$ | async">
+    </fs-airline-table>
+  </div>
 </div>

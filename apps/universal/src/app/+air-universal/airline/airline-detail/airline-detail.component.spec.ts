@@ -1,22 +1,38 @@
 import { TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AIRLINE, Airline, airlineActions } from '@fulls1z3/shared/store-air-universal';
 import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
 import { MaterialModule } from '@fulls1z3/shared/ui-material';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { EMPTY_UNIQUE_ID } from '@fulls1z3/shared/util-store';
+import { getState, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { Store } from '@ngrx/store';
+import { cold } from 'jasmine-marbles';
 import { of as observableOf } from 'rxjs';
 
 import { RenderFlag, SharedModule } from '../../../shared';
-import { CardModule } from '../../../shared/card';
+import { FalsyModule } from '../../../shared/falsy/falsy.module';
 
+import { AirlineDetailFormComponent } from './airline-detail-form/airline-detail-form.component';
+import { AirlineDetailHeaderComponent } from './airline-detail-header/airline-detail-header.component';
 import { AirlineDetailComponent } from './airline-detail.component';
 
 const testModuleConfig = (renderFlag = RenderFlag.Create) => {
   TestBed.configureTestingModule({
-    imports: [ReactiveFormsModule, CoreTestingModule, I18NTestingModule, MaterialModule, CardModule, SharedModule],
+    imports: [
+      ReactiveFormsModule,
+      RouterTestingModule,
+      MaterialModule,
+      CoreTestingModule,
+      I18NTestingModule,
+      StoreTestingModule,
+      MaterialModule,
+      SharedModule,
+      FalsyModule
+    ],
     providers: [
       {
         provide: ActivatedRoute,
@@ -33,7 +49,7 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
         }
       }
     ],
-    declarations: [AirlineDetailComponent]
+    declarations: [AirlineDetailFormComponent, AirlineDetailHeaderComponent, AirlineDetailComponent]
   });
 };
 
@@ -50,41 +66,46 @@ describe('AirlineDetailComponent', () => {
     expect(instance).toBeTruthy();
   });
 
-  test('should emit `saveClick` on save button click', () => {
+  test('should `getSelected` from AirlineSelectors on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const instance = fixture.componentInstance;
-    const spy = spyOn(instance.saveClick, 'emit');
+    const store$ = TestBed.get(Store);
+    const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
+    store$.setState(state);
     fixture.detectChanges();
 
-    const saveButton = fixture.debugElement.query(By.css('button.qa-form__button--save'));
-    saveButton.triggerEventHandler('click', {});
+    const actual = fixture.componentInstance.airline$;
+    const expected = cold('a', { a: MOCK_AIRLINE });
 
-    expect(spy).toHaveBeenCalled();
+    expect(actual).toBeObservable(expected);
+  });
+
+  test('should dispatch `airUniversalAddOneAirline` action on init', () => {
+    const fixture = TestBed.createComponent(AirlineDetailComponent);
+    const store$ = TestBed.get(Store);
+    const spy = spyOn(store$, 'dispatch');
+    fixture.detectChanges();
+
+    const action = airlineActions.airUniversalAddOneAirline();
+
+    expect(spy).toHaveBeenCalledWith(action);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });
 
-describe('airline-detail: AirlineDetailComponent for renderFlag=`Update`', () => {
+describe('AirlineDetailComponent for renderFlag=`Update`', () => {
   beforeEach(() => {
     testModuleConfig(RenderFlag.Update);
   });
 
-  test('should build without a problem', () => {
+  test('should dispatch `airUniversalGetOneAirline` action on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const instance = fixture.componentInstance;
+    const store$ = TestBed.get(Store);
+    const spy = spyOn(store$, 'dispatch');
     fixture.detectChanges();
 
-    expect(instance).toBeTruthy();
-  });
+    const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
 
-  test('should emit `deleteClick` on delete button click', () => {
-    const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const instance = fixture.componentInstance;
-    const spy = spyOn(instance.deleteClick, 'emit');
-    fixture.detectChanges();
-
-    const deleteButton = fixture.debugElement.query(By.css('button.qa-form__button--delete'));
-    deleteButton.triggerEventHandler('click', {});
-
-    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledWith(action);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

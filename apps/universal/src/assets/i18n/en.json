@@ -7,23 +7,6 @@
       "ERROR": "Error:"
     }
   },
-  "SHARED": {
-    "ACTION": {
-      "TOOLTIP": "Actions",
-      "EDIT": "Edit",
-      "DELETE": "Delete",
-      "SAVE": "Save"
-    },
-    "WIDGET": {
-      "REFRESH_TOOLTIP": "Refresh"
-    },
-    "DATA_TABLE": {
-      "FILTER": "Filter results"
-    },
-    "TAB": {
-      "TAB_GENERAL": "General"
-    }
-  },
   "LOGIN": {
     "PAGE_TITLE": "Log in",
     "META_DESCRIPTION": "",
@@ -45,14 +28,23 @@
       "MENU_TITLE": "Airlines",
       "PAGE_TITLE": "Airlines",
       "META_DESCRIPTION": "Air Universal havalimanında mahsur kalmanızı temin eder",
+      "HEADER": {
+        "FILTER": "Filter airlines",
+        "CREATE": "Create"
+      },
       "AIRLINE_TABLE": {
         "TITLE": "Airlines",
-        "ID_COL_TITLE": "ID",
-        "IATA_CODE_COL_TITLE": "IATA code",
-        "NAME_COL_TITLE": "Airline name",
-        "CREATE": "Create a new airline"
+        "ID": "ID",
+        "IATA_CODE": "IATA code",
+        "NAME": "Airline name",
+        "EDIT": "Edit"
       },
       "AIRLINE_DETAIL": {
+        "HEADER": {
+          "NEW": "New airline",
+          "DELETE": "Delete",
+          "SAVE": "Save"
+        },
         "MENU_TITLE": "Airlines",
         "PAGE_TITLE": "Airlines",
         "IATA_CODE": "IATA code",

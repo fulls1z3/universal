@@ -1,0 +1,72 @@
+$padding: $space;
+$typo_config: mat-typography-config();
+
+@mixin table-theme($_theme) {
+  $foreground: map-get($_theme, foreground);
+  $primary: map-get($_theme, primary);
+  $grey: map-get($_theme, grey);
+
+  $border_color: mat-color($grey, 200);
+  $background_color--accent: rgba(mat-color($grey, 200), 0.3);
+  $background_color--hover: rgba(mat-color($grey, 200), 0.7);
+  $background_color--highlight: rgba(250, 250, 210, 1);
+
+  .table {
+    @extend %flush;
+
+    @include el('row') {
+      border-bottom: 0;
+
+      &:nth-child(odd) {
+        background: $background_color--accent;
+      }
+
+      &:hover {
+        background: $background_color--hover;
+      }
+
+      &:hover {
+        background-color: $background_color--hover;
+      }
+
+      @include mod('header') {
+        border-bottom: 1px solid $border_color;
+      }
+    }
+
+    @include el('cell') {
+      @include mod('header') {
+        color: mat-color($grey, 500);
+      }
+
+      @include mod('has-action') {
+        color: $dark-secondary-text;
+      }
+    }
+  }
+}
+
+.table {
+  @extend %flush;
+
+  @include el('row') {
+    @include soft($space--xs $padding);
+
+    @include mod('header') {
+      @include soft--sides(#{0.75 * $space});
+    }
+  }
+
+  @include el('cell') {
+    @include mod('header') {
+      font-family: mat-font-family($typo_config);
+      font-weight: mat-font-weight($typo_config, caption);
+      font-size: mat-font-size($typo_config, caption);
+      line-height: mat-line-height($typo_config, caption);
+    }
+
+    @include mod('has-action') {
+      padding-left: 12px !important;
+    }
+  }
+}

@@ -24,7 +24,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
-import { HeaderComponent } from './layout/header.component';
+import { HeaderComponent } from './layout/header/header.component';
 import { MainComponent } from './layout/main.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared';

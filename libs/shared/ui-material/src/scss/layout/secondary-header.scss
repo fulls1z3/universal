@@ -1,0 +1,26 @@
+$typo_config: mat-typography-config();
+
+@mixin toolbar-theme($_theme) {
+  $grey: map-get($_theme, grey);
+
+  .fs-toolbar {
+    background: mat-contrast($primary, 500);
+    color: rgba(mat-color($grey, 500), 0.7);
+
+    @include el('title') {
+      color: mat-color($grey, 500);
+    }
+  }
+}
+
+.fs-toolbar {
+  height: #{$space--4xl} !important;
+
+  @include el('title') {
+    font-size: mat-font-size($typo_config, title);
+  }
+
+  @include el('filter') {
+    font-size: mat-font-size($typo_config, subheading-1);
+  }
+}
