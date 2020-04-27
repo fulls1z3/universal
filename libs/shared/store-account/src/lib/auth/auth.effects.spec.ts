@@ -7,7 +7,7 @@ import { AuthTestingModule } from '@fulls1z3/shared/util-auth/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
-import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
 import { AuthService } from '@ngx-auth/core';
 import { TranslateModule } from '@ngx-translate/core';
@@ -55,14 +55,13 @@ describe('AuthEffects', () => {
         resource: {
           email: 'abc@xyz.com',
           password: '123456'
-        },
-        router
+        }
       });
       const completion = authActions.accountLoginSuccess(true);
 
       spyOn(router, 'navigateByUrl');
 
-      const actions$ = TestBed.get(Actions);
+      const actions$ = TestBed.inject(Actions);
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
@@ -73,7 +72,7 @@ describe('AuthEffects', () => {
       const action = authActions.accountLogin(undefined);
       const completion = authActions.accountLoginFail(ERROR__NO_PAYLOAD.message);
 
-      const actions$ = TestBed.get(Actions);
+      const actions$ = TestBed.inject(Actions);
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
@@ -90,7 +89,7 @@ describe('AuthEffects', () => {
 
         spyOn(router, 'navigateByUrl');
 
-        const actions$ = TestBed.get(Actions);
+        const actions$ = TestBed.inject(Actions);
         actions$.stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 

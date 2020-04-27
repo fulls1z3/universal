@@ -1,4 +1,4 @@
-import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule } from '@angular/core';
+import { APP_BOOTSTRAP_LISTENER, ApplicationRef, NgModule, PLATFORM_ID } from '@angular/core';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
@@ -24,7 +24,8 @@ import { AppModule, REQ_KEY } from './app.module';
     ServerCacheModule.forRoot([
       {
         provide: CACHE,
-        useClass: FsCacheService
+        useClass: FsCacheService,
+        deps: [PLATFORM_ID]
       },
       {
         provide: STORAGE,

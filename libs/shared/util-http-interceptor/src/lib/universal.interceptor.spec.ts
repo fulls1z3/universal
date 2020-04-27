@@ -17,7 +17,7 @@ const MOCK_REQUEST: any = {
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, CoreTestingModule.withOptions()],
+    imports: [HttpClientTestingModule, CoreTestingModule],
     providers: [
       {
         provide: MockService,

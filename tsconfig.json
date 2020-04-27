@@ -1,18 +1,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
+    "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "baseUrl": ".",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
     "paths": {
       "@fulls1z3/shared/store": ["libs/shared/store/src/index.ts"],
       "@fulls1z3/shared/store-account": ["libs/shared/store-account/src/index.ts"],
@@ -33,6 +35,9 @@
       "@fulls1z3/shared/util-store": ["libs/shared/util-store/src/index.ts"],
       "@fulls1z3/shared/util-store/testing": ["libs/shared/util-store/src/testing.ts"],
       "@fulls1z3/shared/util-testing": ["libs/shared/util-testing/src/index.ts"]
-    }
-  }
+    },
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "exclude": ["node_modules", "tmp"]
 }

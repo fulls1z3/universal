@@ -7,7 +7,7 @@ import { MOCK_AIRLINE } from '@fulls1z3/shared/store-air-universal/testing';
 import { MaterialModule } from '@fulls1z3/shared/ui-material';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
-import { getState, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { getState, MockStore, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Store } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
 import { configureTestSuite } from 'ng-bullet';
@@ -46,9 +46,9 @@ describe('AirlineComponent', () => {
 
   test('should `getMany` from AirlineSelectors on init', () => {
     const fixture = TestBed.createComponent(AirlineComponent);
-    const store$ = TestBed.get(Store);
+    const store$ = TestBed.inject(Store);
     const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
-    store$.setState(state);
+    (store$ as MockStore<{}>).setState(state);
     fixture.detectChanges();
 
     const actual = fixture.componentInstance.airlines$;

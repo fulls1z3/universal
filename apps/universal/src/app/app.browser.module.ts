@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID } from '@angular/core';
 import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthTestingModule } from '@fulls1z3/shared/util-auth/testing';
@@ -19,7 +19,8 @@ import { AppModule, REQ_KEY } from './app.module';
     BrowserCacheModule.forRoot([
       {
         provide: CACHE,
-        useClass: MemoryCacheService
+        useClass: MemoryCacheService,
+        deps: [PLATFORM_ID]
       }
     ]),
     AuthModule.forRoot(),

@@ -8,7 +8,7 @@ import { MaterialModule } from '@fulls1z3/shared/ui-material';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { EMPTY_UNIQUE_ID } from '@fulls1z3/shared/util-store';
-import { getState, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { getState, MockStore, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Store } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
 import { of as observableOf } from 'rxjs';
@@ -68,9 +68,9 @@ describe('AirlineDetailComponent', () => {
 
   test('should `getSelected` from AirlineSelectors on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const store$ = TestBed.get(Store);
+    const store$ = TestBed.inject(Store);
     const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
-    store$.setState(state);
+    (store$ as MockStore<{}>).setState(state);
     fixture.detectChanges();
 
     const actual = fixture.componentInstance.airline$;
@@ -81,7 +81,7 @@ describe('AirlineDetailComponent', () => {
 
   test('should dispatch `airUniversalAddOneAirline` action on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const store$ = TestBed.get(Store);
+    const store$ = TestBed.inject(Store);
     const spy = spyOn(store$, 'dispatch');
     fixture.detectChanges();
 
@@ -99,7 +99,7 @@ describe('AirlineDetailComponent for renderFlag=`Update`', () => {
 
   test('should dispatch `airUniversalGetOneAirline` action on init', () => {
     const fixture = TestBed.createComponent(AirlineDetailComponent);
-    const store$ = TestBed.get(Store);
+    const store$ = TestBed.inject(Store);
     const spy = spyOn(store$, 'dispatch');
     fixture.detectChanges();
 

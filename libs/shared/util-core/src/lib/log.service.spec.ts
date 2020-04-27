@@ -48,7 +48,7 @@ describe('LogService', () => {
   test('is defined', () => {
     testModuleConfig(0);
 
-    const log = TestBed.get(LogService);
+    const log = TestBed.inject(LogService);
 
     expect(log).toBeDefined();
     expect(log.debug).toBeDefined();
@@ -60,8 +60,8 @@ describe('LogService', () => {
   test('should not log anything by default', () => {
     testModuleConfig(0);
 
-    const config = TestBed.get(ConfigService);
-    const log = TestBed.get(LogService);
+    const config = TestBed.inject(ConfigService);
+    const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       log.debug('debug');
@@ -87,8 +87,8 @@ describe('LogService', () => {
   test('should log everything w/debug log level', () => {
     testModuleConfig(LogLevel.Debug);
 
-    const config = TestBed.get(ConfigService);
-    const log = TestBed.get(LogService);
+    const config = TestBed.inject(ConfigService);
+    const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       // should allow this level
@@ -116,8 +116,8 @@ describe('LogService', () => {
   test('should log `error`, `warn`, `info` w/error log level', () => {
     testModuleConfig(LogLevel.Error);
 
-    const config = TestBed.get(ConfigService);
-    const log = TestBed.get(LogService);
+    const config = TestBed.inject(ConfigService);
+    const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       // never allows upper levels
@@ -146,8 +146,8 @@ describe('LogService', () => {
   test('should log `warn`, `info` w/warn log level', () => {
     testModuleConfig(LogLevel.Warn);
 
-    const config = TestBed.get(ConfigService);
-    const log = TestBed.get(LogService);
+    const config = TestBed.inject(ConfigService);
+    const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       // never allows upper levels
@@ -176,8 +176,8 @@ describe('LogService', () => {
   test('should log `info` w/info log level', () => {
     testModuleConfig(LogLevel.Info);
 
-    const config = TestBed.get(ConfigService);
-    const log = TestBed.get(LogService);
+    const config = TestBed.inject(ConfigService);
+    const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       // never allows upper levels

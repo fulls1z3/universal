@@ -4,7 +4,7 @@ import { AnalyticsModule } from '@fulls1z3/shared/util-analytics';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NService } from '@fulls1z3/shared/util-i18n';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
-import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
 import { ConfigService } from '@ngx-config/core';
 import { cold, hot } from 'jasmine-marbles';
@@ -36,7 +36,7 @@ describe('LanguageEffects', () => {
       const action = languageActions.i18nInitLanguage(settings);
       const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
 
-      const actions$ = TestBed.get(Actions);
+      const actions$ = TestBed.inject(Actions);
       actions$.stream = hot('-a', { a: action });
 
       const actual = effects.init$;
@@ -53,7 +53,7 @@ describe('LanguageEffects', () => {
       const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
       const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
 
-      const actions$ = TestBed.get(Actions);
+      const actions$ = TestBed.inject(Actions);
       actions$.stream = hot('-a', { a: action });
 
       const actual = effects.use$;
@@ -76,7 +76,7 @@ describe('LanguageEffects', () => {
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
-        const actions$ = TestBed.get(Actions);
+        const actions$ = TestBed.inject(Actions);
         actions$.stream = hot('-a', { a: action });
 
         const actual = effects.use$;
@@ -99,7 +99,7 @@ describe('LanguageEffects', () => {
         const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
-        const actions$ = TestBed.get(Actions);
+        const actions$ = TestBed.inject(Actions);
         actions$.stream = hot('-a', { a: action });
 
         const actual = effects.use$;

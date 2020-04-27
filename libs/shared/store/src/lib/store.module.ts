@@ -9,7 +9,7 @@ import { StoreModule as NgrxStoreModule } from '@ngrx/store';
   imports: [AccountStoreModule, AirUniversalStoreModule, I18NStoreModule, EffectsModule.forRoot([]), NgrxStoreModule.forRoot({})]
 })
 export class StoreModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<StoreModule> {
     return {
       ngModule: StoreModule
     };

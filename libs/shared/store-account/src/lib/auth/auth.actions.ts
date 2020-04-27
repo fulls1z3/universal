@@ -1,14 +1,13 @@
-import { Router } from '@angular/router';
 import { ofType, unionize, UnionOf } from 'unionize';
 
 import { Auth } from './auth.model';
 
 export const authActions = unionize(
   {
-    accountLogin: ofType<{ resource: Auth; router: Router }>(),
+    accountLogin: ofType<{ resource: Auth }>(),
     accountLoginSuccess: ofType<{}>(),
     accountLoginFail: ofType<string>(),
-    accountLogout: ofType<{ router?: Router }>(),
+    accountLogout: ofType<{}>(),
     accountLogoutSuccess: {}
   },
   {
