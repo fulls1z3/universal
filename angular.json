@@ -27,7 +27,7 @@
             "main": "apps/universal/src/main-browser.ts",
             "polyfills": "apps/universal/src/polyfills.ts",
             "tsConfig": "apps/universal/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               {
                 "glob": "**/*",

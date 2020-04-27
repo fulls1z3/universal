@@ -1,9 +1,0 @@
-@import '../mixin/positioning';
-
-app-root {
-  @include absolute(0);
-}
-
-app-main {
-  height: 100%;
-}
