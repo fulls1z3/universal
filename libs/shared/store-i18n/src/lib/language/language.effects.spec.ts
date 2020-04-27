@@ -37,8 +37,8 @@ describe('LanguageEffects', () => {
       const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
 
       const actions$ = TestBed.inject(Actions);
-      // prettier-ignore
-      (actions$).stream = hot('-a', { a: action });
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
 
       const actual = effects.init$;
       const expected = cold('-c', { c: completion });
@@ -55,8 +55,8 @@ describe('LanguageEffects', () => {
       const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
 
       const actions$ = TestBed.inject(Actions);
-      // prettier-ignore
-      (actions$).stream = hot('-a', { a: action });
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
 
       const actual = effects.use$;
       const expected = cold('-c', { c: completion });
@@ -79,8 +79,8 @@ describe('LanguageEffects', () => {
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
         const actions$ = TestBed.inject(Actions);
-        // prettier-ignore
-        (actions$).stream = hot('-a', { a: action });
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
@@ -103,8 +103,8 @@ describe('LanguageEffects', () => {
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
         const actions$ = TestBed.inject(Actions);
-        // prettier-ignore
-        (actions$).stream = hot('-a', { a: action });
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
