@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@fulls1z3/shared/store';
-import { ChangeLanguageComponent, I18NModule as I18NUiModule } from '@fulls1z3/shared/ui-i18n';
+import { I18NModule as I18NUiModule } from '@fulls1z3/shared/ui-i18n';
 import { MaterialModule } from '@fulls1z3/shared/ui-material';
 import { StoreModule as StoreUiModule } from '@fulls1z3/shared/ui-store';
 import { AnalyticsModule } from '@fulls1z3/shared/util-analytics';
@@ -84,7 +84,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { supp
     }
   ],
   exports: [AppComponent],
-  entryComponents: [ChangeLanguageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

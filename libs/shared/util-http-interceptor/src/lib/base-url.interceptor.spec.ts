@@ -13,7 +13,7 @@ const MOCK_BASE_SERVER_URL = 'http://localhost:4000';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, CoreTestingModule.withOptions()],
+    imports: [HttpClientTestingModule, CoreTestingModule],
     providers: [
       {
         provide: MockService,

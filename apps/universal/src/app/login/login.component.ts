@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { State } from '@fulls1z3/shared/store';
 import { authActions, AuthSelectors } from '@fulls1z3/shared/store-account';
 import { routeAnimation } from '@fulls1z3/shared/ui-base';
@@ -16,12 +16,7 @@ import { Observable } from 'rxjs';
 export class LoginComponent extends BaseContainerComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(
-    private readonly formBuilder: FormBuilder,
-    private readonly route: ActivatedRoute,
-    private readonly router: Router,
-    protected readonly store$: Store<State>
-  ) {
+  constructor(private readonly formBuilder: FormBuilder, private readonly router: Router, protected readonly store$: Store<State>) {
     super(store$);
   }
 
@@ -42,8 +37,7 @@ export class LoginComponent extends BaseContainerComponent implements OnInit {
         resource: {
           email: this.loginForm.get('email').value,
           password: this.loginForm.get('password').value
-        },
-        router: this.router
+        }
       })
     );
   }

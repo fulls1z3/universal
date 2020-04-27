@@ -14,7 +14,7 @@ export const ANALYTICS_PROVIDERS: Array<any> = [Angulartics2, AnalyticsService];
   providers: [ANALYTICS_PROVIDERS]
 })
 export class AnalyticsModule {
-  static forRoot(configuredProviders: Array<any>): ModuleWithProviders {
+  static forRoot(configuredProviders: Array<any>): ModuleWithProviders<AnalyticsModule> {
     return {
       ngModule: AnalyticsModule,
       providers: configuredProviders

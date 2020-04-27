@@ -21,19 +21,19 @@ export const routes = [
     children: [
       {
         path: '',
-        loadChildren: './+home/home.module#HomeModule'
+        loadChildren: () => import('./+home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'about',
-        loadChildren: './+about/about.module#AboutModule'
+        loadChildren: () => import('./+about/about.module').then(m => m.AboutModule)
       },
       {
         path: 'air-universal',
-        loadChildren: './+air-universal/air-universal.module#AirUniversalModule'
+        loadChildren: () => import('./+air-universal/air-universal.module').then(m => m.AirUniversalModule)
       },
       {
         path: 'secure-page',
-        loadChildren: './+secure/secure.module#SecureModule'
+        loadChildren: () => import('./+secure/secure.module').then(m => m.SecureModule)
       }
     ],
     canActivateChild: [MetaGuard],

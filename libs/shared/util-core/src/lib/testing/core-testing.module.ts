@@ -2,7 +2,7 @@ import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ANALYTICS_PROVIDERS } from '@fulls1z3/shared/util-analytics';
 import { CacheService } from '@ngx-cache/core';
-import { ConfigService } from '@ngx-config/core';
+import { ConfigLoader, ConfigService } from '@ngx-config/core';
 import { MetaService } from '@ngx-meta/core';
 import { flow, get } from 'lodash/fp';
 
@@ -38,6 +38,10 @@ import { MockWindow } from './mocks/window.mock';
       useClass: MockConfigService
     },
     {
+      provide: ConfigLoader,
+      useFactory: () => {}
+    },
+    {
       provide: CacheService,
       useClass: MockCacheService
     },
@@ -49,7 +53,7 @@ import { MockWindow } from './mocks/window.mock';
   ]
 })
 export class CoreTestingModule {
-  static withOptions(options?: any): ModuleWithProviders {
+  static withOptions(options?: any): ModuleWithProviders<CoreTestingModule> {
     const platformProvider =
       options && options.platformId
         ? [

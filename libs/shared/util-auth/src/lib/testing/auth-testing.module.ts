@@ -39,7 +39,7 @@ export class AuthTestingModule {
       useFactory: authFactory
     },
     path: string
-  ): ModuleWithProviders {
+  ): ModuleWithProviders<AuthTestingModule> {
     return {
       ngModule: AuthTestingModule,
       providers: [

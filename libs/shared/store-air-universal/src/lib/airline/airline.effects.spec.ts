@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { EMPTY_UNIQUE_ID, ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
-import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
 import { cold, hot } from 'jasmine-marbles';
 
@@ -41,8 +41,9 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetManyAirlines();
       const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
 
-      const actions$ = TestBed.get(Actions);
-      actions$.stream = hot('-a', { a: action });
+      const actions$ = TestBed.inject(Actions);
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getMany$).toBeObservable(expected);
@@ -56,8 +57,9 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalGetManyAirlines();
         const completion = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getMany$).toBeObservable(expected);
@@ -70,8 +72,9 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
       const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
 
-      const actions$ = TestBed.get(Actions);
-      actions$.stream = hot('-a', { a: action });
+      const actions$ = TestBed.inject(Actions);
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -81,8 +84,9 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetOneAirline(undefined);
       const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
-      const actions$ = TestBed.get(Actions);
-      actions$.stream = hot('-a', { a: action });
+      const actions$ = TestBed.inject(Actions);
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -96,8 +100,9 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
         const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getOne$).toBeObservable(expected);
@@ -116,8 +121,9 @@ describe('AirlineEffects', () => {
         });
         const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -137,8 +143,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -160,8 +167,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -180,8 +188,9 @@ describe('AirlineEffects', () => {
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -201,8 +210,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -224,8 +234,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -244,8 +255,9 @@ describe('AirlineEffects', () => {
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE.id);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -265,8 +277,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -288,8 +301,9 @@ describe('AirlineEffects', () => {
           error: ERROR__NO_PAYLOAD.message
         });
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);

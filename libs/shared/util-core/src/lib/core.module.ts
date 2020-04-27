@@ -42,7 +42,7 @@ export const metaFactory = (config: ConfigService, translate: TranslateService) 
   providers: [CORE_PROVIDERS]
 })
 export class CoreModule {
-  static forRoot(configuredProviders: Array<any>): ModuleWithProviders {
+  static forRoot(configuredProviders: Array<any>): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
       providers: configuredProviders

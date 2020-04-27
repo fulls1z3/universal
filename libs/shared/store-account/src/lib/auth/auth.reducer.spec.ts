@@ -29,8 +29,7 @@ describe('reducer', () => {
   describe('accountLogin', () => {
     test('should return the `isProcessing` on the state', () => {
       const action = authActions.accountLogin({
-        resource: MOCK_AUTH,
-        router: undefined
+        resource: MOCK_AUTH
       });
       const res = reducer(initialState, action);
 

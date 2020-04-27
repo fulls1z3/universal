@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '@fulls1z3/shared/ui-material';
@@ -8,7 +8,6 @@ import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { MockComponent, TestingModule } from '@fulls1z3/shared/util-testing';
 import { TranslatePipe } from '@ngx-translate/core';
-import { configureTestSuite } from 'ng-bullet';
 
 import { HeaderComponent } from './header.component';
 
@@ -32,22 +31,22 @@ const MOCK_ROUTES = [
   }
 ];
 
-configureTestSuite(() => {
-  TestBed.configureTestingModule({
-    imports: [
-      RouterTestingModule.withRoutes(MOCK_ROUTES),
-      AuthTestingModule,
-      CoreTestingModule,
-      I18NTestingModule,
-      StoreTestingModule,
-      TestingModule,
-      MaterialModule
-    ],
-    declarations: [TranslatePipe, HeaderComponent]
-  });
-});
-
 describe('HeaderComponent', () => {
+  beforeEach(async(() => {
+    const p$ = TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes(MOCK_ROUTES),
+        AuthTestingModule,
+        CoreTestingModule,
+        I18NTestingModule,
+        StoreTestingModule,
+        TestingModule,
+        MaterialModule
+      ],
+      declarations: [TranslatePipe, HeaderComponent]
+    }).compileComponents();
+  }));
+
   test('should build without a problem', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     const instance = fixture.componentInstance;

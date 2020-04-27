@@ -4,7 +4,7 @@ import { AnalyticsModule } from '@fulls1z3/shared/util-analytics';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NService } from '@fulls1z3/shared/util-i18n';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
-import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
 import { ConfigService } from '@ngx-config/core';
 import { cold, hot } from 'jasmine-marbles';
@@ -36,8 +36,9 @@ describe('LanguageEffects', () => {
       const action = languageActions.i18nInitLanguage(settings);
       const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
 
-      const actions$ = TestBed.get(Actions);
-      actions$.stream = hot('-a', { a: action });
+      const actions$ = TestBed.inject(Actions);
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
 
       const actual = effects.init$;
       const expected = cold('-c', { c: completion });
@@ -53,8 +54,9 @@ describe('LanguageEffects', () => {
       const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
       const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
 
-      const actions$ = TestBed.get(Actions);
-      actions$.stream = hot('-a', { a: action });
+      const actions$ = TestBed.inject(Actions);
+      // tslint:disable-next-line
+      (actions$ as MockActions).stream = hot('-a', { a: action });
 
       const actual = effects.use$;
       const expected = cold('-c', { c: completion });
@@ -76,8 +78,9 @@ describe('LanguageEffects', () => {
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
@@ -99,8 +102,9 @@ describe('LanguageEffects', () => {
         const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
-        const actions$ = TestBed.get(Actions);
-        actions$.stream = hot('-a', { a: action });
+        const actions$ = TestBed.inject(Actions);
+        // tslint:disable-next-line
+        (actions$ as MockActions).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
@@ -24,7 +25,7 @@ export class AuthEffects {
     switchMap(payload =>
       validateLogin(payload)
         ? this.auth.authenticate(payload.resource.email, payload.resource.password).pipe(
-            tap(async () => payload.router.navigateByUrl('/')),
+            tap(async () => this.router.navigateByUrl('/')),
             map(authActions.accountLoginSuccess),
             catchError(error => observableOf(authActions.accountLoginFail(error)))
           )
@@ -38,10 +39,15 @@ export class AuthEffects {
     switchMap(payload =>
       from(this.auth.invalidate()).pipe(
         map(() => authActions.accountLogoutSuccess()),
-        tap(async () => (payload.router ? payload.router.navigateByUrl('/') : Promise.resolve(undefined)))
+        tap(async () => this.router.navigateByUrl('/'))
       )
     )
   );
 
-  constructor(private readonly store$: Store<State>, private readonly actions: Actions, private readonly auth: AuthService) {}
+  constructor(
+    private readonly store$: Store<State>,
+    private readonly actions: Actions,
+    private readonly router: Router,
+    private readonly auth: AuthService
+  ) {}
 }

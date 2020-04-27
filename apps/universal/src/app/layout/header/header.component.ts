@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { State } from '@fulls1z3/shared/store';
 import { authActions } from '@fulls1z3/shared/store-account';
 import { LanguageSelectors } from '@fulls1z3/shared/store-i18n';
@@ -29,18 +28,13 @@ export class HeaderComponent extends BaseContainerComponent {
     return this.config.getSettings('i18n.availableLanguages');
   }
 
-  constructor(
-    private readonly router: Router,
-    protected readonly store$: Store<State>,
-    private readonly config: ConfigService,
-    private readonly auth: AuthService
-  ) {
+  constructor(protected readonly store$: Store<State>, private readonly config: ConfigService, private readonly auth: AuthService) {
     super(store$);
   }
 
   onLogoutClick(): void {
     this.isAuthenticated = false;
 
-    this.store$.dispatch(authActions.accountLogout({ router: this.router }));
+    this.store$.dispatch(authActions.accountLogout());
   }
 }

@@ -14,7 +14,7 @@ export const translateFactory = (http: HttpClient, prefix: string) => new Transl
   exports: [TranslateModule]
 })
 export class I18NModule {
-  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders {
+  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders<I18NModule> {
     return {
       ngModule: I18NModule,
       providers: configuredProviders
