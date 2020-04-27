@@ -37,7 +37,8 @@ describe('LanguageEffects', () => {
       const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
 
       const actions$ = TestBed.inject(Actions);
-      actions$.stream = hot('-a', { a: action });
+      // prettier-ignore
+      (actions$).stream = hot('-a', { a: action });
 
       const actual = effects.init$;
       const expected = cold('-c', { c: completion });
@@ -54,7 +55,8 @@ describe('LanguageEffects', () => {
       const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
 
       const actions$ = TestBed.inject(Actions);
-      actions$.stream = hot('-a', { a: action });
+      // prettier-ignore
+      (actions$).stream = hot('-a', { a: action });
 
       const actual = effects.use$;
       const expected = cold('-c', { c: completion });
@@ -77,7 +79,8 @@ describe('LanguageEffects', () => {
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
@@ -100,7 +103,8 @@ describe('LanguageEffects', () => {
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
 
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });

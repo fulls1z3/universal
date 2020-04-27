@@ -135,7 +135,7 @@
           "options": {
             "jestConfig": "apps/universal/jest.config.js",
             "tsConfig": "apps/universal/tsconfig.spec.json",
-            "passWithNoTests": false,
+            "passWithNoTests": true,
             "setupFile": "apps/universal/src/test-setup.ts"
           }
         }

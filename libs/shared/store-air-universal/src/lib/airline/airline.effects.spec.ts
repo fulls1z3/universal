@@ -42,7 +42,8 @@ describe('AirlineEffects', () => {
       const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
 
       const actions$ = TestBed.inject(Actions);
-      actions$.stream = hot('-a', { a: action });
+      // prettier-ignore
+      (actions$).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getMany$).toBeObservable(expected);
@@ -57,7 +58,8 @@ describe('AirlineEffects', () => {
         const completion = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getMany$).toBeObservable(expected);
@@ -71,7 +73,8 @@ describe('AirlineEffects', () => {
       const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
 
       const actions$ = TestBed.inject(Actions);
-      actions$.stream = hot('-a', { a: action });
+      // prettier-ignore
+      (actions$).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -82,7 +85,8 @@ describe('AirlineEffects', () => {
       const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
       const actions$ = TestBed.inject(Actions);
-      actions$.stream = hot('-a', { a: action });
+      // prettier-ignore
+      (actions$).stream = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -97,7 +101,8 @@ describe('AirlineEffects', () => {
         const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getOne$).toBeObservable(expected);
@@ -117,7 +122,8 @@ describe('AirlineEffects', () => {
         const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -138,7 +144,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -161,7 +168,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -181,7 +189,8 @@ describe('AirlineEffects', () => {
         const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -202,7 +211,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -225,7 +235,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -245,7 +256,8 @@ describe('AirlineEffects', () => {
         const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE.id);
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -266,7 +278,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -289,7 +302,8 @@ describe('AirlineEffects', () => {
         });
 
         const actions$ = TestBed.inject(Actions);
-        actions$.stream = hot('-a', { a: action });
+        // prettier-ignore
+        (actions$).stream = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
