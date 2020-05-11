@@ -13,10 +13,13 @@ install:
   - yarn
 
 script:
-
-
-before deploy:
-
-
+  - yarn lint
+  - yarn test
 
 deploy:
+  - provider: script
+    script: yarn deploy
+    skip_cleanup: true
+    on:
+      branch: master
+
