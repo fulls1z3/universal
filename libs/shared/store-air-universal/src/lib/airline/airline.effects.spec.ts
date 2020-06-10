@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { EMPTY_UNIQUE_ID, ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
-import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
+import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
+import { Observable } from 'rxjs';
 
 import { airlineActions } from './airline.actions';
 import { AirlineEffects } from './airline.effects';
@@ -14,17 +16,22 @@ import { AirlineService } from './airline.service';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing/common';
 import { MockAirlineService } from './testing/mocks/airline-service.mock';
 
+let actions$: Observable<any>;
+
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [HttpClientTestingModule, CoreTestingModule, StoreTestingModule, RouterTestingModule],
     providers: [
       AirlineEffects,
+      provideMockActions(() => actions$),
       {
         provide: AirlineService,
-        useClass: MockAirlineService
-      }
-    ]
+        useClass: MockAirlineService,
+      },
+    ],
   });
+
+  actions$ = TestBed.inject(Actions);
 };
 
 describe('AirlineEffects', () => {
@@ -41,9 +48,7 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetManyAirlines();
       const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
 
-      const actions$ = TestBed.inject(Actions);
-      // tslint:disable-next-line
-      (actions$ as MockActions).stream = hot('-a', { a: action });
+      actions$ = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getMany$).toBeObservable(expected);
@@ -57,9 +62,7 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalGetManyAirlines();
         const completion = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getMany$).toBeObservable(expected);
@@ -72,9 +75,7 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
       const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
 
-      const actions$ = TestBed.inject(Actions);
-      // tslint:disable-next-line
-      (actions$ as MockActions).stream = hot('-a', { a: action });
+      actions$ = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -84,9 +85,7 @@ describe('AirlineEffects', () => {
       const action = airlineActions.airUniversalGetOneAirline(undefined);
       const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
-      const actions$ = TestBed.inject(Actions);
-      // tslint:disable-next-line
-      (actions$ as MockActions).stream = hot('-a', { a: action });
+      actions$ = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.getOne$).toBeObservable(expected);
@@ -100,9 +99,7 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
         const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.getOne$).toBeObservable(expected);
@@ -117,13 +114,11 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -136,16 +131,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: undefined,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalCreateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -160,16 +153,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalCreateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.createOne$).toBeObservable(expected);
@@ -184,13 +175,11 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -203,16 +192,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: undefined,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -227,16 +214,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineFail({
           id: MOCK_AIRLINE.id,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.updateOne$).toBeObservable(expected);
@@ -251,13 +236,11 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: MOCK_AIRLINE.id,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE.id);
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -270,16 +253,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: undefined,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineFail({
           id: undefined,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
@@ -294,16 +275,14 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: MOCK_AIRLINE.id,
           router,
-          route: []
+          route: [],
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineFail({
           id: MOCK_AIRLINE.id,
-          error: ERROR__NO_PAYLOAD.message
+          error: ERROR__NO_PAYLOAD.message,
         });
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.deleteOne$).toBeObservable(expected);
