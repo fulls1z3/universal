@@ -7,16 +7,20 @@ import { AuthTestingModule } from '@fulls1z3/shared/util-auth/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
-import { MockActions, StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
+import { StoreTestingModule } from '@fulls1z3/shared/util-store/testing';
 import { Actions } from '@ngrx/effects';
+import { provideMockActions } from '@ngrx/effects/testing';
 import { AuthService } from '@ngx-auth/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { cold, hot } from 'jasmine-marbles';
+import { Observable } from 'rxjs';
 
 import { authActions } from '../auth/auth.actions';
 import { MockAuthService } from '../testing/auth/mocks/mock-auth.service';
 
 import { AuthEffects } from './auth.effects';
+
+let actions$: Observable<any>;
 
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
@@ -28,16 +32,19 @@ const testModuleConfig = () => {
       CoreTestingModule,
       I18NTestingModule,
       StoreTestingModule,
-      TranslateModule
+      TranslateModule,
     ],
     providers: [
       AuthEffects,
+      provideMockActions(() => actions$),
       {
         provide: AuthService,
-        useClass: MockAuthService
-      }
-    ]
+        useClass: MockAuthService,
+      },
+    ],
   });
+
+  actions$ = TestBed.inject(Actions);
 };
 
 describe('AuthEffects', () => {
@@ -54,16 +61,14 @@ describe('AuthEffects', () => {
       const action = authActions.accountLogin({
         resource: {
           email: 'abc@xyz.com',
-          password: '123456'
-        }
+          password: '123456',
+        },
       });
       const completion = authActions.accountLoginSuccess(true);
 
       spyOn(router, 'navigateByUrl');
 
-      const actions$ = TestBed.inject(Actions);
-      // tslint:disable-next-line
-      (actions$ as MockActions).stream = hot('-a', { a: action });
+      actions$ = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.login$).toBeObservable(expected);
@@ -73,9 +78,7 @@ describe('AuthEffects', () => {
       const action = authActions.accountLogin(undefined);
       const completion = authActions.accountLoginFail(ERROR__NO_PAYLOAD.message);
 
-      const actions$ = TestBed.inject(Actions);
-      // tslint:disable-next-line
-      (actions$ as MockActions).stream = hot('-a', { a: action });
+      actions$ = hot('-a', { a: action });
       const expected = cold('-c', { c: completion });
 
       expect(effects.login$).toBeObservable(expected);
@@ -91,9 +94,7 @@ describe('AuthEffects', () => {
 
         spyOn(router, 'navigateByUrl');
 
-        const actions$ = TestBed.inject(Actions);
-        // tslint:disable-next-line
-        (actions$ as MockActions).stream = hot('-a', { a: action });
+        actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
         expect(effects.logout$).toBeObservable(expected);

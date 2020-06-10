@@ -1,4 +1,3 @@
-export * from './lib/testing/mocks/actions.mock';
 export * from './lib/testing/mocks/base-service.mock';
 export * from './lib/testing/mocks/resource.mock';
 export * from './lib/testing/mocks/store.mock';
