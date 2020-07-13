@@ -132,7 +132,7 @@
     "ng-bullet": "~1.0.3",
     "prettier": "2.0.4",
     "prettier-tslint": "~0.4.2",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.1",
     "stylelint": "^13.6.0",
     "stylelint-config-standard": "^20.0.0",
     "ts-jest": "25.2.1",
