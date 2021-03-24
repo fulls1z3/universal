@@ -26,12 +26,11 @@ describe('MainComponent', () => {
     expect(instance).toBeTruthy();
   });
 
-  test('should invoke `onActivate`', inject([ElementRef], (scrollContainer: ElementRef) => {
+  test('should invoke `onActivate`', inject([ElementRef], (scrollElement: ElementRef) => {
     const fixture = TestBed.createComponent(MainComponent);
     const instance = fixture.componentInstance;
     fixture.detectChanges();
-
-    instance.onActivate(undefined, scrollContainer);
+    instance.onActivate(undefined, scrollElement.nativeElement);
 
     expect(instance).toBeTruthy();
   }));

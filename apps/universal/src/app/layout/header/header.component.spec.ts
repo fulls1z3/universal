@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '@fulls1z3/shared/ui-material';
@@ -32,8 +32,8 @@ const MOCK_ROUTES = [
 ];
 
 describe('HeaderComponent', () => {
-  beforeEach(async(() => {
-    const p$ = TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes(MOCK_ROUTES),
         AuthTestingModule,
@@ -45,7 +45,7 @@ describe('HeaderComponent', () => {
       ],
       declarations: [TranslatePipe, HeaderComponent]
     }).compileComponents();
-  }));
+  });
 
   test('should build without a problem', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
@@ -59,10 +59,8 @@ describe('HeaderComponent', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     const instance = fixture.componentInstance;
     fixture.detectChanges();
-
     instance.isAuthenticated = true;
     fixture.detectChanges();
-
     const logoutButton = fixture.debugElement.query(By.css('button.qa-header__logout'));
     logoutButton.triggerEventHandler('click', {});
 

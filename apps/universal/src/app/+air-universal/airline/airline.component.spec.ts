@@ -48,9 +48,8 @@ describe('AirlineComponent', () => {
     const fixture = TestBed.createComponent(AirlineComponent);
     const store$ = TestBed.inject(Store);
     const state = getState<Airline>(AIRLINE, MOCK_AIRLINE);
-    (store$ as MockStore<{}>).setState(state);
+    (store$ as MockStore<unknown>).setState(state);
     fixture.detectChanges();
-
     const actual = fixture.componentInstance.airlines$;
     const expected = cold('a', { a: [MOCK_AIRLINE] });
 
@@ -60,12 +59,11 @@ describe('AirlineComponent', () => {
   test('should dispatch `airUniversalGetManyAirlines` action on init', () => {
     const fixture = TestBed.createComponent(AirlineComponent);
     const store$ = fixture.debugElement.injector.get(Store);
-    const spy = spyOn(store$, 'dispatch');
+    const spyStore = spyOn(store$, 'dispatch');
     fixture.detectChanges();
-
     const action = airlineActions.airUniversalGetManyAirlines();
 
-    expect(spy).toHaveBeenCalledWith(action);
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyStore).toHaveBeenCalledWith(action);
+    expect(spyStore).toHaveBeenCalledTimes(1);
   });
 });

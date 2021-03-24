@@ -1,6 +1,16 @@
 module.exports = {
-  name: 'shared-store-i18n',
-  preset: '../../../jest.config.js',
+  displayName: 'shared-store-i18n',
+  preset: '../../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: ['jest-preset-angular/build/InlineFilesTransformer', 'jest-preset-angular/build/StripStylesTransformer']
+      }
+    }
+  },
   coverageDirectory: '../../../coverage/libs/shared/store-i18n',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',

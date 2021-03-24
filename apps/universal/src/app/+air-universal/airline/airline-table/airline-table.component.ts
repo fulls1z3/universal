@@ -18,26 +18,22 @@ export class AirlineTableComponent extends BaseComponent implements OnChanges, O
   @Input() readonly filter: string;
   dataSource: MatTableDataSource<Airline>;
 
-  get displayedColumns(): Array<string> {
+  get displayedColumns() {
     return ['id', 'iataCode', 'name', 'actions'];
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     const isFilterChanged = flow(
-      cur => [
-        get('filter.previousValue')(cur),
-        get('filter.currentValue')(cur)
-      ],
+      cur => [get('filter.previousValue')(cur), get('filter.currentValue')(cur)],
       ([a, b]) => a !== b
     )(changes);
 
-    // tslint:disable-next-line:strict-boolean-expressions
     if (this.dataSource && isFilterChanged) {
       this.dataSource.filter = this.filter;
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.dataSource = new MatTableDataSource(this.data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

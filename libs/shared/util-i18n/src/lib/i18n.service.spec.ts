@@ -22,7 +22,7 @@ const MOCK_AVAILABLE_LANGUAGES = [
   }
 ];
 
-const testModuleConfig = (options?: any) => {
+const testModuleConfig = (options?) => {
   TestBed.resetTestEnvironment();
 
   TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()).configureTestingModule({
@@ -41,7 +41,6 @@ describe('I18NService', () => {
 
   test('should get language (by code)', inject([I18NService], (i18n: I18NService) => {
     i18n.availableLanguages = MOCK_AVAILABLE_LANGUAGES;
-
     const language = i18n.getLanguageByCode('en');
 
     expect(language.code).toEqual('en');
@@ -50,7 +49,6 @@ describe('I18NService', () => {
   test('should get default language (by code)', inject([I18NService], (i18n: I18NService) => {
     i18n.defaultLanguage = MOCK_DEFAULT_LANGUAGE;
     i18n.availableLanguages = MOCK_AVAILABLE_LANGUAGES;
-
     const language = i18n.getLanguageByCode('fr');
 
     expect(language.code).toEqual('en');
@@ -76,7 +74,6 @@ describe('I18NService for `server` platform', () => {
 
   test('should support `english` by default', inject([I18NService], (i18n: I18NService) => {
     i18n.defaultLanguage = MOCK_DEFAULT_LANGUAGE;
-
     const actual = i18n.getLanguageCodeFromBrowser();
 
     expect(actual).toEqual('en');
@@ -89,7 +86,7 @@ describe('I18NService for `fr` browser', () => {
   });
 
   test('should support `french` by default (window)', inject([WindowService], (win: WindowService) => {
-    expect(win.navigator.language).toEqual('fr-FR');
+    expect((win.navigator as Record<string, unknown>).language).toEqual('fr-FR');
   }));
 
   test('should support `french` by default', inject([I18NService, WindowService], (i18n: I18NService) => {
@@ -105,7 +102,7 @@ describe('I18NService for browser w/o language', () => {
   });
 
   test('should support `english` by default (window)', inject([WindowService], (win: WindowService) => {
-    expect(win.navigator.language).toBeUndefined();
+    expect((win.navigator as Record<string, unknown>).language).toBeUndefined();
   }));
 
   test('should support `english` by default', inject([I18NService], (i18n: I18NService) => {

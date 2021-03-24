@@ -35,9 +35,7 @@
       "@fulls1z3/shared/util-store": ["libs/shared/util-store/src/index.ts"],
       "@fulls1z3/shared/util-store/testing": ["libs/shared/util-store/src/testing.ts"],
       "@fulls1z3/shared/util-testing": ["libs/shared/util-testing/src/index.ts"]
-    },
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

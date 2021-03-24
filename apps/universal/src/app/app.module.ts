@@ -18,7 +18,11 @@ import { MetaLoader } from '@ngx-meta/core';
 import { TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { ANGULARTICS2_TOKEN } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import {
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule
+} from 'ngx-perfect-scrollbar';
 
 import { environment } from '../environments/environment';
 
@@ -31,7 +35,9 @@ import { SharedModule } from './shared';
 
 export const REQ_KEY = makeStateKey<string>('req');
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { suppressScrollX: true };
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   imports: [

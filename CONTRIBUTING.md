@@ -125,7 +125,7 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 - All features or bug fixes **must be tested** by one or more specs (unit-tests).
 - All public API methods **must be documented**. (Details TBC).
-- We follow [fulls1z3's Angular TSLint rules][angular-tslint-rules].
+- We follow [eslint:recommended][eslint].
 
 ## <a name="commit"></a> Commit message guidelines
 
@@ -136,9 +136,7 @@ the `universal` change log**.
 ### Commit Message Format
 
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes
-a **type**, an _optional_ **scope** (_when applicable_) and a **subject**:
-
-#### Without scope
+a **type** and a **subject**:
 
 ```
 <type>: <subject>
@@ -148,17 +146,7 @@ a **type**, an _optional_ **scope** (_when applicable_) and a **subject**:
 <footer>
 ```
 
-#### With scope
-
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
-
-The **header** is mandatory and the **scope** of the header is optional.
+The **header** is mandatory.
 
 Any line of the commit message cannot be longer 100 characters. This allows the message to be easier to read on GitHub as
 well as in various git tools.
@@ -169,11 +157,11 @@ if any.
 Samples: (even more [samples](https://github.com/fulls1z3/universal/commits/master))
 
 ```
-docs(changelog): update change log to alpha.4
+docs: update change log to alpha.4
 ```
 
 ```
-fix(release): need to depend on latest rxjs and zone.js
+fix: need to depend on latest rxjs and zone.js
 
 The version in our package.json gets copied to the one we publish, and users need the latest of these.
 ```
@@ -187,18 +175,17 @@ In the body it should say: `This reverts commit <hash>.`, where the hash is the 
 
 Must be one of the following:
 
-- **build**: Changes that affect the build system or external dependencies (example scopes: gulp, npm, webpack)
-- **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, etc)
-- **docs**: Documentation only changes
 - **feat**: A new feature
 - **fix**: A bug fix
-- **perf**: A code change that improves performance
-- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **docs**: Documentation only changes
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **perf**: A code change that improves performance
 - **test**: Adding missing tests or correcting existing tests
-
-- **packaging**: used for changes that change the package layout (_e.g. package.json, bundles, path changes, etc._)
-- **changelog**: used for updating the release notes in CHANGELOG.md
+- **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- **chore**: Other changes that don't modify src or test files
+- **revert**: Reverts a previous commit
 
 ### Subject
 
@@ -223,4 +210,4 @@ message is then used for this.
 
 [coc]: https://github.com/fulls1z3/universal/blob/master/CODE_OF_CONDUCT.md
 [github]: https://github.com/fulls1z3/universal
-[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
+[eslint]: https://github.com/eslint/eslint

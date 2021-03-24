@@ -1,13 +1,13 @@
 import { EMPTY_UNIQUE_ID, entityReducer, ERROR__NO_PAYLOAD } from '@fulls1z3/shared/util-store';
 
-import { airlineActions } from './airline.actions';
+import { AirlineAction, airlineActions } from './airline.actions';
 import { reducer } from './airline.reducer';
 import { initialState } from './airline.state';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing/common';
 
 describe('reducer', () => {
   test('should return the initial state', () => {
-    const action = {} as any;
+    const action = {} as AirlineAction;
     const actual = reducer(undefined, action);
 
     expect(actual).toEqual(initialState);
@@ -26,7 +26,6 @@ describe('reducer', () => {
     test('should return the `ids & entities` on the state', () => {
       const action = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
       const res = reducer(initialState, action);
-
       const ids = MOCK_AIRLINES.map(cur => cur.id);
       const entities = MOCK_AIRLINES.reduce(entityReducer, undefined);
 
@@ -99,7 +98,6 @@ describe('reducer', () => {
       const addState = reducer(initialState, add);
       const action = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
       const res = reducer(addState, action);
-
       const ids = [MOCK_AIRLINE.id];
       const entities = { [MOCK_AIRLINE.id]: MOCK_AIRLINE };
 
@@ -141,7 +139,6 @@ describe('reducer', () => {
       const createState = reducer(addState, create);
       const action = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
       const res = reducer(createState, action);
-
       const ids = [MOCK_AIRLINE.id];
       const entities = { [MOCK_AIRLINE.id]: MOCK_AIRLINE };
 

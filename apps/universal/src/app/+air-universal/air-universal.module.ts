@@ -15,13 +15,7 @@ import { AirlineTableComponent } from './airline/airline-table/airline-table.com
 import { AirlineComponent } from './airline/airline.component';
 
 @NgModule({
-  imports: [
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    MaterialModule,
-    SharedModule,
-    FalsyModule
-  ],
+  imports: [ReactiveFormsModule, RouterModule.forChild(routes), MaterialModule, SharedModule, FalsyModule],
   declarations: [
     AirlineDetailFormComponent,
     AirlineDetailHeaderComponent,

@@ -7,7 +7,7 @@ import { BaseComponent } from '@fulls1z3/shared/ui-base';
   styleUrls: ['main.component.scss']
 })
 export class MainComponent extends BaseComponent {
-  onActivate(event$: any, scrollContainer: any): void {
+  onActivate(event$, scrollContainer: HTMLDivElement) {
     scrollContainer.scrollTop = 0;
   }
 }

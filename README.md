@@ -5,7 +5,6 @@
 [![coverage](https://codecov.io/github/fulls1z3/universal/coverage.svg?branch=master)](https://codecov.io/gh/fulls1z3/universal)
 [![Code Quality: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fulls1z3/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fulls1z3/universal/context:javascript)
 [![Total Alerts](https://img.shields.io/lgtm/alerts/g/fulls1z3/universal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fulls1z3/universal/alerts)
-[![Greenkeeper badge](https://badges.greenkeeper.io/fulls1z3/universal.svg)](https://greenkeeper.io/)
 [![Join the chat at https://gitter.im/fulls1z3-universal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fulls1z3-universal/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!-- prettier-ignore-end -->
 
@@ -26,7 +25,7 @@ in file and application organization, providing the following features:
 - [x] Development, staging and production modes.
 - [x] Performing [AoT compilation] for rapid page loads on staging/production builds.
 - [x] Tree-shaking and minifying the production builds using [Angular Devkit].
-- [x] Cross-browser **[SCSS]** with [autoprefixer] and [browserslist].
+- [x] Cross-browser **[SCSS]** with ~[autoprefixer] and~ [browserslist].
 - [x] **[stylelint-config-standard]** as configuration preset for [stylelint] and **custom rules** to standardize stylesheets.
 - [x] Transferring server responses on client bootstrap to prevent app flickering with native [TransferState]`.
 - [x] Deferring initialization of modules via [Lazy loading].
@@ -43,7 +42,6 @@ in file and application organization, providing the following features:
 - [x] Vendor-agnostic analytics via [angulartics2].
 - [x] Unit tests with **[Jest]**, including code coverage.
 - [x] Seamless integration with [CircleCI] continuous integration and delivery platform.
-- [x] **[angular-tslint-rules]** as configuration preset for [TSLint] and [codelyzer].
 
 You can view the **live app** at [http://universal.buraktasci.com](http://universal.buraktasci.com).
 
@@ -120,13 +118,13 @@ $ yarn
 
 ```
 # dev server
-$ ng serve
+$ nx serve
 
 # dev server (HMR-enabled)
-$ ng serve --c hmr
+$ nx serve --c hmr
 
 # dev server (AoT compilation)
-$ ng serve --prod
+$ nx serve --prod
 
 # dev server (SSR)
 $ yarn start:ssr
@@ -146,10 +144,10 @@ The app will automatically re-compile if you change any of the source files.
 
 ```
 # development build
-$ ng build
+$ nx build
 
 # production build
-$ ng build --prod
+$ nx build --prod
 
 # development build (SSR)
 $ yarn build:ssr
@@ -164,7 +162,7 @@ The build artifacts will be stored in the `dist/` directory.
 
 ```
 # run unit tests
-$ ng test
+$ nx run-many --target=test --all
 ```
 
 ## <a name="contributing"></a> Contributing
@@ -184,7 +182,7 @@ If you want to file a bug, contribute some code, or improve documentation, pleas
 
 The MIT License (MIT)
 
-Copyright (c) 2018 [Burak Tasci]
+Copyright (c) 2021 [Burak Tasci]
 
 [angular]: https://angular.io
 [nx]: https://nx.dev
@@ -197,7 +195,6 @@ Copyright (c) 2018 [Burak Tasci]
 [aot compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 [angular devkit]: https://github.com/angular/angular-cli
 [scss]: http://sass-lang.com
-[autoprefixer]: https://github.com/postcss/autoprefixer
 [browserslist]: https://github.com/browserslist/browserslist
 [stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
 [stylelint]: https://stylelint.io/
@@ -217,8 +214,7 @@ Copyright (c) 2018 [Burak Tasci]
 [angulartics2]: https://github.com/angulartics/angulartics2
 [jest]: https://facebook.github.io/jest
 [circleci]: https://circleci.com
-[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
-[tslint]: https://github.com/palantir/tslint
+[eslint]: https://github.com/eslint/eslint
 [codelyzer]: https://github.com/mgechev/codelyzer
 [jetbrains]: https://www.jetbrains.com/community/opensource
 [webstorm]: https://www.jetbrains.com/webstorm

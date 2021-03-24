@@ -1,4 +1,4 @@
-export type UniqueId = any;
+export type UniqueId = string;
 
 export const EMPTY_UNIQUE_ID: UniqueId = '';
 

@@ -2,12 +2,13 @@ import { UniqueId } from '@fulls1z3/shared/util-store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 import { Airline } from './airline.model';
+
 export const AIRLINE = 'flight--airline';
 
 export interface State extends EntityState<Airline> {
   selectedId: UniqueId;
   isProcessing?: boolean;
-  error?: any;
+  error?: string;
 }
 
 export const adapter: EntityAdapter<Airline> = createEntityAdapter<Airline>({

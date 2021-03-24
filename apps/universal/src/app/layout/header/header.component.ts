@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { State } from '@fulls1z3/shared/store';
 import { authActions } from '@fulls1z3/shared/store-account';
-import { LanguageSelectors } from '@fulls1z3/shared/store-i18n';
 import { BaseContainerComponent } from '@fulls1z3/shared/ui-store';
-import { Language } from '@fulls1z3/shared/util-i18n';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AuthService } from '@ngx-auth/core';
 import { ConfigService } from '@ngx-config/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,23 +13,23 @@ import { Observable } from 'rxjs';
 export class HeaderComponent extends BaseContainerComponent {
   isAuthenticated = this.auth.isAuthenticated;
 
-  get title(): string {
+  get title() {
     return 'APP_NAME';
   }
 
-  get currentLanguage$(): Observable<Language> {
-    return this.store$.pipe(select(LanguageSelectors.getWorkingLanguage));
-  }
-
-  get availableLanguages(): Array<Language> {
+  get availableLanguages() {
     return this.config.getSettings('i18n.availableLanguages');
   }
 
-  constructor(protected readonly store$: Store<State>, private readonly config: ConfigService, private readonly auth: AuthService) {
+  constructor(
+    protected readonly store$: Store<State>,
+    private readonly config: ConfigService,
+    private readonly auth: AuthService
+  ) {
     super(store$);
   }
 
-  onLogoutClick(): void {
+  onLogoutClick() {
     this.isAuthenticated = false;
 
     this.store$.dispatch(authActions.accountLogout());

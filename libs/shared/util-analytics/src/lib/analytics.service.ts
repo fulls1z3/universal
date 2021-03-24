@@ -14,7 +14,7 @@ export class AnalyticsService {
     this.devMode(false);
   }
 
-  track(action: string, properties: AnalyticsProperties): void {
+  track(action: string, properties: AnalyticsProperties) {
     if (!this.devMode()) {
       this.angulartics.eventTrack.next({
         action,
@@ -23,19 +23,19 @@ export class AnalyticsService {
     }
   }
 
-  pageTrack(path: string): void {
+  pageTrack(path: string) {
     if (!this.devMode()) {
       this.angulartics.pageTrack.next({ path });
     }
   }
 
-  identify(properties: any): void {
+  identify(properties) {
     if (!this.devMode()) {
       this.angulartics.setUserProperties.next(properties);
     }
   }
 
-  devMode(enable?: boolean): boolean {
+  devMode(enable?: boolean) {
     if (typeof enable !== 'undefined') {
       this.angulartics.settings.developerMode = enable;
     }
@@ -44,6 +44,7 @@ export class AnalyticsService {
   }
 }
 
+@Injectable()
 export class Analytics {
   readonly category: string;
 
@@ -51,7 +52,7 @@ export class Analytics {
     this.category = category;
   }
 
-  track(action: string, properties: AnalyticsProperties): void {
+  track(action: string, properties: AnalyticsProperties) {
     this.analytics.track(action, extend({ category: this.category })(properties));
   }
 }

@@ -39,7 +39,7 @@ describe('getOrNil', () => {
 describe('getOrEmpty', () => {
   test('should return empty array if undefined w/o fallback', () => {
     const actual = getOrEmpty(undefined)();
-    const expected: Array<any> = [];
+    const expected = [];
 
     expect(actual).toEqual(expected);
   });

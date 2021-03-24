@@ -1,24 +1,24 @@
 import { EventEmitter } from '@angular/core';
-import { Observable, of as observableOf } from 'rxjs';
+import { of as observableOf } from 'rxjs';
 
 export class MockTranslateService {
-  onLangChange: EventEmitter<any> = new EventEmitter();
-  onTranslationChange: EventEmitter<any> = new EventEmitter();
-  onDefaultLangChange: EventEmitter<any> = new EventEmitter();
+  onLangChange = new EventEmitter();
+  onTranslationChange = new EventEmitter();
+  onDefaultLangChange = new EventEmitter();
 
-  setDefaultLang(lang: string): void {
+  setDefaultLang() {
     return;
   }
 
-  use(lang: string): Observable<any> {
+  use(lang: string) {
     return observableOf(lang);
   }
 
-  addLangs(langs: Array<string>): void {
+  addLangs() {
     return;
   }
 
-  get(key: string | Array<string>, interpolateParams?: Object): Observable<string | any> {
+  get(key: string | Array<string>) {
     return observableOf(key);
   }
 }

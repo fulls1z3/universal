@@ -14,12 +14,12 @@ import { Observable } from 'rxjs';
 import { languageActions } from './language.actions';
 import { LanguageEffects } from './language.effects';
 
-let actions$: Observable<any>;
+let actions$: Observable<unknown>;
 
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
     imports: [RouterTestingModule, AnalyticsModule, CoreTestingModule, StoreTestingModule, I18NTestingModule],
-    providers: [LanguageEffects, provideMockActions(() => actions$)],
+    providers: [LanguageEffects, provideMockActions(() => actions$)]
   });
 
   actions$ = TestBed.inject(Actions);
@@ -35,36 +35,36 @@ describe('LanguageEffects', () => {
   }));
 
   describe('init$', () => {
-    test('should dispatch `use` action', inject([LanguageEffects, ConfigService], (effects: LanguageEffects, config: ConfigService) => {
-      const settings = config.getSettings('i18n');
-      const defaultLanguage = settings.defaultLanguage;
+    test('should dispatch `use` action', inject(
+      [LanguageEffects, ConfigService],
+      (effects: LanguageEffects, config: ConfigService) => {
+        const settings = config.getSettings('i18n');
+        const defaultLanguage = settings.defaultLanguage;
+        const action = languageActions.i18nInitLanguage(settings);
+        const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
+        actions$ = hot('-a', { a: action });
+        const actual = effects.init$;
+        const expected = cold('-c', { c: completion });
 
-      const action = languageActions.i18nInitLanguage(settings);
-      const completion = languageActions.i18nUseLanguage(defaultLanguage.code);
-
-      actions$ = hot('-a', { a: action });
-
-      const actual = effects.init$;
-      const expected = cold('-c', { c: completion });
-
-      expect(actual).toBeObservable(expected);
-    }));
+        expect(actual).toBeObservable(expected);
+      }
+    ));
   });
 
   describe('use$ w/o `init`', () => {
-    test('should dispatch `useFail` action w/initial `Language`, on fail', inject([LanguageEffects], (effects: LanguageEffects) => {
-      const unsupportedLanguageCode = 'xx';
+    test('should dispatch `useFail` action w/initial `Language`, on fail', inject(
+      [LanguageEffects],
+      (effects: LanguageEffects) => {
+        const unsupportedLanguageCode = 'xx';
+        const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
+        const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
+        actions$ = hot('-a', { a: action });
+        const actual = effects.use$;
+        const expected = cold('-c', { c: completion });
 
-      const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
-      const completion = languageActions.i18nUseLanguageFail(unsupportedLanguageCode);
-
-      actions$ = hot('-a', { a: action });
-
-      const actual = effects.use$;
-      const expected = cold('-c', { c: completion });
-
-      expect(actual).toBeObservable(expected);
-    }));
+        expect(actual).toBeObservable(expected);
+      }
+    ));
   });
 
   describe('use$', () => {
@@ -73,15 +73,11 @@ describe('LanguageEffects', () => {
       (effects: LanguageEffects, config: ConfigService, i18n: I18NService) => {
         const settings = config.getSettings('i18n');
         const defaultLanguage = settings.defaultLanguage;
-
         i18n.defaultLanguage = defaultLanguage;
         i18n.availableLanguages = settings.availableLanguages;
-
         const action = languageActions.i18nUseLanguage(defaultLanguage.code);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
-
         actions$ = hot('-a', { a: action });
-
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
 
@@ -95,15 +91,11 @@ describe('LanguageEffects', () => {
         const settings = config.getSettings('i18n');
         const defaultLanguage = settings.defaultLanguage;
         const unsupportedLanguageCode = 'xx';
-
         i18n.defaultLanguage = defaultLanguage;
         i18n.availableLanguages = settings.availableLanguages;
-
         const action = languageActions.i18nUseLanguage(unsupportedLanguageCode);
         const completion = languageActions.i18nUseLanguageSuccess(defaultLanguage);
-
         actions$ = hot('-a', { a: action });
-
         const actual = effects.use$;
         const expected = cold('-c', { c: completion });
 

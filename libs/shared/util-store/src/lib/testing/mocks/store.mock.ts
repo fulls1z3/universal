@@ -4,9 +4,11 @@ import { flow } from 'lodash/fp';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
-export class MockStore<T extends Object> extends Store<T> {
+export class MockStore<T extends unknown> extends Store<T> {
   private readonly subject = flow(
-    () => {},
+    () => {
+      return;
+    },
     (cur: T) => new BehaviorSubject<T>(cur)
   )();
 
@@ -16,7 +18,7 @@ export class MockStore<T extends Object> extends Store<T> {
     this.source = this.subject.asObservable();
   }
 
-  setState(nextState: T): void {
+  setState(nextState: T) {
     this.subject.next(nextState);
   }
 }

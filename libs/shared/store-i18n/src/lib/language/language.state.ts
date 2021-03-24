@@ -7,7 +7,7 @@ export const LANGUAGE = 'i18n--language';
 export interface State {
   selectedItem: Language;
   isProcessing?: boolean;
-  error?: any;
+  error?: string;
 }
 
 export const initialState: State = {

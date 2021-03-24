@@ -20,8 +20,8 @@ describe('reducer', () => {
   });
 
   test('should return the initial state', () => {
-    const action = {} as any;
-    const actual = reducer(undefined, action);
+    const action = {};
+    const actual = reducer(undefined, action as never);
 
     expect(actual).toEqual(initialState);
   });

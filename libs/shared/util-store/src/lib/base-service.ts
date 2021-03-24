@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { ConfigService } from '@ngx-config/core';
 import { flow } from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
 import { HTTP_CLIENT__MAX_RETRIES } from './constants';
 import { BaseDocument, UniqueId } from './models/base-document';
 
+@Injectable()
 export abstract class BaseService<T extends BaseDocument> {
   protected constructor(
     protected readonly config: ConfigService,
@@ -14,31 +15,31 @@ export abstract class BaseService<T extends BaseDocument> {
     protected readonly settingsKey: string | Array<string>
   ) {}
 
-  getMany$(): Observable<Array<T>> {
+  getMany$() {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<Array<T>>(backend.endpoint).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  getOne$(id: UniqueId): Observable<T> {
+  getOne$(id: UniqueId) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<T>(`${backend.endpoint}/${id}`).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  createMany$(resources: Array<T>): Observable<Array<T>> {
+  createMany$(resources: Array<T>) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.post<Array<T>>(backend.endpoint, resources).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  createOne$(resource: T): Observable<T> {
+  createOne$(resource: T) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.post<T>(backend.endpoint, resource).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  updateMany$(resources: Array<T>): Observable<Array<T>> {
+  updateMany$(resources: Array<T>) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return flow(
@@ -47,19 +48,21 @@ export abstract class BaseService<T extends BaseDocument> {
     )(resources);
   }
 
-  updateOne$(resource: T): Observable<T> {
+  updateOne$(resource: T) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.patch<T>(`${backend.endpoint}/${resource.id}`, resource).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  deleteMany$(ids: Array<UniqueId>): Observable<Array<UniqueId>> {
+  deleteMany$(ids: Array<UniqueId>) {
     const backend = this.config.getSettings(this.settingsKey);
 
-    return this.http.delete<Array<UniqueId>>(`${backend.endpoint}/${ids.join(',')}`).pipe(retry(HTTP_CLIENT__MAX_RETRIES));
+    return this.http
+      .delete<Array<UniqueId>>(`${backend.endpoint}/${ids.join(',')}`)
+      .pipe(retry(HTTP_CLIENT__MAX_RETRIES));
   }
 
-  deleteOne$(id: UniqueId): Observable<UniqueId> {
+  deleteOne$(id: UniqueId) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.delete<UniqueId>(`${backend.endpoint}/${id}`).pipe(retry(HTTP_CLIENT__MAX_RETRIES));

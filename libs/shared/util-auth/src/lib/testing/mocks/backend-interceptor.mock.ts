@@ -1,6 +1,6 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable, of as observableOf } from 'rxjs';
+import { of } from 'rxjs';
 
 import { MOCK_AUTH_PATH } from '../tokens';
 
@@ -8,7 +8,7 @@ import { MOCK_AUTH_PATH } from '../tokens';
 export class MockBackendInterceptor implements HttpInterceptor {
   constructor(@Inject(MOCK_AUTH_PATH) private readonly path: string) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<never>, next: HttpHandler) {
     if (request.url.split('?')[0].endsWith(this.path) && request.method === 'POST') {
       const testUser = {
         username: 'valid',
@@ -18,7 +18,7 @@ export class MockBackendInterceptor implements HttpInterceptor {
       const body = JSON.parse(request.body);
 
       if (body.username === testUser.username && body.password === testUser.password) {
-        return observableOf(
+        return of(
           new HttpResponse({
             status: 200,
             body: { token: 'fake-jwt-token' }
@@ -26,7 +26,7 @@ export class MockBackendInterceptor implements HttpInterceptor {
         );
       }
 
-      return observableOf(new HttpResponse({ status: 401 }));
+      return of(new HttpResponse({ status: 401 }));
     }
 
     return next.handle(request);

@@ -5,9 +5,9 @@ import { Auth } from './auth.model';
 export const authActions = unionize(
   {
     accountLogin: ofType<{ resource: Auth }>(),
-    accountLoginSuccess: ofType<{}>(),
+    accountLoginSuccess: {},
     accountLoginFail: ofType<string>(),
-    accountLogout: ofType<{}>(),
+    accountLogout: {},
     accountLogoutSuccess: {}
   },
   {

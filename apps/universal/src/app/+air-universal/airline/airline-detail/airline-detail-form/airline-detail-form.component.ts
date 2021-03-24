@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Airline, initialAirline } from '@fulls1z3/shared/store-air-universal';
 import { BaseComponent } from '@fulls1z3/shared/ui-base';
@@ -19,7 +28,7 @@ export class AirlineDetailFormComponent extends BaseComponent implements OnChang
     super();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const resource = getOrNil(initialAirline)(this.airline);
 
     this.airlineForm = this.formBuilder.group({
@@ -41,8 +50,7 @@ export class AirlineDetailFormComponent extends BaseComponent implements OnChang
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    // tslint:disable-next-line:strict-boolean-expressions
+  ngOnChanges(changes: SimpleChanges) {
     if (this.airlineForm) {
       if (changes.resourceReq.currentValue) {
         if (this.airlineForm.valid) {

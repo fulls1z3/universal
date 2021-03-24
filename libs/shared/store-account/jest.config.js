@@ -1,6 +1,16 @@
 module.exports = {
-  name: 'shared-store-account',
-  preset: '../../../jest.config.js',
+  displayName: 'shared-store-account',
+  preset: '../../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: ['jest-preset-angular/build/InlineFilesTransformer', 'jest-preset-angular/build/StripStylesTransformer']
+      }
+    }
+  },
   coverageDirectory: '../../../coverage/libs/shared/store-account',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',

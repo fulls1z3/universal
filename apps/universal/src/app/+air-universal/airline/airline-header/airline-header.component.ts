@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { BaseComponent } from '@fulls1z3/shared/ui-base'
+import { BaseComponent } from '@fulls1z3/shared/ui-base';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -18,26 +18,22 @@ export class AirlineHeaderComponent extends BaseComponent implements OnInit {
     super();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.headerForm = this.formBuilder.group({
-      filter: [this.filter],
+      filter: [this.filter]
     });
 
     this.addChangeEvents();
   }
 
-  onCreateClicked(): void {
+  onCreateClicked() {
     this.createClick.emit();
   }
 
-  private addChangeEvents(): void {
+  private addChangeEvents() {
     this.headerForm
       .get('filter')
-      .valueChanges.pipe(
-      distinctUntilChanged(),
-      debounceTime(400),
-      takeUntil(this.ngUnsubscribe)
-    )
+      .valueChanges.pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
         this.filterChange.emit(res);
       });

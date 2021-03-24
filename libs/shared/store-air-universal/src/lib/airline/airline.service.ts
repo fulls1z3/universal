@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService, HTTP_CLIENT__MAX_RETRIES, UniqueId } from '@fulls1z3/shared/util-store';
 import { ConfigService } from '@ngx-config/core';
-import { EMPTY, Observable, of as observableOf } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { delay, map, retry } from 'rxjs/operators';
 
 import { Airline } from './airline.model';
@@ -21,7 +21,7 @@ export class AirlineService extends BaseService<Airline> {
     super(config, http, ['backend', 'flight', 'airline']);
   }
 
-  getMany$(): Observable<Array<Airline>> {
+  getMany$() {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<Array<Airline>>(backend.endpoint).pipe(
@@ -30,7 +30,7 @@ export class AirlineService extends BaseService<Airline> {
     );
   }
 
-  getOne$(id: UniqueId): Observable<Airline> {
+  getOne$(id: UniqueId) {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<Array<Airline>>(backend.endpoint).pipe(
@@ -40,33 +40,33 @@ export class AirlineService extends BaseService<Airline> {
     );
   }
 
-  createMany$(resources: Array<Airline>): Observable<Array<Airline>> {
+  createMany$() {
     return EMPTY;
   }
 
-  createOne$(resource: Airline): Observable<Airline> {
+  createOne$(resource: Airline) {
     // NOTE: fake impl
-    return observableOf({
+    return of({
       ...resource,
       id: '100000000000000000000001'
     }).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 
-  updateMany$(resources: Array<Airline>): Observable<Array<Airline>> {
+  updateMany$() {
     return EMPTY;
   }
 
-  updateOne$(resource: Airline): Observable<Airline> {
+  updateOne$(resource: Airline) {
     // NOTE: fake impl
-    return observableOf(resource).pipe(delay(this._delay)); // NOTE: simulate slow network
+    return of(resource).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 
-  deleteMany$(ids: Array<UniqueId>): Observable<Array<UniqueId>> {
+  deleteMany$() {
     return EMPTY;
   }
 
-  deleteOne$(id: UniqueId): Observable<UniqueId> {
+  deleteOne$(id: UniqueId) {
     // NOTE: fake impl
-    return observableOf(id).pipe(delay(this._delay)); // NOTE: simulate slow network
+    return of(id).pipe(delay(this._delay)); // NOTE: simulate slow network
   }
 }

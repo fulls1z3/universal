@@ -40,7 +40,7 @@ import { AppModule, REQ_KEY } from './app.module';
   providers: [
     {
       provide: REQUEST,
-      useFactory: (transferState: TransferState) => transferState.get<any>(REQ_KEY, {}),
+      useFactory: (transferState: TransferState) => transferState.get(REQ_KEY, {}),
       deps: [TransferState]
     }
   ],

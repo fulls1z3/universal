@@ -6,7 +6,7 @@ import { MaterialModule } from '@fulls1z3/shared/ui-material';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { I18NTestingModule } from '@fulls1z3/shared/util-i18n/testing';
 import { EMPTY_UNIQUE_ID } from '@fulls1z3/shared/util-store';
-import { of as observableOf } from 'rxjs';
+import { of } from 'rxjs';
 
 import { RenderFlag, SharedModule } from '../../../../shared';
 
@@ -19,13 +19,13 @@ const testModuleConfig = (renderFlag = RenderFlag.Create) => {
       {
         provide: ActivatedRoute,
         useValue: {
-          data: observableOf({
+          data: of({
             renderFlag,
             meta: {
               title: 'PAGE_TITLE'
             }
           }),
-          params: observableOf({
+          params: of({
             id: renderFlag === RenderFlag.Update ? MOCK_AIRLINE.id : EMPTY_UNIQUE_ID
           })
         }
