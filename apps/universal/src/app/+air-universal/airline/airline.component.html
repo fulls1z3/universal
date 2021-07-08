@@ -1,20 +1,15 @@
 <div [@routeAnimation]>
-  <mat-progress-bar *ngIf="isProcessing$ | async"
-                    class="progress-bar"
-                    mode="indeterminate"
-                    color="accent">
+  <mat-progress-bar *ngIf="isProcessing$ | async" class="progress-bar" mode="indeterminate" color="accent">
   </mat-progress-bar>
-  <fs-airline-header (filterChange)="filterChange($event)"
-                     (createClick)="createClick()">
-  </fs-airline-header>
-  <div *ngIf="error$ | async">
-    {{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}
-  </div>
+  <fs-airline-header (filterChange)="filterChange($event)" (createClick)="createClick()"> </fs-airline-header>
+  <div *ngIf="error$ | async">{{ 'COMMON.PAGE.ERROR' | translate }} {{ (error$ | async) }}</div>
   <div fxLayout="column" fxLayoutAlign="stretch">
-    <fs-airline-table *ngIf="(isProcessing$ | async) === false"
-                      class="fs-content"
-                      [data]="airlines$ | async"
-                      [filter]="filter$ | async">
+    <fs-airline-table
+      *ngIf="(isProcessing$ | async) === false"
+      class="fs-content"
+      [data]="airlines$ | async"
+      [filter]="filter$ | async"
+    >
     </fs-airline-table>
   </div>
 </div>

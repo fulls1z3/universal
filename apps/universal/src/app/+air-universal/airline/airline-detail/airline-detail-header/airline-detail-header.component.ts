@@ -11,22 +11,22 @@ import { RenderFlag } from '../../../../shared';
 export class AirlineDetailHeaderComponent extends BaseComponent {
   @Input() readonly isProcessing: boolean;
   @Input() readonly renderFlag: RenderFlag;
-  @Input() readonly baseRoute: Array<string>
+  @Input() readonly baseRoute: Array<string>;
   @Input() readonly title: string;
   @Output() readonly deleteClick = new EventEmitter<void>();
   @Output() readonly saveClick = new EventEmitter<void>();
   readonly backIcon = 'arrow_back';
   readonly loading = '...';
 
-  get isDeleteDisabled(): boolean {
+  get isDeleteDisabled() {
     return this.renderFlag === RenderFlag.Create;
   }
 
-  onDeleteClicked(): void {
+  onDeleteClicked() {
     this.deleteClick.emit();
   }
 
-  onSaveClicked(): void {
+  onSaveClicked() {
     this.saveClick.emit();
   }
 }

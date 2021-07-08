@@ -1,3 +1,0 @@
-{
-  "extends": ["../../tslint.angular.json", "../../tslint.json"]
-}

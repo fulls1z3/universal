@@ -16,7 +16,7 @@ import { AirlineService } from './airline.service';
 import { MOCK_AIRLINE, MOCK_AIRLINES } from './testing/common';
 import { MockAirlineService } from './testing/mocks/airline-service.mock';
 
-let actions$: Observable<any>;
+let actions$: Observable<unknown>;
 
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
@@ -26,9 +26,9 @@ const testModuleConfig = () => {
       provideMockActions(() => actions$),
       {
         provide: AirlineService,
-        useClass: MockAirlineService,
-      },
-    ],
+        useClass: MockAirlineService
+      }
+    ]
   });
 
   actions$ = TestBed.inject(Actions);
@@ -44,24 +44,24 @@ describe('AirlineEffects', () => {
   }));
 
   describe('getMany$', () => {
-    test('should dispatch `airUniversalGetManyAirlinesSuccess` action, on success', inject([AirlineEffects], (effects: AirlineEffects) => {
-      const action = airlineActions.airUniversalGetManyAirlines();
-      const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
+    test('should dispatch `airUniversalGetManyAirlinesSuccess` action, on success', inject(
+      [AirlineEffects],
+      (effects: AirlineEffects) => {
+        const action = airlineActions.airUniversalGetManyAirlines();
+        const completion = airlineActions.airUniversalGetManyAirlinesSuccess(MOCK_AIRLINES);
+        actions$ = hot('-a', { a: action });
+        const expected = cold('-c', { c: completion });
 
-      actions$ = hot('-a', { a: action });
-      const expected = cold('-c', { c: completion });
-
-      expect(effects.getMany$).toBeObservable(expected);
-    }));
+        expect(effects.getMany$).toBeObservable(expected);
+      }
+    ));
 
     test('should dispatch `airUniversalGetManyAirlinesFail` action, on fail', inject(
       [AirlineEffects, AirlineService],
       (effects: AirlineEffects, airline: MockAirlineService) => {
         airline.isFailing = true;
-
         const action = airlineActions.airUniversalGetManyAirlines();
         const completion = airlineActions.airUniversalGetManyAirlinesFail(ERROR__NO_PAYLOAD.message);
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -71,34 +71,36 @@ describe('AirlineEffects', () => {
   });
 
   describe('getOne$', () => {
-    test('should dispatch `airUniversalGetOneAirlineSuccess` action, on success', inject([AirlineEffects], (effects: AirlineEffects) => {
-      const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
-      const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
+    test('should dispatch `airUniversalGetOneAirlineSuccess` action, on success', inject(
+      [AirlineEffects],
+      (effects: AirlineEffects) => {
+        const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
+        const completion = airlineActions.airUniversalGetOneAirlineSuccess(MOCK_AIRLINE);
+        actions$ = hot('-a', { a: action });
+        const expected = cold('-c', { c: completion });
 
-      actions$ = hot('-a', { a: action });
-      const expected = cold('-c', { c: completion });
+        expect(effects.getOne$).toBeObservable(expected);
+      }
+    ));
 
-      expect(effects.getOne$).toBeObservable(expected);
-    }));
+    test('should dispatch `airUniversalGetOneAirlineFail` action, w/o payload', inject(
+      [AirlineEffects],
+      (effects: AirlineEffects) => {
+        const action = airlineActions.airUniversalGetOneAirline(undefined);
+        const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
+        actions$ = hot('-a', { a: action });
+        const expected = cold('-c', { c: completion });
 
-    test('should dispatch `airUniversalGetOneAirlineFail` action, w/o payload', inject([AirlineEffects], (effects: AirlineEffects) => {
-      const action = airlineActions.airUniversalGetOneAirline(undefined);
-      const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
-
-      actions$ = hot('-a', { a: action });
-      const expected = cold('-c', { c: completion });
-
-      expect(effects.getOne$).toBeObservable(expected);
-    }));
+        expect(effects.getOne$).toBeObservable(expected);
+      }
+    ));
 
     test('should dispatch `airUniversalGetOneAirlineFail` action, on fail', inject(
       [AirlineEffects, AirlineService],
       (effects: AirlineEffects, airline: MockAirlineService) => {
         airline.isFailing = true;
-
         const action = airlineActions.airUniversalGetOneAirline(MOCK_AIRLINE.id);
         const completion = airlineActions.airUniversalGetOneAirlineFail(ERROR__NO_PAYLOAD.message);
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -114,10 +116,9 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalCreateOneAirlineSuccess(MOCK_AIRLINE);
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -131,13 +132,12 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: undefined,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalCreateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -149,17 +149,15 @@ describe('AirlineEffects', () => {
       [Router, AirlineEffects, AirlineService],
       (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
         airline.isFailing = true;
-
         const action = airlineActions.airUniversalCreateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalCreateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -175,10 +173,9 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineSuccess(MOCK_AIRLINE);
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -192,13 +189,12 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: undefined,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineFail({
           id: EMPTY_UNIQUE_ID,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -210,17 +206,15 @@ describe('AirlineEffects', () => {
       [Router, AirlineEffects, AirlineService],
       (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
         airline.isFailing = true;
-
         const action = airlineActions.airUniversalUpdateOneAirline({
           resource: MOCK_AIRLINE,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalUpdateOneAirlineFail({
           id: MOCK_AIRLINE.id,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -236,10 +230,9 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: MOCK_AIRLINE.id,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineSuccess(MOCK_AIRLINE.id);
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -253,13 +246,12 @@ describe('AirlineEffects', () => {
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: undefined,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineFail({
           id: undefined,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 
@@ -271,17 +263,15 @@ describe('AirlineEffects', () => {
       [Router, AirlineEffects, AirlineService],
       (router: Router, effects: AirlineEffects, airline: MockAirlineService) => {
         airline.isFailing = true;
-
         const action = airlineActions.airUniversalDeleteOneAirline({
           id: MOCK_AIRLINE.id,
           router,
-          route: [],
+          route: []
         });
         const completion = airlineActions.airUniversalDeleteOneAirlineFail({
           id: MOCK_AIRLINE.id,
-          error: ERROR__NO_PAYLOAD.message,
+          error: ERROR__NO_PAYLOAD.message
         });
-
         actions$ = hot('-a', { a: action });
         const expected = cold('-c', { c: completion });
 

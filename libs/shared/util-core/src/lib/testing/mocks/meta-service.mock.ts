@@ -1,9 +1,9 @@
 export class MockMetaService {
-  setTag(key: string, value: string): void {
+  setTag() {
     return;
   }
 
-  setTitle(title: string, override = false): void {
+  setTitle() {
     return;
   }
 }

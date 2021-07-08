@@ -11,12 +11,12 @@ export class BaseComponent implements OnDestroy {
     this.ngUnsubscribe = new Subject<void>();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
 
-  trackByFn(index: number): number {
+  trackByFn(index: number) {
     return index;
   }
 }

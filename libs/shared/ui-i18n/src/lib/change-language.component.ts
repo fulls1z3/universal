@@ -12,19 +12,21 @@ import { takeUntil } from 'rxjs/operators';
   template: ''
 })
 export class ChangeLanguageComponent extends BaseComponent implements OnInit {
-  constructor(private readonly store$: Store<State>, private readonly route: ActivatedRoute, private readonly router: Router) {
+  constructor(
+    private readonly store$: Store<State>,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
+  ) {
     super();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params.pipe(takeUntil(this.ngUnsubscribe)).subscribe(res => {
       if (res.languageCode) {
         this.store$.dispatch(languageActions.i18nUseLanguage(res.languageCode));
       }
 
-      observableFrom(this.router.navigate(['']))
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe(() => {});
+      observableFrom(this.router.navigate([''])).pipe(takeUntil(this.ngUnsubscribe));
     });
   }
 }

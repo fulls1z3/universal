@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { authFactory, AuthLoader, AuthModule } from '@ngx-auth/core';
 
 import { MockBackendInterceptor } from './mocks/backend-interceptor.mock';
@@ -32,23 +32,4 @@ import { MOCK_AUTH_PATH } from './tokens';
     }
   ]
 })
-export class AuthTestingModule {
-  static withParams(
-    configuredProvider = {
-      provide: AuthLoader,
-      useFactory: authFactory
-    },
-    path: string
-  ): ModuleWithProviders<AuthTestingModule> {
-    return {
-      ngModule: AuthTestingModule,
-      providers: [
-        configuredProvider,
-        {
-          provide: MOCK_AUTH_PATH,
-          useValue: path
-        }
-      ]
-    };
-  }
-}
+export class AuthTestingModule {}

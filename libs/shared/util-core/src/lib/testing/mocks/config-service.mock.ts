@@ -7,7 +7,7 @@ export class MockConfigService extends ConfigService {
     this.init();
   }
 
-  init(): any {
+  init() {
     this.settings = {
       system: {
         applicationName: 'APP_NAME',

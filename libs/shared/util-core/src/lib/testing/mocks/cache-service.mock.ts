@@ -1,9 +1,9 @@
 export class MockCacheService {
-  get(key: string | number): any {
+  get() {
     return undefined;
   }
 
-  clear(): any {
+  clear() {
     return;
   }
 }

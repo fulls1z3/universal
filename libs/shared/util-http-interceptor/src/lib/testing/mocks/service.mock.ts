@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '@ngx-config/core';
-import { Observable } from 'rxjs';
 
 export class MockService {
   constructor(
@@ -9,7 +8,7 @@ export class MockService {
     private readonly settingsKey: string | Array<string>
   ) {}
 
-  fetch$(): Observable<number> {
+  fetch$() {
     const backend = this.config.getSettings(this.settingsKey);
 
     return this.http.get<number>(backend.endpoint);

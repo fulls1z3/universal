@@ -1,19 +1,21 @@
-import { AuthService } from '@ngx-auth/core';
-import { Observable, of as observableOf } from 'rxjs';
+import { AuthLoader, AuthService } from '@ngx-auth/core';
+import { of } from 'rxjs';
 
 export class MockAuthService extends AuthService {
   isFailing: boolean;
 
   constructor() {
-    const loader = { storage: localStorage } as any;
+    const loader = { storage: localStorage } as AuthLoader;
     super(loader, undefined, undefined);
   }
 
-  authenticate(username: string, password: string): Observable<boolean> {
-    return observableOf(!this.isFailing);
+  authenticate() {
+    return of(!this.isFailing);
   }
 
-  invalidate(): any {
-    return observableOf(true);
+  invalidate() {
+    return new Promise<boolean>(resolve => {
+      resolve(true);
+    });
   }
 }

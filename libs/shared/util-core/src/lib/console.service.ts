@@ -4,23 +4,23 @@ import { Console } from './models/console';
 
 @Injectable()
 export class ConsoleService implements Console {
-  log(m: any): void {
+  log() {
     return;
   }
 
-  debug(m: any): void {
+  debug() {
     return;
   }
 
-  error(m: any): void {
+  error() {
     return;
   }
 
-  warn(m: any): void {
+  warn() {
     return;
   }
 
-  info(m: any): void {
+  info() {
     return;
   }
 }

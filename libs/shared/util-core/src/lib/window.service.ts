@@ -1,14 +1,14 @@
 import { Window } from './models/window';
 
 export class WindowService implements Window {
-  readonly navigator: any = {};
-  readonly location: any = {};
+  readonly navigator = {};
+  readonly location = {};
 
-  alert(msg: string): void {
+  alert() {
     return;
   }
 
-  confirm(msg: string): void {
+  confirm() {
     return;
   }
 }

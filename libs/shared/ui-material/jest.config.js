@@ -1,6 +1,16 @@
 module.exports = {
-  name: 'shared-ui-material',
-  preset: '../../../jest.config.js',
+  displayName: 'shared-ui-material',
+  preset: '../../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: ['jest-preset-angular/build/InlineFilesTransformer', 'jest-preset-angular/build/StripStylesTransformer']
+      }
+    }
+  },
   coverageDirectory: '../../../coverage/libs/shared/ui-material',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',

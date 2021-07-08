@@ -28,13 +28,12 @@ describe('AppComponent', () => {
   test('should dispatch `i18nInitLanguage` action', inject([ConfigService], (config: ConfigService) => {
     const fixture = TestBed.createComponent(AppComponent);
     const store$ = fixture.debugElement.injector.get(Store);
-    const spy = spyOn(store$, 'dispatch');
+    const spyStore = spyOn(store$, 'dispatch');
     fixture.detectChanges();
-
     const settings = config.getSettings('i18n');
     const action = languageActions.i18nInitLanguage(settings);
 
-    expect(spy).toHaveBeenCalledWith(action);
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyStore).toHaveBeenCalledWith(action);
+    expect(spyStore).toHaveBeenCalledTimes(1);
   }));
 });

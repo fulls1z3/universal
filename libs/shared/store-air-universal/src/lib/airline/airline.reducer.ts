@@ -11,12 +11,11 @@ import { AirlineAction, airlineActions } from './airline.actions';
 import { Airline, initialAirline } from './airline.model';
 import { adapter, initialState, State } from './airline.state';
 
-// NOTE: for AoT compilation
-// tslint:disable-next-line:only-arrow-functions
-export function reducer(state: State = initialState, action: AirlineAction): State {
+export function reducer(state: State = initialState, action: AirlineAction) {
   return airlineActions.match({
     airUniversalGetManyAirlines: () => entityStartProcessingFn<State>(state),
-    airUniversalGetManyAirlinesSuccess: (airlines: Array<Airline>) => adapter.addAll(airlines, entityStopProcessingFn<State>(state)),
+    airUniversalGetManyAirlinesSuccess: (airlines: Array<Airline>) =>
+      adapter.setAll(airlines, entityStopProcessingFn<State>(state)),
     airUniversalGetManyAirlinesFail: entityErrorFn<State>(state),
     airUniversalGetOneAirline: () => entityStartProcessingFn<State>(state),
     airUniversalGetOneAirlineSuccess: (airline: Airline) =>
@@ -63,6 +62,10 @@ export function reducer(state: State = initialState, action: AirlineAction): Sta
         selectedId: undefined
       }),
     airUniversalDeleteOneAirlineFail: entityResetFn<State>(state),
-    default: () => state
+    default: () => ({
+      ...state,
+      isProcessing: false,
+      error: undefined
+    })
   })(action);
 }

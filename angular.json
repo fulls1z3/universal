@@ -36,10 +36,7 @@
               },
               "apps/universal/src/favicon.ico"
             ],
-            "styles": [
-              "apps/universal/src/styles.scss",
-              "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
-            ],
+            "styles": ["apps/universal/src/styles.scss", "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css"],
             "scripts": []
           },
           "configurations": {
@@ -124,19 +121,16 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!apps/universal/**", "**/node_modules/**"]
+            "lintFilePatterns": ["apps/universal/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/universal/jest.config.js",
-            "tsConfig": "apps/universal/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/universal/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       }
@@ -148,23 +142,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/store/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/store/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/store/jest.config.js",
-            "tsConfig": "libs/shared/store/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/store/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-store-account": {
       "projectType": "library",
@@ -173,23 +168,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/store-account/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/store-account/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/store-account/jest.config.js",
-            "tsConfig": "libs/shared/store-account/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/store-account/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-store-air-universal": {
       "projectType": "library",
@@ -198,23 +194,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/store-air-universal/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/store-air-universal/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/store-air-universal/jest.config.js",
-            "tsConfig": "libs/shared/store-air-universal/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/store-air-universal/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-store-i18n": {
       "projectType": "library",
@@ -223,23 +220,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/store-i18n/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/store-i18n/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/store-i18n/jest.config.js",
-            "tsConfig": "libs/shared/store-i18n/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/store-i18n/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-ui-base": {
       "projectType": "library",
@@ -248,23 +246,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/ui-base/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/ui-base/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui-base/jest.config.js",
-            "tsConfig": "libs/shared/ui-base/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/ui-base/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-ui-i18n": {
       "projectType": "library",
@@ -273,23 +272,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/ui-i18n/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/ui-i18n/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui-i18n/jest.config.js",
-            "tsConfig": "libs/shared/ui-i18n/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/ui-i18n/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-ui-material": {
       "projectType": "library",
@@ -298,23 +298,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/ui-material/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/ui-material/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui-material/jest.config.js",
-            "tsConfig": "libs/shared/ui-material/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/ui-material/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-ui-store": {
       "projectType": "library",
@@ -323,23 +324,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/ui-store/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/ui-store/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui-store/jest.config.js",
-            "tsConfig": "libs/shared/ui-store/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/ui-store/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-analytics": {
       "projectType": "library",
@@ -348,23 +350,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-analytics/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-analytics/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-analytics/jest.config.js",
-            "tsConfig": "libs/shared/util-analytics/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-analytics/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-auth": {
       "projectType": "library",
@@ -373,23 +376,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-auth/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-auth/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-auth/jest.config.js",
-            "tsConfig": "libs/shared/util-auth/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-auth/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-core": {
       "projectType": "library",
@@ -398,23 +402,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-core/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-core/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-core/jest.config.js",
-            "tsConfig": "libs/shared/util-core/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-core/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-http-interceptor": {
       "projectType": "library",
@@ -423,23 +428,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-http-interceptor/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-http-interceptor/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-http-interceptor/jest.config.js",
-            "tsConfig": "libs/shared/util-http-interceptor/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-http-interceptor/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-i18n": {
       "projectType": "library",
@@ -448,23 +454,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-i18n/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-i18n/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-i18n/jest.config.js",
-            "tsConfig": "libs/shared/util-i18n/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-i18n/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-store": {
       "projectType": "library",
@@ -473,23 +480,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-store/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-store/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-store/jest.config.js",
-            "tsConfig": "libs/shared/util-store/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-store/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     },
     "shared-util-testing": {
       "projectType": "library",
@@ -498,23 +506,24 @@
       "prefix": "fulls1z3",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["tsconfig.lint.json"],
-            "exclude": ["!libs/shared/util-testing/**", "**/node_modules/**"]
+            "lintFilePatterns": ["libs/shared/util-testing/src/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util-testing/jest.config.js",
-            "tsConfig": "libs/shared/util-testing/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/util-testing/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
-      "schematics": {}
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
@@ -522,6 +531,17 @@
     "packageManager": "yarn"
   },
   "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"

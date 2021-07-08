@@ -7,12 +7,8 @@
     </div>
     <div class="fs-toolbar__title" fxLayout="column">
       <ng-container [ngSwitch]="isProcessing">
-        <ng-container *ngSwitchCase="true">
-          {{ loading }}
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          {{ title | translate }}
-        </ng-container>
+        <ng-container *ngSwitchCase="true"> {{ loading }} </ng-container>
+        <ng-container *ngSwitchDefault> {{ title | translate }} </ng-container>
       </ng-container>
     </div>
     <span fxFlex></span>

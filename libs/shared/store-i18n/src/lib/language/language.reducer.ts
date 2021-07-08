@@ -4,9 +4,7 @@ import { errorFn, startProcessingFn, stopProcessingFn } from '@fulls1z3/shared/u
 import { LanguageAction, languageActions } from './language.actions';
 import { initialState, State } from './language.state';
 
-// NOTE: for AoT compilation
-// tslint:disable-next-line:only-arrow-functions
-export function reducer(state: State = initialState, action: LanguageAction): State {
+export function reducer(state: State = initialState, action: LanguageAction) {
   return languageActions.match({
     i18nUseLanguage: () => startProcessingFn<State>(state),
     i18nUseLanguageSuccess: (language: Language) => ({
@@ -14,6 +12,10 @@ export function reducer(state: State = initialState, action: LanguageAction): St
       selectedItem: language
     }),
     i18nUseLanguageFail: errorFn<State>(state),
-    default: () => state
+    default: () => ({
+      ...state,
+      isProcessing: false,
+      error: undefined
+    })
   })(action);
 }

@@ -14,7 +14,7 @@ export class AppComponent extends BaseContainerComponent implements OnInit {
     super(store$);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const settings = this.config.getSettings('i18n');
     this.store$.dispatch(languageActions.i18nInitLanguage(settings));
   }

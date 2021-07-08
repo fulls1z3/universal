@@ -2,7 +2,7 @@ import { inject, TestBed } from '@angular/core/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { ConfigService } from '@ngx-config/core';
 
-import { languageActions } from './language.actions';
+import { LanguageAction, languageActions } from './language.actions';
 import { reducer } from './language.reducer';
 import { initialState } from './language.state';
 
@@ -18,7 +18,7 @@ describe('reducer', () => {
   });
 
   test('should return the initial state', () => {
-    const action = {} as any;
+    const action = {} as LanguageAction;
     const actual = reducer(undefined, action);
 
     expect(actual).toEqual(initialState);

@@ -7,8 +7,7 @@ jobs:
           JOBS: 1
     steps:
       - checkout
-      - run: sudo yarn global add @angular/cli@8
-      - run: sudo yarn global add greenkeeper-lockfile@1
+      - run: sudo yarn global add @angular/cli@10
       - restore_cache:
           keys:
           - deps-{{ .Branch }}-{{ checksum "yarn.lock" }}

@@ -1,7 +1,7 @@
 import { BaseDocument, UniqueId } from './models/base-document';
 
 export const entityStartProcessingFn = <T>(state: T) => ({
-  ...(state as any),
+  ...state,
   ids: [],
   entities: {},
   isProcessing: true,
@@ -9,27 +9,31 @@ export const entityStartProcessingFn = <T>(state: T) => ({
 });
 
 export const entityStopProcessingFn = <T>(state: T) => ({
-  ...(state as any),
+  ...state,
   isProcessing: false
 });
 
-export const entityErrorFn = <T>(state: T) => (error: string) => ({
-  ...(state as any),
-  ids: [],
-  entities: {},
-  isProcessing: false,
-  selectedId: undefined,
-  error
-});
+export const entityErrorFn =
+  <T>(state: T) =>
+  (error: string) => ({
+    ...state,
+    ids: [],
+    entities: {},
+    isProcessing: false,
+    selectedId: undefined,
+    error
+  });
 
-export const entityResetFn = <T>(state: T) => (value: { id: UniqueId; error: string }) => ({
-  ...(state as any),
-  isProcessing: false,
-  selectedId: value.id,
-  error: value.error
-});
+export const entityResetFn =
+  <T>(state: T) =>
+  (value: { id: UniqueId; error: string }) => ({
+    ...state,
+    isProcessing: false,
+    selectedId: value.id,
+    error: value.error
+  });
 
-export const entityReducer = <T extends BaseDocument>(acc: any, cur: T) => ({
+export const entityReducer = <T extends BaseDocument>(acc, cur: T) => ({
   ...acc,
   [cur.id]: cur
 });

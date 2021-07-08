@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { async, inject, TestBed } from '@angular/core/testing';
+import { inject, TestBed, waitForAsync } from '@angular/core/testing';
 import { CoreTestingModule } from '@fulls1z3/shared/util-core/testing';
 import { ConfigService } from '@ngx-config/core';
 import { configureTestSuite } from 'ng-bullet';
@@ -53,18 +53,20 @@ describe('BaseUrlInterceptor', () => {
     expect(instance).toBeTruthy();
   }));
 
-  test('should return an intercepted request with `baseUrl` replacement', async(
-    inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
-      service.fetch$().subscribe(res => {
-        expect(res).toBeTruthy();
-      });
+  test(
+    'should return an intercepted request with `baseUrl` replacement',
+    waitForAsync(
+      inject([MockService, HttpTestingController], (service: MockService, http: HttpTestingController) => {
+        service.fetch$().subscribe(res => {
+          expect(res).toBeTruthy();
+        });
+        const { request } = http.expectOne({ method: 'GET' });
+        const expected = 'http://localhost:4200/test';
 
-      const { request } = http.expectOne({ method: 'GET' });
-      const expected = 'http://localhost:4200/test';
+        expect(request.url).toEqual(expected);
 
-      expect(request.url).toEqual(expected);
-
-      http.verify();
-    })
-  ));
+        http.verify();
+      })
+    )
+  );
 });

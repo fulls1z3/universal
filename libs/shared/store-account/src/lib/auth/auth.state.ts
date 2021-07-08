@@ -2,7 +2,7 @@ export const AUTH = 'account--auth';
 
 export interface State {
   isProcessing?: boolean;
-  error?: any;
+  error?: string;
 }
 
 export const initialState: State = {

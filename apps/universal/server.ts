@@ -1,8 +1,6 @@
-// tslint:disable-next-line:no-import-side-effect
 import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
 
-// tslint:disable-next-line:ordered-imports
 import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
@@ -12,7 +10,7 @@ import { join } from 'path';
 
 enableProdMode();
 
-// tslint:disable-next-line:no-require-imports
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 
 const server = express();
@@ -44,6 +42,5 @@ server.get('*', (req, res) => {
 server.set('port', PORT);
 
 server.listen(server.get('port'), () => {
-  // tslint:disable-next-line:no-console
   console.log(`Express server listening on PORT:${PORT}`);
 });

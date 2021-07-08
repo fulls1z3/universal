@@ -11,7 +11,14 @@ import { AirlineTableComponent } from './airline-table.component';
 
 configureTestSuite(() => {
   TestBed.configureTestingModule({
-    imports: [ReactiveFormsModule, RouterTestingModule, CoreTestingModule, I18NTestingModule, MaterialModule, TranslateModule],
+    imports: [
+      ReactiveFormsModule,
+      RouterTestingModule,
+      CoreTestingModule,
+      I18NTestingModule,
+      MaterialModule,
+      TranslateModule
+    ],
     declarations: [AirlineTableComponent]
   });
 });

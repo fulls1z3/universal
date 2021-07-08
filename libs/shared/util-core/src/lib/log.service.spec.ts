@@ -47,7 +47,6 @@ describe('LogService', () => {
 
   test('is defined', () => {
     testModuleConfig(0);
-
     const log = TestBed.inject(LogService);
 
     expect(log).toBeDefined();
@@ -59,14 +58,12 @@ describe('LogService', () => {
 
   test('should not log anything by default', () => {
     testModuleConfig(0);
-
     const config = TestBed.inject(ConfigService);
     const log = TestBed.inject(LogService);
 
     config.init().then(() => {
       log.debug('debug');
 
-      // tslint:disable-next-line:no-console
       expect(console.log).not.toHaveBeenCalledWith('debug');
 
       log.error('error');
@@ -79,14 +76,12 @@ describe('LogService', () => {
 
       log.info('info');
 
-      // tslint:disable-next-line:no-console
       expect(console.info).not.toHaveBeenCalledWith('info');
     });
   });
 
   test('should log everything w/debug log level', () => {
     testModuleConfig(LogLevel.Debug);
-
     const config = TestBed.inject(ConfigService);
     const log = TestBed.inject(LogService);
 
@@ -94,7 +89,6 @@ describe('LogService', () => {
       // should allow this level
       log.debug('debug');
 
-      // tslint:disable-next-line:no-console
       expect(console.log).toHaveBeenCalledWith('debug');
 
       // always overrides lower levels and allows them
@@ -108,14 +102,12 @@ describe('LogService', () => {
 
       log.info('info w/debug log level');
 
-      // tslint:disable-next-line:no-console
       expect(console.info).toHaveBeenCalledWith('info w/debug log level');
     });
   });
 
   test('should log `error`, `warn`, `info` w/error log level', () => {
     testModuleConfig(LogLevel.Error);
-
     const config = TestBed.inject(ConfigService);
     const log = TestBed.inject(LogService);
 
@@ -123,7 +115,6 @@ describe('LogService', () => {
       // never allows upper levels
       log.debug('debug');
 
-      // tslint:disable-next-line:no-console
       expect(console.log).not.toHaveBeenCalledWith('debug');
 
       // should allow this level
@@ -138,14 +129,12 @@ describe('LogService', () => {
 
       log.info('info w/error log level');
 
-      // tslint:disable-next-line:no-console
       expect(console.info).toHaveBeenCalledWith('info w/error log level');
     });
   });
 
   test('should log `warn`, `info` w/warn log level', () => {
     testModuleConfig(LogLevel.Warn);
-
     const config = TestBed.inject(ConfigService);
     const log = TestBed.inject(LogService);
 
@@ -153,7 +142,6 @@ describe('LogService', () => {
       // never allows upper levels
       log.debug('debug');
 
-      // tslint:disable-next-line:no-console
       expect(console.log).not.toHaveBeenCalledWith('debug');
 
       log.error('error');
@@ -168,14 +156,12 @@ describe('LogService', () => {
       // always overrides lower levels and allows them
       log.info('info w/warning log level');
 
-      // tslint:disable-next-line:no-console
       expect(console.info).toHaveBeenCalledWith('info w/warning log level');
     });
   });
 
   test('should log `info` w/info log level', () => {
     testModuleConfig(LogLevel.Info);
-
     const config = TestBed.inject(ConfigService);
     const log = TestBed.inject(LogService);
 
@@ -183,7 +169,6 @@ describe('LogService', () => {
       // never allows upper levels
       log.debug('debug');
 
-      // tslint:disable-next-line:no-console
       expect(console.log).not.toHaveBeenCalledWith('debug');
 
       log.error('error');
@@ -197,7 +182,6 @@ describe('LogService', () => {
       // should allow this level
       log.info('info');
 
-      // tslint:disable-next-line:no-console
       expect(console.info).toHaveBeenCalledWith('info');
     });
   });

@@ -5,15 +5,15 @@ import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { AuthService } from '@ngx-auth/core';
 import { flow, get, isEmpty } from 'lodash/fp';
-import { from, of as observableOf } from 'rxjs';
+import { from, of } from 'rxjs';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
 
 import { authActions } from './auth.actions';
 import { State } from './auth.state';
 
-const validateLogin = (payload: any) =>
+const validateLogin = payload =>
   flow(
-    (cur: any) => [get('resource.email')(cur), get('resource.password')(cur)],
+    cur => [get('resource.email')(cur), get('resource.password')(cur)],
     ([email, password]) => !(isEmpty(email) || isEmpty(password))
   )(payload);
 
@@ -27,19 +27,18 @@ export class AuthEffects {
         ? this.auth.authenticate(payload.resource.email, payload.resource.password).pipe(
             tap(async () => this.router.navigateByUrl('/')),
             map(authActions.accountLoginSuccess),
-            catchError(error => observableOf(authActions.accountLoginFail(error)))
+            catchError(error => of(authActions.accountLoginFail(error)))
           )
-        : observableOf(authActions.accountLoginFail(ERROR__NO_PAYLOAD.message))
+        : of(authActions.accountLoginFail(ERROR__NO_PAYLOAD.message))
     )
   );
 
   @Effect() readonly logout$ = this.actions.pipe(
     filter(authActions.is.accountLogout),
-    map(get('payload')),
-    switchMap(payload =>
+    switchMap(() =>
       from(this.auth.invalidate()).pipe(
-        map(() => authActions.accountLogoutSuccess()),
-        tap(async () => this.router.navigateByUrl('/'))
+        tap(async () => this.router.navigateByUrl('/')),
+        map(authActions.accountLogoutSuccess)
       )
     )
   );

@@ -4,15 +4,25 @@
       <form novalidate autocomplete="off" [formGroup]="airlineForm">
         <div fxLayout="row" fxLayoutGap="5%">
           <mat-form-field fxLayout="column" fxLayoutGap="5%" fxFlex="80%">
-            <input matInput maxlength="8" formControlName="iataCode" required
-                   [placeholder]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.IATA_CODE' | translate">
+            <input
+              matInput
+              maxlength="8"
+              formControlName="iataCode"
+              required
+              [placeholder]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.IATA_CODE' | translate"
+            />
           </mat-form-field>
           <div fxLayout="column" fxLayoutGap="5%" fxFlex="20%"></div>
         </div>
         <div fxLayout="row" fxLayoutGap="5%">
           <mat-form-field fxLayout="column" fxLayoutGap="5%" fxFlex="80%">
-            <input matInput maxlength="255" formControlName="name" required
-                   [placeholder]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.NAME' | translate">
+            <input
+              matInput
+              maxlength="255"
+              formControlName="name"
+              required
+              [placeholder]="'AIR_UNIVERSAL.AIRLINE.AIRLINE_DETAIL.NAME' | translate"
+            />
           </mat-form-field>
           <div fxLayout="column" fxLayoutGap="5%" fxFlex="20%"></div>
         </div>

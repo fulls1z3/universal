@@ -1,8 +1,8 @@
 export interface Window {
-  navigator: any;
-  location: any;
+  navigator;
+  location;
 
-  alert(msg: string): void;
+  alert(msg: string);
 
-  confirm(msg: string): void;
+  confirm(msg: string);
 }

@@ -19,12 +19,12 @@ export class I18NService extends Analytics {
   constructor(
     readonly analytics: AnalyticsService,
     private readonly win: WindowService,
-    @Inject(PLATFORM_ID) private readonly platformId: any
+    @Inject(PLATFORM_ID) private readonly platformId
   ) {
     super(analytics, CATEGORY);
   }
 
-  getLanguageByCode(languageCode: string): Language {
+  getLanguageByCode(languageCode: string) {
     return !isEmpty(this._availableLanguages)
       ? flow(
           (cur: Array<Language>) => cur.find(language => language.code === languageCode),
@@ -33,9 +33,11 @@ export class I18NService extends Analytics {
       : this.defaultLanguage;
   }
 
-  getLanguageCodeFromBrowser(): string {
+  getLanguageCodeFromBrowser() {
     return isPlatformBrowser(this.platformId)
-      ? (this.win.navigator.language && this.win.navigator.language.split('-')[0]) || this.defaultLanguage.code
+      ? ((this.win.navigator as Record<string, unknown>).language &&
+          (this.win.navigator as Record<string, string>).language.split('-')[0]) ||
+          this.defaultLanguage.code
       : this.defaultLanguage.code;
   }
 }

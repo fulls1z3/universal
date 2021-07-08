@@ -20,7 +20,7 @@ export class LanguageEffects {
       const meta = this.injector.get(MetaService);
       meta.setTag('og:locale', this.i18n.defaultLanguage.culture);
 
-      this.translate.addLangs(payload.availableLanguages.map((cur: any) => cur.code));
+      this.translate.addLangs(payload.availableLanguages.map(cur => cur.code));
       this.translate.setDefaultLang(payload.defaultLanguage.code);
 
       const detectedLanguage = this.i18n.getLanguageCodeFromBrowser();

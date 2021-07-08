@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Angulartics2, Angulartics2Module } from 'angulartics2';
 
 import { AnalyticsService } from './analytics.service';
 
-export const ANALYTICS_PROVIDERS: Array<any> = [Angulartics2, AnalyticsService];
+export const ANALYTICS_PROVIDERS = [Angulartics2, AnalyticsService];
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, RouterModule, Angulartics2Module.forRoot()],
@@ -14,7 +14,7 @@ export const ANALYTICS_PROVIDERS: Array<any> = [Angulartics2, AnalyticsService];
   providers: [ANALYTICS_PROVIDERS]
 })
 export class AnalyticsModule {
-  static forRoot(configuredProviders: Array<any>): ModuleWithProviders<AnalyticsModule> {
+  static forRoot(configuredProviders) {
     return {
       ngModule: AnalyticsModule,
       providers: configuredProviders

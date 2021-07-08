@@ -1,4 +1,4 @@
-import { ElementRef, ModuleWithProviders, NgModule, PLATFORM_ID } from '@angular/core';
+import { ElementRef, NgModule, PLATFORM_ID } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ANALYTICS_PROVIDERS } from '@fulls1z3/shared/util-analytics';
 import { CacheService } from '@ngx-cache/core';
@@ -39,7 +39,7 @@ import { MockWindow } from './mocks/window.mock';
     },
     {
       provide: ConfigLoader,
-      useFactory: () => {}
+      useFactory: () => ({})
     },
     {
       provide: CacheService,
@@ -53,7 +53,7 @@ import { MockWindow } from './mocks/window.mock';
   ]
 })
 export class CoreTestingModule {
-  static withOptions(options?: any): ModuleWithProviders<CoreTestingModule> {
+  static withOptions(options?) {
     const platformProvider =
       options && options.platformId
         ? [

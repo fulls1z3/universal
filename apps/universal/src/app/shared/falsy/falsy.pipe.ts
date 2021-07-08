@@ -5,7 +5,7 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
   name: 'falsy'
 })
 export class FalsyPipe implements PipeTransform {
-  transform(value: any): any {
+  transform(value: boolean) {
     return !value;
   }
 }

@@ -1,12 +1,11 @@
 import { errorFn, startProcessingFn, stopProcessingFn } from './reducer.util';
 
-type MOCK_TYPE = any;
+type MOCK_TYPE = unknown;
 const MOCK_ERROR_MESSAGE = 'Something went wrong.';
 
 describe('startProcessingFn', () => {
   test('should set `isProcessing` to true', () => {
     const preState = {};
-
     const actual = startProcessingFn(preState);
     const expected: MOCK_TYPE = {
       ...preState,
@@ -21,7 +20,6 @@ describe('startProcessingFn', () => {
 describe('stopProcessingFn', () => {
   test('should set `isProcessing` to false', () => {
     const preState = {};
-
     const actual = stopProcessingFn(preState);
     const expected: MOCK_TYPE = {
       ...preState,
@@ -35,7 +33,6 @@ describe('stopProcessingFn', () => {
 describe('errorFn', () => {
   test('should set the `error`', () => {
     const preState = {};
-
     const actual = errorFn(preState)(MOCK_ERROR_MESSAGE);
     const expected: MOCK_TYPE = {
       ...preState,
